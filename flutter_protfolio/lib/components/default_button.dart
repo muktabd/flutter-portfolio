@@ -8,10 +8,13 @@ class DefaultButton extends StatelessWidget {
     this.imageSrc,
     this.text,
     this.press,
+    this.color,
   }) : super(key: key);
 
   final String? imageSrc, text;
   final Function? press;
+
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class DefaultButton extends StatelessWidget {
           horizontal: kDefaultPadding * 2.5,
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-        backgroundColor: const Color(0xFFE8F0F9),
+        backgroundColor: color ?? const Color(0xFFE8F0F9),
       ),
       onPressed: press as void Function()?,
       child: Row(
@@ -30,6 +33,44 @@ class DefaultButton extends StatelessWidget {
           Image.asset(imageSrc!, height: 40),
           const SizedBox(width: kDefaultPadding),
           Text(text!),
+        ],
+      ),
+    );
+  }
+}
+class DefaultNetworkButton extends StatelessWidget {
+  const DefaultNetworkButton({
+    Key? key,
+    this.imageSrc,
+    this.text,
+    this.press,
+    this.color,
+    this.radius,
+  }) : super(key: key);
+
+  final String? imageSrc, text;
+  final Function? press;
+
+  final Color? color;
+  final double? radius;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: const EdgeInsets.symmetric(
+          vertical: kDefaultPadding,
+          horizontal: kDefaultPadding,
+        ),
+        shape: StadiumBorder()/* RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius ?? 50)) */,
+        backgroundColor: color ?? const Color(0xFFE8F0F9),
+      ),
+      onPressed: press as void Function()?,
+      child: Row(
+        children: [
+          Image.network(imageSrc!, height: 40),
+          if(text != null) const SizedBox(width: kDefaultPadding/2),
+          if(text != null) Text(text!),
         ],
       ),
     );

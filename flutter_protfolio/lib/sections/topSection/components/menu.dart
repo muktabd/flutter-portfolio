@@ -16,6 +16,7 @@ class _MenuState extends State<Menu> {
     "Services",
     "Portfolio",
     "Testimonial",
+    "Blogs",
     "Contact"
   ];
   @override

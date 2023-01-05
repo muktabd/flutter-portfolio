@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/constants.dart';
 import 'package:flutter_portfolio/sections/about/about_section.dart';
+import 'package:flutter_portfolio/sections/blog_section/blog_section.dart';
 import 'package:flutter_portfolio/sections/contact/contact_section.dart';
 import 'package:flutter_portfolio/sections/education/education_section.dart';
 import 'package:flutter_portfolio/sections/feedback/feedback_section.dart';
@@ -20,14 +21,15 @@ class HomeScreen extends StatelessWidget {
           children: [
             const TopSection(),
             const SizedBox(height: kDefaultPadding * 2),
-            AboutSection(),
+            const AboutSection(),
             const ServiceSection(),
             const EducationSection(),
-            RecentWorkSection(),
+            const RecentWorkSection(),
             const JobHistorySection(),
             FeedbackSection(),
+            const BlogSection(),
             const SizedBox(height: kDefaultPadding),
-            ContactSection(),
+            const ContactSection(),
             // This SizeBox just for demo
             // SizedBox(
             //   height: 500,

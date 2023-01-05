@@ -51,7 +51,7 @@ flutter:
     - assets/activity/
     - assets/edu/
     - assets/gallery/
-    - assets/icons/
+    # - assets/icons/
     - assets/images/
     - assets/resume/
     

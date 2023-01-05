@@ -1,9 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/constants.dart';
 import 'components/logo_blur_box.dart';
 import 'components/menu.dart';
-import 'components/person_pic.dart';
 
 class TopSection extends StatelessWidget {
   const TopSection({Key? key}) : super(key: key);
