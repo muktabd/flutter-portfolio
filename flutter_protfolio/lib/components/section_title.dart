@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'constants.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
@@ -23,7 +23,7 @@ class SectionTitle extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(right: kDefaultPadding),
-            padding: const EdgeInsets.only(bottom: 72),
+            padding: const EdgeInsets.only(bottom: 50),
             width: 8,
             height: 100,
             color: Colors.black,
@@ -40,7 +40,7 @@ class SectionTitle extends StatelessWidget {
               Text(
                 subTitle!,
                 style:
-                    const TextStyle(fontWeight: FontWeight.w200, color: kTextColor),
+                    const TextStyle(fontWeight: FontWeight.w200, color: Color.fromRGBO(112, 112, 112, 1)),
               ),
               Text(
                 title!,

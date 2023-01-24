@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/hireme_card.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
 
+import '../../components/default_button.dart';
+import '../blog_section/more_blogs.dart';
 import 'components/recent_work_card.dart';
+import 'more_projects.dart';
 
 class RecentWorkSection extends StatelessWidget {
   const RecentWorkSection({Key? key}) : super(key: key);
@@ -39,7 +42,6 @@ class RecentWorkSection extends StatelessWidget {
             child: Wrap(
               spacing: kDefaultPadding,
               runSpacing: kDefaultPadding * 2,
-
               children: const [
                 RecentWorkCard(
                   image: "assets/images/wehealthwebp.webp",
@@ -78,23 +80,35 @@ class RecentWorkSection extends StatelessWidget {
                   desc:
                       "A personalized program to help you harness the power of your inner expert’s profound intelligence.",
                 ),
-                RecentWorkCard(
-                  image: "assets/images/forcarwebp.webp",
-                  androidLink:
-                      "https://play.google.com/store/apps/details?id=com.foorcar.user",
-                  iosLink: "",
-                  name: "ForCar",
-                  desc:
-                      "The first application in the Middle East that facilitates the search for spare parts.",
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 1110,
+            child: Row(
+              children: [
+                const Expanded(
+                  flex: 8,
+                  child: SizedBox(),
                 ),
-                RecentWorkCard(
-                  image: "assets/images/bikrinaki.webp",
-                  androidLink:
-                      "https://play.google.com/store/apps/details?id=com.bikrinaki.userapp&hl=en&gl=US",
-                  iosLink: "",
-                  name: "BikriNaki",
-                  desc:
-                      "BikriNaki is a multi-vendor e-commerce system developed by flutter for support both iOS and Android.",
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: FittedBox(
+                      child: DefaultButton(
+                          imageSrc: "assets/images/icons8-sleepy-eyes-96.png",
+                          text: "More Projects!",
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MoreProjects(),
+                              ),
+                            );
+                          }),
+                    ),
+                  ),
                 ),
               ],
             ),

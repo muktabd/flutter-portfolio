@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/blogs_screen.dart';
+import 'package:flutter_portfolio/sections/blog_section/more_blogs.dart';
 import 'package:flutter_portfolio/components/default_button.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
 
 class BlogSection extends StatelessWidget {
   const BlogSection({Key? key}) : super(key: key);

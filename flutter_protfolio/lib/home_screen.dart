@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
 import 'package:flutter_portfolio/sections/about/about_section.dart';
 import 'package:flutter_portfolio/sections/blog_section/blog_section.dart';
 import 'package:flutter_portfolio/sections/contact/contact_section.dart';
@@ -9,6 +9,8 @@ import 'package:flutter_portfolio/sections/job_history/job_history_section.dart'
 import 'package:flutter_portfolio/sections/recent_work/recent_work_section.dart';
 import 'package:flutter_portfolio/sections/service/service_section.dart';
 import 'package:flutter_portfolio/sections/topSection/top_section.dart';
+
+import 'sections/skills/skills.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class HomeScreen extends StatelessWidget {
             const TopSection(),
             const SizedBox(height: kDefaultPadding * 2),
             const AboutSection(),
+            const MySkills(),
             const ServiceSection(),
             const EducationSection(),
             const RecentWorkSection(),

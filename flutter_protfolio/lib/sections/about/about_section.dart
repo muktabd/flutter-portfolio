@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/default_button.dart';
 import 'package:flutter_portfolio/components/my_outline_button.dart';
-import 'package:flutter_portfolio/constants.dart';
-
+import 'package:flutter_portfolio/components/constants.dart';
 import 'components/about_section_text.dart';
-import 'components/about_text_with_sign.dart';
 import 'components/experience_card.dart';
 
 class AboutSection extends StatelessWidget {

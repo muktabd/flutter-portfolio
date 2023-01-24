@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/constants.dart';
-import 'package:flutter_portfolio/models/feedback.dart';
+import 'package:flutter_portfolio/components/constants.dart';
+import 'package:flutter_portfolio/sections/feedback/components/feedback.dart';
 
 import 'components/feedback_card.dart';
 
 class FeedbackSection extends StatelessWidget {
+  const FeedbackSection({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class RecentWorkCard extends StatefulWidget {
   // just press "Command + ."

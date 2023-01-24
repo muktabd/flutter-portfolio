@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
+import 'package:flutter_portfolio/controller/contact_me_controller.dart';
 import 'package:flutter_portfolio/home_screen.dart';
+import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  Get.put(ContactMeController());
   runApp(const MyApp());
 }
 
@@ -11,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Abdullah Ibna Mukta',
       theme: ThemeData(
@@ -22,5 +25,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-

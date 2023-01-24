@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import '../../../constants.dart';
+import '../../../components/toast.dart';
+import '../../../components/constants.dart';
 
 class GlassContent extends StatelessWidget {
   const GlassContent({
@@ -28,11 +29,11 @@ class GlassContent extends StatelessWidget {
             children: [
               const Spacer(),
               Text(
-                "Hey! It's Me",
+                "It's Me",
                 style: Theme.of(context)
                     .textTheme
                     .headline5!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: Colors.red),
               ),
               const SizedBox(height: 10),
               RichText(
@@ -55,29 +56,21 @@ class GlassContent extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               RichText(
-                text: TextSpan(
+                text: const TextSpan(
                     text:
-                        "Full Stack Developer using Flutter & NodeJS\nAndroid, iOS, Web MacOS and Windows",
-                    style: const TextStyle(
-                      color: Colors.white,
+                        "A Full Stack Developer",
+                    style: TextStyle(
+                      color: Color(0xFFFFF200),
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
-                    children: [
-                      TextSpan(
-                          text:
-                              "\nNative app developer using Android Studio with Java & Kotlin",
-                          style: TextStyle(
-                            color: Colors.yellow.shade700,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),)
-                    ],),
+                    
+                  ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 35),
               RichText(
                 text: TextSpan(
-                  text: "Thoughts Of The Mind",
+                  text: "Thoughts Of Mind",
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -99,15 +92,14 @@ class GlassContent extends StatelessWidget {
               const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  //
+                  CustomMsg.showToast("Sorry, This section under development!!!");
                 },
                 child: const Text("FIND OUT MORE"),
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 20),
-                    textStyle: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.normal)),
+                    textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.normal)),
               )
             ],
           ),

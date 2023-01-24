@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/models/feedback.dart';
+import 'package:flutter_portfolio/sections/feedback/components/feedback.dart';
 
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class FeedbackCard extends StatefulWidget {
   const FeedbackCard({
@@ -32,7 +32,7 @@ class _FeedbackCardState extends State<FeedbackCard> {
         duration: duration,
         margin: const EdgeInsets.only(top: kDefaultPadding * 3),
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        height: 350,
+        height: 400,
         width: 350,
         decoration: BoxDecoration(
           color: feedbacks[widget.index!].color,
@@ -68,9 +68,9 @@ class _FeedbackCardState extends State<FeedbackCard> {
               ),
             ),
             const SizedBox(height: kDefaultPadding * 2),
-            const Text(
-              "Ronald Thompson",
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(
+              feedbacks[widget.index!].name!,
+              style: const TextStyle(fontWeight: FontWeight.bold),
             )
           ],
         ),

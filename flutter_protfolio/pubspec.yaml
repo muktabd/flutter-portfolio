@@ -29,6 +29,10 @@ dependencies:
   cupertino_icons: ^1.0.5
   url_launcher: ^6.1.7
   timelines: ^0.1.0
+  fluttertoast: ^8.1.2
+  dio: ^4.0.6
+  shared_preferences: ^2.0.15
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
@@ -50,8 +54,8 @@ flutter:
   assets:
     - assets/activity/
     - assets/edu/
-    - assets/gallery/
-    # - assets/icons/
+    - assets/company/
+    - assets/icons/
     - assets/images/
     - assets/resume/
     

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
 
 class EducationSection extends StatelessWidget {
   const EducationSection({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:timelines/timelines.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/constants.dart';
+import 'package:flutter_portfolio/components/constants.dart';
+import '../../components/images.dart';
 
 class JobHistorySection extends StatefulWidget {
   const JobHistorySection({Key? key}) : super(key: key);
@@ -17,33 +18,35 @@ class _JobHistorySectionState extends State<JobHistorySection> {
       padding: const EdgeInsets.only(top: kDefaultPadding * 2),
       margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
       width: double.infinity,
+      
       decoration: BoxDecoration(
         color: const Color(0xFFF7E8FF).withOpacity(0.3),
          image: const DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage("assets/images/work_exp.jpeg"),
+          image: AssetImage("assets/images/work_exp1.jpeg"),
+          opacity: 0.1,
         ),
       ),
       child: Column(
-        children: const [
-          SectionTitle(
+        children:  [
+          const SectionTitle(
             title: "Work Experiences",
             subTitle: "My Job Timeline",
             color: Colors.orange,
           ),
-          SizedBox(height: kDefaultPadding),
+          const SizedBox(height: kDefaultPadding),
           SizedBox(
             child: Padding(
-              padding: EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(18.0),
               child: ExperienceTimelineWidget(experienceList: [
                 WorkExperienceClass(
                   id: 1,
                   position: "Mobile App Developer",
                   companyName: "UMCH Tech SDN. BHD.",
-                  contactNumber: "+60 ",
+                  contactNumber: "+60 16-330 1328",
                   toFrom: "09/2022 - Running",
                   companyType: "Medical & Health Care Software Solutions Based Comapny",
-                  companyImage: "assets/images/work_3.png",
+                  companyImage: Images.weHealthLogo,
                   roles: [
                     "A trainer of flutter development",
                     "Lead of development mobile and web",
@@ -56,11 +59,11 @@ class _JobHistorySectionState extends State<JobHistorySection> {
                 WorkExperienceClass(
                   id: 2,
                   position: "Mobile App Developer",
-                  companyName: "Biz Trading & Total Cad Solution SDN. BHD",
+                  companyName: "Biz Trading & Total Cad Solution SDN. BHD.",
                   contactNumber: "+60 11 397909129",
                   toFrom: "09/2021 - 02/2022",
-                  companyType: "Medical & Software Based Company",
-                  companyImage: "assets/images/work_3.png",
+                  companyType: "Mechemical & Software Based Company",
+                  companyImage: Images.bizTradingLogo,
                   roles: [
                     "A trainer of flutter development",
                     "Lead of development mobile and web",
@@ -69,16 +72,15 @@ class _JobHistorySectionState extends State<JobHistorySection> {
                     "Firebase implementation",
                     "App publisher in Google Play Store and App Store",
                   ],
-                
                 ),
                 WorkExperienceClass(
                   id: 3,
                   position: "Mobile App Developer",
-                  companyName: "DeltaFrontier SDN. BHD",
-                  contactNumber: "+60 ",
+                  companyName: "DeltaFrontier SDN. BHD.",
+                  contactNumber: "+65 9825 6483",
                   toFrom: "09/2021 - 02/2022",
-                  companyType: "Medical & Software Based Company",
-                  companyImage: "assets/images/work_3.png",
+                  companyType: "AI & IOT Based Company",
+                  companyImage: Images.dfLogo,
                   roles: [
                     "A trainer of flutter development",
                     "Lead of development mobile and web",
@@ -111,7 +113,7 @@ class ExperienceTimelineWidget extends StatelessWidget {
         fontSize: 12.5,
       ),
       child: Container(
-      margin: EdgeInsets.only(left:120),
+      margin: const EdgeInsets.only(left:120),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: FixedTimeline.tileBuilder(

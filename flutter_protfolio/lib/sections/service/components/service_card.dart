@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/models/service.dart';
 
-import '../../../constants.dart';
+import '../../../components/constants.dart';
 
 class ServiceCard extends StatefulWidget {
   const ServiceCard({
@@ -43,9 +43,9 @@ class _ServiceCardState extends State<ServiceCard> {
           children: [
             AnimatedContainer(
               duration: duration,
-              padding: const EdgeInsets.all(kDefaultPadding * 1.5),
-              height: 120,
-              width: 120,
+              //padding: const EdgeInsets.all(kDefaultPadding * 1.5),
+              height: 160,
+              width: 160,
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,

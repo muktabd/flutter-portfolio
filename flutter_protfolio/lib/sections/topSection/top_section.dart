@@ -18,7 +18,7 @@ class TopSection extends StatelessWidget {
         color: Colors.black,
         image: DecorationImage(
           fit: BoxFit.cover,
-          opacity: 1.5,
+          opacity: 0.5,
           image: AssetImage("assets/images/background.jpg"),
         ),
       ),
@@ -32,7 +32,7 @@ class TopSection extends StatelessWidget {
               right: 0,
               child: PersonPic(),
             ), */
-            Positioned(
+            const Positioned(
               bottom: 0,
               child: Menu(),
             ),
