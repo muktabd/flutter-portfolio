@@ -296,10 +296,10 @@ class _ContactFormState extends State<ContactForm> {
                   child: DefaultButton(
                     imageSrc: "assets/images/contact_icon.png",
                     text: "Contact Me!",
-                    press: () {
+                    press: () async {
                       if (_formKey.currentState!.validate()) {
                         log("validated");
-                        contactMeController.contactMe(
+                        final x = await contactMeController.contactMe(
                             name: _nameController.text.toString(),
                             email: _emailController.text.toString(),
                             phone: _mobileNumberController.text.toString(),

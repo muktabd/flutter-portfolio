@@ -36,6 +36,7 @@ class ContactMeController extends GetxController {
     
     String url = AppConstants.baseUrl+AppConstants.contactMeUri;
     var response = await ApiClients.postRaw(params, url);
+    log("Response => ${response.toString()}");
     ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
     log(contactMeModel.code.toString());
     log(url);

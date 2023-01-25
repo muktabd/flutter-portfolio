@@ -32,12 +32,14 @@ class ApiClients {
     Response response;
 
     try {
-      log('trying to upload...');
-      log(params.toString());
-      response = await dio!.post(url, data: params);
-      log(response.toString());
+      // log('trying to upload...');
+      // log(params.toString());
+      final dio = Dio();
+      response = await dio.post(url, data: params);
+      // log(response.toString());
       return response.data;
-    } catch (e) {
+    } catch (e, strackTrae) {
+      log(e.toString(), stackTrace: strackTrae);
       print(e.toString());
       return {"code": -999, "message": url + "|" + e.toString()};
     }
