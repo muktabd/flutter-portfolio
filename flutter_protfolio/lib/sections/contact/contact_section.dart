@@ -300,11 +300,11 @@ class _ContactFormState extends State<ContactForm> {
                       if (_formKey.currentState!.validate()) {
                         log("validated");
                         contactMeController.contactMe(
-                            name: _nameController.text,
-                            email: _emailController.text,
-                            phone: _mobileNumberController.text,
-                            projectType: _projectTypeController.text,
-                            projectDes: _shortDesController.text,
+                            name: _nameController.text.toString(),
+                            email: _emailController.text.toString(),
+                            phone: _mobileNumberController.text.toString(),
+                            projectType: _projectTypeController.text.toString(),
+                            projectDes: _shortDesController.text.toString(),
                             context: context);
                       } else {
                         log("validated");

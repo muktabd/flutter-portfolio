@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 
 class ContactMeController extends GetxController {
 
-  ContactMeModel contactMeModel = ContactMeModel();
+  
 
   Future contactMe({
     required String name,
@@ -30,19 +30,16 @@ class ContactMeController extends GetxController {
     params['project_type'] = projectType;
     params['project_des'] = projectDes;
 
-    print("getting params ===>> ");
-    print(params);
-    print("======================");
+    log(" =========== getting params ===>> \n$params\n =========== ");
+
 
     
-    var url = AppConstants.baseUrl+AppConstants.contactMeUri;
-
-    var response = await ApiClients.postJson(params, url);
-    ContactMeModel.fromJson(response);
-    log(response);
-
-
-
+    String url = AppConstants.baseUrl+AppConstants.contactMeUri;
+    var response = await ApiClients.postRaw(params, url);
+    ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
+    log(contactMeModel.code.toString());
+    log(url);
+ 
 
    
 

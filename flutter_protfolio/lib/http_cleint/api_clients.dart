@@ -1,5 +1,8 @@
 // ignore_for_file: avoid_print
 
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,13 +28,14 @@ class ApiClients {
     dio!.options.headers['Connection'] = 'keep-alive';
   }
 
-  static Future postJson(Map<String, dynamic> params, String url) async {
+  static Future postRaw(Map<String, dynamic> params, String url) async {
     Response response;
 
     try {
-      print('trying to upload...');
+      log('trying to upload...');
+      log(params.toString());
       response = await dio!.post(url, data: params);
-      print(response);
+      log(response.toString());
       return response.data;
     } catch (e) {
       print(e.toString());
@@ -62,7 +66,7 @@ class ApiClients {
   * In User Login
   */
 
-  static Future postData(Map<String, dynamic> body, String url) async {
+  static Future postFormData(Map<String, dynamic> body, String url) async {
     Response response;
     //dio.options.headers = httpHeaders;
 
@@ -75,7 +79,7 @@ class ApiClients {
 
       response = await dio!.post(url, data: formData);
       print("getting post responnse ===>>> $response");
-      return response.data;
+      return jsonDecode(response.data);
     } catch (e) {
       print("posting data error is here ===>>> ${e.toString()}");
 
