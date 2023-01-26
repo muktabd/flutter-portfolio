@@ -31,6 +31,7 @@ class ContactMeController extends GetxController {
     params['project_des'] = projectDes;
 
     log(" =========== getting params ===>> \n$params\n =========== ");
+    log(" =========== email params ===>> \n$email\n =========== ");
 
 
     

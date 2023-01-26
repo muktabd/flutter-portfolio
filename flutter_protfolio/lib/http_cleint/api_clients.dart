@@ -9,13 +9,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiClients {
 
   static SharedPreferences? sharedPrefs;
-  static Dio? dio;
 
   static Future updateHeader({
     SharedPreferences? prefs,
     String? newToken,
   }) async {
-    dio = Dio();
+    final dio = Dio();
     if (prefs != null) {
       sharedPrefs = prefs;
     }
@@ -24,17 +23,17 @@ class ApiClients {
     }
     String token = sharedPrefs!.getString('first_token') ?? "";
     print("token in postting ===>> $token");
-    dio!.options.headers['Authorization'] = 'Bearer $token';
-    dio!.options.headers['Connection'] = 'keep-alive';
+    dio.options.headers['Authorization'] = 'Bearer $token';
+    dio.options.headers['Connection'] = 'keep-alive';
   }
 
   static Future postRaw(Map<String, dynamic> params, String url) async {
+    final dio = Dio();
     Response response;
 
     try {
       // log('trying to upload...');
       // log(params.toString());
-      final dio = Dio();
       response = await dio.post(url, data: params);
       // log(response.toString());
       return response.data;
@@ -48,9 +47,10 @@ class ApiClients {
   //static Future<Map<String, dynamic>> getJson(String url) async {
 
   static Future getJson(String url) async {
+  final dio = Dio();
     Response response;
     try {
-      response = await dio!.get(url);
+      response = await dio.get(url);
       if (response.statusCode == 200) {
         return response.data;
       } else {
@@ -69,6 +69,7 @@ class ApiClients {
   */
 
   static Future postFormData(Map<String, dynamic> body, String url) async {
+    final dio = Dio();
     Response response;
     //dio.options.headers = httpHeaders;
 
@@ -79,7 +80,7 @@ class ApiClients {
       print('trying to upload...');
       var formData = FormData.fromMap(body);
 
-      response = await dio!.post(url, data: formData);
+      response = await dio.post(url, data: formData);
       print("getting post responnse ===>>> $response");
       return jsonDecode(response.data);
     } catch (e) {

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/constants.dart';
+import 'package:flutter_portfolio/controller/blog_post_controller.dart';
 import 'package:flutter_portfolio/controller/contact_me_controller.dart';
 import 'package:flutter_portfolio/home_screen.dart';
 import 'package:get/get.dart';
 
 void main() async {
+  Get.put(BlogPostController());
   Get.put(ContactMeController());
   runApp(const MyApp());
 }
