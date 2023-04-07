@@ -32,7 +32,7 @@ class _SkillsCardState extends State<SkillsCard> {
       hoverColor: Colors.transparent,
       child: AnimatedContainer(
         duration: duration,
-        margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+        margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2, horizontal: 5),
         height: 265,
         width: 265,
         decoration: BoxDecoration(
@@ -46,8 +46,8 @@ class _SkillsCardState extends State<SkillsCard> {
             AnimatedContainer(
               duration: duration,
               padding: const EdgeInsets.all(kDefaultPadding),
-              height: 200,
-              width: 200,
+              height: 180,
+              width: 180,
               decoration: BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,

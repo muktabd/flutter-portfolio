@@ -22,6 +22,7 @@ class AppConstants{
   
 
   static String baseUrl = "http://muktabd.info";
+  //static String baseUrl = "localhost:3000";
   static String imageUri = "http://muktabd.info/post_images/image_1672958017642.jpeg";
   static String loginUri = "/admin/login";
   static String createPostUri = "/create/post";

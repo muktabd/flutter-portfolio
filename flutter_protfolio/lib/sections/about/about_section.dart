@@ -1,12 +1,43 @@
+import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter_portfolio/components/default_button.dart';
 import 'package:flutter_portfolio/components/my_outline_button.dart';
 import 'package:flutter_portfolio/components/constants.dart';
+import '../../components/toast.dart';
 import 'components/about_section_text.dart';
 import 'components/experience_card.dart';
 
-class AboutSection extends StatelessWidget {
+class AboutSection extends StatefulWidget {
   const AboutSection({Key? key}) : super(key: key);
+
+  @override
+  State<AboutSection> createState() => _AboutSectionState();
+}
+
+class _AboutSectionState extends State<AboutSection> {
+  static const int _initialPage = 1;
+  bool _isSampleDoc = true;
+  
+
+  @override
+  void initState() {
+    super.initState();
+    // _pdfController = PdfController(
+    //   document:
+    //       PdfDocument.openAsset('assets/resume/resume_mukta.pdf'),
+    //   initialPage: _initialPage,
+    // );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +48,9 @@ class AboutSection extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children:  [
-              
+            children: [
               Text(
-                "About \nMy Story",
+                "About\nMy Story",
                 style: Theme.of(context)
                     .textTheme
                     .headline2!
@@ -49,7 +79,7 @@ class AboutSection extends StatelessWidget {
                 imageSrc: "assets/images/hand.png",
                 text: "Hire Me!",
                 press: () {
-                //
+                  CustomMsg.showToast("Great!! Please contact me form!");
                 },
               ),
               const SizedBox(width: kDefaultPadding * 1.5),
@@ -57,11 +87,16 @@ class AboutSection extends StatelessWidget {
                 imageSrc: "assets/images/download.png",
                 text: "Download CV",
                 press: () {
-                //
+                  // _pdfController!.previousPage(
+                  //   curve: Curves.ease,
+                  //   duration: const Duration(milliseconds: 100),
+                  // );
                 },
               ),
             ],
           ),
+
+          //
         ],
       ),
     );
