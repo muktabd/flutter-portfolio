@@ -1,5 +1,4 @@
-class Images{
-
+class Images {
   //* =========== |> Language Flags <| ===========  */
   static const String bd = 'assets/flags/bd.png';
   static const String us = 'assets/flags/us.png';
@@ -20,10 +19,10 @@ class Images{
   static String apiDev = "assets/icons/api.png";
   static String uiux = "assets/icons/ui.png";
 
+  static String coverImage = "assets/images/background.jpg";
+
   //
   static String weHealthLogo = "assets/company/wehealthwebp.webp";
   static String bizTradingLogo = "assets/company/biz_trading.png";
   static String dfLogo = "assets/company/df.jpeg";
-
-  
 }

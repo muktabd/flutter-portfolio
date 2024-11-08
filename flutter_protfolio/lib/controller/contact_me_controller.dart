@@ -4,14 +4,12 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/app_constants.dart';
-import 'package:flutter_portfolio/http_cleint/api_clients.dart';
 import 'package:flutter_portfolio/models/api_model/contact_me_model.dart';
 import 'package:get/get.dart';
 
+import '../domain/server/http_client/api_clients.dart';
+
 class ContactMeController extends GetxController {
-
-  
-
   Future contactMe({
     required String name,
     required String email,
@@ -20,7 +18,6 @@ class ContactMeController extends GetxController {
     required String projectDes,
     required BuildContext context,
   }) async {
- 
     print("==========");
 
     Map<String, dynamic> params = {};
@@ -33,18 +30,11 @@ class ContactMeController extends GetxController {
     log(" =========== getting params ===>> \n$params\n =========== ");
     log(" =========== email params ===>> \n$email\n =========== ");
 
-
-    
-    String url = AppConstants.baseUrl+AppConstants.contactMeUri;
-    var response = await ApiClients.postRaw(params, url);
+    String url = AppConstants.baseUrl + AppConstants.contactMeUri;
+    var response = await ApiClients.postData(params, url);
     log("Response => ${response.toString()}");
     ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
     log(contactMeModel.code.toString());
     log(url);
- 
-
-   
-
   }
-
 }

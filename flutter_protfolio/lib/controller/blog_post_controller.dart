@@ -3,10 +3,12 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/app_constants.dart';
-import 'package:flutter_portfolio/http_cleint/api_clients.dart';
 import 'package:flutter_portfolio/models/api_model/blog_post_model.dart';
 import 'package:flutter_portfolio/models/api_model/contact_me_model.dart';
 import 'package:get/get.dart';
+
+import '../domain/server/http_client/api_clients.dart';
+
 
 class BlogPostController extends GetxController {
   Future createPost({
@@ -29,7 +31,7 @@ class BlogPostController extends GetxController {
     log(" =========== getting params ===>> \n$params\n =========== ");
 
     String url = AppConstants.baseUrl + AppConstants.createPostUri;
-    var response = await ApiClients.postRaw(params, url);
+    var response = await ApiClients.postData(params, url);
     ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
     log(contactMeModel.code.toString());
     log(url);

@@ -4,11 +4,11 @@ import 'constants.dart';
 
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
-    Key? key,
+    super.key,
     this.title,
     this.subTitle,
     this.color,
-  }) : super(key: key);
+  });
 
   final String? title, subTitle;
   final Color? color;
@@ -39,15 +39,14 @@ class SectionTitle extends StatelessWidget {
             children: [
               Text(
                 subTitle!,
-                style:
-                    const TextStyle(fontWeight: FontWeight.w200, color: Color.fromRGBO(112, 112, 112, 1)),
+                style: const TextStyle(
+                  fontWeight: FontWeight.w200,
+                  color: Color.fromRGBO(112, 112, 112, 1),
+                ),
               ),
               Text(
                 title!,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline2!
-                    .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
               )
             ],
           )

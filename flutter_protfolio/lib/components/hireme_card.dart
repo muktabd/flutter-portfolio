@@ -5,8 +5,8 @@ import 'default_button.dart';
 
 class HireMeCard extends StatelessWidget {
   const HireMeCard({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -18,7 +18,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=3.3.0-152.0.dev <4.0.0"
 
 dependencies:
   flutter:
@@ -27,19 +27,23 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
-  url_launcher: ^6.1.7
+  url_launcher: ^6.3.1
   timelines: ^0.1.0
   fluttertoast: ^8.1.2
-  dio: ^4.0.6
+  dio: ^5.4.0
   shared_preferences: ^2.0.15
   get: ^4.6.5
   #pdfx: ^2.3.0
   path_provider: ^2.0.12
+  device_info_plus: ^11.1.1
+  intl: ^0.19.0
+  cached_network_image: ^3.4.1
+  badges: ^3.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^5.0.0
 
 
 # For information on the generic Dart part of this file, see the
@@ -54,12 +58,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
+    - assets/languages/
     - assets/activity/
     - assets/edu/
     - assets/company/
     - assets/icons/
     - assets/images/
     - assets/resume/
+    - assets/data/home_info.json
     - assets/resume/resume_mukta.pdf
     
   #   - images/a_dot_ham.jpeg

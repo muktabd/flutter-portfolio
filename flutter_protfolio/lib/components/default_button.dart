@@ -4,12 +4,12 @@ import 'constants.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
-    Key? key,
+    super.key,
     this.imageSrc,
     this.text,
     this.press,
     this.color,
-  }) : super(key: key);
+  });
 
   final String? imageSrc, text;
   final Function? press;
@@ -40,13 +40,13 @@ class DefaultButton extends StatelessWidget {
 }
 class DefaultNetworkButton extends StatelessWidget {
   const DefaultNetworkButton({
-    Key? key,
+    super.key,
     this.imageSrc,
     this.text,
     this.press,
     this.color,
     this.radius,
-  }) : super(key: key);
+  });
 
   final String? imageSrc, text;
   final Function? press;

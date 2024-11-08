@@ -1,0 +1,41 @@
+{
+    "status": 200,
+    "message": "Personal details fetch successfully",
+    "error": {},
+    "data": {
+        "info": {
+            "background": "https://backgroups.google.com/background/image.png",
+            "first_name": "ABDULLAH IBNA",
+            "last_name": "MUKTA",
+            "open_to_work": "Ready to work from any of these fields",
+            "designation": "Full Stack Developer",
+            "work_fields": "Flutter(Android, iOS, Web), NodeJS, VueJS & Spring Boot",
+            "social_media": {
+                "linkedin": {
+                    "icon": "https://banner2.cleanpng.com/20180529/str/avpsm7w6e.webp",
+                    "url": "https://banner2.cleanpng.com/20180529/str/avpsm7w6e.webp"
+                },
+                "github": {
+                    "icon": "https://github.com/images/modules/logos_page/GitHub-Mark.png",
+                    "url": "https://github.com/johndoe"
+                },
+                "stackoverflow": {
+                    "icon": "https://stackoverflow.com/favicon.ico",
+                    "url": "https://stackoverflow.com/users/1234567890"
+                },
+                "xtwitter": {
+                    "icon": "https://abs.twimg.com/favicons/favicon.ico",
+                    "url": "https://twitter.com/johndoe"
+                },
+                "facebook": {
+                    "icon": "https://www.facebook.com/favicon.ico",
+                    "url": "https://www.facebook.com/johndoe"
+                }
+            },
+            "thoughts": {
+                "title": "Thoughts Of The Mind",
+                "subtitle": "“Need Some Failures to Tell Your Successful Story”"
+            }
+        }
+    }
+}
