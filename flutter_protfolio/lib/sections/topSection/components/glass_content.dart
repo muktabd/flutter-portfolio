@@ -32,7 +32,7 @@ class GlassContent extends StatelessWidget {
                 "It's Me",
                 style: Theme.of(context)
                     .textTheme
-                    .headline5!
+                    .headlineMedium!
                     .copyWith(color: Colors.red),
               ),
               const SizedBox(height: 10),

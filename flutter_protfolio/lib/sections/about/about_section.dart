@@ -23,7 +23,7 @@ class AboutSection extends StatelessWidget {
                 "About \nMy Story",
                 style: Theme.of(context)
                     .textTheme
-                    .headline2!
+                    .headlineMedium!
                     .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
               ),
               const Expanded(

@@ -83,7 +83,7 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                       widget.desc,
                       style: Theme.of(context)
                           .textTheme
-                          .headline5!
+                          .headlineMedium!
                           .copyWith(height: 1.5),
                     ),
                     const SizedBox(height: kDefaultPadding),
