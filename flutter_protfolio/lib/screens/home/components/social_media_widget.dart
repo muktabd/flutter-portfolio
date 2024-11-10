@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaWidget extends StatelessWidget {
-  final String icon, url;
+  final String assetImage, icon, url;
     final bool isMobile;
   const SocialMediaWidget({
     super.key,
+    required this.assetImage,
     required this.icon,
     required this.url,
     required this.isMobile,
@@ -19,11 +20,12 @@ class SocialMediaWidget extends StatelessWidget {
       height: isMobile ? 45 : 60,
       child: IconButton(
         // icon: CircleAvatar(backgroundImage: NetworkImage('https://cors-anywhere.herokuapp.com/$icon')),
-        icon: CircleAvatar(
+        icon: icon.isNotEmpty && icon != null || icon != 'null'
+        ? CircleAvatar(
           backgroundImage: CachedNetworkImageProvider(icon),
           foregroundImage: CachedNetworkImageProvider(icon),
           // child: Icon(Icons.error),
-        ),
+        ) : Image.asset(assetImage),
         onPressed: () async {
           if (!await launchUrl(Uri.parse(url))) {
             throw Exception('Could not launch $url');

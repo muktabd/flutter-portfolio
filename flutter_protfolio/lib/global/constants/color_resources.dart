@@ -39,7 +39,7 @@ class ColorRes {
 
   static Color getButtonColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? blue.withOpacity(0.9) : blue;
+    return (theme == Brightness.dark) ? red.withOpacity(0.9) : darkBackGroundColor;
   }
   static Color getGoldolor(context) {
     final theme = Theme.of(context).brightness;
