@@ -1,19 +1,41 @@
 class Images {
   Images._();
   //* =========== |> Language Flags <| ===========  */
+  //* =========== |> Language Flags <| ===========  */
   static const String bd = 'assets/flags/bd.png';
   static const String us = 'assets/flags/us.png';
+  static const String italy = 'assets/flags/italy.png';
+  static const String arabic = 'assets/flags/arabic.png';
+  static const String spain = 'assets/flags/spain.png';
+  static const String chinese = 'assets/flags/chines.png';
+  static const String india = 'assets/flags/india.png';
+  static const String france = 'assets/flags/france.png';
+  static const String portugues = 'assets/flags/portuges.png';
 
+  static String nativeAndroid = "assets/icons/android.png";
+  static String crossPlatformApp = "assets/icons/flutter.png";
+  static String nodeJs = "assets/icons/nodejs.png";
+  static String lead = "assets/icons/lead.png";
+  static String mobileApp = "assets/icons/mobile.png";
+  static String webApp = "assets/icons/web.png";
+  static String apiDev = "assets/icons/api.png";
+  static String uiux = "assets/icons/ui.png";
+
+  static String coverImage = "assets/images/background.jpg";
+
+  //
+  static String weHealthLogo = "assets/company/wehealthwebp.webp";
+  static String bizTradingLogo = "assets/company/biz_trading.png";
+  static String dfLogo = "assets/company/df.jpeg";
   //* =========== |> Logo <| ===========  */
   static const String rbfgroupbdIcon = 'assets/icons/rbfgroupbd_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
 
   //* =========== |> Login Screen <| ===========  */
-  static const String facebookButton = 'assets/icons/facebook-btn.png'; 
-  static const String googleButton = 'assets/icons/google-btn.png'; 
-  static const String finger = 'assets/icons/finger.png'; 
-  static const String facial = 'assets/icons/facial.png'; 
-
+  static const String facebookButton = 'assets/icons/facebook-btn.png';
+  static const String googleButton = 'assets/icons/google-btn.png';
+  static const String finger = 'assets/icons/finger.png';
+  static const String facial = 'assets/icons/facial.png';
 
   //* =========== |> OnBoarding Images <| ===========  */
   static const String onBoardTech = 'assets/images/splash/onboard_tech.png';
@@ -22,7 +44,6 @@ class Images {
   static const String onBoardDelivery = 'assets/images/splash/onboard_delivery.png';
   static const String onBoardSchool = 'assets/images/splash/onboard_school.png';
   static const String onBoardOldAge = 'assets/images/splash/onboard_old_age.png';
-
 
   //* =========== |> DashBoard Screen <| ===========  */
   static const String homeSliderRbf = 'assets/images/home_slider/home_slider_rbf.webp';
@@ -35,21 +56,20 @@ class Images {
   //* =========== |> DashBoard Screen <| ===========  */
   static const String homeUserTreating = 'assets/images/treating/web_design_course.png';
 
-  //::::::::::::::::::::::::: 
+  //:::::::::::::::::::::::::
   static const String registrationFirst = 'assets/icons/registration.png';
   static const String appBarBG = 'assets/icons/appbar-bg.png';
-  static const String creativeTeam = 'assets/icons/creative-team.png'; 
-  static const String lifeScale = 'assets/icons/life-scale.png';  
-  static const String lifeScaleFlip = 'assets/icons/life-scale-flip.png';  
+  static const String creativeTeam = 'assets/icons/creative-team.png';
+  static const String lifeScale = 'assets/icons/life-scale.png';
+  static const String lifeScaleFlip = 'assets/icons/life-scale-flip.png';
 
   //::::::::::::::::::::::::: Social Icons
-  static const String google = 'assets/icons/social/google.png'; 
-  static const String instragram = 'assets/icons/social/instragram.png'; 
-  static const String linkedin = 'assets/icons/social/linkedin.png'; 
-  static const String facebook = 'assets/icons/social/facebook.png'; 
-  static const String twitter = 'assets/icons/social/twitter.png'; 
-  static const String wechat = 'assets/icons/social/wechat.png'; 
-
+  static const String google = 'assets/icons/social/google.png';
+  static const String instragram = 'assets/icons/social/instragram.png';
+  static const String linkedin = 'assets/icons/social/linkedin.png';
+  static const String facebook = 'assets/icons/social/facebook.png';
+  static const String twitter = 'assets/icons/social/twitter.png';
+  static const String wechat = 'assets/icons/social/wechat.png';
 
 //::::::::::::::::::::::::: Review Goal
   static const String image = "assets/images/image.png";
@@ -84,7 +104,6 @@ class Images {
   static const String consultrationImg = 'assets/icons/consultration_img.png';
   static const String crimImg = 'assets/images/crim_img.png';
 
-
   static const String schoolManagementImg = 'assets/images/cash/school_management_img.png';
   static const String foodDeliveryImg = 'assets/images/cash/food_delivary_img.png';
 
@@ -114,11 +133,10 @@ class Images {
   static const String cowImg = 'assets/images/cow_img.jpg';
   static const String deliveryIc = 'assets/icons/delivery.png';
 
-  static const String newtWorkImageUrl = 'https://raw.githubusercontent.com/muktabd/public-images/main/user_placeholder.png';
+  static const String newtWorkImageUrl =
+      'https://raw.githubusercontent.com/muktabd/public-images/main/user_placeholder.png';
 
   // ==/@ Images
   static const String locationIc = 'assets/icons/location-pin.png';
   static const String voucherIc = 'assets/icons/voucher.png';
-
-
 }

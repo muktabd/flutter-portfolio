@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
 
-import 'constants.dart';
+import '../../../../components/constants.dart';
 
-class SectionTitle extends StatelessWidget {
-  const SectionTitle({
+class SkillSectionTitle extends StatelessWidget {
+  const SkillSectionTitle({
     super.key,
     this.title,
     this.subTitle,
@@ -24,10 +23,10 @@ class SectionTitle extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(right: kDefaultPadding),
-            padding: const EdgeInsets.only(bottom: 50),
+            padding: const EdgeInsets.only(bottom: 72),
             width: 8,
             height: 100,
-            color: Colors.black,
+            color: Color(0xFF007BBE),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: color,
@@ -38,14 +37,11 @@ class SectionTitle extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              GlobalText(
-                str: title!,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+              Text(
+                subTitle!,
+                style: const TextStyle(fontWeight: FontWeight.w200, color: Color(0xFF181816)),
               ),
-              GlobalText(
-                str: subTitle!,
-              ),
+              Text(title!, style: TextStyle(fontWeight: FontWeight.bold)),
             ],
           )
         ],

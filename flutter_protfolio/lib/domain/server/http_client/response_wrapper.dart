@@ -1,5 +1,5 @@
 class ResponseWrapper<T> {
-  int? status;
+  String? status;
   String? message;
   Map<String, dynamic>? error = {};
   Map<String, dynamic>? data = {};

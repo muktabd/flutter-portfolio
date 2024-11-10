@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
 import 'package:get/get.dart';
 
 import '../../screens/settings/theme/controller/theme_controller.dart';
@@ -40,24 +41,32 @@ class GlobalText extends StatelessWidget {
     final h = height ?? .08;
     final fw = fontSize ?? 14;
     final double fontHeight = h * fw;
-    return GetBuilder<ThemeController>(builder: (themeController){
-      return Text(
-        str,
-        maxLines: maxLines,
-        overflow: overflow,
-        textAlign: textAlign,
-        softWrap: softwrap,
-        style: TextStyle(
-          color: color ?? themeController.getBlackWhiteColor(context),
-          fontSize: fontSize,
-          fontWeight: fontWeight,
-          letterSpacing: letterSpacing,
-          decoration: decoration,
-          height: height == null ? null : fontHeight,
-          fontStyle: fontStyle,
-          fontFamily: fontFamily,
-        ),
-      );
-    });
+    return GetBuilder<UrlAndPlatformController>(
+      builder: (urlnPlatformCon) {
+        return GetBuilder<ThemeController>(
+          builder: (themeCon) {
+            return Text(
+              str,
+              
+              maxLines: maxLines,
+              overflow: overflow,
+              textAlign: textAlign,
+              softWrap: softwrap,
+              style: TextStyle(
+                
+                color: color ?? themeCon.getBlackWhiteColor(context),
+                fontSize: fontSize,
+                fontWeight: fontWeight,
+                letterSpacing: letterSpacing,
+                decoration: decoration,
+                height: height == null ? null : fontHeight,
+                fontStyle: fontStyle,
+                fontFamily: fontFamily,
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

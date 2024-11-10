@@ -1,5 +1,5 @@
 {
-    "status": 200,
+    "status": "200",
     "message": "Personal details fetch successfully",
     "error": {},
     "data": {

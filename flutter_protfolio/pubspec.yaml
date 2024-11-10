@@ -66,6 +66,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/resume/
+    - assets/data/languages.json
     - assets/data/home_info.json
     - assets/resume/resume_mukta.pdf
     

@@ -1,14 +1,12 @@
+import 'dart:convert';
 import 'dart:developer';
 import 'package:get/get.dart';
-
-import '../../../../domain/server/http_client/app_config.dart';
-import '../../../../domain/server/http_client/request_handler.dart';
+import 'package:flutter/services.dart' as rootBundle;
 import '../../../../domain/server/http_client/response_wrapper.dart';
 import '../model/language_model.dart';
 
 class LanguageController extends GetxController implements GetxService {
   static LanguageController get current => Get.find();
-
 
   // * MANAGE LANGUES * //
   int _selectIndex = 0;
@@ -19,13 +17,16 @@ class LanguageController extends GetxController implements GetxService {
     update();
   }
 
-  LanguageModel? languageNameList;
-  Future<LanguageModel?> getAllLanguage() async {
+  LanguageData? languageNameList;
+  Future<LanguageData?> getAllLanguage() async {
     try {
-      final response = await Get.find<RequestHandler>().get(AppConfig.getAllLanguage);
-      ResponseWrapper resWrpper = ResponseWrapper.fromJson(response.data);
-      if (resWrpper.status == 200) {
-        languageNameList = LanguageModel.fromJson(resWrpper.data!);
+      final String response = await rootBundle.rootBundle.loadString('assets/data/languages.json');
+      //* ==@ Parse the JSON
+      final Map<String, dynamic> addressDemoResponse = json.decode(response);
+      //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
+      ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
+      if (resWrap.status == "200") {
+        languageNameList = LanguageData.fromJson(resWrap.data!);
         log("all language ?? $languageNameList");
         return languageNameList;
       } else {

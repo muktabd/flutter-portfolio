@@ -1,10 +1,14 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_portfolio/screens/home/home_screen.dart';
-import 'package:flutter_portfolio/screens/settings/theme/data/light_theme.dart';
+import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
+import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'screens/experiences/view/work_experiences.dart';
+import 'screens/home/view/home_screen.dart';
+import 'screens/projects/projects_screen.dart';
+import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
 import 'getit_locator.dart';
@@ -16,14 +20,27 @@ import 'screens/settings/theme/data/dark_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Dio dio = Dio();
+  final prefs = await SharedPreferences.getInstance();
+
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Color(0xFF212741),
   ));
-  final prefs = await SharedPreferences.getInstance();
 
+  ///
+  await init(prefs);
   LocalStorage localStorage = LocalStorage();
   await localStorage.initLocalStorage(prefs);
-  await init(prefs);
+
+  ///
+  await Future.delayed(const Duration(seconds: 1));
+  RequestHandler(dio: dio);
+
+  ///
+  Get.put(UrlAndPlatformController());
+  Get.find<UrlAndPlatformController>().getPlatformInfo();
+  Get.find<UrlAndPlatformController>().getBaseUrl();
+
   await loadLanguages();
   runApp(const MyApp());
 }
@@ -33,22 +50,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeController>(builder: (themeController) {
-      return GetBuilder<LocalizationController>(builder: (localizeController) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Mukta',
-          themeMode: ThemeMode.system,
-          theme: themeController.themeValue ? dark : light,
-          locale: localizeController.locale,
-          translations: Translate(languages: languages),
-          fallbackLocale: Locale(
-            Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
-            Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
-          ),
-          home: const HomeScreen(),
+    return GetBuilder<ThemeController>(
+      builder: (themeController) {
+        return GetBuilder<LocalizationController>(
+          builder: (localizeController) {
+            return GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Mukta',
+              themeMode: ThemeMode.system,
+              theme: themeController.themeValue ? dark : light,
+              locale: localizeController.locale,
+              translations: Translate(languages: languages),
+              fallbackLocale: Locale(
+                Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
+                Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
+              ),
+              // home: const ProjectsScreen(),
+              home: const HomeScreen(),
+            );
+          },
         );
-      });
-    });
+      },
+    );
   }
 }

@@ -1,9 +1,9 @@
-class LanguageModel {
+class LanguageData {
   List<LanguageDetails>? languageList;
 
-  LanguageModel({this.languageList});
+  LanguageData({this.languageList});
 
-  LanguageModel.fromJson(Map<String, dynamic> json) {
+  LanguageData.fromJson(Map<String, dynamic> json) {
     if (json['language_list'] != null) {
       languageList = <LanguageDetails>[];
       json['language_list'].forEach((v) {

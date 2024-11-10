@@ -52,7 +52,7 @@ class RequestHandler extends GetxController {
 
     try {
       final response =
-          await dio.post(baseUrl ?? mainUrl + url, data: params, queryParameters: queryParams, options: options);
+          await dio.post(baseUrl ?? mainUrl + url, data: params, queryParameters: queryParams, options: options,);
 
       log('==/@ Response StatusCode: ${response.statusCode}');
       log('==/@ Response Data: ${response.data}');
@@ -159,8 +159,12 @@ class RequestHandler extends GetxController {
     final formData = FormData.fromMap(params);
 
     try {
-      final response =
-          await dio.delete(baseUrl ?? mainUrl + url, data: formData, queryParameters: queryParams, options: options);
+      final response = await dio.delete(
+        baseUrl ?? mainUrl + url,
+        data: formData,
+        queryParameters: queryParams,
+        options: options,
+      );
 
       log('==/@ Response StatusCode: ${response.statusCode}');
       log('==/@ Response Data: ${response.data}');

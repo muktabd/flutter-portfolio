@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:get/get.dart';
 
 import '../model/home_info_data.dart';
-import 'home_info_repo.dart';
+import '../repo/home_info_repo.dart';
 
 class HomeInfoController extends GetxController implements GetxService {
   static HomeInfoController get current => Get.find();

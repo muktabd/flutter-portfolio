@@ -2,7 +2,7 @@
 
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/components/app_constants.dart';
+import 'package:flutter_portfolio/domain/server/http_client/app_config.dart';
 import 'package:flutter_portfolio/models/api_model/blog_post_model.dart';
 import 'package:flutter_portfolio/models/api_model/contact_me_model.dart';
 import 'package:get/get.dart';
@@ -30,7 +30,7 @@ class BlogPostController extends GetxController {
 
     log(" =========== getting params ===>> \n$params\n =========== ");
 
-    String url = AppConstants.baseUrl + AppConstants.createPostUri;
+    String url = AppConfig.baseUrl + AppConfig.createPostUri;
     var response = await ApiClients.postData(params, url);
     ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
     log(contactMeModel.code.toString());
@@ -38,7 +38,7 @@ class BlogPostController extends GetxController {
   }
 
   Future getAllBlogPosts() async {
-    String url = AppConstants.baseUrl + AppConstants.getAllPostUri;
+    String url = AppConfig.baseUrl + AppConfig.getAllPostUri;
     var response = await ApiClients.getJson(url);
     BlogPostModel blogPostModel = BlogPostModel.fromJson(response);
     log(blogPostModel.code.toString());

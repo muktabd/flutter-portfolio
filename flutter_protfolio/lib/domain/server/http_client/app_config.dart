@@ -1,34 +1,15 @@
 import 'dart:developer';
 
 class AppConfig {
-  static const String baseUrl = 'http://private.rbftechzone.com';
 
-  /// Get Vep Owner ID
-  static int? _vepOwnerId;
-  static int get vepOwnerId => _vepOwnerId!;
-  static setVepOwnerId(int id) {
-    _vepOwnerId = id;
-    log("setting vep id => $vepOwnerId");
+
+  static String baseUrlControllerUrl = 'http://projects.rbftechzone.com/api/v2/client/projects/4';
+  static String defaultBaseUrl = "http://mukta.rbfgroupbd.com";
+  static String baseUrl = '';
+  static String get updatedBaseUrl => baseUrl;
+  static updateBaseUrl(String? newUrl) {
+    baseUrl = newUrl ?? defaultBaseUrl;
   }
-
-  /// Get Vep Register Number
-  static String? _vepVehicleRegiNo;
-  static String get vepVehicleRegiNo => _vepVehicleRegiNo!;
-  static setVepVehicleRegiNo(String regiNo) {
-    _vepVehicleRegiNo = regiNo;
-    log("setting vep id => $vepVehicleRegiNo");
-  }
-
-  /// Get Vep Register Number
-  static String? _paymentMethodId;
-  static String get paymentMethodId => _paymentMethodId!;
-  static setDefaultPaymentMethod(String paymentMethodId) {
-    _paymentMethodId = paymentMethodId;
-    log("setting vep id => $paymentMethodId");
-  }
-
-  static String getAllLanguage = "/api/v1/languages";
-
 
   // ==/@ Auth
   static String logInUrl = "/api/v1/user_login";
@@ -51,4 +32,9 @@ class AppConfig {
   static String verifyUserMobileUrl = "/api/v1/verify_user_mobile";
 
 
+  static String imageUri = "http://muktabd.info/post_images/image_1672958017642.jpeg";
+  static String loginUri = "/admin/login";
+  static String createPostUri = "/create/post";
+  static String getAllPostUri = "/get/all/posts";
+  static String contactMeUri = "/contact/me";
 }
