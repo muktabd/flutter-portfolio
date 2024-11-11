@@ -5,7 +5,12 @@ class Skills {
   final String? title, image;
   final Color? color;
 
-  Skills({this.id, this.title, this.image, this.color});
+  Skills({
+    this.id,
+    this.title,
+    this.image,
+    this.color,
+  });
 }
 
 // For demo list of service

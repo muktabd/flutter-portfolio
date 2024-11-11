@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../components/constants.dart';
 
-
 class ExperienceCard extends StatelessWidget {
   const ExperienceCard({
     super.key,
@@ -14,8 +13,6 @@ class ExperienceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      padding: const EdgeInsets.all(kDefaultPadding),
       height: 240,
       width: 255,
       decoration: BoxDecoration(

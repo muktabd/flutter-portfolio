@@ -59,7 +59,7 @@ class ProjectDetail {
     id = json['id'];
     name = json['name'];
     clientName = json['client_name'];
-    urls = json['urls'] != null ? new Urls.fromJson(json['urls']) : null;
+    urls = json['urls'] != null ? Urls.fromJson(json['urls']) : null;
     description = json['description'];
     status = json['status'];
     createdAt = json['created_at'];

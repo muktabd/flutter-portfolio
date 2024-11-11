@@ -15,7 +15,6 @@ import '../controller/home_info_controller.dart';
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../widgets/customised_scroll_view.dart';
 
-import '../../../global/widgets/custom_toast.dart';
 import '../components/social_media_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -49,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 builder: (homeInfoCon) {
                   return CustomisedScrolView(
                     floatingActionButton: FloatingActionButton(
+                      child: Icon(Icons.menu),
                       onPressed: () async {
                         await showDialog(
                             barrierDismissible: false,
@@ -57,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               return HomeDialogWidget();
                             });
                       },
-                      child: Icon(Icons.menu),
                     ),
                     slivers: [
                       SliverToBoxAdapter(
@@ -131,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           AnimatedTextKit(
                                             animatedTexts: [
                                               TypewriterAnimatedText(
-                                                "NATIVE ANDROID",
+                                                "${homeInfoCon.infoDetails?.info?.workFields?.nativeAndroid}",
                                                 cursor: "|",
                                                 textStyle: TextStyle(
                                                   fontSize: urlnPlatformCon.isMobile ? 12 : 18,
@@ -141,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 speed: const Duration(milliseconds: 130),
                                               ),
                                               TypewriterAnimatedText(
-                                                "FLUTTER (ANDROID, iOS, WEB)",
+                                                "${homeInfoCon.infoDetails?.info?.workFields?.flutter}",
                                                 cursor: "_",
                                                 textStyle: TextStyle(
                                                   fontSize: urlnPlatformCon.isMobile ? 12 : 18,
@@ -151,17 +150,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 speed: const Duration(milliseconds: 150),
                                               ),
                                               TypewriterAnimatedText(
-                                                "NODEJS",
+                                                "${homeInfoCon.infoDetails?.info?.workFields?.nodejs}",
                                                 cursor: "|",
                                                 textStyle: TextStyle(
                                                   fontSize: urlnPlatformCon.isMobile ? 12 : 18,
                                                   fontWeight: FontWeight.bold,
                                                   color: Color(0xFFFFF200),
                                                 ),
-                                                speed: const Duration(milliseconds: 200),
+                                                speed: const Duration(milliseconds: 180),
                                               ),
                                               TypewriterAnimatedText(
-                                                "VUEJS",
+                                                "${homeInfoCon.infoDetails?.info?.workFields?.springBoot}",
                                                 cursor: "_",
                                                 textStyle: TextStyle(
                                                   fontSize: urlnPlatformCon.isMobile ? 12 : 18,
@@ -170,7 +169,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 ),
                                                 speed: const Duration(milliseconds: 200),
                                               ),
-                                            ],                                          
+                                              TypewriterAnimatedText(
+                                                "${homeInfoCon.infoDetails?.info?.workFields?.vuejs}",
+                                                cursor: "_|",
+                                                textStyle: TextStyle(
+                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Color(0xFFFF9D00),
+                                                ),
+                                                speed: const Duration(milliseconds: 230),
+                                              ),
+                                            ],
                                             repeatForever: true,
                                             pause: const Duration(milliseconds: 1000),
                                             displayFullTextOnTap: true,
@@ -181,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             fontSize: urlnPlatformCon.isMobile ? 10 : 16,
                                           ),
                                         ],
-                                      ),                                   
+                                      ),
                                     ),
 
                                     SizedBox(height: urlnPlatformCon.isMobile ? 10 : 25),
@@ -193,31 +202,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                           icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.icon}',
                                           assetImage: Images.github,
                                           url: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.url}',
-                                          isMobile: urlnPlatformCon.isMobile,
                                         ),
                                         SocialMediaWidget(
                                           icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.icon}',
                                           assetImage: Images.stackOverFlow,
                                           url: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url}',
-                                          isMobile: urlnPlatformCon.isMobile,
                                         ),
                                         SocialMediaWidget(
                                           icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.icon}',
                                           assetImage: Images.linkedIn,
                                           url: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url}',
-                                          isMobile: urlnPlatformCon.isMobile,
                                         ),
                                         SocialMediaWidget(
                                           icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.icon}',
                                           assetImage: Images.twitter,
                                           url: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url}',
-                                          isMobile: urlnPlatformCon.isMobile,
                                         ),
                                         SocialMediaWidget(
                                           icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.icon}',
                                           assetImage: Images.facebook,
                                           url: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url}',
-                                          isMobile: urlnPlatformCon.isMobile,
                                         ),
                                       ],
                                     ),
@@ -251,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       height: urlnPlatformCon.isMobile ? 40 : null,
                                       text: "FIND OUT MORE",
                                       onPressed: () {
-                                        Get.to(()=> ThoughtsScreen());
+                                        Get.to(() => ThoughtsScreen());
                                       },
                                     ),
                                   ],

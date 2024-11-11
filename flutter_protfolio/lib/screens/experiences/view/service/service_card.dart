@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/screens/experiences/utils/service.dart';
-import '../../../../../components/constants.dart';
+import 'package:flutter_portfolio/screens/experiences/data/service_data.dart';
+import '../../../../components/constants.dart';
 
 
 class ServiceCard extends StatefulWidget {
@@ -12,7 +12,7 @@ class ServiceCard extends StatefulWidget {
   final int? index;
 
   @override
-  _ServiceCardState createState() => _ServiceCardState();
+  State<ServiceCard> createState() => _ServiceCardState();
 }
 
 class _ServiceCardState extends State<ServiceCard> {

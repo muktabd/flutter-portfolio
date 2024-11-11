@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/experiences/view/work_experiences.dart';
 import 'screens/home/view/home_screen.dart';
-import 'screens/projects/projects_screen.dart';
+import 'screens/resume/view/resume_screen.dart';
 import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
@@ -65,7 +65,8 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
-              // home: const ProjectsScreen(),
+              // home: const MyResumeScreen(),
+              // home: const WorkExperiencesScreen(),
               home: const HomeScreen(),
             );
           },

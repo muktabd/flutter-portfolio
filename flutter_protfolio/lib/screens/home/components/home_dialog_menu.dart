@@ -5,6 +5,7 @@ import 'package:flutter_portfolio/global/widgets/global_text.dart';
 import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
+import '../../../controller/url_controller/url_controller.dart';
 import '../../../global/constants/color_resources.dart';
 import '../../education/education_section.dart';
 import '../../projects/projects_screen.dart';
@@ -23,204 +24,208 @@ class HomeDialogWidget extends StatefulWidget {
 class _HomeDialogWidgetState extends State<HomeDialogWidget> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeController>(
-      builder: (themeCon) {
-        return Dialog(
-          backgroundColor: const Color(0x73000000),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.7,
-            width: MediaQuery.of(context).size.width * 0.5,
-            padding: const EdgeInsets.all(12.0),
-            child: SingleChildScrollView(
-              // Wrap with SingleChildScrollView
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+    return GetBuilder<UrlAndPlatformController>(
+            builder: (urlnPlatformCon) {
+        return GetBuilder<ThemeController>(
+          builder: (themeCon) {
+            return Dialog(
+              backgroundColor: const Color(0x73000000),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width * 0.5,
+                padding: const EdgeInsets.all(12.0),
+                child: SingleChildScrollView(
+                  // Wrap with SingleChildScrollView
+                  child: Column(
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        tooltip: 'Close',
-                        icon: Icon(Icons.close),
-                      )
-                    ],
-                  ),
-                  Center(child: GlobalText(str: 'Menu')),
-
-                  ///
-                  Column(
-                    children: [
-                      CustomListTile(
-                        leadingIcon: Icons.work_rounded,
-                        title: 'Work Experiences',
-                        onTap: () {
-                          Get.to(() => WorkExperiencesScreen());
-                        },
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            tooltip: 'Close',
+                            icon: Icon(Icons.close),
+                          )
+                        ],
                       ),
-                      CustomListTile(
-                        leadingIcon: Icons.chrome_reader_mode,
-                        title: 'Education',
-                        onTap: () {
-                          Get.to(() => EducationSection());
-                        },
+                      Center(child: GlobalText(str: 'Menu')),
+        
+                      ///
+                      Column(
+                        children: [
+                          CustomListTile(
+                            leadingIcon: Icons.work_rounded,
+                            title: 'Work Experiences',
+                            onTap: () {
+                              Get.to(() => WorkExperiencesScreen());
+                            },
+                          ),
+                          CustomListTile(
+                            leadingIcon: Icons.chrome_reader_mode,
+                            title: 'Education',
+                            onTap: () {
+                              Get.to(() => EducationSection());
+                            },
+                          ),
+                          CustomListTile(
+                            leadingIcon: Icons.access_alarms_outlined,
+                            title: 'Projects',
+                            onTap: () {
+                              Get.to(() => ProjectsScreen());
+                            },
+                          ),
+                          CustomListTile(
+                            leadingIcon: Icons.document_scanner_rounded,
+                            title: 'Resume',
+                            onTap: () {
+                              Get.to(() => MyResumeScreen());
+                            },
+                          ),
+                          CustomListTile(
+                            leadingIcon: Icons.document_scanner_rounded,
+                            title: 'My Blogs',
+                            onTap: () {
+                              Get.to(() => MyBlogsScreen());
+                            },
+                          ),
+                          CustomListTile(
+                            leadingIcon: Icons.document_scanner_rounded,
+                            title: 'Contact Me',
+                            onTap: () {
+                              Get.to(() => ContactSection());
+                            },
+                          ),
+                        ],
                       ),
-                      CustomListTile(
-                        leadingIcon: Icons.access_alarms_outlined,
-                        title: 'Projects',
-                        onTap: () {
-                          Get.to(() => ProjectsScreen());
-                        },
-                      ),
-                      CustomListTile(
-                        leadingIcon: Icons.document_scanner_rounded,
-                        title: 'Resume',
-                        onTap: () {
-                          Get.to(() => MyResumeScreen());
-                        },
-                      ),
-                      CustomListTile(
-                        leadingIcon: Icons.document_scanner_rounded,
-                        title: 'My Blogs',
-                        onTap: () {
-                          Get.to(() => MyBlogsScreen());
-                        },
-                      ),
-                      CustomListTile(
-                        leadingIcon: Icons.document_scanner_rounded,
-                        title: 'Contact Me',
-                        onTap: () {
-                          Get.to(() => ContactSection());
-                        },
-                      ),
-                    ],
-                  ),
-
-                  ///* ==@ THEME & LANGUAGE ==
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// * ==@ CHANGE LANGUAGES ==
-                      Container(
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: ColorRes.grey.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  themeCon.toggleTheme();
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                width: themeCon.themeValue ? 50 : 60,
-                                decoration: BoxDecoration(
-                                  color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Icon(
-                                  Icons.light_mode,
-                                  size: 20,
-                                  color: themeCon.getWhiteBlackColor(context),
-                                ),
-                              ),
+        
+                      ///* ==@ THEME & LANGUAGE ==
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          /// * ==@ CHANGE LANGUAGES ==
+                          Container(
+                            width: 120,
+                            decoration: BoxDecoration(
+                              color: ColorRes.grey.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  themeCon.toggleTheme();
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                width: themeCon.themeValue ? 60 : 50,
-                                decoration: BoxDecoration(
-                                  color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Icon(
-                                  Icons.dark_mode,
-                                  size: 20,
-                                  color: themeCon.getBlackGreyColor(context),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      sizedBoxW(10),
-
-                      /// * ==@ CHANGE THEME ==
-                      Spacer(),
-                      Container(
-                        width: 120,
-                        decoration: BoxDecoration(
-                          color: ColorRes.grey.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  themeCon.toggleTheme();
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                width: themeCon.themeValue ? 50 : 60,
-                                decoration: BoxDecoration(
-                                  color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: GlobalText(
-                                    str: 'EN',
-                                    fontSize: 18,
-                                    color: themeCon.getWhiteBlackColor(context),
+                            child: Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      themeCon.toggleTheme();
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: themeCon.themeValue ? 50 : 60,
+                                    decoration: BoxDecoration(
+                                      color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Icon(
+                                      Icons.light_mode,
+                                      size: 20,
+                                      color: themeCon.getWhiteBlackColor(context),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  themeCon.toggleTheme();
-                                });
-                              },
-                              child: Container(
-                                height: 40,
-                                width: themeCon.themeValue ? 60 : 50,
-                                decoration: BoxDecoration(
-                                  color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Center(
-                                  child: GlobalText(
-                                    str: 'BN',
-                                    fontSize: 18,
-                                    textAlign: TextAlign.center,
-                                    color: themeCon.getBlackGreyColor(context),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      themeCon.toggleTheme();
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: themeCon.themeValue ? 60 : 50,
+                                    decoration: BoxDecoration(
+                                      color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Icon(
+                                      Icons.dark_mode,
+                                      size: 20,
+                                      color: themeCon.getBlackGreyColor(context),
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          sizedBoxW(10),
+        
+                          /// * ==@ CHANGE THEME ==
+                          Spacer(),
+                          Container(
+                            width: 120,
+                            decoration: BoxDecoration(
+                              color: ColorRes.grey.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      themeCon.toggleTheme();
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: themeCon.themeValue ? 50 : 60,
+                                    decoration: BoxDecoration(
+                                      color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: GlobalText(
+                                        str: 'EN',
+                                        fontSize: 18,
+                                        color: themeCon.getWhiteBlackColor(context),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      themeCon.toggleTheme();
+                                    });
+                                  },
+                                  child: Container(
+                                    height: 40,
+                                    width: themeCon.themeValue ? 60 : 50,
+                                    decoration: BoxDecoration(
+                                      color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Center(
+                                      child: GlobalText(
+                                        str: 'BN',
+                                        fontSize: 18,
+                                        textAlign: TextAlign.center,
+                                        color: themeCon.getBlackGreyColor(context),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         );
-      },
+      }
     );
   }
 }

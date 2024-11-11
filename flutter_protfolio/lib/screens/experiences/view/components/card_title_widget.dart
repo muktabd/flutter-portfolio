@@ -5,8 +5,8 @@ import '../../../../components/constants.dart';
 import '../../../../controller/url_controller/url_controller.dart';
 import '../../../settings/theme/controller/theme_controller.dart';
 
-class SkillSectionTitle extends StatelessWidget {
-  const SkillSectionTitle({
+class CardTitleWidget extends StatelessWidget {
+  const CardTitleWidget({
     super.key,
     this.title,
     this.subTitle,
@@ -54,9 +54,9 @@ class SkillSectionTitle extends StatelessWidget {
                 ],
               ),
             );
-          }
+          },
         );
-      }
+      },
     );
   }
 }

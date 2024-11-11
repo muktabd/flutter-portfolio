@@ -8,8 +8,6 @@ import 'package:flutter_portfolio/components/default_button.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
-import '../experiences/view/feedback_section.dart';
-import '../experiences/view/service/service_section.dart';
 import 'components/socal_card.dart';
 
 class ContactSection extends StatelessWidget {

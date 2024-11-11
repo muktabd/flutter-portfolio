@@ -6,7 +6,6 @@ import '../../components/constants.dart';
 import '../../components/section_title.dart';
 import '../../controller/blog_post_controller.dart';
 import '../../global/methods/sizebox_widget.dart';
-import '../projects/projects_screen.dart';
 
 class MyBlogsScreen extends StatefulWidget {
   const MyBlogsScreen({super.key});

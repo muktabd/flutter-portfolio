@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 import '../../../components/constants.dart';
-import 'feedback.dart';
-
-
+import '../data/feedback_data.dart';
 
 class FeedbackCard extends StatefulWidget {
   const FeedbackCard({
@@ -15,7 +12,7 @@ class FeedbackCard extends StatefulWidget {
   final int? index;
 
   @override
-  _FeedbackCardState createState() => _FeedbackCardState();
+  State<FeedbackCard> createState() => _FeedbackCardState();
 }
 
 class _FeedbackCardState extends State<FeedbackCard> {
@@ -35,8 +32,8 @@ class _FeedbackCardState extends State<FeedbackCard> {
         duration: duration,
         margin: const EdgeInsets.only(top: kDefaultPadding * 3),
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        height: 400,
         width: 350,
+        height: 450,
         decoration: BoxDecoration(
           color: feedbacks[widget.index!].color,
           borderRadius: BorderRadius.circular(10),

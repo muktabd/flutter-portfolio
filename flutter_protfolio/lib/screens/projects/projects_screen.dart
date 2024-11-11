@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
-import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import '../../components/default_button.dart';
 import '../../components/hireme_card.dart';
-import '../../controller/blog_post_controller.dart';
 import 'components/recent_work_card.dart';
 import 'more_projects.dart';
 

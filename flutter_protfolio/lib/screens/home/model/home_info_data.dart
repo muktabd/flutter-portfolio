@@ -12,9 +12,8 @@ class Info {
   String? background;
   String? firstName;
   String? lastName;
-  String? openToWork;
   String? designation;
-  String? workFields;
+  WorkFields? workFields;
   SocialMedia? socialMedia;
   Thoughts? thoughts;
 
@@ -22,7 +21,6 @@ class Info {
     this.background,
     this.firstName,
     this.lastName,
-    this.openToWork,
     this.designation,
     this.workFields,
     this.socialMedia,
@@ -33,11 +31,34 @@ class Info {
     background = json['background'];
     firstName = json['first_name'];
     lastName = json['last_name'];
-    openToWork = json['open_to_work'];
     designation = json['designation'];
-    workFields = json['work_fields'];
+    workFields = json['work_fields'] != null ? WorkFields.fromJson(json['work_fields']) : null;
     socialMedia = json['social_media'] != null ? SocialMedia.fromJson(json['social_media']) : null;
     thoughts = json['thoughts'] != null ? Thoughts.fromJson(json['thoughts']) : null;
+  }
+}
+
+class WorkFields {
+  String? nativeAndroid;
+  String? flutter;
+  String? nodejs;
+  String? springBoot;
+  String? vuejs;
+
+  WorkFields({
+    this.nativeAndroid,
+    this.flutter,
+    this.nodejs,
+    this.springBoot,
+    this.vuejs,
+  });
+
+  WorkFields.fromJson(Map<String, dynamic> json) {
+    nativeAndroid = json['native_android'];
+    flutter = json['flutter'];
+    nodejs = json['nodejs'];
+    springBoot = json['spring_boot'];
+    vuejs = json['vuejs'];
   }
 }
 

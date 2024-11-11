@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/screens/experiences/utils/service.dart';
+import 'package:flutter_portfolio/screens/experiences/data/service_data.dart';
 
 import '../../../../components/constants.dart';
-import '../../utils/skills.dart';
+import '../../data/skills_data.dart';
 
 
 class SkillsCard extends StatefulWidget {

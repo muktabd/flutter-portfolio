@@ -7,9 +7,14 @@
             "background": "https://backgroups.google.com/background/image.png",
             "first_name": "ABDULLAH IBNA",
             "last_name": "MUKTA",
-            "open_to_work": "Ready to work from any of these fields",
             "designation": "Full Stack Developer",
-            "work_fields": "Flutter(Android, iOS, Web), NodeJS, VueJS & Spring Boot",
+            "work_fields": {
+                "native_android" : "NATIVE ANDROID",
+                "flutter" : "FLUTTER (ANDROID, iOS, WEB)",
+                "nodejs" : "NODEJS",
+                "spring_boot" : "SPRING BOOT",
+                "vuejs" : "VUEJS"
+            },
             "social_media": {
                 "linkedin": {
                     "icon": "https://banner2.cleanpng.com/20180529/str/avpsm7w6e.webp",
