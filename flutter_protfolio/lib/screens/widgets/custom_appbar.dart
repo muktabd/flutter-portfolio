@@ -35,16 +35,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
-      builder: (themeController) {
+      builder: (themeCon) {
         return AppBar(
-          backgroundColor: backgroundColor ?? themeController.getDartLightAppBarBackColor(context),
+          backgroundColor: backgroundColor ?? themeCon.getDartLightAppBarBackColor(context),
           automaticallyImplyLeading: automaticallyImplyLeading ?? true,
           centerTitle: centerTitle ?? true,
           elevation: 0,
           title: Text(
             title ?? "",
             style: montserratSemiBold.copyWith(
-              color: textColor ?? ColorRes.getWhiteBlackColor(context),
+              color: textColor ?? themeCon.getWhiteBlackColor(context),
             ),
           ),
           leading: leading ??
@@ -55,7 +55,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
                 icon: Icon(
                   Icons.arrow_back_ios,
-                  color: ColorRes.getWhiteBlackColor(context),
+                  color: themeCon.getWhiteBlackColor(context),
                   size: 16,
                 ),
               ),

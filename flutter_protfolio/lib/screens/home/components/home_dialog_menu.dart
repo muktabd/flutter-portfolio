@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/custom_listtile.dart';
@@ -7,12 +9,14 @@ import 'package:get/get.dart';
 
 import '../../../controller/url_controller/url_controller.dart';
 import '../../../global/constants/color_resources.dart';
-import '../../education/education_section.dart';
+import '../../../localization/localization_controller.dart';
+import '../../education/view/education_section.dart';
 import '../../projects/projects_screen.dart';
-import '../../contact/contact_section.dart';
+import '../../contact/view/contact_section.dart';
 import '../../resume/view/resume_screen.dart';
 import '../../experiences/view/work_experiences.dart';
-import '../../blogs/my_blogs.dart';
+import '../../blogs/view/my_blog_screen.dart';
+import '../../settings/language/controller/language_controller.dart';
 
 class HomeDialogWidget extends StatefulWidget {
   const HomeDialogWidget({super.key});
@@ -22,210 +26,236 @@ class HomeDialogWidget extends StatefulWidget {
 }
 
 class _HomeDialogWidgetState extends State<HomeDialogWidget> {
+  String? nowContryCode;
+  @override
+  void initState() {
+    super.initState();
+    Get.find<LanguageController>().getAllLanguage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<UrlAndPlatformController>(
-            builder: (urlnPlatformCon) {
-        return GetBuilder<ThemeController>(
-          builder: (themeCon) {
-            return Dialog(
-              backgroundColor: const Color(0x73000000),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.7,
-                width: MediaQuery.of(context).size.width * 0.5,
-                padding: const EdgeInsets.all(12.0),
-                child: SingleChildScrollView(
-                  // Wrap with SingleChildScrollView
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+      builder: (urlnPlatformCon) {
+        return GetBuilder<LanguageController>(
+          builder: (langCon) {
+            return GetBuilder<ThemeController>(
+              builder: (themeCon) {
+                return Dialog(
+                  backgroundColor: const Color(0x73000000),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.7,
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    padding: const EdgeInsets.all(12.0),
+                    child: SingleChildScrollView(
+                      // Wrap with SingleChildScrollView
+                      child: Column(
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            tooltip: 'Close',
-                            icon: Icon(Icons.close),
-                          )
-                        ],
-                      ),
-                      Center(child: GlobalText(str: 'Menu')),
-        
-                      ///
-                      Column(
-                        children: [
-                          CustomListTile(
-                            leadingIcon: Icons.work_rounded,
-                            title: 'Work Experiences',
-                            onTap: () {
-                              Get.to(() => WorkExperiencesScreen());
-                            },
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                tooltip: 'Close',
+                                icon: Icon(Icons.close),
+                              )
+                            ],
                           ),
-                          CustomListTile(
-                            leadingIcon: Icons.chrome_reader_mode,
-                            title: 'Education',
-                            onTap: () {
-                              Get.to(() => EducationSection());
-                            },
+                          Center(child: GlobalText(str: 'menu'.tr)),
+
+                          ///
+                          Column(
+                            children: [
+                              CustomListTile(
+                                leadingIcon: Icons.work_rounded,
+                                title: 'Work Experiences',
+                                onTap: () {
+                                  Get.to(() => WorkExperiencesScreen());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.chrome_reader_mode,
+                                title: 'Education',
+                                onTap: () {
+                                  Get.to(() => EducationSection());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.access_alarms_outlined,
+                                title: 'Projects',
+                                onTap: () {
+                                  Get.to(() => ProjectsScreen());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.document_scanner_rounded,
+                                title: 'Resume',
+                                onTap: () {
+                                  Get.to(() => MyResumeScreen());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.document_scanner_rounded,
+                                title: 'My Blogs',
+                                onTap: () {
+                                  Get.to(() => MyBlogsScreen());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.document_scanner_rounded,
+                                title: 'Contact Me',
+                                onTap: () {
+                                  Get.to(() => ContactSection());
+                                },
+                              ),
+                            ],
                           ),
-                          CustomListTile(
-                            leadingIcon: Icons.access_alarms_outlined,
-                            title: 'Projects',
-                            onTap: () {
-                              Get.to(() => ProjectsScreen());
-                            },
-                          ),
-                          CustomListTile(
-                            leadingIcon: Icons.document_scanner_rounded,
-                            title: 'Resume',
-                            onTap: () {
-                              Get.to(() => MyResumeScreen());
-                            },
-                          ),
-                          CustomListTile(
-                            leadingIcon: Icons.document_scanner_rounded,
-                            title: 'My Blogs',
-                            onTap: () {
-                              Get.to(() => MyBlogsScreen());
-                            },
-                          ),
-                          CustomListTile(
-                            leadingIcon: Icons.document_scanner_rounded,
-                            title: 'Contact Me',
-                            onTap: () {
-                              Get.to(() => ContactSection());
-                            },
-                          ),
-                        ],
-                      ),
-        
-                      ///* ==@ THEME & LANGUAGE ==
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          /// * ==@ CHANGE LANGUAGES ==
-                          Container(
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: ColorRes.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      themeCon.toggleTheme();
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: themeCon.themeValue ? 50 : 60,
-                                    decoration: BoxDecoration(
-                                      color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Icon(
-                                      Icons.light_mode,
-                                      size: 20,
-                                      color: themeCon.getWhiteBlackColor(context),
-                                    ),
-                                  ),
+
+                          ///* ==@ THEME & LANGUAGE ==
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              /// * ==@ CHANGE THEME ==
+                              Container(
+                                width: 120,
+                                decoration: BoxDecoration(
+                                  color: ColorRes.grey.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      themeCon.toggleTheme();
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: themeCon.themeValue ? 60 : 50,
-                                    decoration: BoxDecoration(
-                                      color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Icon(
-                                      Icons.dark_mode,
-                                      size: 20,
-                                      color: themeCon.getBlackGreyColor(context),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          sizedBoxW(10),
-        
-                          /// * ==@ CHANGE THEME ==
-                          Spacer(),
-                          Container(
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: ColorRes.grey.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      themeCon.toggleTheme();
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: themeCon.themeValue ? 50 : 60,
-                                    decoration: BoxDecoration(
-                                      color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: GlobalText(
-                                        str: 'EN',
-                                        fontSize: 18,
-                                        color: themeCon.getWhiteBlackColor(context),
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          themeCon.toggleTheme();
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: themeCon.themeValue ? 50 : 60,
+                                        decoration: BoxDecoration(
+                                          color: themeCon.themeValue ? Colors.transparent : const Color(0xffFFDB84),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Icon(
+                                          Icons.light_mode,
+                                          size: 20,
+                                          color: themeCon.getWhiteBlackColor(context),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      themeCon.toggleTheme();
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 40,
-                                    width: themeCon.themeValue ? 60 : 50,
-                                    decoration: BoxDecoration(
-                                      color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Center(
-                                      child: GlobalText(
-                                        str: 'BN',
-                                        fontSize: 18,
-                                        textAlign: TextAlign.center,
-                                        color: themeCon.getBlackGreyColor(context),
+                                    GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          themeCon.toggleTheme();
+                                        });
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: themeCon.themeValue ? 60 : 50,
+                                        decoration: BoxDecoration(
+                                          color: themeCon.themeValue ? const Color(0xffFFDB84) : Colors.transparent,
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Icon(
+                                          Icons.dark_mode,
+                                          size: 20,
+                                          color: themeCon.getBlackGreyColor(context),
+                                        ),
                                       ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                              sizedBoxW(10),
+
+                              /// * ==@ CHANGE LANGUAGES ==
+                              Spacer(),
+                              Container(
+                                width: 120,
+                                decoration: BoxDecoration(
+                                  color: ColorRes.grey.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Row(
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Get.find<LocalizationController>().setLanguage(Locale(
+                                          langCon.languageNameList?.languageList?[0].langCode ?? "en",
+                                          langCon.languageNameList?.languageList?[0].countryCode,
+                                        ));
+                                        langCon.setSelectIndex(0);
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: themeCon.themeValue ? 50 : 60,
+                                        decoration: BoxDecoration(
+                                          color:
+                                              langCon.selectIndex == 0 ? const Color(0xffFFDB84) : Colors.transparent,
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Center(
+                                          child: GlobalText(
+                                            str: langCon.languageNameList?.languageList?[0].countryCode ?? 'EN',
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                            /* color: langCon.selectIndex == 0
+                                                ? themeCon.getWhiteBlackColor(context)
+                                                : themeCon.getBlackGreyColor(context), */
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () async {
+                                        Get.find<LocalizationController>().setLanguage(Locale(
+                                          langCon.languageNameList?.languageList?[1].langCode ?? "bn",
+                                          langCon.languageNameList?.languageList?[1].countryCode,
+                                        ));
+                                        langCon.setSelectIndex(1);
+                                        setState(() {});
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: themeCon.themeValue ? 60 : 50,
+                                        decoration: BoxDecoration(
+                                          color:
+                                              langCon.selectIndex == 1 ? const Color(0xffFFDB84) : Colors.transparent,
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Center(
+                                          child: GlobalText(
+                                            str: langCon.languageNameList?.languageList?[1].countryCode ?? 'BN',
+                                            fontSize: 18,
+                                            textAlign: TextAlign.center,
+                                            color: Colors.white,
+                                            /* color: langCon.selectIndex == 1
+                                                ? themeCon.getWhiteBlackColor(context)
+                                                : themeCon.getBlackGreyColor(context), */
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
+                          
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
+                );
+              },
             );
           },
         );
-      }
+      },
     );
   }
 }

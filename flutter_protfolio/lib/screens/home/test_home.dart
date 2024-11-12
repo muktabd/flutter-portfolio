@@ -195,6 +195,6 @@ class _HomeTestState extends State<HomeTest> {
           );
         },
       );
-    });
+    },);
   }
 }

@@ -27,7 +27,7 @@ class _TitledSeeMoreWidgetState extends State<TitledSeeMoreWidget> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
-      builder: (themeController) {
+      builder: (themeCon) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
@@ -36,7 +36,7 @@ class _TitledSeeMoreWidgetState extends State<TitledSeeMoreWidget> {
               Text(
                 widget.text,
                 style: montserratSemiBold.copyWith(
-                  color: ColorRes.getWhiteBlackColor(context),
+                  color: themeCon.getWhiteBlackColor(context),
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

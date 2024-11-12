@@ -4,16 +4,11 @@
     "error": {},
     "data": {
         "info": {
-            "background": "https://backgroups.google.com/background/image.png",
-            "first_name": "ABDULLAH IBNA",
-            "last_name": "MUKTA",
-            "designation": "Full Stack Developer",
-            "work_fields": {
-                "native_android" : "NATIVE ANDROID",
-                "flutter" : "FLUTTER (ANDROID, iOS, WEB)",
-                "nodejs" : "NODEJS",
-                "spring_boot" : "SPRING BOOT",
-                "vuejs" : "VUEJS"
+            "personal_details": {
+                "email": "abdullahibnamukta@gmail.com",
+                "phone": "+8801824262003",
+                "secondary_phone": "+60187832241",
+                "skype": "+60187832241"
             },
             "social_media": {
                 "linkedin": {
@@ -35,11 +30,11 @@
                 "facebook": {
                     "icon": "https://www.facebook.com/favicon.ico",
                     "url": "https://www.facebook.com/mukta.2003/"
+                },
+                "whatsapp": {
+                    "icon": "https://www.facebook.com/favicon.ico",
+                    "url": "wa.me/+60187832241"
                 }
-            },
-            "thoughts": {
-                "title": "Thoughts Of The Mind",
-                "subtitle": "“Need Some Failures to Tell Your Successful Story”"
             }
         }
     }

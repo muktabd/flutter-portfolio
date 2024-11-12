@@ -2,8 +2,8 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'controller/blog_post_controller.dart';
-import 'controller/contact_me_controller.dart';
+import 'screens/blogs/controller/blog_post_controller.dart';
+import 'screens/contact/controller/contact_me_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
 import 'localization/localization_controller.dart';
 import 'screens/home/controller/home_info_controller.dart';

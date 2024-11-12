@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../controller/url_controller/url_controller.dart';
+import '../../../global/widgets/network_image_with_loader.dart';
 
 class SocialMediaWidget extends StatelessWidget {
   final String assetImage, icon, url;
@@ -23,14 +23,17 @@ class SocialMediaWidget extends StatelessWidget {
           width: urlnPlatformCon.isMobile ? 45 : 60,
           height: urlnPlatformCon.isMobile ? 45 : 60,
           child: IconButton(
-            // icon: CircleAvatar(backgroundImage: NetworkImage('https://cors-anywhere.herokuapp.com/$icon')),
-            icon: icon.isNotEmpty || icon != 'null'
-                ? CircleAvatar(
-                    backgroundImage: CachedNetworkImageProvider(icon),
-                    foregroundImage: CachedNetworkImageProvider(icon),
-                    // child: Icon(Icons.error),
+            icon: icon != null
+                ? SizedBox(
+                    height: 80,
+                    width: 80,
+                    child: NetworkImageWithLoader(icon),
                   )
-                : Image.asset(assetImage),
+                : Image.asset(
+                    assetImage,
+                    height: 80,
+                    width: 80,
+                  ),
             onPressed: () async {
               if (!await launchUrl(Uri.parse(url))) {
                 throw Exception('Could not launch $url');

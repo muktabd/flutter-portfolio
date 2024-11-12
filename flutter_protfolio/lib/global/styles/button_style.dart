@@ -10,7 +10,7 @@ class ButtonStyles {
   static ButtonStyle getThemeStyle(BuildContext context) {
     return ButtonStyle(
       backgroundColor: WidgetStateProperty.all(
-        ColorRes.getRedColor(context)
+        ColorRes.red,
       ),
       foregroundColor: WidgetStateProperty.all(Colors.white),
     );

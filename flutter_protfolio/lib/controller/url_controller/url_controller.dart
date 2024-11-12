@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import '../../domain/server/http_client/app_config.dart';
 import '../../domain/server/http_client/response_wrapper.dart';
-import 'model/baseurl_response_wrapper.dart';
+import '../model/baseurl_response_wrapper.dart';
 
 class UrlAndPlatformController extends GetxController {
   static UrlAndPlatformController get find => Get.find();

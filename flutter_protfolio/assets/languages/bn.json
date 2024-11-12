@@ -1,12 +1,6 @@
 {
     "title": "Folder Structure",
-    "opening_screen": "OPENING_SCREEN",
-    "onboard_tech_zone": "We provides all kinds of software solutions\nTextServices and consultancy",
-    "onboard_std_win": "We provides all kinds of software solutions\nTextServices and consultancy",
-    "onboard_agro": "We provides all kinds of software solutions\nTextServices and consultancy",
-    "onboard_delivery": "We provides all kinds of software solutions\nTextServices and consultancy",
-    "onboard_school": "We provides all kinds of software solutions\nTextServices and consultancy",
-    "onboard_old_age": "We provides all kinds of software solutions\nTextServices and consultancy",
+    "menu": "শুরু করুন",
     "get_statarted": "শুরু করুন",
 
     "login_screen": "LOGIN_SCREEN",

@@ -4,10 +4,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/domain/server/http_client/app_config.dart';
 import 'package:flutter_portfolio/models/api_model/blog_post_model.dart';
-import 'package:flutter_portfolio/models/api_model/contact_me_model.dart';
+import 'package:flutter_portfolio/screens/contact/model/req_contact_me.dart';
 import 'package:get/get.dart';
 
-import '../domain/server/http_client/api_clients.dart';
+import '../../../domain/server/http_client/api_clients.dart';
 
 
 class BlogPostController extends GetxController {
@@ -32,8 +32,7 @@ class BlogPostController extends GetxController {
 
     String url = AppConfig.baseUrl + AppConfig.createPostUri;
     var response = await ApiClients.postData(params, url);
-    ContactMeModel contactMeModel = ContactMeModel.fromJson(response);
-    log(contactMeModel.code.toString());
+
     log(url);
   }
 

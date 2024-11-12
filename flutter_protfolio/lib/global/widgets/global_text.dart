@@ -47,13 +47,11 @@ class GlobalText extends StatelessWidget {
           builder: (themeCon) {
             return Text(
               str,
-              
               maxLines: maxLines,
               overflow: overflow,
               textAlign: textAlign,
               softWrap: softwrap,
               style: TextStyle(
-                
                 color: color ?? themeCon.getBlackWhiteColor(context),
                 fontSize: fontSize,
                 fontWeight: fontWeight,

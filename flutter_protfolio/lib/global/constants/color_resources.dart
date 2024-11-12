@@ -7,62 +7,29 @@ class ColorRes {
   ColorRes(this.context);
   static ThemeController themeFind = Get.find<ThemeController>();
 
-
-  static Color getDarkLightAppBarColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? dartAppBarBackColor : greyShadded200;
-  }
-  static Color getDarkLightBgColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? darkBackGroundColor : greyShadded;
-  }
-
-  static Color getDarkLightGaroColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? darkGaro : backgroundColor;
-  }
-
-  static Color getBlackWhiteColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? black : white;
-  }
-
-  static Color getWhiteBlackColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? white : black;
-  }
-
-  static Color getRedColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? red : blue;
-  }
-
-  static Color getButtonColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? red.withOpacity(0.9) : darkBackGroundColor;
-  }
-  static Color getGoldolor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? gold : blue;
-  }
+  /// * ==@ GRADIENT COLOR ==
+  static const Color bgDarkColor1 = Color(0xFF222C5E);
+  static const Color bgDarkColor2 = Color(0xE9252B48);
+  static const Color bgDarkColor3 = Color(0xC4252B48);
+  static const Color bgLightColor1 = Color(0xFF493434);
+  static const Color bgLightColor2 = Color(0xDE493434);
+  static const Color bgLightColor3 = Color(0xB3493434);
 
   // ==# AppBar Color
- static const Color dartAppBarBackColor = Color(0xFF252B48);
- static const Color lightAppBarBackColor = Color(0xFFFFFFFF);
+  static const Color dartAppBarBackColor = Color(0xFF252B48);
+  static const Color lightAppBarBackColor = Color(0xFFFFFFFF);
 
- static const Color darkBackGroundColor = Color(0xFF212741);
- static const Color lightBackGroundColor = Color(0xFFEDEDED);
+  static const Color darkBackGroundColor = Color(0xFF212741);
+  static const Color lightBackGroundColor = Color(0xFFEDEDED);
 
- static const Color darkSettingConBackColor = Color(0xFF016D94);
+  static const Color darkSettingConBackColor = Color(0xFF016D94);
 
- static const Color darkButtonBgColor = Color(0xFF252B48);
- static const Color darkDialogBoxBgColor = Color(0xFF212741);
- static const Color darkDrawerBgColor = Color(0xFF212741);
- static const Color darkGreyColor = Color(0xFF2F375B);
-
+  static const Color darkButtonBgColor = Color(0xFF252B48);
+  static const Color darkDialogBoxBgColor = Color(0xFF212741);
+  static const Color darkDrawerBgColor = Color(0xFF212741);
+  static const Color darkGreyColor = Color(0xFF2F375B);
 
   static const Color black = Color(0xFF000000);
-
 
   static const Color white = Color(0xFFFFFFFF);
   static const Color blue = Color(0xFF2196F3);
@@ -95,7 +62,7 @@ class ColorRes {
   static const Color bronze = Color(0xFFCD7F32);
   static const Color magenta = Color(0xFFFF00FF);
   static const Color cream = Color(0xFFFFFDD0);
-  static const Color coral  = Color(0xFFFF7F50);
+  static const Color coral = Color(0xFFFF7F50);
   static const Color tan = Color(0xFFD2B48C);
   static const Color tral = Color(0xFF009688);
   static const Color lavender = Color(0xFFE6E6FA);
@@ -126,8 +93,6 @@ class ColorRes {
   static const Color deep250 = Color(0xFF7C7C7C);
   static const Color deep300 = Color(0xFF545454);
   static const Color deep400 = Color(0xFF2D2D2D);
-
-
 
   static const Map<int, Color> colorMap = {
     50: Color(0x10192D6B),

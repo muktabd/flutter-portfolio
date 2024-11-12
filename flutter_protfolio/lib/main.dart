@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
 import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
+import 'package:flutter_portfolio/screens/projects/projects_screen.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'screens/blogs/view/my_blog_screen.dart';
+import 'screens/contact/view/contact_section.dart';
+import 'screens/education/view/education_section.dart';
 import 'screens/experiences/view/work_experiences.dart';
 import 'screens/home/view/home_screen.dart';
 import 'screens/resume/view/resume_screen.dart';
@@ -65,8 +69,11 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
+              // home: const ContactSection(),
               // home: const MyResumeScreen(),
               // home: const WorkExperiencesScreen(),
+              // home: const ProjectsScreen(),
+              // home: const EducationSection(),
               home: const HomeScreen(),
             );
           },

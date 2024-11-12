@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:flutter_portfolio/global/widgets/network_image_with_loader.dart';
 
 import '../../../components/constants.dart';
+import '../../../global/constants/images.dart';
 
 class SocalCard extends StatefulWidget {
   const SocalCard({
     super.key,
+    this.iconUrl,
     this.iconSrc,
     this.name,
     this.color,
     this.press,
   });
 
-  final String? iconSrc, name;
+  final String? iconSrc, name, iconUrl;
   final Color? color;
   final Function? press;
 
   @override
-  _SocalCardState createState() => _SocalCardState();
+  State<SocalCard> createState() => _SocalCardState();
 }
 
 class _SocalCardState extends State<SocalCard> {
@@ -43,13 +47,19 @@ class _SocalCardState extends State<SocalCard> {
         ),
         child: Row(
           children: [
-            Image.asset(
-              widget.iconSrc!,
-              height: 80,
-              width: 80,
-            ),
+            widget.iconUrl != null
+                ? SizedBox(
+                    height: 80,
+                    width: 80,
+                    child: NetworkImageWithLoader(widget.iconUrl ?? Images.newtWorkImageUrl),
+                  )
+                : Image.asset(
+                    widget.iconSrc ?? Images.placeholder,
+                    height: 80,
+                    width: 80,
+                  ),
             const SizedBox(width: kDefaultPadding),
-            Text(widget.name!),
+            GlobalText(str: widget.name ?? '-'),
           ],
         ),
       ),

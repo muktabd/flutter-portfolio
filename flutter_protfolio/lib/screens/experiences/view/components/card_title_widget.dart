@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
 import 'package:get/get.dart';
 
 import '../../../../components/constants.dart';
@@ -36,7 +37,7 @@ class CardTitleWidget extends StatelessWidget {
                     color: Color(0xFF007BBE),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        color: color,
+                        color: color ?? Colors.yellow.shade900,
                       ),
                     ),
                   ),
@@ -44,11 +45,15 @@ class CardTitleWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        subTitle!,
-                        style: const TextStyle(fontWeight: FontWeight.w200, color: Color(0xFF181816)),
+                      GlobalText(
+                        str: subTitle ?? "",
+                        fontWeight: FontWeight.w200,
                       ),
-                      Text(title!, style: TextStyle(fontWeight: FontWeight.bold)),
+                      GlobalText(
+                        str: title ?? "",
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ],
                   )
                 ],

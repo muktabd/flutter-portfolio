@@ -10,6 +10,7 @@ class CustomButtonWidget extends StatelessWidget {
   final double? height;
   final double? width;
   final Widget? icon;
+  final String? image;
   final Color? color;
   final Color? borderColor;
   final double? textSize;
@@ -25,6 +26,7 @@ class CustomButtonWidget extends StatelessWidget {
     this.height,
     this.width,
     this.icon,
+    this.image,
     this.color,
     this.borderColor,
     this.textSize,
@@ -38,7 +40,7 @@ class CustomButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
-      builder: (themeController) {
+      builder: (themeCon) {
         return Container(
           height: height ?? 50,
           width: width ?? MediaQuery.of(context).size.width,
@@ -46,7 +48,7 @@ class CustomButtonWidget extends StatelessWidget {
           child: ElevatedButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
-              backgroundColor: color ?? ColorRes.getButtonColor(context),
+              backgroundColor: color ?? themeCon.getGoldBlueColor(context),
               // shadowColor: ColorRes.red,
               side: BorderSide(color: borderColor ?? Colors.transparent, width: 0.3),
               shape: RoundedRectangleBorder(
@@ -59,13 +61,20 @@ class CustomButtonWidget extends StatelessWidget {
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      icon ?? const SizedBox.shrink(),
+                      // icon != null ? icon : (image != null ? Image.asset(image ?? '') : const SizedBox.shrink()),
+                      icon ??
+                          (image != null
+                              ? Image.asset(
+                                  image ?? '',
+                                  fit: BoxFit.fill,
+                                )
+                              : const SizedBox.shrink()),
                       const SizedBox(width: 5),
                       GlobalText(
                         str: text,
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: textColor ?? themeController.getBlackWhiteColor(context),
+                        color: textColor ?? themeCon.getBlackWhiteColor(context),
                       ),
                     ],
                   )
@@ -73,7 +82,7 @@ class CustomButtonWidget extends StatelessWidget {
                     str: text,
                     fontSize: textSize ?? 14,
                     fontWeight: FontWeight.w400,
-                    color: textColor ?? themeController.getBlackWhiteColor(context),
+                    color: textColor ?? themeCon.getBlackWhiteColor(context),
                   ),
           ),
         );

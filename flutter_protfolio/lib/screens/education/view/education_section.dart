@@ -4,24 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
+import '../../../global/widgets/custom_devider.dart';
+import '../../widgets/bottom_copyrights.dart';
+import '../../widgets/customised_scaffold.dart';
+
 class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
+    return CustomisedScaffold(
+      mainScaffold: Container(
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
         constraints: const BoxConstraints(maxWidth: 1110),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SectionTitle(
-                color: Colors.purple,
-                title: "Education History",
-                subTitle: "My Educational Background",
-              ),
-              Row(
+        child: Column(
+          children: [
+            const SectionTitle(
+              color: Colors.purple,
+              title: "Education History",
+              subTitle: "My Educational Background",
+            ),
+            Container(
+              // color: Color(0xFFFFB100),
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height,
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     child: EducationCard(
@@ -48,9 +56,12 @@ class EducationSection extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+
+            ///
+              BottomCopyRights(),
+          ],
         ),
       ),
     );
@@ -102,7 +113,7 @@ class _EducationCardState extends State<EducationCard> {
         duration: duration,
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
         padding: const EdgeInsets.all(kDefaultPadding * 1.5),
-        height: 280,
+        height: 380,
         width: 256,
         decoration: BoxDecoration(
           color: widget.record.bgColor ?? Colors.blue.shade50,
@@ -116,7 +127,7 @@ class _EducationCardState extends State<EducationCard> {
             Padding(
               padding: const EdgeInsets.only(bottom: kDefaultPadding, left: 8),
               child: CircleAvatar(
-                radius: 35,
+                radius: 75,
                 foregroundImage: widget.record.imgLink,
               ),
             ),

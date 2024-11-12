@@ -251,6 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     const SizedBox(height: 20),
 
                                     CustomButtonWidget(
+                                      color: Colors.red,
                                       width: urlnPlatformCon.isMobile ? 140 : 180,
                                       height: urlnPlatformCon.isMobile ? 40 : null,
                                       text: "FIND OUT MORE",

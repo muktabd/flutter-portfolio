@@ -10,8 +10,10 @@ import 'package:flutter_portfolio/components/my_outline_button.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
 import '../../../global/constants/images.dart';
+import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/custom_toast.dart';
 import '../../settings/theme/controller/theme_controller.dart';
+import '../../widgets/bottom_copyrights.dart';
 
 class MyResumeScreen extends StatefulWidget {
   const MyResumeScreen({super.key});
@@ -57,7 +59,7 @@ class _MyResumeScreenState extends State<MyResumeScreen> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Left-Side Menu
+                      /// * LEFT-SIDE MENU
                       Container(
                         color: Colors.amber,
                         width: 180,
@@ -208,6 +210,9 @@ class _MyResumeScreenState extends State<MyResumeScreen> {
                       ),
                     ],
                   ),
+                  ///
+                  ///
+                    BottomCopyRights(),
                 ],
               ),
             ),

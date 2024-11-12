@@ -14,6 +14,7 @@ class LanguageController extends GetxController implements GetxService {
 
   void setSelectIndex(int index) {
     _selectIndex = index;
+    log('log ?? $index');
     update();
   }
 
@@ -26,8 +27,8 @@ class LanguageController extends GetxController implements GetxService {
       //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
       ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
       if (resWrap.status == "200") {
-        languageNameList = LanguageData.fromJson(resWrap.data!);
-        log("all language ?? $languageNameList");
+        languageNameList = LanguageData.fromJson(resWrap.data ?? {});
+        // log("all language ?? $languageNameList");
         return languageNameList;
       } else {
         return null;

@@ -18,11 +18,15 @@ class Images {
   static String apiDev = "assets/icons/api.png";
   static String uiux = "assets/icons/ui.png";
 
+  static String placeholder = "assets/images/image_placeholder.jpeg";
+
   static String github = "assets/images/github.png";
   static String stackOverFlow = "assets/images/stack-overflow.png";
   static String linkedIn = "assets/images/background.jpg";
   static String xTwitter = "assets/images/twitter.png";
   static String facebook = "assets/images/facebook.png";
+  static String skype = "assets/images/facebook.png";
+  static String whatsapp = "assets/images/facebook.png";
 
   //
   static String weHealthLogo = "assets/company/wehealthwebp.webp";
