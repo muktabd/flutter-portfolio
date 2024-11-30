@@ -37,7 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return GetBuilder<ThemeController>(
       builder: (themeCon) {
         return AppBar(
-          backgroundColor: backgroundColor ?? themeCon.getDartLightAppBarBackColor(context),
+          backgroundColor: backgroundColor ?? themeCon.getDarkLightBackGroundColor(context),
           automaticallyImplyLeading: automaticallyImplyLeading ?? true,
           centerTitle: centerTitle ?? true,
           elevation: 0,

@@ -1,12 +1,10 @@
-import 'dart:ui';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/screens/widgets/customised_scaffold.dart';
-import 'package:flutter_portfolio/screens/widgets/customised_scroll_view.dart';
 import 'package:get/get.dart';
 import '../../../controller/url_controller/url_controller.dart';
 import '../../../global/constants/images.dart';
-import '../../../global/widgets/custom_devider.dart';
 import '../../widgets/bottom_copyrights.dart';
 import '../data/feedback_data.dart';
 import '../data/skills_data.dart';
@@ -43,15 +41,17 @@ class _WorkExperiencesScreenState extends State<WorkExperiencesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    log("now width ?? ${size.width}");
     return GetBuilder<UrlAndPlatformController>(
       builder: (urlnPlatformCon) {
         return GetBuilder<ThemeController>(
           builder: (themeCon) {
             return CustomisedScaffold(
               mainScaffold: Container(
-                padding: const EdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   vertical: kDefaultPadding * 2,
-                  horizontal: kDefaultPadding * 7,
+                  horizontal: size.width > 500 ?  kDefaultPadding : kDefaultPadding * 7,
                 ),
                 constraints: const BoxConstraints(maxWidth: 1110),
                 child: Column(
@@ -77,7 +77,7 @@ class _WorkExperiencesScreenState extends State<WorkExperiencesScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(
-                              width: 800,
+                              width: size.width * 0.5,
                               child: ExperienceTimelineWidget(
                                 experienceList: [
                                   WorkExperienceClass(
@@ -152,22 +152,25 @@ class _WorkExperiencesScreenState extends State<WorkExperiencesScreen> {
                                 ],
                               ),
                             ),
-                            Flexible(
-                                child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                sizedBoxH(20),
-                                const ExperienceCard(numOfExp: "05"),
-                                sizedBoxH(20),
-                                GlobalText(
-                                  str:
-                                      '''From 2016 I have started to learning mobile app development and very beginnning I was a native app developer using Android studio with Java. Professionally I have started my journey from 2018 full time part time and sometimes contract based jobs. And now it's 5 years ovaerall experices I have,
+                            size.width > 800
+                                ? Flexible(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        sizedBoxH(20),
+                                        const ExperienceCard(numOfExp: "05"),
+                                        sizedBoxH(20),
+                                        GlobalText(
+                                          str:
+                                              '''From 2016 I have started to learning mobile app development and very beginnning I was a native app developer using Android studio with Java. Professionally I have started my journey from 2018 full time part time and sometimes contract based jobs. And now it's 5 years ovaerall experices I have,
                     I am working on Mobile, Web, Windows & macOS application development. For development, I am using the flutter, a single code base design framework. For the backedn using NodeJS. I am willing to learn from other's and a quick self learner too. ''',
-                                  fontSize: 18,
-                                ),
-                              ],
-                            ))
+                                          fontSize: 18,
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : SizedBox(),
                           ],
                         ),
                       ],

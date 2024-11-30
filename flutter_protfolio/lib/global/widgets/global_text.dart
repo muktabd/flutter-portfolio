@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
 import 'package:get/get.dart';
 
+import '../../screens/media_query/media_query_style.dart';
 import '../../screens/settings/theme/controller/theme_controller.dart';
 
 class GlobalText extends StatelessWidget {
@@ -17,7 +18,7 @@ class GlobalText extends StatelessWidget {
   final TextAlign? textAlign;
   final bool? softwrap;
   final double? height;
-  final String? fontFamily;
+  final String? styleType;
 
   const GlobalText({
     super.key,
@@ -33,14 +34,11 @@ class GlobalText extends StatelessWidget {
     this.overflow,
     this.softwrap,
     this.height,
-    this.fontFamily,
+    this.styleType,
   });
 
   @override
   Widget build(BuildContext context) {
-    final h = height ?? .08;
-    final fw = fontSize ?? 14;
-    final double fontHeight = h * fw;
     return GetBuilder<UrlAndPlatformController>(
       builder: (urlnPlatformCon) {
         return GetBuilder<ThemeController>(
@@ -51,15 +49,11 @@ class GlobalText extends StatelessWidget {
               overflow: overflow,
               textAlign: textAlign,
               softWrap: softwrap,
-              style: TextStyle(
-                color: color ?? themeCon.getBlackWhiteColor(context),
+              style: ResponsiveTextStyles.getTextStyle(
+                styleType: styleType,
+                context: context,
+                color: color,
                 fontSize: fontSize,
-                fontWeight: fontWeight,
-                letterSpacing: letterSpacing,
-                decoration: decoration,
-                height: height == null ? null : fontHeight,
-                fontStyle: fontStyle,
-                fontFamily: fontFamily,
               ),
             );
           },

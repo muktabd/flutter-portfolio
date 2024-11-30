@@ -14,7 +14,7 @@ class LanguageController extends GetxController implements GetxService {
 
   void setSelectIndex(int index) {
     _selectIndex = index;
-    log('log ?? $index');
+    // log('log ?? $index');
     update();
   }
 

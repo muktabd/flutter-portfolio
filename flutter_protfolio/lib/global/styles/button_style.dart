@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../constants/color_resources.dart';
 
 
-class ButtonStyles {
+class ButtonStyless {
 
   //* ================== |> Button Style Based On Theme <| ==================  */
   static ButtonStyle getThemeStyle(BuildContext context) {

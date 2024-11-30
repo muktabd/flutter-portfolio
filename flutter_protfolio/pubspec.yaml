@@ -42,6 +42,7 @@ dependencies:
   intl: ^0.19.0
   cached_network_image: ^3.4.1
   animated_text_kit: ^4.2.2
+  google_fonts: ^6.2.1
 
 
 dev_dependencies:
@@ -86,25 +87,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: montserrat
-      fonts:
-        - asset: assets/fonts/montserrat/Montserrat ExtraLight 275.ttf
-        - asset: assets/fonts/montserrat/Montserrat Light 300.ttf
-        - asset: assets/fonts/montserrat/Montserrat-Regular-400.ttf
-        - asset: assets/fonts/montserrat/Montserrat Medium 500.ttf
-        - asset: assets/fonts/montserrat/Montserrat SemiBold 600.ttf
-        - asset: assets/fonts/montserrat/Montserrat Bold 700.ttf
-        - asset: assets/fonts/montserrat/Montserrat ExtraBold 800.ttf
-        - asset: assets/fonts/montserrat/Montserrat Black 900.ttf
-
-    - family: roboto
-      fonts:
-        - asset: assets/fonts/roboto/Roboto-Regular.ttf
-
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-
+  
     - family: bangla
       fonts:
         - asset: assets/fonts/bengali/NotoSerifBengali-Bold.ttf

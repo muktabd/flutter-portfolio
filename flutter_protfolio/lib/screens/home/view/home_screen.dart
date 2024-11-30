@@ -1,21 +1,25 @@
 import 'dart:developer';
 import 'dart:ui';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 
-import '../../thoughts/thoughts_screen..dart';
-import '/controller/url_controller/url_controller.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import '../../../global/constants/images.dart';
-import '../components/home_dialog_menu.dart';
-import '/global/widgets/button/primary_button.dart';
-import '/global/widgets/global_text.dart';
-import '../controller/home_info_controller.dart';
-import '../../settings/theme/controller/theme_controller.dart';
-import '../../widgets/customised_scroll_view.dart';
 
+import '../../../global/constants/images.dart';
+import '../../../global/methods/sizebox_widget.dart';
+import '../../../global/widgets/button/primary_button.dart';
+import '../../../global/widgets/global_text.dart';
+import '../../media_query/responsive_button.dart';
+import '../../settings/theme/controller/theme_controller.dart';
+import '../../thoughts/thoughts_screen..dart';
+import '../../widgets/customised_scaffold.dart';
+import '../components/home_dialog_menu.dart';
 import '../components/social_media_widget.dart';
+import '../controller/home_info_controller.dart';
+import '../../media_query/media_query_padding.dart';
+import '../../media_query/media_query_style.dart';
+import '../../media_query/style_name.dart';
+import '/controller/url_controller/url_controller.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,244 +40,250 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    log("now size ?? $size");
-    return Material(
-      child: GetBuilder<ThemeController>(
-        builder: (themeCon) {
-          return GetBuilder<UrlAndPlatformController>(
-            builder: (urlnPlatformCon) {
-              log("platform detected ?? ${urlnPlatformCon.isMobile}");
-              return GetBuilder<HomeInfoController>(
-                builder: (homeInfoCon) {
-                  return CustomisedScrolView(
-                    floatingActionButton: FloatingActionButton(
-                      child: Icon(Icons.menu),
-                      onPressed: () async {
-                        await showDialog(
-                            barrierDismissible: false,
-                            context: context,
-                            builder: (BuildContext context) {
-                              return HomeDialogWidget();
-                            });
-                      },
+    return GetBuilder<UrlAndPlatformController>(
+      builder: (urlAndPlatformCon) {
+        return GetBuilder<ThemeController>(
+          builder: (themeCon) {
+            return GetBuilder<HomeInfoController>(
+              builder: (homeInfoCon) {
+                return CustomisedScaffold(
+                  floatingActionButton: FloatingActionButton(
+                    child: Icon(Icons.menu),
+                    onPressed: () async {
+                      await showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return HomeDialogWidget();
+                        },
+                      );
+                    },
+                  ),
+                  mainScaffold: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    constraints: BoxConstraints(maxWidth: 1440),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(Images.coverImage),
+                        // fit: BoxFit.fitHeight,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    slivers: [
-                      SliverToBoxAdapter(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(Images.coverImage),
-                              // fit: BoxFit.fitHeight,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
-                            child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: urlnPlatformCon.isMobile ? 20 : 120),
-                              color: const Color(0xA3131212),
-                              child: Center(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
+                      child: Container(
+                        padding: ScreenPadding.getPadding(context),
+                        color: const Color(0xA3131212),
+                        child: Center(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RichText(
+                                text: TextSpan(
+                                  text: "${homeInfoCon.infoDetails?.info?.firstName} ",
+                                  style: ResponsiveTextStyles.getTextStyle(
+                                    styleType: styleNames[StyleName.headerTitleFirst],
+                                    context: context,
+                                    fontSize: 25,
+                                    color: themeCon.getWhiteBlackColor(context),
+                                  ),
                                   children: [
-                                    // const Spacer(),
-                                    const SizedBox(height: 10),
-                                    RichText(
-                                      text: TextSpan(
-                                        text: "${homeInfoCon.infoDetails?.info?.firstName} ",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: urlnPlatformCon.isMobile ? 20 : 45,
-                                          fontWeight: FontWeight.bold,
-                                          height: 1.0,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                            text: "${homeInfoCon.infoDetails?.info?.lastName}",
-                                            style: TextStyle(
-                                              color: Colors.yellow.shade700,
-                                              fontSize: urlnPlatformCon.isMobile ? 20 : 45,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
+                                    TextSpan(
+                                      text: "${homeInfoCon.infoDetails?.info?.lastName}",
+                                      style: ResponsiveTextStyles.getTextStyle(
+                                        styleType: styleNames[StyleName.headerTitleLast],
+                                        context: context,
+                                        fontSize: 25,
+                                        color: themeCon.getHeadingColor(context),
                                       ),
-                                    ),
-
-                                    SizedBox(height: urlnPlatformCon.isMobile ? 0.0 : 5.0),
-                                    GlobalText(
-                                      str: "${homeInfoCon.infoDetails?.info?.designation}",
-                                      color: Color(0xFFFFF200),
-                                      fontSize: urlnPlatformCon.isMobile ? 15 : 25,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-
-                                    Container(
-                                      margin: EdgeInsets.only(top: 15),
-                                      width: MediaQuery.of(context).size.width * 0.45,
-                                      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                                      decoration: BoxDecoration(
-                                        color: const Color(0x66000000),
-                                        borderRadius: BorderRadius.circular(5.0),
-                                      ),
-                                      child: Row(
-                                        children: [
-                                          GlobalText(
-                                            str: "I am a ",
-                                            fontSize: urlnPlatformCon.isMobile ? 10 : 16,
-                                          ),
-                                          sizedBoxW(5.0),
-                                          AnimatedTextKit(
-                                            animatedTexts: [
-                                              TypewriterAnimatedText(
-                                                "${homeInfoCon.infoDetails?.info?.workFields?.nativeAndroid}",
-                                                cursor: "|",
-                                                textStyle: TextStyle(
-                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFFFF200),
-                                                ),
-                                                speed: const Duration(milliseconds: 130),
-                                              ),
-                                              TypewriterAnimatedText(
-                                                "${homeInfoCon.infoDetails?.info?.workFields?.flutter}",
-                                                cursor: "_",
-                                                textStyle: TextStyle(
-                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFFF9D00),
-                                                ),
-                                                speed: const Duration(milliseconds: 150),
-                                              ),
-                                              TypewriterAnimatedText(
-                                                "${homeInfoCon.infoDetails?.info?.workFields?.nodejs}",
-                                                cursor: "|",
-                                                textStyle: TextStyle(
-                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFFFF200),
-                                                ),
-                                                speed: const Duration(milliseconds: 180),
-                                              ),
-                                              TypewriterAnimatedText(
-                                                "${homeInfoCon.infoDetails?.info?.workFields?.springBoot}",
-                                                cursor: "_",
-                                                textStyle: TextStyle(
-                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFFF9D00),
-                                                ),
-                                                speed: const Duration(milliseconds: 200),
-                                              ),
-                                              TypewriterAnimatedText(
-                                                "${homeInfoCon.infoDetails?.info?.workFields?.vuejs}",
-                                                cursor: "_|",
-                                                textStyle: TextStyle(
-                                                  fontSize: urlnPlatformCon.isMobile ? 12 : 18,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Color(0xFFFF9D00),
-                                                ),
-                                                speed: const Duration(milliseconds: 230),
-                                              ),
-                                            ],
-                                            repeatForever: true,
-                                            pause: const Duration(milliseconds: 1000),
-                                            displayFullTextOnTap: true,
-                                            stopPauseOnTap: true,
-                                          ),
-                                          GlobalText(
-                                            str: " Developer",
-                                            fontSize: urlnPlatformCon.isMobile ? 10 : 16,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-
-                                    SizedBox(height: urlnPlatformCon.isMobile ? 10 : 25),
-
-                                    /// * ==@ SOCIAL MEDIA LINK * ==
-                                    Row(
-                                      children: [
-                                        SocialMediaWidget(
-                                          icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.icon}',
-                                          assetImage: Images.github,
-                                          url: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.url}',
-                                        ),
-                                        SocialMediaWidget(
-                                          icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.icon}',
-                                          assetImage: Images.stackOverFlow,
-                                          url: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url}',
-                                        ),
-                                        SocialMediaWidget(
-                                          icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.icon}',
-                                          assetImage: Images.linkedIn,
-                                          url: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url}',
-                                        ),
-                                        SocialMediaWidget(
-                                          icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.icon}',
-                                          assetImage: Images.twitter,
-                                          url: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url}',
-                                        ),
-                                        SocialMediaWidget(
-                                          icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.icon}',
-                                          assetImage: Images.facebook,
-                                          url: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url}',
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: urlnPlatformCon.isMobile ? 15 : 35),
-
-                                    /// * ==@ THOUGHTS OF MIND * ==
-                                    RichText(
-                                      text: TextSpan(
-                                        text: "${homeInfoCon.infoDetails?.info?.thoughts?.title}",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFF200),
-                                          fontSize: urlnPlatformCon.isMobile ? 15 : 22,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                            text: "\n${homeInfoCon.infoDetails?.info?.thoughts?.subtitle}",
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: urlnPlatformCon.isMobile ? 12 : 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20),
-
-                                    CustomButtonWidget(
-                                      color: Colors.red,
-                                      width: urlnPlatformCon.isMobile ? 140 : 180,
-                                      height: urlnPlatformCon.isMobile ? 40 : null,
-                                      text: "FIND OUT MORE",
-                                      onPressed: () {
-                                        Get.to(() => ThoughtsScreen());
-                                      },
                                     ),
                                   ],
                                 ),
                               ),
-                            ),
+                              GlobalText(
+                                str: "${homeInfoCon.infoDetails?.info?.designation}",
+                                styleType: styleNames[StyleName.subTitle],
+                                color: Color(0xFFFFF200),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+
+                              Container(
+                                margin: EdgeInsets.only(top: 10),
+                                padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                                decoration: BoxDecoration(
+                                  color: const Color(0x66000000),
+                                  borderRadius: BorderRadius.circular(5.0),
+                                ),
+                                child: IntrinsicWidth(
+                                  // Ensures the width adjusts dynamically
+                                  child: Row(
+                                    children: [
+                                      GlobalText(
+                                        str: "I am a",
+                                        styleType: styleNames[StyleName.bodyTitle],
+                                        fontSize: 18,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      sizedBoxW(5.0),
+                                      Flexible(
+                                        // Allows the TypewriterAnimatedText to resize without overflow
+                                        child: AnimatedTextKit(
+                                          animatedTexts: [
+                                            TypewriterAnimatedText(
+                                              "${homeInfoCon.infoDetails?.info?.workFields?.nativeAndroid}",
+                                              cursor: "|",
+                                              textStyle: ResponsiveTextStyles.getTextStyle(
+                                                context: context,
+                                                styleType: styleNames[StyleName.bodyTitle],
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 20,
+                                                color: Color(0xFFFFF200),
+                                              ),
+                                              speed: const Duration(milliseconds: 130),
+                                            ),
+                                            TypewriterAnimatedText(
+                                              "${homeInfoCon.infoDetails?.info?.workFields?.flutter}",
+                                              cursor: "_",
+                                              textStyle: ResponsiveTextStyles.getTextStyle(
+                                                styleType: styleNames[StyleName.bodyTitle],
+                                                context: context,
+                                                fontSize: 20,
+                                                color: Color(0xFFFF9D00),
+                                              ),
+                                              speed: const Duration(milliseconds: 150),
+                                            ),
+                                            TypewriterAnimatedText(
+                                              "${homeInfoCon.infoDetails?.info?.workFields?.nodejs}",
+                                              cursor: "|",
+                                              textStyle: ResponsiveTextStyles.getTextStyle(
+                                                styleType: styleNames[StyleName.bodyTitle],
+                                                context: context,
+                                                fontSize: 20,
+                                                color: Color(0xFFFFF200),
+                                              ),
+                                              speed: const Duration(milliseconds: 180),
+                                            ),
+                                            TypewriterAnimatedText(
+                                              "${homeInfoCon.infoDetails?.info?.workFields?.springBoot}",
+                                              cursor: "_",
+                                              textStyle: ResponsiveTextStyles.getTextStyle(
+                                                styleType: styleNames[StyleName.bodyTitle],
+                                                context: context,
+                                                fontSize: 20,
+                                                color: Color(0xFFFF9D00),
+                                              ),
+                                              speed: const Duration(milliseconds: 200),
+                                            ),
+                                            TypewriterAnimatedText(
+                                              "${homeInfoCon.infoDetails?.info?.workFields?.vuejs}",
+                                              cursor: "_|",
+                                              textStyle: ResponsiveTextStyles.getTextStyle(
+                                                styleType: styleNames[StyleName.bodyTitle],
+                                                context: context,
+                                                fontSize: 20,
+                                                color: Color(0xFFFFF200),
+                                              ),
+                                              speed: const Duration(milliseconds: 230),
+                                            ),
+                                          ],
+                                          repeatForever: true,
+                                          pause: const Duration(milliseconds: 1000),
+                                          displayFullTextOnTap: true,
+                                          stopPauseOnTap: true,
+                                        ),
+                                      ),
+                                      GlobalText(
+                                        str: "Developer",
+                                        styleType: styleNames[StyleName.bodyTitle],
+                                        fontSize: 18,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+                              SizedBox(height: 10),
+
+                              /// * ==@ SOCIAL MEDIA LINK * ==
+                              Row(
+                                children: [
+                                  SocialMediaWidget(
+                                    icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.icon}',
+                                    assetImage: Images.github,
+                                    url: '${homeInfoCon.infoDetails?.info?.socialMedia?.github?.url}',
+                                  ),
+                                  SocialMediaWidget(
+                                    icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.icon}',
+                                    assetImage: Images.stackOverFlow,
+                                    url: '${homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url}',
+                                  ),
+                                  SocialMediaWidget(
+                                    icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.icon}',
+                                    assetImage: Images.linkedIn,
+                                    url: '${homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url}',
+                                  ),
+                                  SocialMediaWidget(
+                                    icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.icon}',
+                                    assetImage: Images.twitter,
+                                    url: '${homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url}',
+                                  ),
+                                  SocialMediaWidget(
+                                    icon: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.icon}',
+                                    assetImage: Images.facebook,
+                                    url: '${homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url}',
+                                  ),
+
+                                  ///
+                                ],
+                              ),
+                              SizedBox(height: 15),
+
+                              /// * ==@ THOUGHTS OF MIND * ==
+                              GlobalText(
+                                str: "${homeInfoCon.infoDetails?.info?.thoughts?.title}",
+                                styleType: styleNames[StyleName.subTitle],
+                                color: Color(0xFFFFF200),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              // const SizedBox(height: 2.0),
+                              GlobalText(
+                                str: "${homeInfoCon.infoDetails?.info?.thoughts?.subtitle}",
+                                styleType: styleNames[StyleName.bodyTitle],
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              const SizedBox(height: 20),
+
+                              ResponsiveButton.getResponsiveButton(
+                                parentCtx: context,
+                                btnHeight: 45,
+                                btnWidth: 150,
+                                title: "FIND OUT MORE",
+                                titleColor: Colors.white,
+                                fontSize: 13,
+                                onPressed: () {
+                                  Get.to(() => ThoughtsScreen());
+                                  log('new screen.. ');
+                                },
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ],
-                  );
-                },
-              );
-            },
-          );
-        },
-      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+        );
+      },
     );
   }
 }

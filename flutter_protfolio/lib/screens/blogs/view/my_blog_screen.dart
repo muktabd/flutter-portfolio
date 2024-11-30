@@ -6,6 +6,8 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../../../components/constants.dart';
 import '../../../components/section_title.dart';
 import '../../../global/widgets/custom_devider.dart';
+import '../../media_query/media_query_grid_count.dart';
+import '../../media_query/media_query_padding.dart';
 import '../../widgets/bottom_copyrights.dart';
 import '../controller/blog_post_controller.dart';
 import '../../../global/methods/sizebox_widget.dart';
@@ -25,7 +27,7 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
         return CustomisedScaffold(
           mainScaffold: Container(
             constraints: BoxConstraints(maxWidth: 1110),
-            padding: EdgeInsets.symmetric(horizontal: 80 * 2),
+            padding: ScreenPadding.getPadding(context),
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,12 +41,12 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
                   alignment: Alignment.center,
                   child: Container(
                     // color: Colors.red,
-                    width: MediaQuery.of(context).size.width * 0.6,
+                    width: MediaQuery.of(context).size.width * 0.7,
                     height: MediaQuery.of(context).size.height,
                     child: GridView.builder(
                       itemCount: 4,
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: GridItemCount.getItemCount(context),
                         childAspectRatio: 5 / 2.2,
                         crossAxisSpacing: 10.0,
                         mainAxisSpacing: 8.0,
@@ -129,7 +131,7 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
                   ),
                 ),
                 sizedBoxH(10),
-                  BottomCopyRights(),
+                BottomCopyRights(),
               ],
             ),
           ),

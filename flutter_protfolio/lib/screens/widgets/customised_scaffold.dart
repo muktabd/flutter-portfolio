@@ -6,11 +6,19 @@ import '../../global/constants/color_resources.dart';
 
 class CustomisedScaffold extends StatelessWidget {
   final Widget mainScaffold;
-  const CustomisedScaffold({super.key, required this.mainScaffold});
+  final Widget? floatingActionButton;
+  final Decoration? decoration;
+  const CustomisedScaffold({
+    super.key,
+    required this.mainScaffold,
+    this.floatingActionButton,
+    this.decoration,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: floatingActionButton,
       body: GetBuilder<ThemeController>(
         builder: (themeCon) {
           return Container(

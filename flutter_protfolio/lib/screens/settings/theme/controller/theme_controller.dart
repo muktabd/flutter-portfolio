@@ -39,38 +39,28 @@ class ThemeController extends GetxController implements GetxService {
     update();
   }
 
-  // Color Change
-
-  Color getDartLightAppBarBackColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? ColorRes.dartAppBarBackColor : ColorRes.lightAppBarBackColor;
-  }
-
+  /// * ==@ Color Change
   Color getDarkLightBackGroundColor(context) {
-    final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? ColorRes.darkBackGroundColor : ColorRes.lightBackGroundColor;
+     final theme = Theme.of(context).brightness;
+    return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
   }
 
-  Color getDartLightAppBarBack300Color(context) {
+  Color getButtonColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark)
-        ? ColorRes.dartAppBarBackColor.withOpacity(0.6)
-        : ColorRes.lightAppBarBackColor.withOpacity(0.6);
+    return (theme == Brightness.dark) ? Color(0xFFFF0000) : ColorRes.white;
   }
 
-  Color getDarkLightSettingConBackColor(context) {
+  Color getHeadingColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark)
-        ? ColorRes.darkSettingConBackColor.withOpacity(0.1)
-        : ColorRes.grey.withOpacity(0.1);
+    return (theme == Brightness.dark) ? Color(0xFFFFF200) : ColorRes.white;
   }
 
-  Color getWhiteBlackColor(context) {
+  Color getBlackWhiteColor(context) {
     final theme = Theme.of(context).brightness;
     return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
   }
 
-  Color getBlackWhiteColor(context) {
+  Color getWhiteBlackColor(context) {
     final theme = Theme.of(context).brightness;
     return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
   }

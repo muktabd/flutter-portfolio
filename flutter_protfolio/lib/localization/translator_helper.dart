@@ -38,5 +38,5 @@ Future<void> loadLanguages() async {
   // Load the languages based on the languageModel
   Map<String, Map<String, String>> locales = await languageinit(languageModel);
 
-  log(locales.toString());
+  // log("here are the local ?? $locales.toString()");
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../screens/media_query/button_style.dart';
+import '../../../screens/media_query/media_query_padding.dart';
 import '/global/widgets/global_text.dart';
-
 import '../../../screens/settings/theme/controller/theme_controller.dart';
-import '../../constants/color_resources.dart';
 
 class CustomButtonWidget extends StatelessWidget {
   final String text;
@@ -19,6 +19,7 @@ class CustomButtonWidget extends StatelessWidget {
   final double? borderRadius;
   final EdgeInsetsGeometry? padding;
   final TextAlign? textAlign;
+  final String? styleType;
 
   const CustomButtonWidget({
     super.key,
@@ -35,6 +36,7 @@ class CustomButtonWidget extends StatelessWidget {
     this.borderRadius,
     this.padding,
     this.textAlign,
+    this.styleType,
   });
 
   @override
@@ -44,10 +46,11 @@ class CustomButtonWidget extends StatelessWidget {
         return Container(
           height: height ?? 50,
           width: width ?? MediaQuery.of(context).size.width,
-          padding: padding,
+          padding: padding ?? ScreenPadding.getPadding(context, left: 20, right: 20),
           child: ElevatedButton(
             onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
+            style: ButtonStyles.getButtonStyle(context: context),
+            /* style: ElevatedButton.styleFrom(
               backgroundColor: color ?? themeCon.getGoldBlueColor(context),
               // shadowColor: ColorRes.red,
               side: BorderSide(color: borderColor ?? Colors.transparent, width: 0.3),
@@ -56,7 +59,7 @@ class CustomButtonWidget extends StatelessWidget {
                   Radius.circular(borderRadius ?? 8),
                 ),
               ),
-            ),
+            ), */
             child: icon != null
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -79,6 +82,7 @@ class CustomButtonWidget extends StatelessWidget {
                     ],
                   )
                 : GlobalText(
+                    styleType: styleType,
                     str: text,
                     fontSize: textSize ?? 14,
                     fontWeight: FontWeight.w400,
