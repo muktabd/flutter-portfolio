@@ -23,7 +23,7 @@ class EducationSection extends StatelessWidget {
               title: "Education History",
               subTitle: "My Educational Background",
             ),
-            Container(
+            SizedBox(
               // color: Color(0xFFFFB100),
               width: MediaQuery.of(context).size.width * 0.6,
               height: MediaQuery.of(context).size.height,

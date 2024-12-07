@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 import '../../../global/constants/images.dart';
 import '../../../global/methods/sizebox_widget.dart';
-import '../../../global/widgets/button/primary_button.dart';
 import '../../../global/widgets/global_text.dart';
 import '../../media_query/responsive_button.dart';
 import '../../settings/theme/controller/theme_controller.dart';
@@ -173,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 styleType: styleNames[StyleName.bodyTitle],
                                                 context: context,
                                                 fontSize: 20,
+                                                
                                                 color: Color(0xFFFF9D00),
                                               ),
                                               speed: const Duration(milliseconds: 200),

@@ -37,10 +37,6 @@ class _MyResumeScreenState extends State<MyResumeScreen> {
   }
 
   Future<void> savePDF() async {
-    if (pdf == null) {
-      showToast("PDF is still being generated. Please wait.");
-      return;
-    }
     final Uint8List bytes = await pdf.save();
     await Printing.sharePdf(bytes: bytes, filename: 'Resume_Abdullah_Iba_Mukta.pdf');
   }
@@ -68,7 +64,7 @@ class _MyResumeScreenState extends State<MyResumeScreen> {
                           children: [
                             Center(
                               child: ClipOval(
-                                child: Container(
+                                child: SizedBox(
                                   height: 100,
                                   width: 100,
                                   child: Image(

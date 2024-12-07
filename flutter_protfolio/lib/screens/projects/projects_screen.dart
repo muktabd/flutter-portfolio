@@ -5,7 +5,6 @@ import 'package:flutter_portfolio/screens/widgets/customised_scaffold.dart';
 import 'package:get/get.dart';
 import '../../components/default_button.dart';
 import '../../components/hireme_card.dart';
-import '../../global/widgets/custom_devider.dart';
 import '../widgets/bottom_copyrights.dart';
 import 'components/recent_work_card.dart';
 import 'more_projects.dart';

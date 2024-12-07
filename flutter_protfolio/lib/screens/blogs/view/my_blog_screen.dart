@@ -39,7 +39,7 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
                 const SizedBox(height: kDefaultPadding * 1.5),
                 Align(
                   alignment: Alignment.center,
-                  child: Container(
+                  child: SizedBox(
                     // color: Colors.red,
                     width: MediaQuery.of(context).size.width * 0.7,
                     height: MediaQuery.of(context).size.height,

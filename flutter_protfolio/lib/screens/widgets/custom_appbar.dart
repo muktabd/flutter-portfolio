@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../global/constants/color_resources.dart';
 import '../../global/styles/font_style/montserrat.dart';
 import '../settings/theme/controller/theme_controller.dart';
 

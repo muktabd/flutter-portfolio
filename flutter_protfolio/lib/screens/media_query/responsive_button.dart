@@ -1,11 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 
-import '../../global/widgets/global_text.dart';
 import 'button_style.dart';
-import 'media_query_padding.dart';
 import 'media_query_style.dart';
-import 'style_name.dart';
 
 class ResponsiveButton {
   ///
@@ -28,10 +25,33 @@ class ResponsiveButton {
         onPressed: onPressed,
         child: Text(
           title,
-          style: ResponsiveTextStyles.getTextStyle(
-            context: context,
+          style: TextStyle(
             color: titleColor,
             fontSize: fontSize,
+          ),
+        ),
+      ),
+    );
+  }
+
+  ///* ==@ TABLET VIEWS ==
+  static SizedBox tableSizeButton({
+    required BuildContext context,
+    required String title,
+    Color? titleColor,
+    required VoidCallback onPressed,
+  }) {
+    return SizedBox(
+      height: 60,
+      width: 280,
+      child: ElevatedButton(
+        style: ButtonStyles.getButtonStyle(context: context),
+        onPressed: onPressed,
+        child: Text(
+          title,
+          style: TextStyle(
+            color: titleColor,
+            fontSize: 18,
           ),
         ),
       ),
@@ -52,7 +72,7 @@ class ResponsiveButton {
         onPressed: onPressed,
         style: ButtonStyles.getButtonStyle(context: context),
         child: Text(
-          title ?? "Press",
+          title,
           style: TextStyle(
             color: Colors.blue,
           ),
@@ -93,12 +113,21 @@ class ResponsiveButton {
 
     ///? ==@ TABLET VIEW ==
     if (width <= 768) {
-      return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
+      return tableSizeButton(
+        context: parentCtx,
+        onPressed: onPressed,
+        title: title,
+        titleColor: titleColor,
+      );
     }
 
     /// * smallL aptop TextStyle
     if (width <= 1024) {
-      return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
+      return mobileButton(
+        context: parentCtx,
+        onPressed: onPressed,
+        title: title,
+      );
     }
 
     /// * ==@ LARGE SCREEN STYLE ==

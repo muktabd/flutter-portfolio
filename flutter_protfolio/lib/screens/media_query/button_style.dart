@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
 import 'media_query_padding.dart';
 import 'media_query_style.dart';
