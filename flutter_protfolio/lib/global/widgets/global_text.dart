@@ -51,7 +51,7 @@ class GlobalText extends StatelessWidget {
               softWrap: softwrap,
               style: ResponsiveTextStyles.getTextStyle(
                 styleType: styleType,
-                context: context,
+                parentCtx: context,
                 color: color,
                 fontSize: fontSize,
               ),

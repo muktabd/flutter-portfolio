@@ -84,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   text: "${homeInfoCon.infoDetails?.info?.firstName} ",
                                   style: ResponsiveTextStyles.getTextStyle(
                                     styleType: styleNames[StyleName.headerTitleFirst],
-                                    context: context,
+                                    parentCtx: context,
                                     fontSize: 25,
                                     color: themeCon.getWhiteBlackColor(context),
                                   ),
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       text: "${homeInfoCon.infoDetails?.info?.lastName}",
                                       style: ResponsiveTextStyles.getTextStyle(
                                         styleType: styleNames[StyleName.headerTitleLast],
-                                        context: context,
+                                        parentCtx: context,
                                         fontSize: 25,
                                         color: themeCon.getHeadingColor(context),
                                       ),
@@ -135,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               "${homeInfoCon.infoDetails?.info?.workFields?.nativeAndroid}",
                                               cursor: "|",
                                               textStyle: ResponsiveTextStyles.getTextStyle(
-                                                context: context,
+                                                parentCtx: context,
                                                 styleType: styleNames[StyleName.bodyTitle],
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 20,
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               cursor: "_",
                                               textStyle: ResponsiveTextStyles.getTextStyle(
                                                 styleType: styleNames[StyleName.bodyTitle],
-                                                context: context,
+                                                parentCtx: context,
                                                 fontSize: 20,
                                                 color: Color(0xFFFF9D00),
                                               ),
@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               cursor: "|",
                                               textStyle: ResponsiveTextStyles.getTextStyle(
                                                 styleType: styleNames[StyleName.bodyTitle],
-                                                context: context,
+                                                parentCtx: context,
                                                 fontSize: 20,
                                                 color: Color(0xFFFFF200),
                                               ),
@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               cursor: "_",
                                               textStyle: ResponsiveTextStyles.getTextStyle(
                                                 styleType: styleNames[StyleName.bodyTitle],
-                                                context: context,
+                                                parentCtx: context,
                                                 fontSize: 20,
                                                 
                                                 color: Color(0xFFFF9D00),
@@ -182,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               cursor: "_|",
                                               textStyle: ResponsiveTextStyles.getTextStyle(
                                                 styleType: styleNames[StyleName.bodyTitle],
-                                                context: context,
+                                                parentCtx: context,
                                                 fontSize: 20,
                                                 color: Color(0xFFFFF200),
                                               ),

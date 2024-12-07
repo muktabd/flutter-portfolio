@@ -27,7 +27,7 @@ class ButtonStyles {
       ),
       textStyle: WidgetStatePropertyAll(
         ResponsiveTextStyles.getTextStyle(
-          context: context,
+          parentCtx: context,
           fontSize: fontSize ?? 14,
           color: txtColor,
         ),
@@ -53,7 +53,7 @@ class ButtonStyles {
       ),
       textStyle: WidgetStatePropertyAll(
         ResponsiveTextStyles.getTextStyle(
-          context: context,
+          parentCtx: context,
           fontSize: fontSize ?? 14,
           styleType: styleNames[StyleName.bodyTitle],
         ),

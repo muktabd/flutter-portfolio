@@ -6,8 +6,8 @@ class ScreenPadding {
   ///* ==@ GET PADDING BASED ON SCREEN WIDTH ==
 
   static EdgeInsets mobilePadding() => EdgeInsets.symmetric(horizontal: 10.0);
-  static EdgeInsets tabletPadding() => EdgeInsets.symmetric(horizontal: 50.0);
-  static EdgeInsets smallLaptopPadding() => EdgeInsets.symmetric(horizontal: 80.0);
+  static EdgeInsets tabletPadding() => EdgeInsets.symmetric(horizontal: 30.0);
+  static EdgeInsets smallLaptopPadding() => EdgeInsets.symmetric(horizontal: 50.0);
   static EdgeInsets largeScreenPadding() => EdgeInsets.symmetric(horizontal: 140.0);
   static EdgeInsets extraLargeScreenPadding() => EdgeInsets.symmetric(horizontal: 200.0);
 

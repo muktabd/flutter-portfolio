@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,7 +80,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 50,
+      fontSize: 35,
       fontWeight: fontWeight ?? FontWeight.bold,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -91,7 +92,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 50,
+      fontSize: 35,
       fontWeight: fontWeight ?? FontWeight.bold,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -103,7 +104,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 45,
+      fontSize: 30,
       fontWeight: fontWeight ?? FontWeight.w600,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -115,7 +116,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 35,
+      fontSize: 30,
       fontWeight: fontWeight ?? FontWeight.normal,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -222,144 +223,143 @@ class ResponsiveTextStyles {
   ///
   ///*? == GENERAL METHOD TO GET STYLES BASED ON SCREEN SIZE ==
   static TextStyle getTextStyle({
-    required BuildContext context,
+    required BuildContext parentCtx,
     double? fontSize,
     Color? color,
     String? styleType,
     FontWeight? fontWeight,
   }) {
-    double width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(parentCtx).size.width;
     log("now width ?? $width");
-
-    // MOBILE VIEW STYLES
-    if (width <= 500) {
-      return mobileHeaderStyle(
-        context: context,
-        color: color,
-        fontSize: fontSize,
-      );
-    }
-
-    ///? ==@ TABLET VIEW ==
-    if (width <= 768) {
-      if (styleType == styleNames[StyleName.headerTitleFirst]) {
-        return tabletTitleFirstStyle(
-          context: context,
+    if (kIsWeb) {
+      // MOBILE VIEW STYLES
+      if (width <= 500) {
+        return mobileHeaderStyle(
+          context: parentCtx,
           color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.headerTitleLast]) {
-        return tabletTitleLastStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.subTitle]) {
-        return tabletSubtitleStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.bodyTitle]) {
-        return tabletBodyStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      }
-      return tabletSubtitleStyle(context: context);
-    }
-
-    /// * smallL aptop TextStyle
-    if (width <= 1024) {
-      if (styleType == styleNames[StyleName.headerTitleFirst]) {
-        return laptopTitleFirstStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.headerTitleLast]) {
-        return laptopTitleLastStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.subTitle]) {
-        return laptopSubtitleStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.bodyTitle]) {
-        return laptopBodyStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      }
-      return laptopSubtitleStyle(context: context);
-    }
-
-    /// * ==@ LARGE SCREEN STYLE ==
-    if (width <= 1440) {
-      if (styleType == styleNames[StyleName.headerTitleFirst]) {
-        return largeTitleFirstStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.headerTitleLast]) {
-        return largeTitleLastStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.subTitle]) {
-        return largeSubtitleStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.bodyTitle]) {
-        return largeBodyStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
+          fontSize: fontSize,
         );
       }
 
-      return largeSubtitleStyle(context: context);
-    } else {
-      if (styleType == styleNames[StyleName.headerTitleFirst]) {
-        return extraLargeTitleFirstStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.headerTitleLast]) {
-        return extraLargeTitleLastStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.subTitle]) {
-        return extraLargeSubtitleStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
-      } else if (styleType == styleNames[StyleName.bodyTitle]) {
-        return extraLargeBodyStyle(
-          context: context,
-          color: color,
-          fontWeight: fontWeight,
-        );
+      ///? ==@ TABLET VIEW ==
+      if (width <= 768) {
+        if (styleType == styleNames[StyleName.headerTitleFirst]) {
+          return tabletTitleFirstStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.headerTitleLast]) {
+          return tabletTitleLastStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.subTitle]) {
+          return tabletSubtitleStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.bodyTitle]) {
+          return tabletBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        }
+        return tabletSubtitleStyle(context: parentCtx);
+      }
+
+      /// * smallL laptop TextStyle
+      if (width <= 1024) {
+        if (styleType == styleNames[StyleName.headerTitleFirst]) {
+          return laptopTitleFirstStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.headerTitleLast]) {
+          return laptopTitleLastStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.subTitle]) {
+          return laptopSubtitleStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.bodyTitle]) {
+          return laptopBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        }
+        return laptopSubtitleStyle(context: parentCtx);
+      }
+
+      /// * ==@ LARGE SCREEN STYLE ==
+      if (width <= 1440) {
+        if (styleType == styleNames[StyleName.headerTitleFirst]) {
+          return largeTitleFirstStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.headerTitleLast]) {
+          return largeTitleLastStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.subTitle]) {
+          return largeSubtitleStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.bodyTitle]) {
+          return largeBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        }
+
+        return largeSubtitleStyle(context: parentCtx);
+      } else {
+        if (styleType == styleNames[StyleName.headerTitleFirst]) {
+          return extraLargeTitleFirstStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.headerTitleLast]) {
+          return extraLargeTitleLastStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.subTitle]) {
+          return extraLargeSubtitleStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.bodyTitle]) {
+          return extraLargeBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        }
       }
     }
-    return GoogleFonts.montserrat(
-      fontSize: 25,
-      fontWeight: fontWeight ?? FontWeight.w600,
-      color: color ?? Get.find<ThemeController>().getHeadingColor(context),
-    );
+
+    /// * DEFAULT ALWAYS KEEP MOBILE VIEW ==
+    return mobileHeaderStyle(context: parentCtx, fontSize: fontSize, color: color);
   }
 }

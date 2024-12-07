@@ -1,8 +1,8 @@
 import 'dart:developer';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'button_style.dart';
-import 'media_query_style.dart';
 
 class ResponsiveButton {
   ///
@@ -42,11 +42,36 @@ class ResponsiveButton {
     required VoidCallback onPressed,
   }) {
     return SizedBox(
-      height: 60,
-      width: 280,
+      height: 50,
+      width: 220,
       child: ElevatedButton(
         style: ButtonStyles.getButtonStyle(context: context),
         onPressed: onPressed,
+        child: Text(
+          title,
+          style: TextStyle(
+            color: titleColor,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    );
+  }
+
+  ///* ==@ LAPTOP SCREEN VIEW STYLES ==
+  static SizedBox laptopButton({
+    required BuildContext context,
+    required VoidCallback onPressed,
+    required String title,
+    Color? color,
+    Color? titleColor,
+  }) {
+    return SizedBox(
+      width: 250,
+      height: 55,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyles.getButtonStyle(context: context),
         child: Text(
           title,
           style: TextStyle(
@@ -59,6 +84,29 @@ class ResponsiveButton {
   }
 
   ///* ==@ LARGE SCREEN VIEW STYLES ==
+  static SizedBox largeButton({
+    required BuildContext context,
+    required VoidCallback onPressed,
+    required String title,
+    Color? color,
+  }) {
+    return SizedBox(
+      width: 350,
+      height: 60,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyles.getButtonStyle(context: context),
+        child: Text(
+          title,
+          style: TextStyle(
+            color: Colors.blue,
+          ),
+        ),
+      ),
+    );
+  }
+
+  ///* ==@ EXTRA LARGE SCREEN VIEW STYLES ==
   static SizedBox extralargeButton({
     required BuildContext context,
     required VoidCallback onPressed,
@@ -96,50 +144,56 @@ class ResponsiveButton {
     FontWeight? fontWeight,
   }) {
     double width = MediaQuery.of(parentCtx).size.width;
-    log("now width ?? $width");
 
-    ///* MOBILE VIEW STYLES
-    if (width <= 500) {
-      return mobileButton(
-        context: parentCtx,
-        title: title,
-        titleColor: titleColor,
-        fontSize: fontSize,
-        btnHeight: btnHeight,
-        btnWidth: btnWidth,
-        onPressed: onPressed,
-      );
-    }
 
-    ///? ==@ TABLET VIEW ==
-    if (width <= 768) {
-      return tableSizeButton(
-        context: parentCtx,
-        onPressed: onPressed,
-        title: title,
-        titleColor: titleColor,
-      );
-    }
+    if (kIsWeb) {
+      ///* MOBILE VIEW STYLES
+      if (width <= 500) {
+          log("now width less then  $width < 500 ");
+        return mobileButton(
+          context: parentCtx,
+          title: title,
+          titleColor: titleColor,
+          fontSize: fontSize,
+          btnHeight: btnHeight,
+          btnWidth: btnWidth,
+          onPressed: onPressed,
+        );
+      }
 
-    /// * smallL aptop TextStyle
-    if (width <= 1024) {
-      return mobileButton(
-        context: parentCtx,
-        onPressed: onPressed,
-        title: title,
-      );
-    }
+      ///? ==@ TABLET VIEW ==
+      if (width <= 768) {
+        return tableSizeButton(
+          context: parentCtx,
+          onPressed: onPressed,
+          title: title,
+          titleColor: titleColor,
+        );
+      }
 
-    /// * ==@ LARGE SCREEN STYLE ==
-    if (width <= 1440) {
-      return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
-    }
+      /// * smallL aptop TextStyle
+      if (width <= 1024) {
+        return laptopButton(
+          context: parentCtx,
+          onPressed: onPressed,
+          title: title,
+          titleColor: titleColor,
+        );
+      }
 
-    /// * ==@ LARGE SCREEN STYLE ==
-    if (width <= 1920) {
+      /// * ==@ LARGE SCREEN STYLE ==
+      if (width <= 1440) {
+        return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
+      }
+
+      /// * ==@ LARGE SCREEN STYLE ==
+      if (width <= 1920) {
+        return extralargeButton(context: parentCtx, onPressed: onPressed, title: title);
+      }
+
       return extralargeButton(context: parentCtx, onPressed: onPressed, title: title);
     }
-
-    return extralargeButton(context: parentCtx, onPressed: onPressed, title: title);
+    /// * DEFAULT ALWAYS KEEP MOBILE VIEW ==
+    return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
   }
 }
