@@ -9,7 +9,7 @@ import '../model/contact_me_data.dart';
 import '../model/req_contact_me.dart';
 
 class ContactMeRepo extends ApiHelper {
-  Future<OtherContactMeData?> fetchOthersContactMeData() async {
+  Future<OtherSocialMediaData?> fetchOthersContactMeData() async {
     // final response = await requestHandler.get("");
     try {
       //* ==@ Load the JSON file from assets
@@ -20,7 +20,7 @@ class ContactMeRepo extends ApiHelper {
       //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
       ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
       if (resWrap.status == "200") {
-        return OtherContactMeData.fromJson(resWrap.data ?? {});
+        return OtherSocialMediaData.fromJson(resWrap.data ?? {});
       }
     } catch (e) {
       log("Error loading address data: $e");

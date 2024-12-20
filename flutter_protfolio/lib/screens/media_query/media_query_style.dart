@@ -73,6 +73,18 @@ class ResponsiveTextStyles {
     );
   }
 
+  static TextStyle tabletParagraphStyle({
+    required BuildContext context,
+    FontWeight? fontWeight,
+    Color? color,
+  }) {
+    return GoogleFonts.montserrat(
+      fontSize: 14,
+      fontWeight: fontWeight ?? FontWeight.normal,
+      color: color ?? Get.find<ThemeController>().getHeadingColor(context),
+    );
+  }
+
   /// * ==@ SMALL LAPTOP VIEW STYLES ==
   static TextStyle laptopTitleFirstStyle({
     required BuildContext context,
@@ -122,6 +134,18 @@ class ResponsiveTextStyles {
     );
   }
 
+  static TextStyle laptopParagraphStyle({
+    required BuildContext context,
+    FontWeight? fontWeight,
+    Color? color,
+  }) {
+    return GoogleFonts.montserrat(
+      fontSize: 16,
+      fontWeight: fontWeight ?? FontWeight.normal,
+      color: color ?? Get.find<ThemeController>().getHeadingColor(context),
+    );
+  }
+
   ///* ==@ LARGE SCREEN VIEW STYLES ==
   static TextStyle largeTitleFirstStyle({
     required BuildContext context,
@@ -129,7 +153,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 50,
+      fontSize: 40,
       fontWeight: fontWeight ?? FontWeight.bold,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -141,7 +165,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 50,
+      fontSize: 40,
       fontWeight: fontWeight ?? FontWeight.bold,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -153,7 +177,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 45,
+      fontSize: 35,
       fontWeight: fontWeight ?? FontWeight.w600,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -165,7 +189,7 @@ class ResponsiveTextStyles {
     Color? color,
   }) {
     return GoogleFonts.montserrat(
-      fontSize: 35,
+      fontSize: 30,
       fontWeight: fontWeight ?? FontWeight.normal,
       color: color ?? Get.find<ThemeController>().getHeadingColor(context),
     );
@@ -230,10 +254,10 @@ class ResponsiveTextStyles {
     FontWeight? fontWeight,
   }) {
     double width = MediaQuery.of(parentCtx).size.width;
-    log("now width ?? $width");
     if (kIsWeb) {
       // MOBILE VIEW STYLES
       if (width <= 500) {
+        log("now width like mobile ?? $width");
         return mobileHeaderStyle(
           context: parentCtx,
           color: color,
@@ -255,7 +279,7 @@ class ResponsiveTextStyles {
             color: color,
             fontWeight: fontWeight,
           );
-        } else if (styleType == styleNames[StyleName.subTitle]) {
+        } else if (styleType == styleNames[StyleName.bodySubTitle]) {
           return tabletSubtitleStyle(
             context: parentCtx,
             color: color,
@@ -263,6 +287,12 @@ class ResponsiveTextStyles {
           );
         } else if (styleType == styleNames[StyleName.bodyTitle]) {
           return tabletBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.paragraph]) {
+          return tabletParagraphStyle(
             context: parentCtx,
             color: color,
             fontWeight: fontWeight,
@@ -285,7 +315,7 @@ class ResponsiveTextStyles {
             color: color,
             fontWeight: fontWeight,
           );
-        } else if (styleType == styleNames[StyleName.subTitle]) {
+        } else if (styleType == styleNames[StyleName.bodySubTitle]) {
           return laptopSubtitleStyle(
             context: parentCtx,
             color: color,
@@ -293,6 +323,12 @@ class ResponsiveTextStyles {
           );
         } else if (styleType == styleNames[StyleName.bodyTitle]) {
           return laptopBodyStyle(
+            context: parentCtx,
+            color: color,
+            fontWeight: fontWeight,
+          );
+        } else if (styleType == styleNames[StyleName.paragraph]) {
+          return laptopParagraphStyle(
             context: parentCtx,
             color: color,
             fontWeight: fontWeight,
@@ -315,7 +351,7 @@ class ResponsiveTextStyles {
             color: color,
             fontWeight: fontWeight,
           );
-        } else if (styleType == styleNames[StyleName.subTitle]) {
+        } else if (styleType == styleNames[StyleName.bodySubTitle]) {
           return largeSubtitleStyle(
             context: parentCtx,
             color: color,
@@ -343,7 +379,7 @@ class ResponsiveTextStyles {
             color: color,
             fontWeight: fontWeight,
           );
-        } else if (styleType == styleNames[StyleName.subTitle]) {
+        } else if (styleType == styleNames[StyleName.bodySubTitle]) {
           return extraLargeSubtitleStyle(
             context: parentCtx,
             color: color,

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/widgets/global_text.dart';
 import 'package:flutter_portfolio/global/widgets/network_image_with_loader.dart';
+import 'package:flutter_portfolio/screens/media_query/media_query_padding.dart';
+import 'package:flutter_portfolio/screens/media_query/style_name.dart';
+import 'package:get/get.dart';
 
 import '../../../components/constants.dart';
 import '../../../global/constants/images.dart';
+import '../../settings/theme/controller/theme_controller.dart';
 
 class SocalCard extends StatefulWidget {
   const SocalCard({
@@ -36,10 +40,7 @@ class _SocalCardState extends State<SocalCard> {
       },
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        padding: const EdgeInsets.symmetric(
-          vertical: kDefaultPadding / 2,
-          horizontal: kDefaultPadding * 1.5,
-        ),
+        padding: ScreenPadding.getPadding(context),
         decoration: BoxDecoration(
           color: widget.color,
           borderRadius: BorderRadius.circular(10),
@@ -49,17 +50,22 @@ class _SocalCardState extends State<SocalCard> {
           children: [
             widget.iconUrl != null
                 ? SizedBox(
-                    height: 80,
-                    width: 80,
+                    height: 50,
+                    width: 50,
                     child: NetworkImageWithLoader(widget.iconUrl ?? Images.newtWorkImageUrl),
                   )
                 : Image.asset(
                     widget.iconSrc ?? Images.placeholder,
-                    height: 80,
-                    width: 80,
+                    height: 50,
+                    width: 50,
                   ),
-            const SizedBox(width: kDefaultPadding),
-            GlobalText(str: widget.name ?? '-'),
+            SizedBox(width: 10),
+            GlobalText(
+              styleType: styleNames[StyleName.paragraph],
+              str: widget.name ?? '-',
+              fontSize: 12,
+              color: Get.find<ThemeController>().getBlackWhiteColor(context),
+            )
           ],
         ),
       ),

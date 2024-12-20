@@ -2,21 +2,23 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_portfolio/global/widgets/button/primary_button.dart';
 import 'package:flutter_portfolio/global/widgets/custom_toast.dart';
 import 'package:flutter_portfolio/screens/contact/controller/contact_me_controller.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/text_formfield.dart';
 import 'package:flutter_portfolio/screens/contact/model/req_contact_me.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 import '../../../components/section_title.dart';
+import '../../../controller/url_controller/url_controller.dart';
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/show_custom_snackbar.dart';
+import '../../media_query/media_query_padding.dart';
+import '../../media_query/responsive_button.dart';
+import '../../media_query/responsive_sizebox.dart';
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../widgets/customised_scaffold.dart';
-import '../components/socal_card.dart';
 
 class ContactSection extends StatefulWidget {
   const ContactSection({super.key});
@@ -32,6 +34,12 @@ class _ContactSectionState extends State<ContactSection> {
   final _projectTypeController = TextEditingController();
   final _mobileNumberController = TextEditingController();
   final _shortDesController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    Get.find<ContactMeController>().getOthersContactMeData();
+  }
 
   @override
   void dispose() {
@@ -51,6 +59,7 @@ class _ContactSectionState extends State<ContactSection> {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<UrlAndPlatformController>().webDetectSize(context);
     return GetBuilder<ThemeController>(
       builder: (themeCon) {
         return GetBuilder<ContactMeController>(
@@ -67,12 +76,13 @@ class _ContactSectionState extends State<ContactSection> {
                       title: "Contact Me",
                       color: Color(0xFFFFB100),
                     ),
-                    sizedBoxH(100),
+                    sizedBoxH(50),
                     Align(
                       alignment: Alignment.center,
                       child: Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        padding: const EdgeInsets.all(kDefaultPadding * 3),
+                        // width: MediaQuery.of(context).size.width * 0.8,
+                        margin: ScreenPadding.getPadding(context),
+                        padding: ScreenPadding.getPadding(context),
                         decoration: BoxDecoration(
                           border: Border.all(width: 0.3, color: const Color(0xFF0E1453)),
                           color: const Color(0x2B0F112C),
@@ -85,108 +95,38 @@ class _ContactSectionState extends State<ContactSection> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              ///
-                              /// * ==@ SOCIAL MEDIA ==
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.linkedin?.icon,
+                              sizedBoxH(10),
+                              Container(
+                                color: Colors.red,
+                                height: 180,
+                                child: GridView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 3,
+                                    childAspectRatio: 6 / 2,
+                                    crossAxisSpacing: 5.0,
+                                    mainAxisSpacing: 4.0,
+                                  ),
+                                  itemCount: contactMeCon.otherContatData?.info?.socialMedia?.length ?? 0,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return ResponsiveContainer.getResponsiveContainer(
+                                      parentCtx: context,
+                                      titleColor: themeCon.getDarkLightBackGroundColor(context),
+                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?[index].icon,
                                       iconSrc: "assets/images/linkedin.png",
-                                      name: 'LinkedIn',
-                                      press: () {
+                                      title: contactMeCon.otherContatData?.info?.socialMedia?[index].name ?? '-',
+                                      onPressed: () {
                                         _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.linkedin?.url ??
+                                          contactMeCon.otherContatData?.info?.socialMedia?[index].url ??
                                               "https://www.linkedin.com/in/muktabd-info",
                                         );
                                       },
-                                    ),
-                                  ),
-                                  const SizedBox(width: 24),
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.github?.icon,
-                                      iconSrc: "assets/images/github.png",
-                                      name: 'Github',
-                                      press: () {
-                                        _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.github?.url ??
-                                              "https://github.com/muktabd",
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  const SizedBox(width: 24),
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.stackoverflow?.icon,
-                                      iconSrc: "assets/images/stack-overflow.png",
-                                      name: 'StackOverflow',
-                                      press: () {
-                                        _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.stackoverflow?.url ??
-                                              "https://stackoverflow.com/users/8496352/mukta",
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                ],
+                                    );
+                                  },
+                                ),
                               ),
-                              const SizedBox(height: kDefaultPadding),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.whatsapp?.icon,
-                                      iconSrc: "assets/images/whatsapp.png",
-                                      name: 'Whatsapp',
-                                      press: () {
-                                        _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.whatsapp?.url ??
-                                              "wa.me/+60187832241",
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  const SizedBox(width: 24),
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.xtwitter?.icon,
-                                      iconSrc: "assets/images/twitter.png",
-                                      name: 'Twitter',
-                                      press: () {
-                                        _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.xtwitter?.url ??
-                                              "https://twitter.com/muktabdinfo",
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                  const SizedBox(width: 24),
-                                  Expanded(
-                                    child: SocalCard(
-                                      color: themeCon.getDarkLightBackGroundColor(context),
-                                      iconUrl: contactMeCon.otherContatData?.info?.socialMedia?.facebook?.icon,
-                                      iconSrc: "assets/images/facebook.png",
-                                      name: 'Facebook',
-                                      press: () {
-                                        _launchInBrowser(
-                                          contactMeCon.otherContatData?.info?.socialMedia?.facebook?.url ??
-                                              "https://www.facebook.com/mukta.2003",
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: kDefaultPadding * 2),
+
+                              const SizedBox(height: 30),
 
                               /// * ==@ CONTACT ME FORM ==
                               Row(
@@ -272,39 +212,37 @@ class _ContactSectionState extends State<ContactSection> {
                               const SizedBox(height: kDefaultPadding * 2),
 
                               ///*
-                              Center(
-                                child: SizedBox(
-                                  width: MediaQuery.of(context).size.width * 0.1,
-                                  child: CustomButtonWidget(
-                                    width: MediaQuery.of(context).size.width * 0.8,
-                                    height: 50,
-                                    color: Colors.red,
-                                    image: "assets/images/contact_icon.png",
-                                    text: "Contact Me",
-                                    onPressed: () async {
-                                      if (_formKey.currentState!.validate()) {
-                                        log("validated");
-                                        final result = await contactMeCon.contactMe(
-                                          reqData: ReqContactMe(
-                                            name: _nameController.text.toString(),
-                                            email: _emailController.text.toString(),
-                                            phone: _mobileNumberController.text.toString(),
-                                            projectType: _projectTypeController.text.toString(),
-                                            projectDes: _shortDesController.text.toString(),
-                                          ),
-                                        );
-                                        if (result == true) {
-                                          showToast('Your data has been sent successfully.');
-                                        } else {
-                                          showCustomSnackBar('Something went wrong.');
-                                        }
-                                      } else {
-                                        log("validated");
-                                      }
-                                    },
-                                  ),
-                                ),
+                              ///
+                              ResponsiveButton.getResponsiveButton(
+                                parentCtx: context,
+                                btnHeight: 45,
+                                btnWidth: 150,
+                                title: "Contact Me",
+                                titleColor: Colors.white,
+                                fontSize: 13,
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    log("validated");
+                                    final result = await contactMeCon.contactMe(
+                                      reqData: ReqContactMe(
+                                        name: _nameController.text.toString(),
+                                        email: _emailController.text.toString(),
+                                        phone: _mobileNumberController.text.toString(),
+                                        projectType: _projectTypeController.text.toString(),
+                                        projectDes: _shortDesController.text.toString(),
+                                      ),
+                                    );
+                                    if (result == true) {
+                                      showToast('Your data has been sent successfully.');
+                                    } else {
+                                      showCustomSnackBar('Something went wrong.');
+                                    }
+                                  } else {
+                                    log("validated");
+                                  }
+                                },
                               ),
+                              sizedBoxH(30),
                             ],
                           ),
                         ),
@@ -316,7 +254,7 @@ class _ContactSectionState extends State<ContactSection> {
                     CustomDottedDivider(color: Colors.red),
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0, bottom: 10),
-                      child: Text('Copyrights © 2019-2024 reserved by Mukta'),
+                      child: Text('Copyrights ©2019-2024 reserved by Mukta'),
                     ),
                   ],
                 ),

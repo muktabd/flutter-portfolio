@@ -91,7 +91,7 @@ class ResponsiveButton {
     Color? color,
   }) {
     return SizedBox(
-      width: 350,
+      width: 260,
       height: 60,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -99,7 +99,8 @@ class ResponsiveButton {
         child: Text(
           title,
           style: TextStyle(
-            color: Colors.blue,
+            color: color ?? Colors.white,
+            fontSize: 22.0,
           ),
         ),
       ),
@@ -114,7 +115,7 @@ class ResponsiveButton {
     Color? color,
   }) {
     return SizedBox(
-      width: 350,
+      width: 300,
       height: 60,
       child: ElevatedButton(
         onPressed: onPressed,
@@ -122,7 +123,8 @@ class ResponsiveButton {
         child: Text(
           title,
           style: TextStyle(
-            color: Colors.blue,
+            color: color ?? Colors.white,
+            fontSize: 25.0,
           ),
         ),
       ),
@@ -145,11 +147,10 @@ class ResponsiveButton {
   }) {
     double width = MediaQuery.of(parentCtx).size.width;
 
-
     if (kIsWeb) {
       ///* MOBILE VIEW STYLES
       if (width <= 500) {
-          log("now width less then  $width < 500 ");
+        log("now width less then  $width < 500 ");
         return mobileButton(
           context: parentCtx,
           title: title,
@@ -183,16 +184,13 @@ class ResponsiveButton {
 
       /// * ==@ LARGE SCREEN STYLE ==
       if (width <= 1440) {
-        return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
-      }
-
-      /// * ==@ LARGE SCREEN STYLE ==
-      if (width <= 1920) {
+        return largeButton(context: parentCtx, onPressed: onPressed, title: title);
+      } else {
+        /// * ==@ LARGE SCREEN STYLE ==
         return extralargeButton(context: parentCtx, onPressed: onPressed, title: title);
       }
-
-      return extralargeButton(context: parentCtx, onPressed: onPressed, title: title);
     }
+
     /// * DEFAULT ALWAYS KEEP MOBILE VIEW ==
     return mobileButton(context: parentCtx, onPressed: onPressed, title: title);
   }

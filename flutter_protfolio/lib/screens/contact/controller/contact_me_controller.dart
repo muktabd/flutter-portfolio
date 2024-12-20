@@ -11,10 +11,8 @@ import '../repo/contact_me_repo.dart';
 class ContactMeController extends GetxController {
   final ContactMeRepo repo = ContactMeRepo();
 
-  OtherContactMeData? otherContatData;
-  Future getOthersContactMeData({
-    required ReqContactMe reqData,
-  }) async {
+  OtherSocialMediaData? otherContatData;
+  Future getOthersContactMeData() async {
     try {
       final res = await repo.fetchOthersContactMeData();
 

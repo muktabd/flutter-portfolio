@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'dart:ui';
 
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +18,7 @@ import '../../media_query/media_query_padding.dart';
 import '../../media_query/media_query_style.dart';
 import '../../media_query/style_name.dart';
 import '/controller/url_controller/url_controller.dart';
+import 'widgets/typewriter_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Get.find<UrlAndPlatformController>().getPlatformInfo();
+
     Get.find<HomeInfoController>().getHomeInfoData();
 
     setState(() {});
@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Get.find<UrlAndPlatformController>().webDetectSize(context);
     return GetBuilder<UrlAndPlatformController>(
       builder: (urlAndPlatformCon) {
         return GetBuilder<ThemeController>(
@@ -103,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               GlobalText(
                                 str: "${homeInfoCon.infoDetails?.info?.designation}",
-                                styleType: styleNames[StyleName.subTitle],
+                                styleType: styleNames[StyleName.bodySubTitle],
                                 color: Color(0xFFFFF200),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -129,71 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       sizedBoxW(5.0),
                                       Flexible(
                                         // Allows the TypewriterAnimatedText to resize without overflow
-                                        child: AnimatedTextKit(
-                                          animatedTexts: [
-                                            TypewriterAnimatedText(
-                                              "${homeInfoCon.infoDetails?.info?.workFields?.nativeAndroid}",
-                                              cursor: "|",
-                                              textStyle: ResponsiveTextStyles.getTextStyle(
-                                                parentCtx: context,
-                                                styleType: styleNames[StyleName.bodyTitle],
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 20,
-                                                color: Color(0xFFFFF200),
-                                              ),
-                                              speed: const Duration(milliseconds: 130),
-                                            ),
-                                            TypewriterAnimatedText(
-                                              "${homeInfoCon.infoDetails?.info?.workFields?.flutter}",
-                                              cursor: "_",
-                                              textStyle: ResponsiveTextStyles.getTextStyle(
-                                                styleType: styleNames[StyleName.bodyTitle],
-                                                parentCtx: context,
-                                                fontSize: 20,
-                                                color: Color(0xFFFF9D00),
-                                              ),
-                                              speed: const Duration(milliseconds: 150),
-                                            ),
-                                            TypewriterAnimatedText(
-                                              "${homeInfoCon.infoDetails?.info?.workFields?.nodejs}",
-                                              cursor: "|",
-                                              textStyle: ResponsiveTextStyles.getTextStyle(
-                                                styleType: styleNames[StyleName.bodyTitle],
-                                                parentCtx: context,
-                                                fontSize: 20,
-                                                color: Color(0xFFFFF200),
-                                              ),
-                                              speed: const Duration(milliseconds: 180),
-                                            ),
-                                            TypewriterAnimatedText(
-                                              "${homeInfoCon.infoDetails?.info?.workFields?.springBoot}",
-                                              cursor: "_",
-                                              textStyle: ResponsiveTextStyles.getTextStyle(
-                                                styleType: styleNames[StyleName.bodyTitle],
-                                                parentCtx: context,
-                                                fontSize: 20,
-                                                
-                                                color: Color(0xFFFF9D00),
-                                              ),
-                                              speed: const Duration(milliseconds: 200),
-                                            ),
-                                            TypewriterAnimatedText(
-                                              "${homeInfoCon.infoDetails?.info?.workFields?.vuejs}",
-                                              cursor: "_|",
-                                              textStyle: ResponsiveTextStyles.getTextStyle(
-                                                styleType: styleNames[StyleName.bodyTitle],
-                                                parentCtx: context,
-                                                fontSize: 20,
-                                                color: Color(0xFFFFF200),
-                                              ),
-                                              speed: const Duration(milliseconds: 230),
-                                            ),
-                                          ],
-                                          repeatForever: true,
-                                          pause: const Duration(milliseconds: 1000),
-                                          displayFullTextOnTap: true,
-                                          stopPauseOnTap: true,
-                                        ),
+                                        child: TypewriterWidget(),
                                       ),
                                       GlobalText(
                                         str: "Developer",
@@ -245,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               /// * ==@ THOUGHTS OF MIND * ==
                               GlobalText(
                                 str: "${homeInfoCon.infoDetails?.info?.thoughts?.title}",
-                                styleType: styleNames[StyleName.subTitle],
+                                styleType: styleNames[StyleName.bodySubTitle],
                                 color: Color(0xFFFFF200),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,

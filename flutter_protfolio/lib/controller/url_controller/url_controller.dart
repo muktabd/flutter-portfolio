@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../domain/server/http_client/app_config.dart';
 import '../../domain/server/http_client/response_wrapper.dart';
@@ -40,29 +40,31 @@ class UrlAndPlatformController extends GetxController {
   }
 
   /// * ==@ A BREAK FOR NEW METHODS * //
+  //
   bool isMobile = false;
-  Future getPlatformInfo() async {
-    try {
-      if (kIsWeb) {
-        isMobile = false;
-        update();
-      } else if (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android) {
-        isMobile = true;
-        update();
-      } else if (defaultTargetPlatform == TargetPlatform.linux ||
-          defaultTargetPlatform == TargetPlatform.macOS ||
-          defaultTargetPlatform == TargetPlatform.windows ||
-          defaultTargetPlatform == TargetPlatform.fuchsia) {
-        isMobile = false;
-        update();
-      }
-    } catch (error, trace) {
-      if (error is Exception) {
-        AppConfig.updateBaseUrl(AppConfig.defaultBaseUrl);
-        log(error.toString());
-        refresh();
-      }
-      log('#GET_USER_PROFILE', error: error, stackTrace: trace);
+  bool isTab = false;
+  bool isLaptop = false;
+
+  void webDetectSize(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    log('trying to detect size ?? $width');
+    if (width <= 500) {
+      isMobile = true;
+      isTab = false;
+      isLaptop = false;
+      log("Now is mobile: $isMobile");
+    } else if (width <= 768) {
+      isMobile = false;
+      isTab = true;
+      isLaptop = false;
+      log("Now is tablet: $isTab");
+    } else if (width <= 1024) {
+      isMobile = false;
+      isTab = false;
+      isLaptop = true;
+      log("Now is laptop: $isLaptop");
     }
+
+    update();
   }
 }

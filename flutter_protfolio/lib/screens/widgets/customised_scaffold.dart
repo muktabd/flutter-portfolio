@@ -18,6 +18,7 @@ class CustomisedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue,
       floatingActionButton: floatingActionButton,
       body: GetBuilder<ThemeController>(
         builder: (themeCon) {

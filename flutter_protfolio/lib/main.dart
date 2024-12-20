@@ -5,7 +5,7 @@ import 'package:flutter_portfolio/controller/url_controller/url_controller.dart'
 import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'screens/home/view/home_screen.dart';
+import 'screens/contact/view/contact_section.dart';
 import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
@@ -21,9 +21,13 @@ void main() async {
   Dio dio = Dio();
   final prefs = await SharedPreferences.getInstance();
 
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Color(0xFF212741),
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    systemNavigationBarColor: Colors.black,
+    systemNavigationBarDividerColor: Colors.grey,
   ));
+
+  //
 
   ///
   await init(prefs);
@@ -36,7 +40,6 @@ void main() async {
 
   ///
   Get.put(UrlAndPlatformController());
-  Get.find<UrlAndPlatformController>().getPlatformInfo();
   Get.find<UrlAndPlatformController>().getBaseUrl();
 
   await loadLanguages();
@@ -63,12 +66,12 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
-              // home: const ContactSection(),
+              home: const ContactSection(),
               // home: const MyResumeScreen(),
               // home: const WorkExperiencesScreen(),
               // home: const ProjectsScreen(),
               // home: const EducationSection(),
-              home: const HomeScreen(),
+              // home: const HomeScreen(),
             );
           },
         );

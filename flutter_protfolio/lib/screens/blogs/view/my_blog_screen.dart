@@ -5,7 +5,6 @@ import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/section_title.dart';
-import '../../../global/widgets/custom_devider.dart';
 import '../../media_query/media_query_grid_count.dart';
 import '../../media_query/media_query_padding.dart';
 import '../../widgets/bottom_copyrights.dart';

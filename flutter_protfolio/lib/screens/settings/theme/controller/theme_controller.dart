@@ -41,7 +41,7 @@ class ThemeController extends GetxController implements GetxService {
 
   /// * ==@ Color Change
   Color getDarkLightBackGroundColor(context) {
-     final theme = Theme.of(context).brightness;
+    final theme = Theme.of(context).brightness;
     return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
   }
 
@@ -57,7 +57,7 @@ class ThemeController extends GetxController implements GetxService {
 
   Color getBlackWhiteColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
+    return (theme == Brightness.dark) ? ColorRes.black : ColorRes.white;
   }
 
   Color getWhiteBlackColor(context) {

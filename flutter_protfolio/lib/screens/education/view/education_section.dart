@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
-import '../../../global/widgets/custom_devider.dart';
 import '../../widgets/bottom_copyrights.dart';
 import '../../widgets/customised_scaffold.dart';
 

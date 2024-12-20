@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +9,6 @@ import 'package:flutter_portfolio/components/my_outline_button.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
 import '../../../global/constants/images.dart';
-import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/custom_toast.dart';
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../widgets/bottom_copyrights.dart';
