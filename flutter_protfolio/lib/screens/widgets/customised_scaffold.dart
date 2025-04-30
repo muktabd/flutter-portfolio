@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
 import '../../global/constants/color_resources.dart';
+import '/screens/settings/theme/controller/theme_controller.dart';
 
 class CustomisedScaffold extends StatelessWidget {
   final Widget mainScaffold;

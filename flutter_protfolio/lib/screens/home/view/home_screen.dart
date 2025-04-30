@@ -11,12 +11,12 @@ import '../../media_query/responsive_button.dart';
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../thoughts/thoughts_screen..dart';
 import '../../widgets/customised_scaffold.dart';
-import '../components/home_dialog_menu.dart';
-import '../components/social_media_widget.dart';
-import '../controller/home_info_controller.dart';
 import '../../media_query/media_query_padding.dart';
 import '../../media_query/media_query_style.dart';
 import '../../media_query/style_name.dart';
+import '../components/social_media_widget.dart';
+import '../components/home_dialog_menu.dart';
+import '../controller/home_info_controller.dart';
 import '/controller/url_controller/url_controller.dart';
 import 'widgets/typewriter_widget.dart';
 
