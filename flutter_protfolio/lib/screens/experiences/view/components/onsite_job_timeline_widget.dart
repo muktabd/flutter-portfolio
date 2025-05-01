@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timelines/timelines.dart';
+import 'package:timelines_plus/timelines_plus.dart';
 
 class ExperienceTimelineWidget extends StatelessWidget {
   const ExperienceTimelineWidget({super.key, required this.experienceList});

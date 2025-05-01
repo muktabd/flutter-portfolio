@@ -25,21 +25,22 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  url_launcher: ^6.3.1
-  timelines: ^0.1.0
-  fluttertoast: ^8.1.2
+  get: ^4.6.5
   dio: ^5.4.0
   shared_preferences: ^2.0.15
-  get: ^4.6.5
+  device_info_plus: ^11.1.1
+
+  fluttertoast: ^8.1.2
+  url_launcher: ^6.3.1
+  timelines_plus: ^1.0.6
   #
   pdf: ^3.11.1
   printing: ^5.13.4
   flutter_pdfview: ^1.3.4
-  file_picker: ^5.0.3
+  file_picker: ^10.1.2
   path_provider: ^2.0.12
   #
-  device_info_plus: ^11.1.1
-  intl: ^0.19.0
+  intl: ^0.20.2
   cached_network_image: ^3.4.1
   animated_text_kit: ^4.2.2
   google_fonts: ^6.2.1
@@ -68,14 +69,21 @@ flutter:
     - assets/activity/
     - assets/edu/
     - assets/company/
+    #
     - assets/icons/
+    - assets/icons/social/
+    - assets/icons/skill/
+    - assets/icons/platform/
+    - assets/icons/communicate/
+    - assets/icons/project/
+    #
     - assets/images/
     - assets/resume/
     - assets/data/languages.json
     - assets/data/home_info.json
     - assets/data/other_social_media.json
     - assets/resume/resume_mukta.pdf
-    
+
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

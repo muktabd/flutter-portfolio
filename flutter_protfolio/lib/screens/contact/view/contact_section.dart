@@ -14,9 +14,7 @@ import '../../../components/section_title.dart';
 import '../../../controller/url_controller/url_controller.dart';
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/show_custom_snackbar.dart';
-import '../../media_query/media_query_padding.dart';
-import '../../media_query/responsive_button.dart';
-import '../../media_query/responsive_sizebox.dart';
+
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../widgets/customised_scaffold.dart';
 
@@ -59,8 +57,8 @@ class _ContactSectionState extends State<ContactSection> {
 
   @override
   Widget build(BuildContext context) {
-    Get.find<UrlAndPlatformController>().webDetectSize(context);
-    return GetBuilder<ThemeController>(
+    return Card();
+    /* return GetBuilder<ThemeController>(
       builder: (themeCon) {
         return GetBuilder<ContactMeController>(
           builder: (contactMeCon) {
@@ -211,7 +209,7 @@ class _ContactSectionState extends State<ContactSection> {
                               ),
                               const SizedBox(height: kDefaultPadding * 2),
 
-                              ///*
+                              ///
                               ///
                               ResponsiveButton.getResponsiveButton(
                                 parentCtx: context,
@@ -263,6 +261,6 @@ class _ContactSectionState extends State<ContactSection> {
           },
         );
       },
-    );
+    ); */
   }
 }

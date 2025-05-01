@@ -6,11 +6,11 @@ import '../../domain/server/http_client/app_config.dart';
 import '../../domain/server/http_client/response_wrapper.dart';
 import '../model/baseurl_response_wrapper.dart';
 
-class UrlAndPlatformController extends GetxController {
-  static UrlAndPlatformController get find => Get.find();
+class UrlController extends GetxController {
+  static UrlController get find => Get.find();
   Dio dio = Dio();
 
-  UrlAndPlatformController() {
+  UrlController() {
     log("initila base url ===>>> ");
     getBaseUrl();
   }
@@ -37,34 +37,5 @@ class UrlAndPlatformController extends GetxController {
       }
       log('#GET_USER_PROFILE', error: error, stackTrace: trace);
     }
-  }
-
-  /// * ==@ A BREAK FOR NEW METHODS * //
-  //
-  bool isMobile = false;
-  bool isTab = false;
-  bool isLaptop = false;
-
-  void webDetectSize(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    log('trying to detect size ?? $width');
-    if (width <= 500) {
-      isMobile = true;
-      isTab = false;
-      isLaptop = false;
-      log("Now is mobile: $isMobile");
-    } else if (width <= 768) {
-      isMobile = false;
-      isTab = true;
-      isLaptop = false;
-      log("Now is tablet: $isTab");
-    } else if (width <= 1024) {
-      isMobile = false;
-      isTab = false;
-      isLaptop = true;
-      log("Now is laptop: $isLaptop");
-    }
-
-    update();
   }
 }

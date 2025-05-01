@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../screens/media_query/button_style.dart';
-import '../../../screens/media_query/media_query_padding.dart';
 import '/global/widgets/global_text.dart';
 import '../../../screens/settings/theme/controller/theme_controller.dart';
 
@@ -46,11 +44,10 @@ class CustomButtonWidget extends StatelessWidget {
         return Container(
           height: height ?? 50,
           width: width ?? MediaQuery.of(context).size.width,
-          padding: padding ?? ScreenPadding.getPadding(context, left: 20, right: 20),
+          padding: padding ?? EdgeInsets.all(0.0),
           child: ElevatedButton(
             onPressed: onPressed,
-            style: ButtonStyles.getButtonStyle(context: context),
-            /* style: ElevatedButton.styleFrom(
+            style: ElevatedButton.styleFrom(
               backgroundColor: color ?? themeCon.getGoldBlueColor(context),
               // shadowColor: ColorRes.red,
               side: BorderSide(color: borderColor ?? Colors.transparent, width: 0.3),
@@ -59,7 +56,7 @@ class CustomButtonWidget extends StatelessWidget {
                   Radius.circular(borderRadius ?? 8),
                 ),
               ),
-            ), */
+            ),
             child: icon != null
                 ? Row(
                     mainAxisAlignment: MainAxisAlignment.center,

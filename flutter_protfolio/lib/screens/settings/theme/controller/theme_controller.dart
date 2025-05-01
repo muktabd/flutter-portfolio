@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../domain/local/preferences/local_storage.dart';
@@ -36,23 +38,25 @@ class ThemeController extends GetxController implements GetxService {
   Future<void> _loadCurrentTheme() async {
     bool? storedTheme = Get.find<LocalStorage>().getBool(key: StorageKeys.theme);
     _darkTheme = storedTheme ?? true;
+    log("Stored theme: $_darkTheme");
     update();
   }
 
+  ///* ==================================================================== ///
   /// * ==@ Color Change
-  Color getDarkLightBackGroundColor(context) {
+  Color getImageBlueColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? ColorRes.white : ColorRes.black;
+    return (theme == Brightness.dark) ? ColorRes.imageBlueColor : ColorRes.imageBlueColor;
   }
 
   Color getButtonColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? Color(0xFFFF0000) : ColorRes.white;
+    return (theme == Brightness.dark) ? ColorRes.red : ColorRes.white;
   }
 
-  Color getHeadingColor(context) {
+  Color getYellowColor(context) {
     final theme = Theme.of(context).brightness;
-    return (theme == Brightness.dark) ? Color(0xFFFFF200) : ColorRes.white;
+    return (theme == Brightness.dark) ? ColorRes.yellow : ColorRes.white;
   }
 
   Color getBlackWhiteColor(context) {

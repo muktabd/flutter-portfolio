@@ -22,7 +22,9 @@ Future init(SharedPreferences? localStorage) async {
   Get.lazyPut(() => LanguageController());
   await Get.find<LanguageController>().getAllLanguage();
   //
-  Get.put(HomeInfoController());
+  final homeCon = Get.put(HomeInfoController());
+  await homeCon.getHomeInfoData();
+
   Get.put(BlogPostController());
   Get.put(ContactMeController());
 

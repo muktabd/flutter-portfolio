@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../screens/media_query/media_query_style.dart';
 import '../../screens/settings/theme/controller/theme_controller.dart';
 
 class GlobalText extends StatelessWidget {
@@ -39,7 +39,7 @@ class GlobalText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<UrlAndPlatformController>(
+    return GetBuilder<UrlController>(
       builder: (urlnPlatformCon) {
         return GetBuilder<ThemeController>(
           builder: (themeCon) {
@@ -50,9 +50,7 @@ class GlobalText extends StatelessWidget {
                 overflow: overflow,
                 textAlign: textAlign,
                 softWrap: softwrap,
-                style: ResponsiveTextStyles.getTextStyle(
-                  styleType: styleType,
-                  parentCtx: context,
+                style: GoogleFonts.montserrat(
                   color: color,
                   fontSize: fontSize,
                 ),

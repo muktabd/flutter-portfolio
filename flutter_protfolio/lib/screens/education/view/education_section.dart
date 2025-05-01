@@ -11,7 +11,8 @@ class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
   @override
   Widget build(BuildContext context) {
-    return CustomisedScaffold(
+    return Card();
+    /* return CustomisedScaffold(
       mainScaffold: Container(
         margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
         constraints: const BoxConstraints(maxWidth: 1110),
@@ -63,7 +64,7 @@ class EducationSection extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ); */
   }
 }
 

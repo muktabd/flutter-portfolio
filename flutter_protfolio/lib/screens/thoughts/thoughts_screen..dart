@@ -13,7 +13,8 @@ class ThoughtsScreen extends StatefulWidget {
 class _ThoughtsScreenState extends State<ThoughtsScreen> {
   @override
   Widget build(BuildContext context) {
-    return CustomisedScaffold(
+    return Card();
+    /* return CustomisedScaffold(
       mainScaffold: Column(
         children: [
           CustomDottedDivider(color: Colors.red),
@@ -23,6 +24,6 @@ class _ThoughtsScreenState extends State<ThoughtsScreen> {
           ),
         ],
       ),
-    );
+    ); */
   }
 }

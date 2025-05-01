@@ -44,7 +44,7 @@ class _MyResumeScreenState extends State<MyResumeScreen> {
     return GetBuilder<ThemeController>(
       builder: (themeController) {
         return Scaffold(
-          backgroundColor: themeController.getDarkLightBackGroundColor(context),
+          // backgroundColor: themeController.getDarkLightBackGroundColor(context),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(15.0),

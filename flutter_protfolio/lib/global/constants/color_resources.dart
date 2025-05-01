@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../screens/settings/theme/controller/theme_controller.dart';
+
 
 class ColorRes {
-  BuildContext context;
-  ColorRes(this.context);
-  static ThemeController themeFind = Get.find<ThemeController>();
 
   /// * ==@ GRADIENT COLOR ==
   static const Color bgDarkColor1 = Color(0xFF222C5E);
@@ -18,19 +14,16 @@ class ColorRes {
   // ==# AppBar Color
   static const Color dartAppBarBackColor = Color(0xFF252B48);
   static const Color lightAppBarBackColor = Color(0xFFFFFFFF);
-
   static const Color darkBackGroundColor = Color(0xFF212741);
   static const Color lightBackGroundColor = Color(0xFFEDEDED);
-
   static const Color darkSettingConBackColor = Color(0xFF016D94);
-
   static const Color darkButtonBgColor = Color(0xFF252B48);
   static const Color darkDialogBoxBgColor = Color(0xFF212741);
   static const Color darkDrawerBgColor = Color(0xFF212741);
   static const Color darkGreyColor = Color(0xFF2F375B);
 
+  static const Color imageBlueColor = Color(0xA2090909);
   static const Color black = Color(0xFF000000);
-
   static const Color white = Color(0xFFFFFFFF);
   static const Color blue = Color(0xFF2196F3);
   static const Color blueAccent = Color(0xFF448AFF);
@@ -68,7 +61,6 @@ class ColorRes {
   static const Color lavender = Color(0xFFE6E6FA);
   static const Color mauve = Color(0xFFE0B0FF);
   static const Color gold = Color(0xFFFFD700);
-
   static const Color dark = Color(0xff252525);
   static const Color darkGaro = Color(0xff252B48);
   static const Color backgroundColor = Color(0xfff6f6f6);

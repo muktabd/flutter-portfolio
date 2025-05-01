@@ -3,10 +3,7 @@ import 'package:flutter_portfolio/global/widgets/global_text.dart';
 import 'package:flutter_portfolio/screens/widgets/customised_scaffold.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 
-import '../../../components/constants.dart';
-import '../../../components/section_title.dart';
-import '../../media_query/media_query_grid_count.dart';
-import '../../media_query/media_query_padding.dart';
+
 import '../../widgets/bottom_copyrights.dart';
 import '../controller/blog_post_controller.dart';
 import '../../../global/methods/sizebox_widget.dart';
@@ -21,7 +18,8 @@ class MyBlogsScreen extends StatefulWidget {
 class _MyBlogsScreenState extends State<MyBlogsScreen> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<BlogPostController>(
+    return Card();
+    /* return GetBuilder<BlogPostController>(
       builder: (getAllPostController) {
         return CustomisedScaffold(
           mainScaffold: Container(
@@ -136,7 +134,7 @@ class _MyBlogsScreenState extends State<MyBlogsScreen> {
           ),
         );
       },
-    );
+    ); */
   }
 }
 

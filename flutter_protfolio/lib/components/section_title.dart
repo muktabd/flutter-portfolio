@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/global_text.dart';
 
-import '../screens/media_query/style_name.dart';
 import 'constants.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -43,7 +42,7 @@ class SectionTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GlobalText(
-                styleType: styleNames[StyleName.bodySubTitle],
+                
                 str: title ?? '',
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -51,7 +50,7 @@ class SectionTitle extends StatelessWidget {
               ),
               sizedBoxH(0.0),
               GlobalText(
-                styleType: styleNames[StyleName.bodyTitle],
+             
                 str: subTitle ?? '',
                 maxLines: 2,
                 overflow: TextOverflow.fade,

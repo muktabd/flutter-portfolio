@@ -19,7 +19,7 @@ class CardTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<UrlAndPlatformController>(
+    return GetBuilder<UrlController>(
       builder: (urlnPlatformCon) {
         return GetBuilder<ThemeController>(
           builder: (themeCon) {

@@ -21,7 +21,7 @@ List<Service> skillServices = [
   Service(
     id: 2,
     title: "Web Application",
-    image: Images.crossPlatformApp,
+    image: Images.nativeAndroid,
     color: const Color(0xFFE4FFC7),
   ),
   Service(

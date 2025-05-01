@@ -2,7 +2,7 @@
 class AppConfig {
 
 
-  static String baseUrlControllerUrl = 'http://projects.rbftechzone.com/api/v2/client/projects/4';
+  static String baseUrlControllerUrl = 'http://private.rbftechzone.com/api/v1/client/projects/4';
   static String defaultBaseUrl = "http://mukta.rbfgroupbd.com";
   static String baseUrl = '';
   static String get updatedBaseUrl => baseUrl;

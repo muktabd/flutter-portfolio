@@ -6,46 +6,42 @@ class Images {
   static const String us = 'assets/flags/us.png';
   static const String ms = 'assets/flags/us.png';
 
-  /// * =========== |> 
   static String coverImage = "assets/images/background.jpg";
-
-  static String nativeAndroid = "assets/icons/android.png";
-  static String crossPlatformApp = "assets/icons/flutter.png";
-  static String nodeJs = "assets/icons/nodejs.png";
-  static String lead = "assets/icons/lead.png";
-  static String mobileApp = "assets/icons/mobile.png";
-  static String webApp = "assets/icons/web.png";
-  static String apiDev = "assets/icons/api.png";
-  static String uiux = "assets/icons/ui.png";
-
   static String placeholder = "assets/images/image_placeholder.jpeg";
 
-  static String github = "assets/images/github.png";
-  static String stackOverFlow = "assets/images/stack-overflow.png";
-  static String linkedIn = "assets/images/background.jpg";
-  static String xTwitter = "assets/images/twitter.png";
-  static String facebook = "assets/images/facebook.png";
-  static String skype = "assets/images/facebook.png";
-  static String whatsapp = "assets/images/facebook.png";
+  /// * =========== |>SOCIAL ICONS
+  static String github = "assets/icons/social/github.png";
+  static String stackOverFlow = "assets/icons/social/stack-overflow.png";
+  static String linkedIn = "assets/icons/social/linkedin.png";
+  static String twitter = "assets/icons/social/twitter.png";
+  static String facebook = "assets/icons/social/facebook.png";
+  static String messanger = "assets/icons/social/messanger.png";
+  static String whatsapp = "assets/icons/social/whatsapp.png";
 
-  //
+  /// * =========== |> SKILL ICONS
+  static String nativeAndroid = "assets/icons/skill/android.png";
+  static String flutter = "assets/icons/skill/flutter.png";
+  static String nodeJs = "assets/icons/skill/nodejs.png";
+  static String lead = "assets/icons/skill/lead.png";
+  static String mobileApp = "assets/icons/skill/mobile.png";
+  static String webApp = "assets/icons/skill/web.png";
+  static String apiDev = "assets/icons/skill/api.png";
+  static String uiux = "assets/icons/skill/ui.png";
+
+  /// * =========== |> COMMUNICATE ICONS
+
+  /// * =========== |> PROJECT ICONS
   static String weHealthLogo = "assets/company/wehealthwebp.webp";
   static String bizTradingLogo = "assets/company/biz_trading.png";
+
+
   static String dfLogo = "assets/company/df.jpeg";
+  //
   //* =========== |> Logo <| ===========  */
   static const String rbfgroupbdIcon = 'assets/icons/rbfgroupbd_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
 
-  //* =========== |> Login Screen <| ===========  */
-  static const String facebookButton = 'assets/icons/facebook-btn.png';
 
-
-  //::::::::::::::::::::::::: Social Icons
-  static const String google = 'assets/icons/social/google.png';
-  static const String instragram = 'assets/icons/social/instragram.png';
-  static const String linkedin = 'assets/icons/social/linkedin.png';
-  static const String twitter = 'assets/icons/social/twitter.png';
-  static const String wechat = 'assets/icons/social/wechat.png';
 
 //::::::::::::::::::::::::: Review Goal
   static const String image = "assets/images/image.png";
@@ -61,9 +57,7 @@ class Images {
   // ==/@ Images
   static const String images1 = 'assets/swipe/image1.jpg';
 
-
   // ==/@ Payment
-
 
   static const String newtWorkImageUrl =
       'https://raw.githubusercontent.com/muktabd/public-images/main/user_placeholder.png';

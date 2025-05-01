@@ -21,7 +21,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  CustomisedScaffold(
+    return Card();
+    /* return  CustomisedScaffold(
         mainScaffold: Column(
           children: [
             const SectionTitle(
@@ -107,7 +108,6 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
              BottomCopyRights(),
           ],
         ),
-      
-    );
+    ); */
   }
 }
