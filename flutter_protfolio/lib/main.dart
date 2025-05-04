@@ -5,7 +5,9 @@ import 'package:flutter_portfolio/controller/url_controller/url_controller.dart'
 import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'screens/contact/view/contact_section.dart';
+import 'screens/experiences/view/work_experiences.dart';
 import 'screens/home/view/home_screen.dart';
 import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
@@ -67,12 +69,13 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
-              // home: const ContactSection(),
+              home: const ContactSection(),
               // home: const MyResumeScreen(),
               // home: const WorkExperiencesScreen(),
               // home: const ProjectsScreen(),
               // home: const EducationSection(),
-              home: const HomeScreen(),
+              // home: const HomeScreen(),
+              // home: const WorkExperiencesSection(),
             );
           },
         );

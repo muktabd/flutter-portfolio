@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 
-class ExperienceTimelineWidget extends StatelessWidget {
-  const ExperienceTimelineWidget({super.key, required this.experienceList});
+import '../../data/work_exp_data.dart';
 
-  final List<WorkExperienceClass> experienceList;
+class ExperienceTimelineWidget extends StatelessWidget {
+  const ExperienceTimelineWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,12 +24,12 @@ class ExperienceTimelineWidget extends StatelessWidget {
         ),
         builder: TimelineTileBuilder.connected(
           connectionDirection: ConnectionDirection.before,
-          itemCount: experienceList.length,
+          itemCount: workData.length,
           contentsBuilder: (_, index) {
             return Padding(
               padding: const EdgeInsets.only(left: 8.0, bottom: 40),
               child: Card(
-                color: const Color(0x6C000000),
+                color: const Color(0x14000000),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24),
@@ -36,15 +37,34 @@ class ExperienceTimelineWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        experienceList[index].position,
-                        style: DefaultTextStyle.of(context).style.copyWith(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            workData[index].position,
+                            style: DefaultTextStyle.of(context).style.copyWith(
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.all(6.0),
+                            decoration: BoxDecoration(
+                              color: Colors.blue.shade800,
+                              borderRadius: BorderRadius.circular(5.0),
                             ),
+                            child: Text(
+                              workData[index].toFrom,
+                              style: DefaultTextStyle.of(context).style.copyWith(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ],
                       ),
                       Text(
-                        experienceList[index].companyName,
+                        workData[index].companyName,
                         style: DefaultTextStyle.of(context).style.copyWith(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
@@ -52,26 +72,26 @@ class ExperienceTimelineWidget extends StatelessWidget {
                             ),
                       ),
                       Text(
-                        "Contact: ${experienceList[index].contactNumber}",
+                        "Contact: ${workData[index].contactNumber}",
                         style: DefaultTextStyle.of(context).style.copyWith(
                               fontSize: 18.0,
                             ),
                       ),
                       Text(
-                        experienceList[index].toFrom,
+                        "",
                         style: DefaultTextStyle.of(context).style.copyWith(
                               fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                       Text(
-                        experienceList[index].companyType,
+                        workData[index].companyType,
                         style: DefaultTextStyle.of(context).style.copyWith(
                               fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
-                      RolesListCreator(roles: experienceList[index].roles),
+                      RolesListCreator(roles: workData[index].roles),
                     ],
                   ),
                 ),
@@ -79,12 +99,12 @@ class ExperienceTimelineWidget extends StatelessWidget {
             );
           },
           indicatorBuilder: (_, index) {
-            return Indicator.widget(
-              position: 0,
-              size: 64,
-              child: CircleAvatar(
-                radius: 32,
-                foregroundImage: AssetImage(experienceList[index].companyImage),
+            return const DotIndicator(
+              color: Color(0xff66c97f),
+              child: Icon(
+                Icons.check,
+                color: Colors.white,
+                size: 12.0,
               ),
             );
           },
@@ -134,7 +154,7 @@ class RolesListCreator extends StatelessWidget {
                       roleText,
                       style: TextStyle(
                         color: Colors.blue.shade800,
-                        fontSize: 14,
+                        fontSize: 18,
                       ),
                     ),
                   )
@@ -147,26 +167,4 @@ class RolesListCreator extends StatelessWidget {
       ),
     );
   }
-}
-
-class WorkExperienceClass {
-  const WorkExperienceClass({
-    required this.id,
-    required this.position,
-    required this.companyName,
-    required this.contactNumber,
-    required this.toFrom,
-    required this.companyType,
-    required this.roles,
-    required this.companyImage,
-  });
-
-  final int id;
-  final String position;
-  final String companyName;
-  final String contactNumber;
-  final String toFrom;
-  final String companyType;
-  final String companyImage;
-  final List<String> roles;
 }

@@ -1,9 +1,10 @@
 // ignore_for_file: avoid_print
 
 import 'dart:developer';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 import '/screens/contact/model/req_contact_me.dart';
-import 'package:get/get.dart';
 
 import '../model/contact_me_data.dart';
 import '../repo/contact_me_repo.dart';
@@ -12,6 +13,23 @@ class ContactMeController extends GetxController {
   final ContactMeRepo repo = ContactMeRepo();
 
   OtherSocialMediaData? otherContatData;
+
+  // final nameController = TextEditingController();
+  // final emailController = TextEditingController();
+  // final projectTypeController = TextEditingController();
+  // final mobileNumberController = TextEditingController();
+  // final shortDesController = TextEditingController();
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   nameController.dispose();
+  //   emailController.dispose();
+  //   projectTypeController.dispose();
+  //   mobileNumberController.dispose();
+  //   shortDesController.dispose();
+  // }
+
   Future getOthersContactMeData() async {
     try {
       final res = await repo.fetchOthersContactMeData();

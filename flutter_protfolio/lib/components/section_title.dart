@@ -42,7 +42,6 @@ class SectionTitle extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GlobalText(
-                
                 str: title ?? '',
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -50,7 +49,6 @@ class SectionTitle extends StatelessWidget {
               ),
               sizedBoxH(0.0),
               GlobalText(
-             
                 str: subTitle ?? '',
                 maxLines: 2,
                 overflow: TextOverflow.fade,

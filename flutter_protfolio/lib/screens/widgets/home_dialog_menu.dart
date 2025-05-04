@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/custom_listtile.dart';
 import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:flutter_portfolio/screens/about_me/view/about_me_srction.dart';
 import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
@@ -46,7 +47,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                 return Dialog(
                   backgroundColor: const Color(0xAC000000),
                   child: Container(
-                    height: 660,
+                    height: 700,
                     width: 600,
                     padding: const EdgeInsets.all(10.0),
                     child: SingleChildScrollView(
@@ -88,9 +89,16 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.work_rounded,
+                                title: 'About Me',
+                                onTap: () {
+                                  Get.to(() => AboutMeSection());
+                                },
+                              ),
+                              CustomListTile(
+                                leadingIcon: Icons.work_rounded,
                                 title: 'Work Experiences',
                                 onTap: () {
-                                  Get.to(() => WorkExperiencesScreen());
+                                  Get.to(() => WorkExperiencesSection());
                                 },
                               ),
                               CustomListTile(

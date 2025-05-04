@@ -43,17 +43,15 @@ class GlobalText extends StatelessWidget {
       builder: (urlnPlatformCon) {
         return GetBuilder<ThemeController>(
           builder: (themeCon) {
-            return Flexible(
-              child: Text(
-                str,
-                maxLines: maxLines,
-                overflow: overflow,
-                textAlign: textAlign,
-                softWrap: softwrap,
-                style: GoogleFonts.montserrat(
-                  color: color,
-                  fontSize: fontSize,
-                ),
+            return Text(
+              str,
+              maxLines: maxLines,
+              overflow: overflow,
+              textAlign: textAlign,
+              softWrap: softwrap,
+              style: GoogleFonts.montserrat(
+                color: color,
+                fontSize: fontSize,
               ),
             );
           },

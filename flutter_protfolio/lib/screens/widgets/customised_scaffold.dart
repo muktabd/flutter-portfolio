@@ -5,21 +5,25 @@ import 'package:get/get.dart';
 
 import '../../global/constants/color_resources.dart';
 import '/screens/settings/theme/controller/theme_controller.dart';
-
+import 'home_dialog_menu.dart';
 
 class CustomisedScaffold extends StatelessWidget {
   final Widget webScaffold;
   final Widget tabletScaffold;
   final Widget mobileScaffold;
   final Widget? floatingActionButton;
-  final Decoration? decoration;
+  // final Decoration? decoration;
+  final bool? isStack;
+  // final List<Widget>? children;
   const CustomisedScaffold({
     super.key,
     required this.webScaffold,
     required this.tabletScaffold,
     required this.mobileScaffold,
     this.floatingActionButton,
-    this.decoration,
+    // this.decoration,
+    this.isStack,
+    // this.children,
   });
 
   @override
@@ -27,26 +31,55 @@ class CustomisedScaffold extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.blue,
-      floatingActionButton: floatingActionButton,
-      body: GetBuilder<ThemeController>(
-        builder: (themeCon) {
-          if (screenWidth > 950.0) {
-            log('web screen');
-            return GradientContainer(
-              child: webScaffold,
-            );
-          } else if (screenWidth > 600.0) {
-            log('tablet screen');
-            return GradientContainer(
-              child: tabletScaffold,
-            );
-          } else {
-            return GradientContainer(
-              child: mobileScaffold,
-            );
-          }
-        },
-      ),
+      floatingActionButton: floatingActionButton ??
+          FloatingActionButton(
+            child: Icon(Icons.menu),
+            onPressed: () async {
+              await showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (BuildContext context) {
+                  return HomeDialogWidget();
+                },
+              );
+            },
+          ),
+      body: isStack == true
+          ? Stack(
+              children: [
+                if (screenWidth > 950.0)
+                  GradientContainer(
+                    child: webScaffold,
+                  )
+                else if (screenWidth > 600.0)
+                  GradientContainer(
+                    child: tabletScaffold,
+                  )
+                else
+                  GradientContainer(
+                    child: mobileScaffold,
+                  ),
+              ],
+            )
+          : GetBuilder<ThemeController>(
+              builder: (themeCon) {
+                if (screenWidth > 950.0) {
+                  log('web screen');
+                  return GradientContainer(
+                    child: webScaffold,
+                  );
+                } else if (screenWidth > 600.0) {
+                  log('tablet screen');
+                  return GradientContainer(
+                    child: tabletScaffold,
+                  );
+                } else {
+                  return GradientContainer(
+                    child: mobileScaffold,
+                  );
+                }
+              },
+            ),
     );
   }
 }
@@ -60,7 +93,6 @@ class GradientContainer extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      // padding: EdgeInsets.all(100),
       decoration: BoxDecoration(
         gradient: RadialGradient(
           center: Alignment.center,

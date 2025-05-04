@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/customised_scaffold.dart';
@@ -7,7 +6,6 @@ import '../controller/home_info_controller.dart';
 import '../screen_type/mobile_view.dart';
 import '../screen_type/tablet_view.dart';
 import '../screen_type/web_view.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomisedScaffold(
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         child: Icon(Icons.menu),
         onPressed: () async {
           await showDialog(
@@ -38,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           );
         },
-      ),
+      ), */
       webScaffold: WebViewScreen(),
       tabletScaffold: TabletViewScreen(),
       mobileScaffold: MobileViewScreen(),
