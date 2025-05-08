@@ -1,26 +1,23 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../landing/tablet_view.dart';
+import '../../global/constants/images.dart';
+import '../../global/methods/sizebox_widget.dart';
+import '../../global/widgets/button/primary_button.dart';
+import '../../global/widgets/global_image_loader.dart';
+import '../settings/theme/controller/theme_controller.dart';
+import '../thoughts/thoughts_screen..dart';
+import 'controller/home_info_controller.dart';
+import 'widgets/typewriter_widget.dart';
 
-class TabletViewScreen extends StatelessWidget {
-  const TabletViewScreen({super.key});
+class MobileViewLandingSection extends StatelessWidget {
+  const MobileViewLandingSection({super.key});
 
-  
   @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          TabletViewLandingSection(),
-
-          ///
-
-          ///
-        ],
-      ),
-    );
-  }
-/*   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
       builder: (themeCon) {
@@ -51,7 +48,7 @@ class TabletViewScreen extends StatelessWidget {
                           text: TextSpan(
                             text: "${homeInfoCon.infoDetails?.info?.firstName} ",
                             style: GoogleFonts.montserrat(
-                              fontSize: 30,
+                              fontSize: 25,
                               fontWeight: FontWeight.w600,
                               color: themeCon.getWhiteBlackColor(context),
                             ),
@@ -59,7 +56,7 @@ class TabletViewScreen extends StatelessWidget {
                               TextSpan(
                                 text: "${homeInfoCon.infoDetails?.info?.lastName}",
                                 style: GoogleFonts.montserrat(
-                                  fontSize: 30,
+                                  fontSize: 25,
                                   color: themeCon.getYellowColor(context),
                                 ),
                               ),
@@ -69,7 +66,7 @@ class TabletViewScreen extends StatelessWidget {
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.designation}",
                           color: themeCon.getYellowColor(context),
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
 
@@ -84,14 +81,14 @@ class TabletViewScreen extends StatelessWidget {
                             children: [
                               GlobalText(
                                 str: "Work areas ",
-                                fontSize: 18.0,
+                                fontSize: 16.0,
                                 color: themeCon.getWhiteBlackColor(context),
                               ),
                               sizedBoxW(5.0),
                               TypewriterWidget(fontSize: 16.0),
                               GlobalText(
                                 str: " Development",
-                                fontSize: 1.0,
+                                fontSize: 16.0,
                                 color: themeCon.getWhiteBlackColor(context),
                               ),
                             ],
@@ -105,27 +102,27 @@ class TabletViewScreen extends StatelessWidget {
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.github?.url,
                               imagePath: Images.github,
-                              width: 35,
+                              width: 30,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
                               imagePath: Images.stackOverFlow,
-                              width: 35,
+                              width: 30,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url,
                               imagePath: Images.linkedIn,
-                              width: 35,
+                              width: 30,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url,
                               imagePath: Images.facebook,
-                              width: 35,
+                              width: 30,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url,
                               imagePath: Images.twitter,
-                              width: 35,
+                              width: 30,
                             ),
                           ],
                         ),
@@ -148,7 +145,9 @@ class TabletViewScreen extends StatelessWidget {
                         const SizedBox(height: 20),
 
                         CustomButtonWidget(
-                          width: 180,
+                          width: 160,
+                          height: 40,
+                          textSize: 12,
                           color: Colors.red,
                           text: "FIND OUT MORE",
                           textColor: Colors.white,
@@ -166,5 +165,5 @@ class TabletViewScreen extends StatelessWidget {
         );
       },
     );
-  } */
+  }
 }

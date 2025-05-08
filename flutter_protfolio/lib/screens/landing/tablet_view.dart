@@ -1,26 +1,23 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import '../../landing/tablet_view.dart';
+import '../../global/constants/images.dart';
+import '../../global/methods/sizebox_widget.dart';
+import '../../global/widgets/button/primary_button.dart';
+import '../../global/widgets/global_image_loader.dart';
+import '../settings/theme/controller/theme_controller.dart';
+import '../thoughts/thoughts_screen..dart';
+import 'controller/home_info_controller.dart';
+import 'widgets/typewriter_widget.dart';
 
-class TabletViewScreen extends StatelessWidget {
-  const TabletViewScreen({super.key});
+class TabletViewLandingSection extends StatelessWidget {
+  const TabletViewLandingSection({super.key});
 
-  
   @override
-  Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          TabletViewLandingSection(),
-
-          ///
-
-          ///
-        ],
-      ),
-    );
-  }
-/*   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
       builder: (themeCon) {
@@ -166,5 +163,5 @@ class TabletViewScreen extends StatelessWidget {
         );
       },
     );
-  } */
+  }
 }

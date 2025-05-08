@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../controller/home_info_controller.dart';
+import '../controller/home_info_controller.dart';
 
 class TypewriterWidget extends StatelessWidget {
   final double? fontSize;

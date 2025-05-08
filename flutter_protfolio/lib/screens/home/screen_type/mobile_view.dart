@@ -9,17 +9,29 @@ import '../../../global/constants/images.dart';
 import '../../../global/methods/sizebox_widget.dart';
 import '../../../global/widgets/button/primary_button.dart';
 import '../../../global/widgets/global_image_loader.dart';
+import '../../landing/mobile_view.dart';
 import '../../settings/theme/controller/theme_controller.dart';
 import '../../thoughts/thoughts_screen..dart';
-import '../controller/home_info_controller.dart';
-import '../view/widgets/typewriter_widget.dart';
+import '../../landing/controller/home_info_controller.dart';
 
 class MobileViewScreen extends StatelessWidget {
   const MobileViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeController>(
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          MobileViewLandingSection(),
+
+          ///
+
+          ///
+        ],
+      ),
+    );
+  }
+  /* return GetBuilder<ThemeController>(
       builder: (themeCon) {
         return GetBuilder<HomeInfoController>(
           builder: (homeInfoCon) {
@@ -164,6 +176,5 @@ class MobileViewScreen extends StatelessWidget {
           },
         );
       },
-    );
-  }
+    ); */
 }

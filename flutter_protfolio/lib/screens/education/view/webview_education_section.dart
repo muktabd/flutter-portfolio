@@ -4,23 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
-import '../../widgets/bottom_copyrights.dart';
-import '../../widgets/customised_scaffold.dart';
-
-class EducationSection extends StatelessWidget {
-  const EducationSection({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return CustomisedScaffold(
-      webScaffold: WebEducationSection(),
-      tabletScaffold: Card(),
-      mobileScaffold: Card(),
-    );
-  }
-}
-
-class WebEducationSection extends StatelessWidget {
-  const WebEducationSection({super.key});
+class WebViewEducationSection extends StatelessWidget {
+  const WebViewEducationSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +51,6 @@ class WebEducationSection extends StatelessWidget {
               ),
             ],
           ),
-
-          ///
-          BottomCopyRights(),
         ],
       ),
     );

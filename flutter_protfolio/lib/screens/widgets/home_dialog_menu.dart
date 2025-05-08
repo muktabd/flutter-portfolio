@@ -9,13 +9,13 @@ import 'package:get/get.dart';
 import '../../controller/url_controller/url_controller.dart';
 import '../../global/constants/color_resources.dart';
 import '../../localization/localization_controller.dart';
-import '../education/view/education_section.dart';
+import '../education/view/webview_education_section.dart';
 import '../home/view/home_screen.dart';
-import '../projects/projects_screen.dart';
+import '../projects/webview_project_screen.dart';
 import '../contact/view/contact_section.dart';
 import '../resume/view/resume_screen.dart';
 import '../experiences/view/work_experiences.dart';
-import '../blogs/view/blog_screen.dart';
+import '../blogs/view/webview_blog_section.dart';
 import '../settings/language/controller/language_controller.dart';
 
 class HomeDialogWidget extends StatefulWidget {
@@ -84,35 +84,35 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                 leadingIcon: Icons.home_filled,
                                 title: 'Home',
                                 onTap: () {
-                                  Get.offAll(() => const HomeScreen());
+                                  // Get.offAll(() => const HomeScreen());
                                 },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.work_rounded,
                                 title: 'About Me',
                                 onTap: () {
-                                  Get.to(() => AboutMeSection());
+                                  // Get.to(() => AboutMeSection());
                                 },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.work_rounded,
                                 title: 'Work Experiences',
                                 onTap: () {
-                                  Get.to(() => WorkExperiencesSection());
+                                  // Get.to(() => WorkExperiencesSection());
                                 },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.chrome_reader_mode,
                                 title: 'Education',
                                 onTap: () {
-                                  Get.to(() => EducationSection());
+                                  // Get.to(() => WebViewEducationSection());
                                 },
                               ),
                               CustomListTile(
                                 leadingIcon: Icons.access_alarms_outlined,
                                 title: 'Projects',
                                 onTap: () {
-                                  Get.to(() => ProjectsScreen());
+                                  // Get.to(() => ProjectsScreen());
                                 },
                               ),
                               // CustomListTile(
@@ -126,7 +126,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                 leadingIcon: Icons.document_scanner_rounded,
                                 title: 'My Blogs',
                                 onTap: () {
-                                  Get.to(() => MyBlogsScreen());
+                                  // Get.to(() => MyBlogsScreen());
                                 },
                               ),
                               CustomListTile(

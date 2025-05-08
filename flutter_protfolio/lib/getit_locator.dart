@@ -6,7 +6,7 @@ import 'screens/blogs/controller/blog_post_controller.dart';
 import 'screens/contact/controller/contact_me_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
 import 'localization/localization_controller.dart';
-import 'screens/home/controller/home_info_controller.dart';
+import 'screens/landing/controller/home_info_controller.dart';
 import 'screens/settings/language/controller/language_controller.dart';
 import 'screens/settings/theme/controller/theme_controller.dart';
 import 'domain/local/preferences/local_storage.dart';

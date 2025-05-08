@@ -161,7 +161,6 @@ class WorkExpWebView extends StatelessWidget {
                 ),
               ),
             ),
-            BottomCopyRights(),
           ],
         ),
       ),
