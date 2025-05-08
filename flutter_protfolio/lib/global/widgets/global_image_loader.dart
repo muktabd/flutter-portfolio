@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/custom_url_launcher.dart';
+import '../methods/custom_url_launcher.dart';
 import '../../../global/constants/images.dart';
 
 enum ImageFor {

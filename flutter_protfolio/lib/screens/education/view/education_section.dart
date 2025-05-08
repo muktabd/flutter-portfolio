@@ -11,60 +11,67 @@ class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
   @override
   Widget build(BuildContext context) {
-    return Card();
-    /* return CustomisedScaffold(
-      mainScaffold: Container(
-        margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-        constraints: const BoxConstraints(maxWidth: 1110),
-        child: Column(
-          children: [
-            const SectionTitle(
-              color: Colors.purple,
-              title: "Education History",
-              subTitle: "My Educational Background",
-            ),
-            SizedBox(
-              // color: Color(0xFFFFB100),
-              width: MediaQuery.of(context).size.width * 0.6,
-              height: MediaQuery.of(context).size.height,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: EducationCard(
-                      record: EducationRecord(
-                        degreeName: "Bachelor of Science:\nComputer Science & Engineering".toUpperCase(),
-                        institutionName: "UNIVERSITI TEKNOLOGI MALAYSIA",
-                        toFrom: "2018 - 2022",
-                        cgpa: "CGPA:  3.08",
-                        imgLink: const AssetImage("assets/edu/utm.png"),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: EducationCard(
-                      record: EducationRecord(
-                        degreeName: "Diploma in Engineering:\nComputer Science & Technology".toUpperCase(),
-                        institutionName: "Feni Computer Institute".toUpperCase(),
-                        toFrom: "2013-2017",
-                        cgpa: "CGPA: 3.43",
-                        imgLink: const AssetImage("assets/edu/fci.png"),
-                        bgColor: Colors.cyan.shade50,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+    return CustomisedScaffold(
+      webScaffold: WebEducationSection(),
+      tabletScaffold: Card(),
+      mobileScaffold: Card(),
+    );
+  }
+}
 
-            ///
-              BottomCopyRights(),
-          ],
-        ),
+class WebEducationSection extends StatelessWidget {
+  const WebEducationSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // color: Colors.red,
+      padding: const EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      // constraints: const BoxConstraints(maxWidth: 1110),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          const SectionTitle(
+            color: Colors.purple,
+            title: "Education History",
+            subTitle: "My Educational Background",
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: EducationCard(
+                  record: EducationRecord(
+                    degreeName: "Bachelor of Science:\nComputer Science & Engineering".toUpperCase(),
+                    institutionName: "UNIVERSITI TEKNOLOGI MALAYSIA",
+                    toFrom: "2018 - 2022",
+                    cgpa: "CGPA:  3.08",
+                    imgLink: const AssetImage("assets/edu/utm.png"),
+                  ),
+                ),
+              ),
+              const SizedBox(width: 15.0),
+              Expanded(
+                child: EducationCard(
+                  record: EducationRecord(
+                    degreeName: "Diploma in Engineering:\nComputer Science & Technology".toUpperCase(),
+                    institutionName: "Feni Computer Institute".toUpperCase(),
+                    toFrom: "2013-2017",
+                    cgpa: "CGPA: 3.43",
+                    imgLink: const AssetImage("assets/edu/fci.png"),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          ///
+          BottomCopyRights(),
+        ],
       ),
-    ); */
+    );
   }
 }
 
@@ -116,7 +123,7 @@ class _EducationCardState extends State<EducationCard> {
         height: 380,
         width: 256,
         decoration: BoxDecoration(
-          color: widget.record.bgColor ?? Colors.blue.shade50,
+          color: widget.record.bgColor ?? const Color(0x14000000),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [if (isHover) kDefaultCardShadow],
         ),
@@ -127,7 +134,7 @@ class _EducationCardState extends State<EducationCard> {
             Padding(
               padding: const EdgeInsets.only(bottom: kDefaultPadding, left: 8),
               child: CircleAvatar(
-                radius: 75,
+                radius: 70,
                 foregroundImage: widget.record.imgLink,
               ),
             ),
@@ -136,7 +143,7 @@ class _EducationCardState extends State<EducationCard> {
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
@@ -145,7 +152,7 @@ class _EducationCardState extends State<EducationCard> {
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
@@ -156,7 +163,7 @@ class _EducationCardState extends State<EducationCard> {
                   widget.record.toFrom,
                   style: const TextStyle(
                     fontSize: 16,
-                    color: Colors.black,
+                    color: Colors.white70,
                   ),
                 ),
                 const SizedBox(width: 32),
@@ -164,7 +171,7 @@ class _EducationCardState extends State<EducationCard> {
                   widget.record.cgpa,
                   style: const TextStyle(
                     fontSize: 16,
-                    color: Colors.black,
+                    color: Colors.white70,
                   ),
                 ),
               ],

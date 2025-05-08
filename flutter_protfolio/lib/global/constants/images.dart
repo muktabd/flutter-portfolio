@@ -34,14 +34,11 @@ class Images {
   static String weHealthLogo = "assets/company/wehealthwebp.webp";
   static String bizTradingLogo = "assets/company/biz_trading.png";
 
-
   static String dfLogo = "assets/company/df.jpeg";
   //
   //* =========== |> Logo <| ===========  */
   static const String rbfgroupbdIcon = 'assets/icons/rbfgroupbd_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
-
-
 
 //::::::::::::::::::::::::: Review Goal
   static const String image = "assets/images/image.png";
@@ -65,4 +62,8 @@ class Images {
   // ==/@ Images
   static const String locationIc = 'assets/icons/location-pin.png';
   static const String voucherIc = 'assets/icons/voucher.png';
+
+  static String crossPlatformApp = "assets/icons/flutter.png";
+
+  //
 }

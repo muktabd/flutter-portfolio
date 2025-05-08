@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/custom_listtile.dart';
 import 'package:flutter_portfolio/global/widgets/global_text.dart';
-import 'package:flutter_portfolio/screens/about_me/view/about_me_srction.dart';
+import 'package:flutter_portfolio/screens/about_me/view/about_me_section.dart';
 import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
@@ -15,7 +15,7 @@ import '../projects/projects_screen.dart';
 import '../contact/view/contact_section.dart';
 import '../resume/view/resume_screen.dart';
 import '../experiences/view/work_experiences.dart';
-import '../blogs/view/my_blog_screen.dart';
+import '../blogs/view/blog_screen.dart';
 import '../settings/language/controller/language_controller.dart';
 
 class HomeDialogWidget extends StatefulWidget {
@@ -115,13 +115,13 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                   Get.to(() => ProjectsScreen());
                                 },
                               ),
-                              CustomListTile(
-                                leadingIcon: Icons.document_scanner_rounded,
-                                title: 'Resume',
-                                onTap: () {
-                                  Get.to(() => MyResumeScreen());
-                                },
-                              ),
+                              // CustomListTile(
+                              //   leadingIcon: Icons.document_scanner_rounded,
+                              //   title: 'Resume',
+                              //   onTap: () {
+                              //     Get.to(() => MyResumeScreen());
+                              //   },
+                              // ),
                               CustomListTile(
                                 leadingIcon: Icons.document_scanner_rounded,
                                 title: 'My Blogs',

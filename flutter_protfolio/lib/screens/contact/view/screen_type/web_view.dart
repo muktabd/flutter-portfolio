@@ -136,12 +136,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                               children: [
                                 GlobalImageLoader(
                                   // imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.github?.url,
-                                  imagePath: Images.github,
-                                  width: 30,
-                                ),
-                                GlobalImageLoader(
-                                  // imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
-                                  imagePath: Images.stackOverFlow,
+                                  imagePath: Images.whatsapp,
                                   width: 30,
                                 ),
                                 GlobalImageLoader(

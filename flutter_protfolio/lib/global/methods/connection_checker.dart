@@ -10,11 +10,10 @@ class CheckConnectionFirst {
         hasConnection = true;
         log('connected');
       }
-    } on SocketException catch (_)  {
-      log('not connected');  
-      hasConnection = false;    
+    } on SocketException catch (_) {
+      log('not connected');
+      hasConnection = false;
     }
     return hasConnection;
   }
-
 }

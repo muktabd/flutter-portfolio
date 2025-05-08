@@ -1,365 +1,206 @@
-import 'dart:typed_data';
+
+// Replace this inside your _mainContent
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
-import 'package:flutter_portfolio/components/default_button.dart';
-import 'package:flutter_portfolio/components/my_outline_button.dart';
-import 'package:flutter_portfolio/components/constants.dart';
+import 'package:timelines_plus/timelines_plus.dart';
 
-import '../../../global/constants/images.dart';
-import '../../../global/widgets/custom_toast.dart';
-import '../../settings/theme/controller/theme_controller.dart';
-import '../../widgets/bottom_copyrights.dart';
-
-class MyResumeScreen extends StatefulWidget {
+class MyResumeScreen extends StatelessWidget {
   const MyResumeScreen({super.key});
 
   @override
-  State<MyResumeScreen> createState() => _MyResumeScreenState();
-}
-
-class _MyResumeScreenState extends State<MyResumeScreen> {
-  late pw.Document pdf;
-  bool isLoading = false;
-
-  @override
-  void initState() {
-    super.initState();
-    generatePDF().then((generatedPdf) {
-      setState(() {
-        pdf = generatedPdf;
-      });
-    });
-  }
-
-  Future<void> savePDF() async {
-    final Uint8List bytes = await pdf.save();
-    await Printing.sharePdf(bytes: bytes, filename: 'Resume_Abdullah_Iba_Mukta.pdf');
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GetBuilder<ThemeController>(
-      builder: (themeController) {
-        return Scaffold(
-          // backgroundColor: themeController.getDarkLightBackGroundColor(context),
-          body: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
-                  Row(
+    return Scaffold(
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isWide = constraints.maxWidth > 800;
+
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(20),
+            child: isWide
+                ? Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      /// * LEFT-SIDE MENU
-                      Container(
-                        color: Colors.amber,
-                        width: 180,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Center(
-                              child: ClipOval(
-                                child: SizedBox(
-                                  height: 100,
-                                  width: 100,
-                                  child: Image(
-                                    fit: BoxFit.cover,
-                                    image: AssetImage(Images.uiux),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text('SKILL HIGHLIGHTS', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                            BulletWidget(text: 'Mobile App Development'),
-                            BulletWidget(text: 'Back-End: NodeJS, PHP Laravel'),
-                            BulletWidget(text: 'Firebase, SQL, AWS'),
-                            BulletWidget(text: 'Programming Languages: Java'),
-                          ],
-                        ),
-                      ),
-
-                      // Middle Details View
-                      Expanded(
-                        child: Container(
-                          color: Colors.blue,
-                          padding: EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    flex: 3,
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'ABDULLAH IBNA MUKTA',
-                                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                                        ),
-                                        Text('Cross Platform Application Developer with Flutter'),
-                                        Text('Android, iOS, Web and Windows'),
-                                        SizedBox(height: 20),
-                                        Text('SUMMARY', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                                        Text(
-                                          'I am working on mobile and web app development. For development, I am using Flutter, a single code base framework.',
-                                          style: TextStyle(fontSize: 12),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(width: 20),
-                                  Container(
-                                    color: Colors.red,
-                                    padding: EdgeInsets.all(10),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Social Media',
-                                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-                                        Text('Cross Platform Application Developer with Flutter'),
-                                        Text('Facebook '),
-                                        Text('GitHub'),
-                                        Text('GitHub'),
-                                        Text('GitHub'),
-                                        Text('GitHub'),
-                                        Text('Android, iOS, Web and Windows'),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 20),
-                              Container(
-                                color: Colors.green,
-                                padding: EdgeInsets.all(10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'COMPANY DETAILS WILL BE HERE',
-                                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                                    ),
-                                    Text('Cross Platform Application Developer with Flutter'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text('Android, iOS, Web and Windows'),
-                                    Text(
-                                        'Android, iOS, Web and Windows Android, iOS, Web and Windows Android, iOS, Web and Windows Android, iOS, Web and WindowsAndroid, iOS, Web and Windows Android, iOS, Web and Windows Android, iOS, Web and Windows Android, iOS, Web and WindowsAndroid, iOS, Web and Windows Android, iOS, Web and Windows Android, iOS, Web and Windows'),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      Expanded(flex: 3, child: _mainContent()),
+                      const SizedBox(width: 20),
+                      Expanded(flex: 1, child: _sideContent()),
                     ],
-                  ),
-
-                  ///
-                  const SizedBox(height: kDefaultPadding * 3),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyOutlineButton(
-                        imageSrc: "assets/images/hand.png",
-                        text: "Hire Me!",
-                        press: () {
-                          showToast("Great!! Please contact me form!");
-                        },
-                      ),
-                      const SizedBox(width: kDefaultPadding * 1.5),
-                      MyOutlineButton(
-                        imageSrc: "assets/images/hand.png",
-                        text: "View PDF",
-                        press: () async {
-                          setState(() => isLoading = true);
-                          await Printing.layoutPdf(onLayout: (PdfPageFormat format) async => pdf.save());
-                          setState(() => isLoading = false);
-                        },
-                      ),
-                      const SizedBox(width: kDefaultPadding * 1.5),
-                      DefaultButton(
-                        imageSrc: "assets/images/download.png",
-                        text: "Download CV",
-                        press: savePDF,
-                      ),
+                      _sideContent(),
+                      const SizedBox(height: 20),
+                      _mainContent(),
                     ],
                   ),
-                  ///
-                  ///
-                    BottomCopyRights(),
-                ],
-              ),
-            ),
-          ),
-        );
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _mainContent() {
+    final experiences = [
+      {
+        'date': 'May, 2022 - Present',
+        'position': 'Software Engineer',
+        'company': 'Intrinsik Technologies Sdn Bhd',
+        'responsibilities': [
+          'Developing and maintaining the back-end web application. (Node.js)',
+          'Developing and maintaining the front-end web application. (React.js)',
+          'Deploying the web application to the cloud. (AWS)',
+          'Leading the team to follow the scrum methodology.',
+          'Working with the team lead and stakeholders to manage the product backlog and scrum events.',
+        ]
       },
-    );
-  }
-
-  /// * ==@ PDF DOCUMENT ==
-  Future<pw.Document> generatePDF() async {
-    final pdf = pw.Document();
-    final image = await imageFromAssetBundle('assets/icons/ui.png');
-    pdf.addPage(
-      pw.Page(
-        margin: const pw.EdgeInsets.all(20),
-        build: (pw.Context context) => pw.Row(
-          crossAxisAlignment: pw.CrossAxisAlignment.start,
-          children: [
-            pw.Container(
-              width: 150,
-              child: pw.Column(
-                crossAxisAlignment: pw.CrossAxisAlignment.start,
-                children: [
-                  pw.Center(
-                    child: pw.ClipOval(
-                      child: pw.Container(
-                        height: 100,
-                        width: 100,
-                        child: pw.Image(image, fit: pw.BoxFit.cover),
-                      ),
-                    ),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text('SKILL HIGHLIGHTS', style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
-                  pw.Bullet(text: 'Mobile App Development'),
-                  pw.Bullet(text: 'Back-End: NodeJS, PHP Laravel'),
-                  pw.Bullet(text: 'Firebase, SQL, AWS'),
-                  pw.Bullet(text: 'Programming Languages: Java'),
-                ],
-              ),
-            ),
-            pw.SizedBox(width: 20),
-            pw.Expanded(
-              child: pw.Column(
-                crossAxisAlignment: pw.CrossAxisAlignment.start,
-                children: [
-                  pw.Text('ABDULLAH IBNA MUKTA', style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold)),
-                  pw.Text('Cross Platform Application Developer with Flutter'),
-                  pw.SizedBox(height: 10),
-                  pw.Row(
-                    children: [
-                      pw.Text('+60187832241'),
-                      pw.SizedBox(width: 10),
-                      pw.Text('mukta@graduate.utm.my'),
-                    ],
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text('SUMMARY', style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
-                  pw.Text(
-                    'I am working on mobile and web app development. For development, I am using Flutter, a single code base framework.',
-                    style: pw.TextStyle(fontSize: 12),
-                  ),
-                  pw.SizedBox(height: 20),
-                  pw.Text('EXPERIENCE', style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
-                  pw.Container(
-                    padding: const pw.EdgeInsets.all(10),
-                    decoration: pw.BoxDecoration(
-                      border: pw.Border.all(color: PdfColors.grey),
-                    ),
-                    child: pw.Column(
-                      crossAxisAlignment: pw.CrossAxisAlignment.start,
-                      children: [
-                        pw.Text('Mobile App Developer',
-                            style: pw.TextStyle(fontSize: 14, fontWeight: pw.FontWeight.bold)),
-                        pw.Text('Biz Trading & Total Cad Solution SDN. BHD (02/2021 - 02/2022)'),
-                        pw.Bullet(text: 'Trainer of Flutter development'),
-                        pw.Bullet(text: 'Lead mobile/web development'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-    return pdf;
-  }
-}
-
-class BulletWidget extends StatelessWidget {
-  final String? text;
-
-  final TextAlign textAlign;
-
-  final TextStyle? style;
-
-  final EdgeInsetsGeometry margin;
-
-  final EdgeInsetsGeometry? padding;
-
-  final EdgeInsetsGeometry bulletMargin;
-
-  final double bulletSize;
-
-  final BoxShape bulletShape;
-
-  final PdfColor bulletColor;
-
-  const BulletWidget({
-    super.key,
-    this.text,
-    this.textAlign = TextAlign.left,
-    this.style,
-    this.margin = const EdgeInsets.only(bottom: 2.0 * PdfPageFormat.mm),
-    this.padding,
-    this.bulletSize = 2.0 * PdfPageFormat.mm,
-    this.bulletMargin = const EdgeInsets.only(
-      top: 1.5 * PdfPageFormat.mm,
-      left: 5.0 * PdfPageFormat.mm,
-      right: 2.0 * PdfPageFormat.mm,
-    ),
-    this.bulletShape = BoxShape.circle,
-    this.bulletColor = PdfColors.black,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      padding: padding,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            width: bulletSize,
-            height: bulletSize,
-            margin: bulletMargin,
-            // decoration: BoxDecoration(color: bulletColor, shape: bulletShape),
-          ),
-          Expanded(
-            child: text == null
-                ? SizedBox()
-                : Text(
-                    text!,
-                    textAlign: textAlign,
-                    // style: Theme.of(context).bulletStyle.merge(style),
-                  ),
-          )
+      {
+        'date': 'Apr, 2022 - Dec, 2021',
+        'position': 'Software Developer',
+        'company': 'Oxcom Sdn. Bhd.',
+        'responsibilities': [
+          'Developing RESTful APIs for web and mobile app. (Node.js)',
+          'Designing Microservice Architecture.',
+          'Developing and maintaining the back-end web application. (Node.js)',
+          'Developing Admin Panel for Oxcom (MERN Stack)',
+          'Deploying the web application to the cloud. (AWS)',
         ],
-      ),
+        'accomplished': 'Developed an E-commerce web app using React, Node, MongoDB, Docker, and CI/CD.'
+      },
+      {
+        'date': 'Dec, 2021 - Dec, 2020',
+        'position': 'Software Developer',
+        'company': 'RedNet (M) Sdn. Bhd.',
+        'responsibilities': [
+          'Involvement as a Software Developer.',
+          'Refer to: https://website.erider.my/',
+        ]
+      }
+    ];
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Bayes Ahmed Shoharto', style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
+        const Text('CSD® | 3.5+ years of experience | Full Stack Software Developer and Partly Scrum Master'),
+        const SizedBox(height: 20),
+        const Text('Work Experiences', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        const SizedBox(height: 10),
+        Timeline.tileBuilder(
+          theme: TimelineThemeData(
+            nodePosition: 0,
+            indicatorTheme: const IndicatorThemeData(
+              color: Colors.blue,
+              size: 20,
+            ),
+            connectorTheme: const ConnectorThemeData(
+              color: Colors.blueAccent,
+              thickness: 2.5,
+            ),
+          ),
+          builder: TimelineTileBuilder.connected(
+            connectionDirection: ConnectionDirection.before,
+            itemCount: experiences.length,
+            contentsBuilder: (context, index) {
+              final exp = experiences[index];
+              return Padding(
+                padding: const EdgeInsets.only(left: 8.0, bottom: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(exp['date'] as String, style: const TextStyle(color: Colors.grey)),
+                    Text(exp['position'] as String, style: const TextStyle(fontWeight: FontWeight.bold)),
+                    Text(exp['company'] as String, style: const TextStyle(color: Colors.blue)),
+                    const SizedBox(height: 6),
+                    ...List<String>.from(exp['responsibilities'] as List).map((r) => Text('• $r')),
+                    if (exp['accomplished'] != null) ...[
+                      const SizedBox(height: 6),
+                      const Text('Accomplished:', style: TextStyle(fontWeight: FontWeight.bold)),
+                      Text(exp['accomplished'] as String),
+                    ]
+                  ],
+                ),
+              );
+            },
+            indicatorBuilder: (_, __) => const DotIndicator(),
+            connectorBuilder: (_, index, ___) => const SolidLineConnector(),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _experienceTile({
+    required String date,
+    required String position,
+    required String company,
+    required List<String> responsibilities,
+    String? accomplished,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text('$date', style: const TextStyle(color: Colors.grey)),
+        Text(position, style: const TextStyle(fontWeight: FontWeight.bold)),
+        Text(company, style: const TextStyle(color: Colors.blue)),
+        const SizedBox(height: 6),
+        ...responsibilities.map((r) => Text('• $r')).toList(),
+        if (accomplished != null) ...[
+          const SizedBox(height: 6),
+          const Text('Accomplished:', style: TextStyle(fontWeight: FontWeight.bold)),
+          Text(accomplished),
+        ],
+      ]),
+    );
+  }
+
+  Widget _sideContent() {
+    return Column(
+      children: [
+        CircleAvatar(
+          radius: 50,
+          backgroundImage: AssetImage('assets/profile.png'), // Replace with your asset
+        ),
+        const SizedBox(height: 10),
+        const Text(
+          'Certified Scrum Developer®',
+          style: TextStyle(color: Colors.blue),
+        ),
+        const SizedBox(height: 20),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text('Contact Info', style: TextStyle(fontWeight: FontWeight.bold)),
+        ),
+        const SizedBox(height: 5),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('📧 shoharto@gmail.com'),
+              Text('🔗 linkedin.com/in/shoharto'),
+              Text('📍 KL, Malaysia'),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Text('Training & Certification', style: TextStyle(fontWeight: FontWeight.bold)),
+        ),
+        const SizedBox(height: 5),
+        const Align(
+          alignment: Alignment.centerLeft,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('• Certified Scrum Developer (CSD)'),
+              Text('• Scrum Fundamentals Certified (SFC™)'),
+              Text('• Build Scalable Project using Node.js'),
+              Text('• Web Design'),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

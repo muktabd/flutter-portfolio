@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../components/constants.dart';
-
+import '../../../global/methods/custom_url_launcher.dart';
 
 class RecentWorkCard extends StatefulWidget {
   // just press "Command + ."
@@ -28,14 +28,6 @@ class RecentWorkCard extends StatefulWidget {
 class _RecentWorkCardState extends State<RecentWorkCard> {
   bool isHover = false;
 
-  launcLinkhUrl(String url) async {
-    if (!await launchUrl(
-      Uri.parse(url),
-    )) {
-      throw 'Could not launch $url';
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -60,9 +52,7 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                 flex: 2,
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(widget.image)),
+                  child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(widget.image)),
                 )),
             Expanded(
               flex: 3,
@@ -80,21 +70,18 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                       ),
                     ),
                     const SizedBox(height: kDefaultPadding / 2),
-                    Text(
-                      widget.desc,
-                      style: TextStyle()
-                    ),
+                    Text(widget.desc, style: TextStyle()),
                     const SizedBox(height: kDefaultPadding),
                     Row(
                       children: [
                         HoverChip(
                           label: "iOS",
-                          onTap: () => launcLinkhUrl(widget.iosLink),
+                          onTap: () => launchUrlNow(widget.iosLink),
                         ),
                         const SizedBox(width: 6),
                         HoverChip(
                           label: "Android",
-                          onTap: () => launcLinkhUrl(widget.androidLink),
+                          onTap: () => launchUrlNow(widget.androidLink),
                         ),
                       ],
                     ),

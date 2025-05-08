@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../constants/color_resources.dart';
 
-
 class CustomDivider extends StatelessWidget {
   final double? thikness;
   final double? width;
@@ -91,3 +90,24 @@ class DottedLinePainter extends CustomPainter {
   }
 }
 
+class CustomDividerVertical extends StatelessWidget {
+  final double? height;
+  const CustomDividerVertical({super.key, this.height});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: height ?? MediaQuery.of(context).size.height * 0.1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: VerticalDivider(
+          indent: 2.0,
+          endIndent: 5.0,
+          width: 5,
+          thickness: 2,
+          color: Colors.deepOrange,
+        ),
+      ),
+    );
+  }
+}

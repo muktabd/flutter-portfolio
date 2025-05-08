@@ -16,7 +16,7 @@ class GlobalText extends StatelessWidget {
   final int? maxLines;
   final TextOverflow? overflow;
   final TextAlign? textAlign;
-  final bool? softwrap;
+  final bool? softWrap;
   final double? height;
   final String? styleType;
 
@@ -32,7 +32,7 @@ class GlobalText extends StatelessWidget {
     this.maxLines,
     this.textAlign,
     this.overflow,
-    this.softwrap,
+    this.softWrap,
     this.height,
     this.styleType,
   });
@@ -48,7 +48,7 @@ class GlobalText extends StatelessWidget {
               maxLines: maxLines,
               overflow: overflow,
               textAlign: textAlign,
-              softWrap: softwrap,
+              softWrap: softWrap,
               style: GoogleFonts.montserrat(
                 color: color,
                 fontSize: fontSize,
