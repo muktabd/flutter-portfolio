@@ -110,7 +110,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                   Icon(Icons.call),
                                   sizedBoxW(8.0),
                                   GlobalText(
-                                    str: "+880 1924 262003 |<->| +601 878 32241",
+                                    str: "+880 1924 262003 || +601 878 32241",
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -124,7 +124,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                   Icon(Icons.location_on_rounded),
                                   sizedBoxW(8.0),
                                   GlobalText(
-                                    str: "Dhaka, Bangladesh, |<->| Selangor, Malaysia",
+                                    str: "Dhaka, Bangladesh || Selangor, Malaysia",
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
