@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
 
-import '../experiences/data/feedback_data.dart';
+import 'feedback_data.dart';
 import 'components/feedback_card.dart';
 
 class WebViewFeedbackSection extends StatefulWidget {
@@ -25,6 +25,7 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

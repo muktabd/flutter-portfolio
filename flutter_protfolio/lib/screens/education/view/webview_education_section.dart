@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_portfolio/components/section_title.dart';
 import 'package:flutter_portfolio/components/constants.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
 
 class WebViewEducationSection extends StatelessWidget {
   const WebViewEducationSection({super.key});
@@ -10,18 +11,13 @@ class WebViewEducationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.red,
-      padding: const EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
-      // constraints: const BoxConstraints(maxWidth: 1110),
+      padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SectionTitle(
-            color: Colors.purple,
-            title: "Education History",
-            subTitle: "My Educational Background",
-          ),
+          const SectionTitle(color: Colors.green, title: "Education History", subTitle: "My Educational Background"),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,13 +72,10 @@ class EducationRecord {
 }
 
 class EducationCard extends StatefulWidget {
-  const EducationCard({
-    super.key,
-    required this.record,
-  });
+  const EducationCard({super.key, required this.record});
   final EducationRecord record;
   @override
-  _EducationCardState createState() => _EducationCardState();
+  State<EducationCard> createState() => _EducationCardState();
 }
 
 class _EducationCardState extends State<EducationCard> {
@@ -115,47 +108,28 @@ class _EducationCardState extends State<EducationCard> {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: kDefaultPadding, left: 8),
-              child: CircleAvatar(
-                radius: 70,
-                foregroundImage: widget.record.imgLink,
-              ),
+              child: CircleAvatar(radius: 70, foregroundImage: widget.record.imgLink),
             ),
-            Text(
-              widget.record.degreeName,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+            GlobalText(
+              str: widget.record.degreeName,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white70,
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
-            Text(
-              widget.record.institutionName,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
-              ),
+            GlobalText(
+              str: widget.record.institutionName,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: Colors.white60,
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
             Row(
               // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  widget.record.toFrom,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
-                ),
+                GlobalText(str: widget.record.toFrom, fontSize: 16, color: Colors.white70),
                 const SizedBox(width: 32),
-                Text(
-                  widget.record.cgpa,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
-                ),
+                GlobalText(str: widget.record.cgpa, fontSize: 16, color: Colors.white70),
               ],
             ),
           ],

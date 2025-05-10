@@ -29,6 +29,7 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
         return GetBuilder<HomeInfoController>(
           builder: (homeInfoCon) {
             return Container(
+              // padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               // constraints: BoxConstraints(maxWidth: 1440),
@@ -42,7 +43,7 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(left: 80.0),
+                  padding: EdgeInsets.only(left: 200.0),
                   color: themeCon.getImageBlueColor(context),
                   child: Center(
                     child: Column(
@@ -53,17 +54,14 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                           text: TextSpan(
                             text: "${homeInfoCon.infoDetails?.info?.firstName} ",
                             style: GoogleFonts.montserrat(
-                              fontSize: 35,
+                              fontSize: 35.0,
                               fontWeight: FontWeight.w600,
                               color: themeCon.getWhiteBlackColor(context),
                             ),
                             children: [
                               TextSpan(
                                 text: "${homeInfoCon.infoDetails?.info?.lastName}",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 35,
-                                  color: themeCon.getYellowColor(context),
-                                ),
+                                style: GoogleFonts.montserrat(fontSize: 35.0, color: themeCon.getYellowColor(context)),
                               ),
                             ],
                           ),
@@ -71,12 +69,12 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.designation}",
                           color: themeCon.getYellowColor(context),
-                          fontSize: 30,
+                          fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),
 
                         Container(
-                          margin: EdgeInsets.only(top: 10),
+                          margin: EdgeInsets.only(top: 10.0),
                           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           // decoration: BoxDecoration(
                           //   color: const Color(0x66000000),
@@ -84,22 +82,18 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                           // ),
                           child: Row(
                             children: [
-                              GlobalText(
-                                str: "Work areas ",
-                                fontSize: 18,
-                                color: themeCon.getWhiteBlackColor(context),
-                              ),
+                              GlobalText(str: "Work areas ", fontSize: 18.0, color: themeCon.getWhiteBlackColor(context)),
                               sizedBoxW(5.0),
                               TypewriterWidget(),
                               GlobalText(
                                 str: " Development",
-                                fontSize: 18,
+                                fontSize: 18.0,
                                 color: themeCon.getWhiteBlackColor(context),
                               ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 10.0),
 
                         /// * ==@ SOCIAL MEDIA LINK * ==
                         Row(
@@ -107,57 +101,57 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.github?.url,
                               imagePath: Images.github,
-                              width: 40,
+                              width: 40.0,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
                               imagePath: Images.stackOverFlow,
-                              width: 40,
+                              width: 40.0,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url,
                               imagePath: Images.linkedIn,
-                              width: 40,
+                              width: 40.0,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url,
                               imagePath: Images.facebook,
-                              width: 40,
+                              width: 40.0,
                             ),
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url,
                               imagePath: Images.twitter,
-                              width: 40,
+                              width: 40.0,
                             ),
                           ],
                         ),
-                        SizedBox(height: 15),
+                        SizedBox(height: 25.0),
 
                         /// * ==@ THOUGHTS OF MIND * ==
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.thoughts?.title}",
                           color: Color(0xFFFFF200),
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                         // const SizedBox(height: 2.0),
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.thoughts?.subtitle}",
                           color: Colors.white,
-                          fontSize: 15,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.bold,
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 20.0),
 
                         CustomButtonWidget(
-                          width: 200,
+                          width: 200.0,
                           color: Colors.red,
                           text: "FIND OUT MORE",
                           textColor: Colors.white,
                           onPressed: () {
                             Get.to(() => ThoughtsScreen());
                           },
-                        )
+                        ),
                       ],
                     ),
                   ),

@@ -35,7 +35,7 @@ final List<WorkExperienceModel> workData = [
     toFrom: "August 2023 - Running",
     companyType: "Medical & Health Care Software Solutions Based Comapny",
     companyImage: Images.weHealthLogo,
-    color: Colors.green.shade900,
+    color: Colors.green,
     roles: [
       "A native app developer using Android Studio with Java & Kotlin",
       "Native app bug fixer & features adder",

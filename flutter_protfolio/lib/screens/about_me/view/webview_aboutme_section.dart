@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
+import 'package:flutter_portfolio/screens/resume/view/resume_screen.dart';
+import 'package:get/get.dart';
 
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/global_text.dart';
@@ -17,15 +19,13 @@ class _WebAboutMeSectionState extends State<WebAboutMeSection> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const CardTitleWidget(
-            title: "About Me",
-            subTitle: "Let me tell you about myself",
-          ),
-          const SizedBox(height: 30),
+          const CardTitleWidget(title: "About Me", subTitle: "Let me tell you about myself"),
+          const SizedBox(height: 50.0),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,11 +35,7 @@ class _WebAboutMeSectionState extends State<WebAboutMeSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GlobalText(
-                      str: "Background Brief",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                    ),
+                    GlobalText(str: "Background Brief", fontWeight: FontWeight.bold, fontSize: 20.0),
                     SizedBox(height: 15.0),
                     GlobalText(
                       textAlign: TextAlign.justify,
@@ -53,53 +49,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                     ),
 
                     //
-                    SizedBox(height: 20.0),
-
-                    Row(
-                      children: [
-                        doneSofar("5+", "Years\nExperiences"),
-                        CustomDividerVertical(),
-
-                        //
-
-                        doneSofar("20+", "Projects\nCompleted"),
-                        CustomDividerVertical(),
-
-                        //
-
-                        doneSofar("10+", "Satisfied\nClients"),
-                        CustomDividerVertical(),
-
-                        //
-                      ],
-                    ),
-                    SizedBox(height: 25.0),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: CustomContainer(
-                            iconWidget: Image.asset(
-                              "assets/images/hand.png",
-                              width: 20,
-                            ),
-                            text: "Hire Me".toUpperCase(),
-                          ),
-                        ),
-                        SizedBox(width: 10.0),
-                        Expanded(
-                          child: CustomContainer(
-                            color: Colors.deepOrange,
-                            iconWidget: Icon(
-                              Icons.cloud_download,
-                              color: Colors.white,
-                            ),
-                            text: "DOWNLOAD RESUME".toUpperCase(),
-                          ),
-                        ),
-                      ],
-                    ),
+                    // SizedBox(height: 40.0),
                   ],
                 ),
               ),
@@ -112,11 +62,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GlobalText(
-                      str: "Core Competencies",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20.0,
-                    ),
+                    GlobalText(str: "Core Competencies", fontWeight: FontWeight.bold, fontSize: 20.0),
                     const SizedBox(height: 15.0),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,10 +94,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                                 color: Colors.deepOrange,
                               ),
                               SizedBox(height: 5.0),
-                              GlobalText(
-                                str: "Java, Dart, PHP, Flutter, Express, VueJS",
-                                softWrap: true,
-                              ),
+                              GlobalText(str: "Java, Dart, PHP, Flutter, Express, VueJS", softWrap: true),
                               //
                               SizedBox(height: 20.0),
                               GlobalText(
@@ -161,16 +104,12 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                                 color: Colors.deepOrange,
                               ),
                               SizedBox(height: 5.0),
-                              GlobalText(
-                                str: "Bloc, GetX, Provider, Pinia",
-                                softWrap: true,
-                              ),
+                              GlobalText(str: "Bloc, GetX, Provider, Pinia", softWrap: true),
                             ],
                           ),
                         ),
 
                         SizedBox(width: 20.0), // Space between columns
-
                         // Right Column in Right Section
                         Expanded(
                           child: Column(
@@ -183,10 +122,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                                 color: Colors.deepOrange,
                               ),
                               SizedBox(height: 5.0),
-                              GlobalText(
-                                str: "Flutter, Dart, Firebase, Rest API",
-                                softWrap: true,
-                              ),
+                              GlobalText(str: "Flutter, Dart, Firebase, Rest API", softWrap: true),
 
                               //
                               SizedBox(height: 20.0),
@@ -214,7 +150,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                                 str:
                                     "Third Party API implementing like Twilio, Bulk SMS, Payment Gateway, FCM, Publishing app on Google Play, App Store & Huawei App Gallery",
                                 softWrap: true,
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -223,6 +159,66 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                   ],
                 ),
               ),
+              const SizedBox(width: 40.0),
+
+              //
+            ],
+          ),
+
+          ///
+          ///
+          const SizedBox(width: 40.0),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              // 👇 Expanded around the entire left Column
+              SizedBox(
+                width: 500,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 55.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        doneSofar("5+", "Years\nExperiences"),
+                        CustomDividerVertical(),
+                        doneSofar("20+", "Projects\nCompleted"),
+                        CustomDividerVertical(),
+                        doneSofar("10+", "Satisfied\nClients"),
+                      ],
+                    ),
+                    SizedBox(height: 40.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: CustomContainer(
+                            onTap: () {
+                              ///
+                            },
+                            iconWidget: Image.asset("assets/images/hand.png", width: 20),
+                            text: "Hire Me".toUpperCase(),
+                          ),
+                        ),
+                        SizedBox(width: 10.0),
+                        Expanded(
+                          child: CustomContainer(
+                            onTap: () {
+                              // Get.to(() => MyResumeScreen());
+                            },
+                            color: Colors.deepOrange,
+                            iconWidget: Icon(Icons.cloud_download, color: Colors.white),
+                            text: "Download Resume".toUpperCase(),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              // 👇 Right-side image
+              Image.asset("assets/images/mukta.png", height: 300),
             ],
           ),
         ],
@@ -236,13 +232,7 @@ class CustomContainer extends StatelessWidget {
   final Color? color;
   final Function()? onTap;
   final Widget? iconWidget;
-  const CustomContainer({
-    super.key,
-    required this.text,
-    this.color,
-    this.onTap,
-    this.iconWidget,
-  });
+  const CustomContainer({super.key, required this.text, this.color, this.onTap, this.iconWidget});
 
   @override
   Widget build(BuildContext context) {
@@ -279,10 +269,7 @@ Widget doneSofar(String title, String subTitle) {
     children: [
       GlobalText(str: title, color: Colors.deepOrange, fontSize: 25.0),
       SizedBox(height: 10.0),
-      GlobalText(
-        str: subTitle,
-        textAlign: TextAlign.center,
-      ),
+      GlobalText(str: subTitle, textAlign: TextAlign.center),
     ],
   );
 }

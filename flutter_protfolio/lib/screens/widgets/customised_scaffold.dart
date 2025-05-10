@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:particles_network/particles_network.dart';
 import '../../global/constants/color_resources.dart';
 import '/screens/settings/theme/controller/theme_controller.dart';
 import 'home_dialog_menu.dart';
@@ -30,8 +30,9 @@ class CustomisedScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.blue,
-      floatingActionButton: floatingActionButton ??
+      // backgroundColor: Colors.blue,
+      /* floatingActionButton:
+          floatingActionButton ??
           FloatingActionButton(
             child: Icon(Icons.menu),
             onPressed: () async {
@@ -43,43 +44,38 @@ class CustomisedScaffold extends StatelessWidget {
                 },
               );
             },
-          ),
-      body: isStack == true
-          ? Stack(
-              children: [
-                if (screenWidth > 950.0)
-                  GradientContainer(
-                    child: webScaffold,
-                  )
-                else if (screenWidth > 600.0)
-                  GradientContainer(
-                    child: tabletScaffold,
-                  )
-                else
-                  GradientContainer(
-                    child: mobileScaffold,
+          ), */
+      body:
+          isStack == true
+              ? Stack(
+                children: [
+                  ParticleNetwork(
+                    particleCount: 100,
+                    particleColor: Colors.white,
+                    lineColor: Colors.deepOrange,
+                    touchColor: Colors.red,
                   ),
-              ],
-            )
-          : GetBuilder<ThemeController>(
-              builder: (themeCon) {
-                if (screenWidth > 950.0) {
-                  log('web screen');
-                  return GradientContainer(
-                    child: webScaffold,
-                  );
-                } else if (screenWidth > 600.0) {
-                  log('tablet screen');
-                  return GradientContainer(
-                    child: tabletScaffold,
-                  );
-                } else {
-                  return GradientContainer(
-                    child: mobileScaffold,
-                  );
-                }
-              },
-            ),
+                  if (screenWidth > 950.0)
+                    GradientContainer(child: webScaffold)
+                  else if (screenWidth > 600.0)
+                    GradientContainer(child: tabletScaffold)
+                  else
+                    GradientContainer(child: mobileScaffold),
+                ],
+              )
+              : GetBuilder<ThemeController>(
+                builder: (themeCon) {
+                  if (screenWidth > 950.0) {
+                    log('web screen');
+                    return GradientContainer(child: webScaffold);
+                  } else if (screenWidth > 600.0) {
+                    log('tablet screen');
+                    return GradientContainer(child: tabletScaffold);
+                  } else {
+                    return GradientContainer(child: mobileScaffold);
+                  }
+                },
+              ),
     );
   }
 }
@@ -97,11 +93,7 @@ class GradientContainer extends StatelessWidget {
         gradient: RadialGradient(
           center: Alignment.center,
           radius: 0.8,
-          colors: [
-            ColorRes.bgDarkColor1,
-            ColorRes.bgDarkColor2,
-            ColorRes.bgDarkColor3,
-          ],
+          colors: [ColorRes.bgDarkColor1, ColorRes.bgDarkColor2, ColorRes.bgDarkColor3],
           stops: [0.2, 0.5, 1.0],
         ),
       ),

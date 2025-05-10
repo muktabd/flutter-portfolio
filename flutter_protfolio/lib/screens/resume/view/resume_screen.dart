@@ -1,8 +1,12 @@
-
 // Replace this inside your _mainContent
 
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:particles_network/particles_network.dart';
 import 'package:timelines_plus/timelines_plus.dart';
+
+import '../../experiences/data/work_exp_data.dart';
+import '../../widgets/custom_appbar.dart';
 
 class MyResumeScreen extends StatelessWidget {
   const MyResumeScreen({super.key});
@@ -10,197 +14,243 @@ class MyResumeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final isWide = constraints.maxWidth > 800;
+      appBar: CustomAppBar(title: ""),
+      body: Stack(
+        children: [
+          ParticleNetwork(),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GlobalText(str: "ABDULLAH IBNA MUKTA", fontSize: 24.0),
+                GlobalText(str: "Full Stack Development", fontSize: 16.0),
+                SizedBox(height: 50.0),
 
-          return SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: isWide
-                ? Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(flex: 3, child: _mainContent()),
-                      const SizedBox(width: 20),
-                      Expanded(flex: 1, child: _sideContent()),
-                    ],
-                  )
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      _sideContent(),
-                      const SizedBox(height: 20),
-                      _mainContent(),
-                    ],
-                  ),
-          );
-        },
-      ),
-    );
-  }
-
-  Widget _mainContent() {
-    final experiences = [
-      {
-        'date': 'May, 2022 - Present',
-        'position': 'Software Engineer',
-        'company': 'Intrinsik Technologies Sdn Bhd',
-        'responsibilities': [
-          'Developing and maintaining the back-end web application. (Node.js)',
-          'Developing and maintaining the front-end web application. (React.js)',
-          'Deploying the web application to the cloud. (AWS)',
-          'Leading the team to follow the scrum methodology.',
-          'Working with the team lead and stakeholders to manage the product backlog and scrum events.',
-        ]
-      },
-      {
-        'date': 'Apr, 2022 - Dec, 2021',
-        'position': 'Software Developer',
-        'company': 'Oxcom Sdn. Bhd.',
-        'responsibilities': [
-          'Developing RESTful APIs for web and mobile app. (Node.js)',
-          'Designing Microservice Architecture.',
-          'Developing and maintaining the back-end web application. (Node.js)',
-          'Developing Admin Panel for Oxcom (MERN Stack)',
-          'Deploying the web application to the cloud. (AWS)',
-        ],
-        'accomplished': 'Developed an E-commerce web app using React, Node, MongoDB, Docker, and CI/CD.'
-      },
-      {
-        'date': 'Dec, 2021 - Dec, 2020',
-        'position': 'Software Developer',
-        'company': 'RedNet (M) Sdn. Bhd.',
-        'responsibilities': [
-          'Involvement as a Software Developer.',
-          'Refer to: https://website.erider.my/',
-        ]
-      }
-    ];
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text('Bayes Ahmed Shoharto', style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
-        const Text('CSD® | 3.5+ years of experience | Full Stack Software Developer and Partly Scrum Master'),
-        const SizedBox(height: 20),
-        const Text('Work Experiences', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        const SizedBox(height: 10),
-        Timeline.tileBuilder(
-          theme: TimelineThemeData(
-            nodePosition: 0,
-            indicatorTheme: const IndicatorThemeData(
-              color: Colors.blue,
-              size: 20,
-            ),
-            connectorTheme: const ConnectorThemeData(
-              color: Colors.blueAccent,
-              thickness: 2.5,
-            ),
-          ),
-          builder: TimelineTileBuilder.connected(
-            connectionDirection: ConnectionDirection.before,
-            itemCount: experiences.length,
-            contentsBuilder: (context, index) {
-              final exp = experiences[index];
-              return Padding(
-                padding: const EdgeInsets.only(left: 8.0, bottom: 20),
-                child: Column(
+                Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(exp['date'] as String, style: const TextStyle(color: Colors.grey)),
-                    Text(exp['position'] as String, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    Text(exp['company'] as String, style: const TextStyle(color: Colors.blue)),
-                    const SizedBox(height: 6),
-                    ...List<String>.from(exp['responsibilities'] as List).map((r) => Text('• $r')),
-                    if (exp['accomplished'] != null) ...[
-                      const SizedBox(height: 6),
-                      const Text('Accomplished:', style: TextStyle(fontWeight: FontWeight.bold)),
-                      Text(exp['accomplished'] as String),
-                    ]
+                    Flexible(
+                      flex: 3,
+                      child: FixedTimeline.tileBuilder(
+                        theme: TimelineThemeData(
+                          nodePosition: 0,
+                          color: const Color(0xFFF01414),
+                          indicatorTheme: const IndicatorThemeData(position: 0, size: 20.0),
+                          connectorTheme: const ConnectorThemeData(thickness: 2.5),
+                        ),
+                        builder: TimelineTileBuilder.connected(
+                          connectionDirection: ConnectionDirection.before,
+                          itemCount: workData.length,
+                          contentsBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 0.0, bottom: 40),
+                              child: Card(
+                                color: const Color(0x14000000),
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    // mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        // crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          GlobalText(
+                                            str: workData[index].position,
+                                            fontSize: 30.0,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
+                                            decoration: BoxDecoration(
+                                              color: workData[index].color,
+                                              borderRadius: BorderRadius.circular(5.0),
+                                            ),
+                                            child: GlobalText(str: workData[index].toFrom),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          GlobalText(
+                                            str: workData[index].companyName,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.deepOrange,
+                                            fontSize: 20,
+                                          ),
+                                          IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.open_in_new, color: Colors.blueGrey),
+                                          ),
+                                        ],
+                                      ),
+                                      GlobalText(str: "Contact: ${workData[index].contactNumber}", fontSize: 15.0),
+                                      GlobalText(str: ""),
+                                      GlobalText(str: workData[index].companyType, fontSize: 18.0),
+                                      // RolesListCreator(roles: workData[index].roles),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                        child: FixedTimeline.tileBuilder(
+                                          theme: TimelineTheme.of(context).copyWith(
+                                            nodePosition: 0,
+                                            connectorTheme: TimelineTheme.of(
+                                              context,
+                                            ).connectorTheme.copyWith(thickness: 1.0),
+                                            indicatorTheme: TimelineTheme.of(
+                                              context,
+                                            ).indicatorTheme.copyWith(size: 10.0, position: 0.5, color: Colors.black),
+                                          ),
+                                          builder: TimelineTileBuilder(
+                                            itemExtentBuilder: (context, i) => 25.0,
+                                            itemCount: workData[index].roles.length,
+                                            indicatorBuilder: (context, i) => DotIndicator(color: Colors.grey.shade800),
+                                            contentsBuilder: (context, i) {
+                                              return Padding(
+                                                padding: const EdgeInsets.only(left: 8.0),
+                                                child:
+                                                    workData[index].roles
+                                                        .map(
+                                                          (roleText) => GlobalText(
+                                                            str: roleText,
+                                                            fontSize: 18.0,
+                                                            color: Colors.grey,
+                                                          ),
+                                                        )
+                                                        .toList()[i],
+                                              );
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
+                          indicatorBuilder: (context, index) {
+                            return DotIndicator(
+                              color: workData[index].color,
+                              child: Icon(
+                                Icons.check,
+                                // color: workData[index].color,
+                                size: 12.0,
+                              ),
+                            );
+                          },
+                          connectorBuilder: (context, index, __) => const SolidLineConnector(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+
+                    Flexible(
+                      // flex: 2,
+                      child: Container(
+                        height: MediaQuery.of(context).size.height,
+
+                        color: const Color(0x399E9E9E),
+                        child: Column(
+                          children: [
+                            Image.asset("assets/images/mukta22.png"),
+                            SizedBox(height: 50.0),
+                            Text("Contcat Info"),
+                            Text("abdullah Ibna Mukta"),
+                            Text("data"),
+                            Text("data"),
+                            Text("data"),
+                            Text("data"),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-              );
-            },
-            indicatorBuilder: (_, __) => const DotIndicator(),
-            connectorBuilder: (_, index, ___) => const SolidLineConnector(),
-          ),
-        ),
-      ],
-    );
-  }
 
-  Widget _experienceTile({
-    required String date,
-    required String position,
-    required String company,
-    required List<String> responsibilities,
-    String? accomplished,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text('$date', style: const TextStyle(color: Colors.grey)),
-        Text(position, style: const TextStyle(fontWeight: FontWeight.bold)),
-        Text(company, style: const TextStyle(color: Colors.blue)),
-        const SizedBox(height: 6),
-        ...responsibilities.map((r) => Text('• $r')).toList(),
-        if (accomplished != null) ...[
-          const SizedBox(height: 6),
-          const Text('Accomplished:', style: TextStyle(fontWeight: FontWeight.bold)),
-          Text(accomplished),
+                Column(children: [Text("data")]),
+                Column(children: [Text("data")]),
+
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Flexible(
+                //       flex: 3,
+                //       child: Padding(
+                //         padding: const EdgeInsets.all(25.0),
+                //         child: SizedBox(
+                //           child: FixedTimeline.tileBuilder(
+                //             builder: TimelineTileBuilder.connectedFromStyle(
+                //               // itemExtent: 80.0,
+                //               itemCount: 5,
+                //               connectionDirection: ConnectionDirection.after,
+                //               oppositeContentsBuilder: (context, index) {
+                //                 return Padding(
+                //                   padding: const EdgeInsets.all(8.0),
+                //                   child: Text('Present\n|\nMay, 2022'),
+                //                 );
+                //               },
+
+                //               connectorStyleBuilder: (context, index) {
+                //                 return (index == 0) ? ConnectorStyle.solidLine : ConnectorStyle.dashedLine;
+                //               },
+                //               indicatorStyleBuilder: (context, index) {
+                //                 return index == 0 ? IndicatorStyle.dot : IndicatorStyle.outlined;
+                //               },
+
+                //               contentsBuilder: (context, index) {
+                //                 return Card(
+                //                   child: Padding(
+                //                     padding: const EdgeInsets.all(8.0),
+                //                     child: Column(
+                //                       crossAxisAlignment: CrossAxisAlignment.start,
+                //                       children: [
+                //                         Text('Software Engineer'),
+                //                         Text('Intrinsik Technologies Sdn Bhd'),
+                //                         Text('My responsibilities as a Software Developer :'),
+                //                         Text(
+                //                           '''Developing and maintaining the back-end web application. (Node.js)
+                //             Developing and maintaining the front-end web application. (React.js)
+                //             Deploying the web application to the cloud. (AWS)
+                //             Leading the team to follow the scrum methodology.
+                //             Working with the team lead and stakeholders to create the product backlog, sprint planning, sprint review, sprint retrospective, and sprint demo.''',
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ),
+                //                 );
+                //               },
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+
+                //     ///
+                //     ///
+                //     Flexible(
+                //       child: Container(
+                //         height: MediaQuery.of(context).size.height,
+
+                //         color: Colors.grey,
+                //         child: Column(
+                //           children: [Image.asset("assets/images/mukta22.png"), SizedBox(height: 50.0), Text("data")],
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+
+                ///
+              ],
+            ),
+          ),
         ],
-      ]),
-    );
-  }
-
-  Widget _sideContent() {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 50,
-          backgroundImage: AssetImage('assets/profile.png'), // Replace with your asset
-        ),
-        const SizedBox(height: 10),
-        const Text(
-          'Certified Scrum Developer®',
-          style: TextStyle(color: Colors.blue),
-        ),
-        const SizedBox(height: 20),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Text('Contact Info', style: TextStyle(fontWeight: FontWeight.bold)),
-        ),
-        const SizedBox(height: 5),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('📧 shoharto@gmail.com'),
-              Text('🔗 linkedin.com/in/shoharto'),
-              Text('📍 KL, Malaysia'),
-            ],
-          ),
-        ),
-        const SizedBox(height: 20),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Text('Training & Certification', style: TextStyle(fontWeight: FontWeight.bold)),
-        ),
-        const SizedBox(height: 5),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('• Certified Scrum Developer (CSD)'),
-              Text('• Scrum Fundamentals Certified (SFC™)'),
-              Text('• Build Scalable Project using Node.js'),
-              Text('• Web Design'),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

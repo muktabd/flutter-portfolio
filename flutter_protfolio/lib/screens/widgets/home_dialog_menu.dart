@@ -2,20 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
 import 'package:flutter_portfolio/global/widgets/custom_listtile.dart';
 import 'package:flutter_portfolio/global/widgets/global_text.dart';
-import 'package:flutter_portfolio/screens/about_me/view/about_me_section.dart';
-import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
+import '/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
 import '../../controller/url_controller/url_controller.dart';
 import '../../global/constants/color_resources.dart';
 import '../../localization/localization_controller.dart';
-import '../education/view/webview_education_section.dart';
-import '../home/view/home_screen.dart';
-import '../projects/webview_project_screen.dart';
-import '../contact/view/contact_section.dart';
-import '../resume/view/resume_screen.dart';
-import '../experiences/view/work_experiences.dart';
-import '../blogs/view/webview_blog_section.dart';
+
+
+
 import '../settings/language/controller/language_controller.dart';
 
 class HomeDialogWidget extends StatefulWidget {
@@ -133,7 +128,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                 leadingIcon: Icons.document_scanner_rounded,
                                 title: 'Contact Me',
                                 onTap: () {
-                                  Get.to(() => ContactSection());
+                                  // Get.to(() => ContactSection());
                                 },
                               ),
                               ExpansionTile(

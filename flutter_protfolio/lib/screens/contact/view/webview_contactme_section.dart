@@ -5,20 +5,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_portfolio/screens/widgets/bottom_copyrights.dart';
 import 'package:get/get.dart';
 
-import '../../../../components/constants.dart';
-import '../../../../components/section_title.dart';
-import '../../../../global/constants/images.dart';
-import '../../../../global/methods/sizebox_widget.dart';
-import '../../../../global/widgets/button/primary_button.dart';
-import '../../../../global/widgets/custom_devider.dart';
-import '../../../../global/widgets/custom_toast.dart';
-import '../../../../global/widgets/global_image_loader.dart';
-import '../../../../global/widgets/global_text.dart';
-import '../../../../global/widgets/show_custom_snackbar.dart';
-import '../../../../global/widgets/text_formfield.dart';
-import '../../../settings/theme/controller/theme_controller.dart';
-import '../../controller/contact_me_controller.dart';
-import '../../model/req_contact_me.dart';
+import '../../../components/constants.dart';
+import '../../../components/section_title.dart';
+import '../../../global/constants/images.dart';
+import '../../../global/methods/sizebox_widget.dart';
+import '../../../global/widgets/button/primary_button.dart';
+import '../../../global/widgets/custom_devider.dart';
+import '../../../global/widgets/custom_toast.dart';
+import '../../../global/widgets/global_image_loader.dart';
+import '../../../global/widgets/global_text.dart';
+import '../../../global/widgets/show_custom_snackbar.dart';
+import '../../../global/widgets/text_formfield.dart';
+import '../../settings/theme/controller/theme_controller.dart';
+import '../controller/contact_me_controller.dart';
+import '../model/req_contact_me.dart';
 
 class WebViewContactMeScreen extends StatefulWidget {
   const WebViewContactMeScreen({super.key});
@@ -53,16 +53,17 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
         return GetBuilder<ContactMeController>(
           builder: (contactMeCon) {
             return Container(
-              // constraints: BoxConstraints(maxWidth: 1110),
+              constraints: BoxConstraints(maxWidth: 2048.0),
               padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const SectionTitle(
-                      title: "Get in Touch",
-                      subTitle: "Feel free to contact me for any queries you have.",
-                      color: Colors.deepOrange),
+                    title: "Get in Touch",
+                    subTitle: "Feel free to contact me for any queries you have.",
+                    color: Colors.deepOrange,
+                  ),
                   sizedBoxH(50),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -265,7 +266,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     log("validated");
-                                    final result = await contactMeCon.contactMe(
+                                    /*  final result = await contactMeCon.contactMe(
                                       reqData: ReqContactMe(
                                         name: nameController.text.toString(),
                                         email: emailController.text.toString(),
@@ -278,7 +279,8 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                       showToast('Your data has been sent successfully.');
                                     } else {
                                       showCustomSnackBar('Something went wrong.');
-                                    }
+                                    } */
+                                    showCustomSnackBar('comming soon...');
                                   } else {
                                     log("validated");
                                   }
@@ -292,9 +294,6 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                     ],
                   ),
                   sizedBoxH(30),
-
-                  ///
-                  BottomCopyRights(),
                 ],
               ),
             );

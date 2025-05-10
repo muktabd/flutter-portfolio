@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
-import 'package:flutter_portfolio/screens/widgets/customised_scaffold.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
 
 import '../../../components/constants.dart';
 import '../../../components/default_button.dart';
 import '../../../components/section_title.dart';
-import '../../widgets/bottom_copyrights.dart';
-import '../controller/blog_post_controller.dart';
 import '../../../global/methods/sizebox_widget.dart';
 import 'more_blogs.dart';
 
@@ -23,8 +19,9 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // constraints: BoxConstraints(maxWidth: 1110),
       padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      constraints: BoxConstraints(maxWidth: 1640.0),
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -54,10 +51,7 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                   decoration: BoxDecoration(
                     color: const Color(0x153D4C82),
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      width: 1,
-                      color: Colors.white24,
-                    ),
+                    border: Border.all(width: 1, color: Colors.white24),
                   ),
                   // padding: EdgeInsets.only(bottom: 10.0),
                   // height: 180,
@@ -79,9 +73,10 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 10.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+
                             children: [
                               GlobalText(
                                 str: "WeHealth",
@@ -108,10 +103,7 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                               Align(
                                 alignment: Alignment.bottomRight,
                                 child: TextButton(
-                                  child: GlobalText(
-                                    str: "READ MORE",
-                                    color: Colors.red,
-                                  ),
+                                  child: GlobalText(str: "READ MORE", color: Colors.red),
                                   onPressed: () {
                                     //
                                   },
@@ -127,29 +119,20 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
               },
             ),
           ),
-          SizedBox(
-            width: 1110,
-            child: Row(
-              children: [
-                const Expanded(
-                  flex: 8,
-                  child: SizedBox(),
+
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FittedBox(
+                child: DefaultButton(
+                  imageSrc: "assets/images/icons8-sleepy-eyes-96.png",
+                  text: "See More!",
+                  onPress: () {
+                    Get.to(() => AllBlogsScreen());
+                  },
                 ),
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: FittedBox(
-                      child: DefaultButton(
-                          imageSrc: "assets/images/icons8-sleepy-eyes-96.png",
-                          text: "See More!",
-                          press: () {
-                            Get.to(() => AllBlogsScreen());
-                          }),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
         ],
@@ -159,11 +142,7 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
 }
 
 class HoverChip extends StatefulWidget {
-  const HoverChip({
-    super.key,
-    required this.onTap,
-    required this.label,
-  });
+  const HoverChip({super.key, required this.onTap, required this.label});
   final VoidCallback onTap;
   final String label;
 
@@ -182,13 +161,7 @@ class _HoverChipState extends State<HoverChip> {
         });
       },
       onTap: widget.onTap,
-      child: Chip(
-        backgroundColor: Colors.red,
-        elevation: _onHover ? 10 : 0,
-        label: GlobalText(
-          str: widget.label,
-        ),
-      ),
+      child: Chip(backgroundColor: Colors.red, elevation: _onHover ? 10 : 0, label: GlobalText(str: widget.label)),
     );
   }
 }

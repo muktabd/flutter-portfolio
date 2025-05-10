@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_portfolio/global/widgets/global_text.dart';
 
 import '../../../components/constants.dart';
 import '../../../global/methods/custom_url_launcher.dart';
+import '../model/project_data_model.dart';
 
 class RecentWorkCard extends StatefulWidget {
   // just press "Command + ."
   const RecentWorkCard({
     super.key,
     required this.image,
-    required this.androidLink,
-    required this.iosLink,
+    required this.platfromList,
     required this.name,
     required this.desc,
   });
 
   final String image;
-  final String androidLink;
-  final String iosLink;
+  final List<PlatformName> platfromList;
   final String name;
   final String desc;
 
   @override
-  _RecentWorkCardState createState() => _RecentWorkCardState();
+  State<RecentWorkCard> createState() => _RecentWorkCardState();
 }
 
 class _RecentWorkCardState extends State<RecentWorkCard> {
@@ -42,18 +41,19 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
         height: 320,
         width: 540,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color(0x4A3E3C7E),
           borderRadius: BorderRadius.circular(10),
           boxShadow: [if (isHover) kDefaultCardShadow],
         ),
         child: Row(
           children: [
             Expanded(
-                flex: 2,
-                child: Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(widget.image)),
-                )),
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(widget.image)),
+              ),
+            ),
             Expanded(
               flex: 3,
               child: Padding(
@@ -62,28 +62,25 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      widget.name,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    GlobalText(str: widget.name, fontSize: 25.0, color: Colors.deepOrange, fontWeight: FontWeight.bold),
                     const SizedBox(height: kDefaultPadding / 2),
-                    Text(widget.desc, style: TextStyle()),
+                    GlobalText(str: widget.desc),
                     const SizedBox(height: kDefaultPadding),
+
                     Row(
-                      children: [
-                        HoverChip(
-                          label: "iOS",
-                          onTap: () => launchUrlNow(widget.iosLink),
-                        ),
-                        const SizedBox(width: 6),
-                        HoverChip(
-                          label: "Android",
-                          onTap: () => launchUrlNow(widget.androidLink),
-                        ),
-                      ],
+                      children:
+                          widget.platfromList.map((platform) {
+                            return Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: HoverChip(label: platform.name, onTap: () => launchUrlNow(platform.url)),
+                                ),
+                                SizedBox(width: 10.0),
+                              ],
+                            );
+                          }).toList(),
                     ),
                   ],
                 ),
@@ -97,11 +94,7 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
 }
 
 class HoverChip extends StatefulWidget {
-  const HoverChip({
-    super.key,
-    required this.onTap,
-    required this.label,
-  });
+  const HoverChip({super.key, required this.onTap, required this.label});
   final VoidCallback onTap;
   final String label;
 
@@ -121,14 +114,9 @@ class _HoverChipState extends State<HoverChip> {
       },
       onTap: widget.onTap,
       child: Chip(
-        backgroundColor: Colors.blue.shade50,
+        backgroundColor: Colors.blueGrey,
         elevation: _onHover ? 10 : 0,
-        label: Text(
-          widget.label,
-
-          /* style:
-              TextStyle(decoration: TextDecoration.underline), */
-        ),
+        label: GlobalText(str: widget.label, color: Colors.white),
       ),
     );
   }

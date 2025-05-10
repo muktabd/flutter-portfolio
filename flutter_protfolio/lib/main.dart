@@ -5,14 +5,8 @@ import 'package:flutter_portfolio/controller/url_controller/url_controller.dart'
 import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'screens/about_me/view/about_me_section.dart';
-import 'screens/blogs/view/webview_blog_section.dart';
-import 'screens/contact/view/contact_section.dart';
-import 'screens/education/view/webview_education_section.dart';
-import 'screens/experiences/view/work_experiences.dart';
 import 'screens/home/view/home_screen.dart';
-import 'screens/projects/webview_project_screen.dart';
+import 'screens/resume/view/resume_screen.dart';
 import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
@@ -28,11 +22,13 @@ void main() async {
   Dio dio = Dio();
   final prefs = await SharedPreferences.getInstance();
 
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    systemNavigationBarColor: Colors.black,
-    systemNavigationBarDividerColor: Colors.grey,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.black,
+      systemNavigationBarDividerColor: Colors.grey,
+    ),
+  );
 
   //
 

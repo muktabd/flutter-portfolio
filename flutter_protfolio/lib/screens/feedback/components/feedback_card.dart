@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../components/constants.dart';
-import '../../experiences/data/feedback_data.dart';
+import '../feedback_data.dart';
 
 class FeedbackCard extends StatefulWidget {
   const FeedbackCard({
