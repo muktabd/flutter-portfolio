@@ -29,10 +29,8 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
         return GetBuilder<HomeInfoController>(
           builder: (homeInfoCon) {
             return Container(
-              // padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              // constraints: BoxConstraints(maxWidth: 1440),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(Images.coverImage),
@@ -43,7 +41,7 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(left: 200.0),
+                  padding: EdgeInsets.only(left: 120.0),
                   color: themeCon.getImageBlueColor(context),
                   child: Center(
                     child: Column(

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:particles_network/particles_network.dart';
 import '../../global/constants/color_resources.dart';
 import '/screens/settings/theme/controller/theme_controller.dart';
-import 'home_dialog_menu.dart';
 
 class CustomisedScaffold extends StatelessWidget {
   final Widget webScaffold;
@@ -29,6 +28,7 @@ class CustomisedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
+    log("now width ?? $screenWidth");
     return Scaffold(
       // backgroundColor: Colors.blue,
       /* floatingActionButton:
