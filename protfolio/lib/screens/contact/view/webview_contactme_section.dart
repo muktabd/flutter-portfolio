@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_portfolio/screens/widgets/bottom_copyrights.dart';
+import 'package:portfolio/screens/widgets/bottom_copyrights.dart';
 import 'package:get/get.dart';
 
 import '../../../components/constants.dart';

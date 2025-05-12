@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/screens/contact/view/webview_contactme_section.dart';
-import 'package:flutter_portfolio/screens/education/view/webview_education_section.dart';
-import 'package:flutter_portfolio/screens/experiences/view/webview_work_experi.dart';
-import 'package:flutter_portfolio/screens/projects/webview_project_screen.dart';
+import 'package:portfolio/screens/contact/view/webview_contactme_section.dart';
+import 'package:portfolio/screens/education/view/webview_education_section.dart';
+import 'package:portfolio/screens/experiences/view/webview_work_experi.dart';
+import 'package:portfolio/screens/projects/webview_project_screen.dart';
 
 import '../../about_me/view/webview_aboutme_section.dart';
 import '../../blogs/view/webview_blog_section.dart';

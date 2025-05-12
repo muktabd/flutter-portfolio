@@ -1,9 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/components/constants.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/components/section_title.dart';
+import 'package:portfolio/components/constants.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
+
+import '../../../global/methods/custom_url_launcher.dart';
 
 class WebViewEducationSection extends StatelessWidget {
   const WebViewEducationSection({super.key});
@@ -27,6 +29,7 @@ class WebViewEducationSection extends StatelessWidget {
                   record: EducationRecord(
                     degreeName: "Bachelor of Science:\nComputer Science & Engineering".toUpperCase(),
                     institutionName: "UNIVERSITI TEKNOLOGI MALAYSIA",
+                    url: "https://www.utm.my/",
                     toFrom: "2018 - 2022",
                     cgpa: "CGPA:  3.08",
                     imgLink: const AssetImage("assets/edu/utm.png"),
@@ -39,6 +42,7 @@ class WebViewEducationSection extends StatelessWidget {
                   record: EducationRecord(
                     degreeName: "Diploma in Engineering:\nComputer Science & Technology".toUpperCase(),
                     institutionName: "Feni Computer Institute".toUpperCase(),
+                    url: "https://www.utm.my/",
                     toFrom: "2013-2017",
                     cgpa: "CGPA: 3.43",
                     imgLink: const AssetImage("assets/edu/fci.png"),
@@ -46,6 +50,32 @@ class WebViewEducationSection extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+
+          ///
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Card(
+              color: const Color(0x0A000000),
+              child: Padding(
+                padding: const EdgeInsets.all(55.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    GlobalText(
+                      str: "Top-up IT Training Mobile App Development",
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    SizedBox(height: 20.0),
+                    GlobalText(
+                      str:
+                          '''The training is on Android App Development .It is a project based training. The title was Top-up IT training conducted by Ernst & Young LLP,India under Leveraging ICT for Growth,Employment and Governance (LICT) Project of Bangladesh Computer Council (BCC),ICT Division,People's Republic of Bangladesh on Android under NASSCOM IT-ITES Sector Skill Council (SSC) Certification . The program is certified by George Washington University, USA''',
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -56,6 +86,7 @@ class WebViewEducationSection extends StatelessWidget {
 class EducationRecord {
   final String degreeName;
   final String institutionName;
+  final String url;
   final String toFrom;
   final String cgpa;
   final AssetImage imgLink;
@@ -64,6 +95,7 @@ class EducationRecord {
   EducationRecord({
     required this.degreeName,
     required this.institutionName,
+    required this.url,
     required this.toFrom,
     required this.cgpa,
     required this.imgLink,
@@ -117,11 +149,21 @@ class _EducationCardState extends State<EducationCard> {
               color: Colors.white70,
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
-            GlobalText(
-              str: widget.record.institutionName,
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.white60,
+            Row(
+              children: [
+                GlobalText(
+                  str: widget.record.institutionName,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.deepOrange,
+                ),
+                IconButton(
+                  onPressed: () {
+                    launchUrlNow(widget.record.url);
+                  },
+                  icon: Icon(Icons.open_in_new, color: Colors.blueGrey),
+                ),
+              ],
             ),
             const SizedBox(height: kDefaultPadding * 0.5),
             Row(

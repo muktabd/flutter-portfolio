@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
-import 'package:flutter_portfolio/global/widgets/custom_listtile.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/methods/sizebox_widget.dart';
+import 'package:portfolio/global/widgets/custom_listtile.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 import '/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 
 import '../../controller/url_controller/url_controller.dart';
 import '../../global/constants/color_resources.dart';
 import '../../localization/localization_controller.dart';
-
-
 
 import '../settings/language/controller/language_controller.dart';
 
@@ -57,20 +55,11 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                   Get.back();
                                 },
                                 tooltip: 'Close',
-                                icon: Icon(
-                                  Icons.close,
-                                  color: ColorRes.red,
-                                ),
-                              )
+                                icon: Icon(Icons.close, color: ColorRes.red),
+                              ),
                             ],
                           ),
-                          Center(
-                            child: GlobalText(
-                              str: 'menu'.tr,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          Center(child: GlobalText(str: 'menu'.tr, fontSize: 30, fontWeight: FontWeight.bold)),
 
                           ///
                           Column(
@@ -132,10 +121,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                 },
                               ),
                               ExpansionTile(
-                                leading: Icon(
-                                  Icons.settings,
-                                  color: ColorRes.white,
-                                ),
+                                leading: Icon(Icons.settings, color: ColorRes.white),
                                 title: GlobalText(str: "Settings"),
                                 children: [
                                   Row(
@@ -161,9 +147,10 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                                 height: 40,
                                                 width: themeCon.themeValue ? 50 : 60,
                                                 decoration: BoxDecoration(
-                                                  color: themeCon.themeValue
-                                                      ? Colors.transparent
-                                                      : const Color(0xffFFDB84),
+                                                  color:
+                                                      themeCon.themeValue
+                                                          ? Colors.transparent
+                                                          : const Color(0xffFFDB84),
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: Icon(
@@ -183,9 +170,10 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                                 height: 40,
                                                 width: themeCon.themeValue ? 60 : 50,
                                                 decoration: BoxDecoration(
-                                                  color: themeCon.themeValue
-                                                      ? const Color(0xffFFDB84)
-                                                      : Colors.transparent,
+                                                  color:
+                                                      themeCon.themeValue
+                                                          ? const Color(0xffFFDB84)
+                                                          : Colors.transparent,
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: Icon(
@@ -213,10 +201,12 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                           children: [
                                             GestureDetector(
                                               onTap: () {
-                                                Get.find<LocalizationController>().setLanguage(Locale(
-                                                  langCon.languageNameList?.languageList?[0].langCode ?? "en",
-                                                  langCon.languageNameList?.languageList?[0].countryCode,
-                                                ));
+                                                Get.find<LocalizationController>().setLanguage(
+                                                  Locale(
+                                                    langCon.languageNameList?.languageList?[0].langCode ?? "en",
+                                                    langCon.languageNameList?.languageList?[0].countryCode,
+                                                  ),
+                                                );
                                                 langCon.setSelectIndex(0);
                                                 setState(() {});
                                               },
@@ -224,9 +214,10 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                                 height: 40,
                                                 width: themeCon.themeValue ? 50 : 60,
                                                 decoration: BoxDecoration(
-                                                  color: langCon.selectIndex == 0
-                                                      ? const Color(0xffFFDB84)
-                                                      : Colors.transparent,
+                                                  color:
+                                                      langCon.selectIndex == 0
+                                                          ? const Color(0xffFFDB84)
+                                                          : Colors.transparent,
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: Center(
@@ -243,10 +234,12 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                             ),
                                             GestureDetector(
                                               onTap: () async {
-                                                Get.find<LocalizationController>().setLanguage(Locale(
-                                                  langCon.languageNameList?.languageList?[1].langCode ?? "bn",
-                                                  langCon.languageNameList?.languageList?[1].countryCode,
-                                                ));
+                                                Get.find<LocalizationController>().setLanguage(
+                                                  Locale(
+                                                    langCon.languageNameList?.languageList?[1].langCode ?? "bn",
+                                                    langCon.languageNameList?.languageList?[1].countryCode,
+                                                  ),
+                                                );
                                                 langCon.setSelectIndex(1);
                                                 setState(() {});
                                               },
@@ -254,9 +247,10 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                                 height: 40,
                                                 width: themeCon.themeValue ? 60 : 50,
                                                 decoration: BoxDecoration(
-                                                  color: langCon.selectIndex == 1
-                                                      ? const Color(0xffFFDB84)
-                                                      : Colors.transparent,
+                                                  color:
+                                                      langCon.selectIndex == 1
+                                                          ? const Color(0xffFFDB84)
+                                                          : Colors.transparent,
                                                   borderRadius: BorderRadius.circular(10),
                                                 ),
                                                 child: Center(

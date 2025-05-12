@@ -4,9 +4,9 @@
 // import 'package:pdf/pdf.dart';
 // import 'package:pdf/widgets.dart' as pw;
 // import 'package:printing/printing.dart';
-// import 'package:flutter_portfolio/components/default_button.dart';
-// import 'package:flutter_portfolio/components/my_outline_button.dart';
-// import 'package:flutter_portfolio/components/constants.dart';
+// import 'package:portfolio/components/default_button.dart';
+// import 'package:portfolio/components/my_outline_button.dart';
+// import 'package:portfolio/components/constants.dart';
 
 // import '../../../global/constants/images.dart';
 // import '../../../global/widgets/custom_toast.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 import 'package:timelines_plus/timelines_plus.dart';
+import '../../../global/methods/custom_url_launcher.dart';
 import '../data/work_exp_data.dart';
 import 'components/card_title_widget.dart';
 
@@ -60,12 +61,17 @@ class WebViewWorkExperiSection extends StatelessWidget {
                           Row(
                             children: [
                               GlobalText(
-                                str: workData[index].companyName,
+                                str: workData[index].companyName.toUpperCase(),
                                 fontWeight: FontWeight.w500,
                                 color: Colors.deepOrange,
                                 fontSize: 20,
                               ),
-                              IconButton(onPressed: () {}, icon: Icon(Icons.open_in_new, color: Colors.blueGrey)),
+                              IconButton(
+                                onPressed: () {
+                                  launchUrlNow(workData[index].url);
+                                },
+                                icon: Icon(Icons.open_in_new, color: Colors.blueGrey),
+                              ),
                             ],
                           ),
                           GlobalText(str: "Contact: ${workData[index].contactNumber}", fontSize: 15.0),

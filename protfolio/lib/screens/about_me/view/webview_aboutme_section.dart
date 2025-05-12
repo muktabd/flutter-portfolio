@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
-import 'package:flutter_portfolio/screens/resume/view/resume_screen.dart';
-import 'package:get/get.dart';
-
+import 'package:portfolio/global/methods/sizebox_widget.dart';
+import '../../../global/methods/custom_url_launcher.dart';
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/global_text.dart';
 import '../../experiences/view/components/card_title_widget.dart';
@@ -206,6 +204,9 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                           child: CustomContainer(
                             onTap: () {
                               // Get.to(() => MyResumeScreen());
+                              launchUrlNow(
+                                'https://drive.google.com/file/d/1pOZotyXKGOYOJIa0lhclWBjgGZbvK7QE/view?usp=sharing',
+                              );
                             },
                             color: Colors.deepOrange,
                             iconWidget: Icon(Icons.cloud_download, color: Colors.white),

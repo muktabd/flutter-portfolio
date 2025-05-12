@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/components/section_title.dart';
-import 'package:flutter_portfolio/components/constants.dart';
+import 'package:portfolio/components/section_title.dart';
+import 'package:portfolio/components/constants.dart';
 
 import 'feedback_data.dart';
 import 'components/feedback_card.dart';

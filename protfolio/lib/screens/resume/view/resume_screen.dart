@@ -1,7 +1,7 @@
 // Replace this inside your _mainContent
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 import 'package:particles_network/particles_network.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 

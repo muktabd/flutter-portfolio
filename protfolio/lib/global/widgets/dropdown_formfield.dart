@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/screens/settings/theme/controller/theme_controller.dart';
+import 'package:portfolio/screens/settings/theme/controller/theme_controller.dart';
 import 'package:get/get.dart';
 import '../constants/color_resources.dart';
 import '../styles/font_style/montserrat.dart';
@@ -65,65 +64,72 @@ class _CustomDropDownFormFieldState extends State<CustomDropDownFormField> {
           children: [
             widget.titleText == null
                 ? const SizedBox.shrink()
-                : Text(widget.titleText ?? "",
-                style: widget.titleStyle ?? montserratSemiBold.copyWith(color: themeCon.getWhiteBlackColor(context)),
-                overflow: TextOverflow.ellipsis
-            ),
+                : Text(
+                  widget.titleText ?? "",
+                  style: widget.titleStyle ?? montserratSemiBold.copyWith(color: themeCon.getWhiteBlackColor(context)),
+                  overflow: TextOverflow.ellipsis,
+                ),
+
             /// When I give the title text it will take the sizedbox
             widget.titleText != null ? const SizedBox(height: 5) : const SizedBox.shrink(),
             DropdownButtonFormField<String>(
               focusColor: Colors.transparent,
-              items: widget.items.map((itemValue) => DropdownMenuItem<String>(
-                value: itemValue,
-                child: Text(
-                  itemValue,
-                  maxLines: 1,
-                  softWrap: true,
-                  overflow: TextOverflow.ellipsis,
-                  style: montserratMedium,
-                ),
-              ),
-              ).toList(),
+              items:
+                  widget.items
+                      .map(
+                        (itemValue) => DropdownMenuItem<String>(
+                          value: itemValue,
+                          child: Text(
+                            itemValue,
+                            maxLines: 1,
+                            softWrap: true,
+                            overflow: TextOverflow.ellipsis,
+                            style: montserratMedium,
+                          ),
+                        ),
+                      )
+                      .toList(),
               menuMaxHeight: widget.menuMaxHeight ?? 500,
               value: widget.value,
               isExpanded: true,
-              decoration: widget.decoration?.copyWith(
-                contentPadding: widget.contentPadding,
-                isDense: widget.isDense,
-                hintText: widget.hintText,
-                hintStyle: widget.hintTextStyle ?? montserratMedium,
-                labelText: widget.labelText,
-                labelStyle: widget.labelTextStyle ?? montserratMedium,
-                floatingLabelStyle: montserratMedium.copyWith(color: ColorRes.grey),
-                prefixIcon: widget.prefixIcon,
-                filled: widget.filled,
-                fillColor: widget.fillColor,
-              ) ?? inputDecoration.copyWith(
-                contentPadding: widget.contentPadding,
-                isDense: widget.isDense,
-                hintText: widget.hintText,
-                hintStyle: widget.hintTextStyle ?? montserratMedium,
-                labelText: widget.labelText,
-                labelStyle: widget.labelTextStyle ?? montserratMedium,
-                floatingLabelStyle: montserratMedium.copyWith(color: ColorRes.grey),
-                prefixIcon: widget.prefixIcon,
-                filled: widget.filled,
-                fillColor: widget.fillColor,
-              ),
-              icon: widget.sufixIcon ?? const Icon(
-                Icons.keyboard_arrow_down,
-                color: ColorRes.grey,
-              ),
+              decoration:
+                  widget.decoration?.copyWith(
+                    contentPadding: widget.contentPadding,
+                    isDense: widget.isDense,
+                    hintText: widget.hintText,
+                    hintStyle: widget.hintTextStyle ?? montserratMedium,
+                    labelText: widget.labelText,
+                    labelStyle: widget.labelTextStyle ?? montserratMedium,
+                    floatingLabelStyle: montserratMedium.copyWith(color: ColorRes.grey),
+                    prefixIcon: widget.prefixIcon,
+                    filled: widget.filled,
+                    fillColor: widget.fillColor,
+                  ) ??
+                  inputDecoration.copyWith(
+                    contentPadding: widget.contentPadding,
+                    isDense: widget.isDense,
+                    hintText: widget.hintText,
+                    hintStyle: widget.hintTextStyle ?? montserratMedium,
+                    labelText: widget.labelText,
+                    labelStyle: widget.labelTextStyle ?? montserratMedium,
+                    floatingLabelStyle: montserratMedium.copyWith(color: ColorRes.grey),
+                    prefixIcon: widget.prefixIcon,
+                    filled: widget.filled,
+                    fillColor: widget.fillColor,
+                  ),
+              icon: widget.sufixIcon ?? const Icon(Icons.keyboard_arrow_down, color: ColorRes.grey),
               onChanged: widget.onChanged,
-              validator: widget.validator ?? (val){
-                if(val!.isEmpty){
-                  if (widget.labelText != null){
-                    return "${widget.labelText} is required!";
-                  }
-                  return "This filed is required!";
-                }
-                return null;
-              },
+              validator:
+                  widget.validator ??
+                  (val) {
+                    if (val!.isEmpty) {
+                      if (widget.labelText != null) {
+                        return "${widget.labelText} is required!";
+                      }
+                      return "This filed is required!";
+                    }
+                    return null;
+                  },
               style: montserratMedium,
             ),
           ],

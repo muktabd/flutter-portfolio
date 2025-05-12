@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -31,6 +31,7 @@ class MobileViewScreen extends StatelessWidget {
       ),
     );
   }
+
   /* return GetBuilder<ThemeController>(
       builder: (themeCon) {
         return GetBuilder<HomeInfoController>(

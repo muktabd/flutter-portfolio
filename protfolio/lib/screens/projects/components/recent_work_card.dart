@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 
 import '../../../components/constants.dart';
 import '../../../global/methods/custom_url_launcher.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
+import 'package:portfolio/controller/url_controller/url_controller.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -49,10 +49,7 @@ class GlobalText extends StatelessWidget {
               overflow: overflow,
               textAlign: textAlign,
               softWrap: softWrap,
-              style: GoogleFonts.montserrat(
-                color: color,
-                fontSize: fontSize,
-              ),
+              style: GoogleFonts.montserrat(color: color, fontSize: fontSize),
             );
           },
         );

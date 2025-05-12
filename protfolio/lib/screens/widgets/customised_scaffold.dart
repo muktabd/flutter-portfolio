@@ -30,27 +30,12 @@ class CustomisedScaffold extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     log("now width ?? $screenWidth");
     return Scaffold(
-      // backgroundColor: Colors.blue,
-      /* floatingActionButton:
-          floatingActionButton ??
-          FloatingActionButton(
-            child: Icon(Icons.menu),
-            onPressed: () async {
-              await showDialog(
-                barrierDismissible: false,
-                context: context,
-                builder: (BuildContext context) {
-                  return HomeDialogWidget();
-                },
-              );
-            },
-          ), */
       body:
           isStack == true
               ? Stack(
                 children: [
                   ParticleNetwork(
-                    particleCount: 100,
+                    particleCount: 50,
                     particleColor: Colors.white,
                     lineColor: Colors.deepOrange,
                     touchColor: Colors.red,
@@ -89,6 +74,7 @@ class GradientContainer extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
+      constraints: BoxConstraints(maxWidth: 1920),
       decoration: BoxDecoration(
         gradient: RadialGradient(
           center: Alignment.center,

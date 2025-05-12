@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_portfolio/controller/url_controller/url_controller.dart';
-import 'package:flutter_portfolio/domain/server/http_client/request_handler.dart';
+import 'package:portfolio/controller/url_controller/url_controller.dart';
+import 'package:portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/home/view/home_screen.dart';
@@ -73,7 +73,6 @@ class MyApp extends StatelessWidget {
               // home: const WorkExperiencesSection(),
               // home: const EducationSection(),
               // home: const ProjectsScreen(),
-
               // home: const ContactSection(),
               // home: const MyResumeScreen(),
               // home: const MyBlogsScreen(),

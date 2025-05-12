@@ -5,6 +5,7 @@ import '../../../global/constants/images.dart';
 class WorkExperienceModel {
   const WorkExperienceModel({
     required this.id,
+    required this.url,
     required this.position,
     required this.companyName,
     required this.contactNumber,
@@ -16,6 +17,7 @@ class WorkExperienceModel {
   });
 
   final int id;
+  final String url;
   final String position;
   final String companyName;
   final String contactNumber;
@@ -29,6 +31,7 @@ class WorkExperienceModel {
 final List<WorkExperienceModel> workData = [
   WorkExperienceModel(
     id: 4,
+    url: "https://tcsens.com/",
     position: "Mobile App Developer",
     companyName: "TCSENS SDN. BHD.",
     contactNumber: "+60 16-330 1328",
@@ -37,18 +40,21 @@ final List<WorkExperienceModel> workData = [
     companyImage: Images.weHealthLogo,
     color: Colors.green,
     roles: [
-      "A native app developer using Android Studio with Java & Kotlin",
-      "Native app bug fixer & features adder",
+      "Flutter app development",
+      "Channeling native java SDK with flutter",
       "Native app converter to Flutter",
       "Backend API implementation both native & flutter",
       "Firebase implementation",
+      "Google APIs implementing (FCM, Google Map, Firebase Messaging and Others)",
+      "Third Party API implementing (Payment, Bulk SMS)",
       "App publisher in Google Play Store and Huawei AppGallery",
     ],
   ),
   WorkExperienceModel(
     id: 3,
+    url: "https://umchtech.com/",
     position: "Mobile App Developer",
-    companyName: "UMCH Tech SDN. BHD.",
+    companyName: "UMCH TECHNOLOGY SDN. BHD.",
     contactNumber: "+60 16-330 1328",
     toFrom: "August 2022 - July 2023",
     companyType: "Medical & Health Care Software Solutions Based Comapny",
@@ -56,21 +62,20 @@ final List<WorkExperienceModel> workData = [
     color: Colors.blue,
     roles: [
       "A native app developer using Android Studio with Java & Kotlin",
-      "A native app developer using Android Studio with Java & Kotlin",
-      "Native app bug fixer & features adder",
       "Native app converter to Flutter",
       "Backend API implementation both native & flutter",
-      "Firebase implementation",
+      "Firebase integration",
       "App publisher in Google Play Store and Huawei AppGallery",
     ],
   ),
   WorkExperienceModel(
     id: 2,
+    url: "https://niftyitsolution.com/",
     position: "Mobile App Developer",
     companyName: "Biz Trading & Total Cad Solution SDN. BHD.",
     contactNumber: "+60 11 397909129",
     toFrom: "February 2021 - July 2022",
-    companyType: "Mechemical & Software Based Company",
+    companyType: "Accounting & Software Based Company",
     companyImage: Images.bizTradingLogo,
     color: Colors.orange.shade900,
     roles: [
@@ -79,14 +84,15 @@ final List<WorkExperienceModel> workData = [
       "Lead of development mobile and web",
       "Implement design from prototype",
       "Backend API implementation",
-      "Firebase implementation",
+      "Firebase integration",
       "App publisher in Google Play Store and App Store",
     ],
   ),
   WorkExperienceModel(
     id: 1,
+    url: "https://deltafrontier.com/",
     position: "Mobile App Developer",
-    companyName: "DeltaFrontier SDN. BHD.",
+    companyName: "DELTAFRONTIER SDN. BHD.",
     contactNumber: "+65 9825 6483",
     toFrom: "August 2020 - January 2021",
     companyType: "AI & IOT Based Company",
@@ -96,10 +102,11 @@ final List<WorkExperienceModel> workData = [
       "Native android & Flutter developer",
       "Implement design from prototype",
       "Testing APIs with postman",
-      "Implement Back-end (APIs Implement)",
+      "APIs Implemention",
+      "Firebase integration",
       "Application version control (GitHub)",
       "Worked on remote database Nginx (Linux Server)",
-      "Firebase implementation",
+      "Worked on some others existing projects (Native Android)",
     ],
   ),
 ];

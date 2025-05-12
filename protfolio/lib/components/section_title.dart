@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/global/methods/sizebox_widget.dart';
-import 'package:flutter_portfolio/global/widgets/global_text.dart';
+import 'package:portfolio/global/methods/sizebox_widget.dart';
+import 'package:portfolio/global/widgets/global_text.dart';
 
 import 'constants.dart';
 
 class SectionTitle extends StatelessWidget {
-  const SectionTitle({
-    super.key,
-    this.title,
-    this.subTitle,
-    this.color,
-  });
+  const SectionTitle({super.key, this.title, this.subTitle, this.color});
 
   final String? title, subTitle;
   final Color? color;
@@ -30,23 +25,14 @@ class SectionTitle extends StatelessWidget {
             width: 8,
             height: 100,
             color: Colors.black,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: color,
-              ),
-            ),
+            child: DecoratedBox(decoration: BoxDecoration(color: color)),
           ),
           sizedBoxW(8.0),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              GlobalText(
-                str: title ?? '',
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                color: color ?? Colors.black,
-              ),
+              GlobalText(str: title ?? '', fontSize: 25, fontWeight: FontWeight.bold, color: color ?? Colors.black),
               sizedBoxH(0.0),
               GlobalText(
                 str: subTitle ?? '',
