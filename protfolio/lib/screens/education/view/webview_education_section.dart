@@ -42,7 +42,7 @@ class WebViewEducationSection extends StatelessWidget {
                   record: EducationRecord(
                     degreeName: "Diploma in Engineering:\nComputer Science & Technology".toUpperCase(),
                     institutionName: "Feni Computer Institute".toUpperCase(),
-                    url: "https://www.utm.my/",
+                    url: "https://www.fci.gov.bd/",
                     toFrom: "2013-2017",
                     cgpa: "CGPA: 3.43",
                     imgLink: const AssetImage("assets/edu/fci.png"),
