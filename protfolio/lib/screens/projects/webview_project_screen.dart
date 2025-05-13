@@ -3,6 +3,8 @@ import 'package:portfolio/components/section_title.dart';
 import 'package:portfolio/components/constants.dart';
 import 'package:get/get.dart';
 import '../../components/default_button.dart';
+import '../../global/methods/custom_url_launcher.dart';
+import '../../global/widgets/global_text.dart';
 import 'components/hireme_card.dart';
 
 import 'components/recent_work_card.dart';
@@ -17,6 +19,9 @@ class WebViewProjectSection extends StatefulWidget {
 }
 
 class _WebViewProjectSectionState extends State<WebViewProjectSection> {
+  bool isHover = false;
+
+  ///
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,11 +47,73 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
                 final data = projectList[index];
-                return RecentWorkCard(
-                  image: data.icon,
-                  name: data.title,
-                  desc: data.desciption,
-                  platfromList: data.platformName,
+                return InkWell(
+                  onTap: () {},
+                  onHover: (value) {
+                    setState(() {
+                      isHover = value;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
+                    height: 320,
+                    width: 540,
+                    decoration: BoxDecoration(
+                      color: const Color(0x4A3E3C7E),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [if (isHover) kDefaultCardShadow],
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(data.icon)),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                GlobalText(str: data.title, fontSize: 25.0, color: Colors.deepOrange, fontWeight: FontWeight.bold),
+                                const SizedBox(height: kDefaultPadding / 2),
+                                GlobalText(str: data.desciption, overflow: TextOverflow.clip, maxLines: 5),
+                                const SizedBox(height: kDefaultPadding),
+
+                                Row(
+                                  children:
+                                      data.platformName.map((platform) {
+                                        return Row(
+                                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Image.asset(platform.icon, width: 20.0),
+                                            GestureDetector(
+                                              onTap: () {
+                                                launchUrlNow(platform.url);
+                                              },
+                                              child: Card(child: GlobalText(str: platform.name)),
+                                            ),
+                                            // Padding(
+                                            //   padding: const EdgeInsets.all(12.0),
+                                            //   child: HoverChip(label: platform.name, onTap: () => launchUrlNow(platform.url)),
+                                            // ),
+                                            SizedBox(width: 10.0),
+                                          ],
+                                        );
+                                      }).toList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 );
               },
             ),
@@ -72,6 +139,31 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
           ///
         ],
       ),
+    );
+  }
+}
+
+class HoverChip extends StatefulWidget {
+  const HoverChip({super.key, required this.onTap, required this.label});
+  final VoidCallback onTap;
+  final String label;
+
+  @override
+  State<HoverChip> createState() => _HoverChipState();
+}
+
+class _HoverChipState extends State<HoverChip> {
+  bool _onHover = false;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (event) {
+        setState(() {
+          _onHover = event;
+        });
+      },
+      onTap: widget.onTap,
+      child: Chip(backgroundColor: Colors.blueGrey, elevation: _onHover ? 10 : 0, label: GlobalText(str: widget.label, color: Colors.white)),
     );
   }
 }

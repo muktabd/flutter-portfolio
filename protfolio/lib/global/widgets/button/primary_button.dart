@@ -79,7 +79,6 @@ class CustomButtonWidget extends StatelessWidget {
                     ],
                   )
                 : GlobalText(
-                    styleType: styleType,
                     str: text,
                     fontSize: textSize ?? 14,
                     fontWeight: FontWeight.w400,

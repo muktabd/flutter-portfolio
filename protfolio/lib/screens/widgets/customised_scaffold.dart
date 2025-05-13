@@ -34,12 +34,12 @@ class CustomisedScaffold extends StatelessWidget {
           isStack == true
               ? Stack(
                 children: [
-                  ParticleNetwork(
-                    particleCount: 50,
-                    particleColor: Colors.white,
-                    lineColor: Colors.deepOrange,
-                    touchColor: Colors.red,
-                  ),
+                  // ParticleNetwork(
+                  //   particleCount: 50,
+                  //   particleColor: Colors.white,
+                  //   lineColor: Colors.deepOrange,
+                  //   touchColor: Colors.red,
+                  // ),
                   if (screenWidth > 950.0)
                     GradientContainer(child: webScaffold)
                   else if (screenWidth > 600.0)

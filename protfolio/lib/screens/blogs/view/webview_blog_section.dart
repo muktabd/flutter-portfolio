@@ -6,6 +6,7 @@ import '../../../components/constants.dart';
 import '../../../components/default_button.dart';
 import '../../../components/section_title.dart';
 import '../../../global/methods/sizebox_widget.dart';
+import '../data/blog_data.dart';
 import 'more_blogs.dart';
 
 class WebViewBlogSection extends StatefulWidget {
@@ -47,6 +48,7 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                 mainAxisSpacing: 8.0,
               ),
               itemBuilder: (BuildContext context, int index) {
+              final blog = blogData[index];
                 return Container(
                   decoration: BoxDecoration(
                     color: const Color(0x153D4C82),
@@ -64,8 +66,7 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                           child: SizedBox(
                             width: 250,
                             // height: 250,
-                            child: Image.network(
-                              "https://images.unsplash.com/photo-1672858780267-7deecb33b131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                            child: Image.network(blog.image ?? "https://images.unsplash.com/photo-1672858780267-7deecb33b131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -79,22 +80,33 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
 
                             children: [
                               GlobalText(
-                                str: "WeHealth",
+                                str: blog.title ?? "",
                                 fontSize: 25.0,
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFFFFB100),
                               ),
                               sizedBoxH(5.0),
-                              GlobalText(str: '20 sep 2024, 12:30 PM', fontSize: 10),
+                              GlobalText(str: '20 Sep 2024, 12:30 PM', fontSize: 10),
                               sizedBoxH(10),
                               Flexible(
                                 child: GlobalText(
-                                  str:
-                                      "WeHealth is a simple and convenient popular health monitoring App. WeHealth is a simple and convenient popular health monitoring App. WeHealth is a simple and convenient popular health monitoring App.",
-                                  maxLines: 5,
+                                  str: blog.shortDes ?? "",
+                                  maxLines: 1,
                                   softWrap: true,
                                   textAlign: TextAlign.justify,
                                   fontSize: 16,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              sizedBoxH(10),
+                              Flexible(
+                                child: GlobalText(
+                                isHtml: true,
+                                  str: blog.longDes ?? "",
+                                  maxLines: 4,
+                                  softWrap: true,
+                                  textAlign: TextAlign.justify,
+                                  fontSize: 15,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),

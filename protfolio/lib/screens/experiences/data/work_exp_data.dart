@@ -37,7 +37,7 @@ final List<WorkExperienceModel> workData = [
     contactNumber: "+60 16-330 1328",
     toFrom: "August 2023 - Running",
     companyType: "Medical & Health Care Software Solutions Based Comapny",
-    companyImage: Images.weHealthLogo,
+    companyImage: Images.weHealthAppIcon,
     color: Colors.green,
     roles: [
       "Flutter app development",
@@ -58,7 +58,7 @@ final List<WorkExperienceModel> workData = [
     contactNumber: "+60 16-330 1328",
     toFrom: "August 2022 - July 2023",
     companyType: "Medical & Health Care Software Solutions Based Comapny",
-    companyImage: Images.weHealthLogo,
+    companyImage: Images.weHealthAppIcon,
     color: Colors.blue,
     roles: [
       "A native app developer using Android Studio with Java & Kotlin",
@@ -76,7 +76,7 @@ final List<WorkExperienceModel> workData = [
     contactNumber: "+60 11 397909129",
     toFrom: "February 2021 - July 2022",
     companyType: "Accounting & Software Based Company",
-    companyImage: Images.bizTradingLogo,
+    companyImage: Images.weHealthAppIcon,
     color: Colors.orange.shade900,
     roles: [
       "A trainer of flutter development",
@@ -96,7 +96,7 @@ final List<WorkExperienceModel> workData = [
     contactNumber: "+65 9825 6483",
     toFrom: "August 2020 - January 2021",
     companyType: "AI & IOT Based Company",
-    companyImage: Images.dfLogo,
+    companyImage: Images.emasaAppIcon,
     color: Colors.brown,
     roles: [
       "Native android & Flutter developer",

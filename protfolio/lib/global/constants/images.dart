@@ -28,17 +28,25 @@ class Images {
   static String apiDev = "assets/icons/skill/api.png";
   static String uiux = "assets/icons/skill/ui.png";
 
-  /// * =========== |> COMMUNICATE ICONS
 
-  /// * =========== |> PROJECT ICONS
-  static String weHealthLogo = "assets/company/wehealthwebp.webp";
-  static String bizTradingLogo = "assets/company/biz_trading.png";
 
-  static String dfLogo = "assets/company/df.jpeg";
+  /// *=  ICONS =* /// 
+  
+  //=========== |> PROJECT ICONS
+  static String mdgsAppIcon = "assets/icons/projects/emasa.webp";
+  static String weHealthAppIcon = "assets/icons/projects/wehealthwebp.webp";
+  static String komukuAppIcon = "assets/icons/projects/komuku.webp";
+  static String emasaAppIcon = "assets/icons/projects/emasa.webp";
+
   //
-  //* =========== |> Logo <| ===========  */
+
   static const String rbfgroupbdIcon = 'assets/icons/rbfgroupbd_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
+  
+  /// PLATFORM
+  static const String googlePlay = 'assets/icons/platform/google_play.png';
+  static const String appStore = 'assets/icons/platform/app_store.png';
+  static const String huaweiGallery = 'assets/icons/platform/huawei_app_gallery.png';
 
 //::::::::::::::::::::::::: Review Goal
   static const String image = "assets/images/image.png";

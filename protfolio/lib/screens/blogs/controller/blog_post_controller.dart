@@ -3,7 +3,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:portfolio/domain/server/http_client/app_config.dart';
-import 'package:portfolio/screens/auth/models/api_model/blog_post_model.dart';
+import 'package:portfolio/screens/blogs/model/blog_data_model.dart';
 import 'package:get/get.dart';
 
 import '../../../domain/server/http_client/api_clients.dart';
@@ -34,11 +34,11 @@ class BlogPostController extends GetxController {
     log(url);
   }
 
-  Future getAllBlogPosts() async {
-    String url = AppConfig.baseUrl + AppConfig.getAllPostUri;
-    var response = await ApiClients.getJson(url);
-    BlogPostModel blogPostModel = BlogPostModel.fromJson(response);
-    log(blogPostModel.code.toString());
-    log(url);
-  }
+  // Future getAllBlogPosts() async {
+  //   String url = AppConfig.baseUrl + AppConfig.getAllPostUri;
+  //   var response = await ApiClients.getJson(url);
+  //   BlogPostModel blogPostModel = BlogPostModel.fromJson(response);
+  //   log(blogPostModel.code.toString());
+  //   log(url);
+  // }
 }

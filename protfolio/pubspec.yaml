@@ -45,6 +45,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   google_fonts: ^6.2.1
   particles_network: ^1.5.5
+  flutter_html: ^3.0.0
 
 
 dev_dependencies:
@@ -75,6 +76,8 @@ flutter:
     - assets/icons/social/
     - assets/icons/skill/
     - assets/icons/communicate/
+    - assets/icons/platform/
+    - assets/icons/projects/
     #
     - assets/images/
     - assets/resume/
