@@ -30,19 +30,21 @@ class Images {
 
 
 
-  /// *=  ICONS =* /// 
-  
+  /// *=  ICONS =* ///
   //=========== |> PROJECT ICONS
-  static String mdgsAppIcon = "assets/icons/projects/emasa.webp";
-  static String weHealthAppIcon = "assets/icons/projects/wehealthwebp.webp";
-  static String komukuAppIcon = "assets/icons/projects/komuku.webp";
-  static String emasaAppIcon = "assets/icons/projects/emasa.webp";
+  static String mdgsAppIcon = "assets/icons/projects/mdgs.png";
+  static String enforcementAppIcon = "assets/icons/projects/msgs_enforcement.png";
+  static String epHandheldAppIcon = "assets/icons/projects/ep_handheld.png";
+  static String weHealthAppIcon = "assets/icons/projects/wehealth.png";
+  static String komukuAppIcon = "assets/icons/projects/komunitiku.png";
+  static String emasaAppIcon = "assets/icons/projects/emasa.png";
+  static String placeholderAppIcon = "assets/icons/projects/placeholder.png";
 
   //
 
   static const String rbfgroupbdIcon = 'assets/icons/rbfgroupbd_logo.png';
   static const String appLogo = 'assets/images/app_logo.png';
-  
+
   /// PLATFORM
   static const String googlePlay = 'assets/icons/platform/google_play.png';
   static const String appStore = 'assets/icons/platform/app_store.png';

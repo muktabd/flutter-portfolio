@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:portfolio/screens/widgets/bottom_copyrights.dart';
 import 'package:get/get.dart';
 
 import '../../../components/constants.dart';
@@ -10,8 +9,6 @@ import '../../../components/section_title.dart';
 import '../../../global/constants/images.dart';
 import '../../../global/methods/sizebox_widget.dart';
 import '../../../global/widgets/button/primary_button.dart';
-import '../../../global/widgets/custom_devider.dart';
-import '../../../global/widgets/custom_toast.dart';
 import '../../../global/widgets/global_image_loader.dart';
 import '../../../global/widgets/global_text.dart';
 import '../../../global/widgets/show_custom_snackbar.dart';

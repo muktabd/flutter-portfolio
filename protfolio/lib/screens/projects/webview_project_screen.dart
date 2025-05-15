@@ -7,7 +7,6 @@ import '../../global/methods/custom_url_launcher.dart';
 import '../../global/widgets/global_text.dart';
 import 'components/hireme_card.dart';
 
-import 'components/recent_work_card.dart';
 import 'data/project_data.dart';
 import 'more_projects.dart';
 
@@ -31,7 +30,11 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SectionTitle(title: "Recent Works", subTitle: "Some of My Recent Works ", color: Color(0xFFFFB100)),
+          const SectionTitle(
+            title: "Recent Works",
+            subTitle: "Some of My Recent Works ",
+            color: Color(0xFFFFB100),
+          ),
           Transform.translate(offset: const Offset(0, 0), child: const HireMeCard()),
           const SizedBox(height: kDefaultPadding * 1.5),
           SizedBox(
@@ -46,7 +49,8 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                final data = projectList[index];
+                final data =
+                    projectList.where((element) => element.featureProject == true).toList()[index];
                 return InkWell(
                   onTap: () {},
                   onHover: (value) {
@@ -69,43 +73,84 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
                           flex: 2,
                           child: Padding(
                             padding: const EdgeInsets.all(18.0),
-                            child: ClipRRect(borderRadius: BorderRadius.circular(10), child: Image.asset(data.icon)),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(data.icon),
+                            ),
                           ),
                         ),
                         Expanded(
                           flex: 3,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding,
+                              vertical: kDefaultPadding,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                GlobalText(str: data.title, fontSize: 25.0, color: Colors.deepOrange, fontWeight: FontWeight.bold),
+                                GlobalText(
+                                  str: data.title.toUpperCase(),
+                                  fontSize: 25.0,
+                                  color: Colors.deepOrange,
+                                  fontWeight: FontWeight.bold,
+                                ),
                                 const SizedBox(height: kDefaultPadding / 2),
-                                GlobalText(str: data.desciption, overflow: TextOverflow.clip, maxLines: 5),
+                                GlobalText(
+                                  str: data.desciption,
+                                  overflow: TextOverflow.clip,
+                                  maxLines: 5,
+                                ),
                                 const SizedBox(height: kDefaultPadding),
 
                                 Row(
                                   children:
-                                      data.platformName.map((platform) {
+                                      (data.platformName ?? []).map((platform) {
                                         return Row(
-                                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Image.asset(platform.icon, width: 20.0),
-                                            GestureDetector(
-                                              onTap: () {
-                                                launchUrlNow(platform.url);
-                                              },
-                                              child: Card(child: GlobalText(str: platform.name)),
+                                            Container(
+                                              padding: EdgeInsets.symmetric(
+                                                horizontal: 10.0,
+                                                vertical: 5.0,
+                                              ),
+                                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5.0),
+                                                color: const Color(0x2D4489FF),
+                                              ),
+                                              child: Row(
+                                                children: [
+                                                  Image.asset(platform?.icon ?? "", width: 20.0),
+                                                  SizedBox(width: 5.0),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      launchUrlNow(platform?.url ?? "");
+                                                    },
+                                                    child: GlobalText(str: platform?.name ?? ""),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                            // Padding(
-                                            //   padding: const EdgeInsets.all(12.0),
-                                            //   child: HoverChip(label: platform.name, onTap: () => launchUrlNow(platform.url)),
-                                            // ),
-                                            SizedBox(width: 10.0),
                                           ],
                                         );
                                       }).toList(),
+                                ),
+
+                                ///
+                                SizedBox(height: 6.0),
+                                SizedBox(
+                                  width: 160,
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: Row(
+                                      children: [
+                                        Icon(Icons.video_camera_back_outlined),
+                                        SizedBox(width: 5.0),
+                                        GlobalText(str: 'Watch Demo'),
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -163,7 +208,11 @@ class _HoverChipState extends State<HoverChip> {
         });
       },
       onTap: widget.onTap,
-      child: Chip(backgroundColor: Colors.blueGrey, elevation: _onHover ? 10 : 0, label: GlobalText(str: widget.label, color: Colors.white)),
+      child: Chip(
+        backgroundColor: Colors.blueGrey,
+        elevation: _onHover ? 10 : 0,
+        label: GlobalText(str: widget.label, color: Colors.white),
+      ),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:portfolio/domain/server/http_client/request_handler.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/home/view/home_screen.dart';
+import 'screens/projects/more_projects.dart';
 import 'screens/settings/theme/data/light_theme.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
@@ -69,6 +70,7 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
               home: const HomeScreen(),
+              // home: const MoreProjects(),
               // home: const AboutMeSection(),
               // home: const WorkExperiencesSection(),
               // home: const EducationSection(),
