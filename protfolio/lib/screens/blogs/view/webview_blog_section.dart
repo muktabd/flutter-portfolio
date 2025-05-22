@@ -8,6 +8,7 @@ import '../../../components/section_title.dart';
 import '../../../global/methods/sizebox_widget.dart';
 import '../data/blog_data.dart';
 import 'more_blogs.dart';
+import 'read_indetails.dart';
 
 class WebViewBlogSection extends StatefulWidget {
   const WebViewBlogSection({super.key});
@@ -36,8 +37,8 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
           const SizedBox(height: kDefaultPadding * 1.5),
           SizedBox(
             // color: Colors.red,
-            // width: MediaQuery.of(context).size.width * 0.7,
-            height: 600,
+            // width: 00,
+            height: 699,
             child: GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               itemCount: 4,
@@ -58,65 +59,68 @@ class _WebViewBlogSectionState extends State<WebViewBlogSection> {
                   // padding: EdgeInsets.only(bottom: 10.0),
                   // height: 180,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: SizedBox(
-                            width: 250,
-                            // height: 250,
-                            child: Image.network(
-                              blog.image ??
-                                  "https://images.unsplash.com/photo-1672858780267-7deecb33b131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-                              fit: BoxFit.cover,
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: SizedBox(
+                              width: 250,
+                              // height: 250,
+                              child: Image.network(
+                                blog.image ??
+                                    "https://images.unsplash.com/photo-1672858780267-7deecb33b131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                      Flexible(
+
+                      Expanded(
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              GlobalText(
-                                str: blog.title ?? "",
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFFFFB100),
-                              ),
-                              sizedBoxH(5.0),
-                              GlobalText(str: '20 Sep 2024, 12:30 PM', fontSize: 12),
-                              sizedBoxH(10),
                               Flexible(
                                 child: GlobalText(
-                                  str: blog.shortDes ?? "",
-                                  maxLines: 1,
-                                  softWrap: true,
-                                  textAlign: TextAlign.justify,
-                                  fontSize: 16,
-                                  overflow: TextOverflow.ellipsis,
+                                  str: blog.title ?? "",
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFFFFB100),
                                 ),
                               ),
+                              // sizedBoxH(5.0),
+                              GlobalText(
+                                str: 'Published at : 20 Sep 2024, 12:30 PM',
+                                fontSize: 12.0,
+                              ),
+
                               sizedBoxH(10),
                               Flexible(
                                 child: GlobalText(
                                   isHtml: true,
-                                  str: blog.longDes ?? "",
-                                  maxLines: 6,
+                                  str: blog.description ?? "",
+                                  maxLines: 5,
+                                  // maxLines: 5,
                                 ),
                               ),
 
                               //
+                              Container(),
+
                               ///
                               Align(
                                 alignment: Alignment.bottomRight,
                                 child: TextButton(
                                   child: GlobalText(str: "READ MORE", color: Colors.red),
                                   onPressed: () {
-                                    //
+                                    Get.to(() => BloginDetailsScreen(blogDetails: blog));
                                   },
                                 ),
                               ),

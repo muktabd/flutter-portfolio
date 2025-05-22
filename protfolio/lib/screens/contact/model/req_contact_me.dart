@@ -3,15 +3,9 @@ class ReqContactMe {
   String? email;
   String? phone;
   String? projectType;
-  String? projectDes;
+  String? projectBrief;
 
-  ReqContactMe({
-    this.name,
-    this.email,
-    this.phone,
-    this.projectType,
-    this.projectDes,
-  });
+  ReqContactMe({this.name, this.email, this.phone, this.projectType, this.projectBrief});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
@@ -19,7 +13,7 @@ class ReqContactMe {
     data['email'] = email;
     data['phone'] = phone;
     data['project_type'] = projectType;
-    data['project_des'] = projectDes;
+    data['project_brief'] = projectBrief;
     return data;
   }
 }

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/components/default_button.dart';
+import 'package:get/get.dart';
 
 import '../../../components/constants.dart';
+import '../../../components/section_title.dart';
+import '../../../global/methods/sizebox_widget.dart';
+import '../../../global/widgets/global_text.dart';
+import '../../widgets/customised_scaffold.dart';
+import '../data/blog_data.dart';
+import 'read_indetails.dart';
 
 class AllBlogsScreen extends StatefulWidget {
-  const AllBlogsScreen({Key? key}) : super(key: key);
+  const AllBlogsScreen({super.key});
 
   @override
   State<AllBlogsScreen> createState() => _AllBlogsScreenState();
@@ -13,178 +19,151 @@ class AllBlogsScreen extends StatefulWidget {
 class _AllBlogsScreenState extends State<AllBlogsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return DecoratedBox(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1600",
-                ),
+    return CustomisedScaffold(
+      webScaffold: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+          constraints: BoxConstraints(maxWidth: 1640.0),
+
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SectionTitle(
+                title: "All My Blogs",
+                subTitle: "Read out my articles. It might help you.",
+                color: Color(0xFFFFB100),
               ),
-            ),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Center(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxWidth: 1110,
-                        minWidth: 300,
-                        maxHeight: constraints.maxHeight + 200,
+              const SizedBox(height: kDefaultPadding * 1.5),
+              SizedBox(
+                // color: Colors.red,
+                // width: MediaQuery.of(context).size.width * 0.7,
+                height: 2600,
+                child: GridView.builder(
+                  // physics: NeverScrollableScrollPhysics(),
+                  itemCount: blogData.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 5 / 2.2,
+                    crossAxisSpacing: 15.0,
+                    mainAxisSpacing: 15.0,
+                  ),
+                  itemBuilder: (BuildContext context, int index) {
+                    final blog = blogData[index];
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0x153D4C82),
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(width: 1, color: Colors.white24),
                       ),
-                      child: CustomScrollView(
-                        slivers: [
-                          SliverToBoxAdapter(
-                            child: Container(
-                              height: 200,
-                              width: double.infinity,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage("assets/images/personal_blog.webp"),
+                      // padding: EdgeInsets.only(bottom: 10.0),
+                      // height: 180,
+                      child: Row(
+                        children: [
+                          Align(
+                            alignment: Alignment.topCenter,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: SizedBox(
+                                width: 250,
+                                // height: 250,
+                                child: Image.network(
+                                  blog.image ??
+                                      "https://images.unsplash.com/photo-1672858780267-7deecb33b131?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              child: const Align(alignment: Alignment.center, child: Text('Read out ny latest blogs')),
                             ),
                           ),
-                          SliverPadding(
-                            padding: const EdgeInsets.all(12),
-                            sliver: SliverGrid(
-                              delegate: SliverChildBuilderDelegate(
-                                (context, index) => const BlogCard(
-                                  image:
-                                      "https://images.unsplash.com/photo-1671933800148-3d5c295e0eed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-                                  androidLink: "https://play.google.com/store/apps/details?id=com.foorcar.user",
-                                  iosLink: "",
-                                  name: "ForCar",
-                                  desc:
-                                      "The first application in the Middle East that facilitates the search for spare parts.The first application in the Middle East that facilitates the search for spare parts.The first application in the Middle East that facilitates the search for spare parts.",
-                                ),
-                                childCount: 20,
-                              ),
-                              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                                maxCrossAxisExtent: 540,
-                                crossAxisSpacing: 12,
-                                mainAxisSpacing: 24,
-                                childAspectRatio: 16 / 9,
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  GlobalText(
+                                    str: blog.title ?? "",
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFFFB100),
+                                  ),
+                                  // sizedBoxH(5.0),
+                                  GlobalText(
+                                    str: 'Published at : 20 Sep 2024, 12:30 PM',
+                                    fontSize: 12.0,
+                                  ),
+
+                                  sizedBoxH(10),
+                                  Flexible(
+                                    child: GlobalText(
+                                      isHtml: true,
+                                      str: blog.description ?? "",
+                                      maxLines: 5,
+                                      // maxLines: 5,
+                                    ),
+                                  ),
+
+                                  //
+                                  Container(),
+
+                                  ///
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: TextButton(
+                                      child: GlobalText(str: "READ MORE", color: Colors.red),
+                                      onPressed: () {
+                                        Get.to(() => BloginDetailsScreen(blogDetails: blog));
+                                      },
+                                    ),
+                                  ),
+                                ],
+
+                                //
                               ),
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class BlogCard extends StatefulWidget {
-  const BlogCard({
-    super.key,
-    required this.image,
-    required this.androidLink,
-    required this.iosLink,
-    required this.name,
-    required this.desc,
-  });
-
-  final String image;
-  final String androidLink;
-  final String iosLink;
-  final String name;
-  final String desc;
-
-  @override
-  _BlogCardState createState() => _BlogCardState();
-}
-
-class _BlogCardState extends State<BlogCard> {
-  bool isHover = false;
-
-  launcLinkhUrl(String url) async {
-    /*     if (!await launchUrl(
-      Uri.parse(url),
-    )) {
-      throw 'Could not launch $url';
-    } */
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 320,
-      width: 540,
-      child: InkWell(
-        onTap: () {},
-        onHover: (value) {
-          setState(() {
-            isHover = value;
-          });
-        },
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [if (isHover) kDefaultCardShadow],
-          ),
-          clipBehavior: Clip.hardEdge,
-          child: Column(
-            children: [
-              Expanded(flex: 2, child: SizedBox.expand(child: Image.network(widget.image, fit: BoxFit.cover))),
-              Expanded(
-                flex: 3,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        flex: 2,
-                        child: Text(widget.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                      ),
-                      const SizedBox(height: kDefaultPadding / 2),
-                      Flexible(
-                        flex: 3,
-                        child: Text(
-                          widget.desc,
-                          softWrap: true,
-                          maxLines: 12,
-                          overflow: TextOverflow.ellipsis,
-                          style: Theme.of(context).textTheme.headlineMedium!.copyWith(height: 1.5),
-                        ),
-                      ),
-                      /*  const SizedBox(height: kDefaultPadding),
-                      Row(
-                        children: [
-                          HoverChip(
-                            label: "iOS",
-                            onTap: () => launcLinkhUrl(widget.iosLink),
-                          ),
-                          const SizedBox(width: 6),
-                          HoverChip(
-                            label: "Android",
-                            onTap: () => launcLinkhUrl(widget.androidLink),
-                          ),
-                        ],
-                      ), */
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ),
             ],
           ),
         ),
+      ),
+      tabletScaffold: Card(),
+      mobileScaffold: Card(),
+    );
+  }
+}
+
+class HoverChip extends StatefulWidget {
+  const HoverChip({super.key, required this.onTap, required this.label});
+  final VoidCallback onTap;
+  final String label;
+
+  @override
+  State<HoverChip> createState() => _HoverChipState();
+}
+
+class _HoverChipState extends State<HoverChip> {
+  bool _onHover = false;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (event) {
+        setState(() {
+          _onHover = event;
+        });
+      },
+      onTap: widget.onTap,
+      child: Chip(
+        backgroundColor: Colors.red,
+        elevation: _onHover ? 10 : 0,
+        label: GlobalText(str: widget.label),
       ),
     );
   }

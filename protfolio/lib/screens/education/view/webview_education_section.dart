@@ -29,7 +29,11 @@ class _WebViewEducationSectionState extends State<WebViewEducationSection> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SectionTitle(color: Colors.green, title: "Education History", subTitle: "My Educational Background"),
+          const SectionTitle(
+            color: Colors.green,
+            title: "Education History",
+            subTitle: "My Educational Background",
+          ),
           SizedBox(
             height: 450,
             child: GridView.builder(
@@ -65,19 +69,38 @@ class _WebViewEducationSectionState extends State<WebViewEducationSection> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.asset(record.logo, width: MediaQuery.of(context).size.width, height: 220.0, fit: BoxFit.fitWidth),
+                        Flexible(
+                          child: Image.asset(
+                            record.logo,
+                            width: MediaQuery.of(context).size.width,
+                            height: 220.0,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
                         const SizedBox(height: 15.0),
 
-                        GlobalText(str: record.degreeName, fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white),
-                        GlobalText(str: record.courseName, fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white70),
+                        GlobalText(
+                          str: record.degreeName,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        GlobalText(
+                          str: record.courseName,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white70,
+                        ),
 
                         Row(
                           children: [
-                            GlobalText(
-                              str: record.institutionName.toUpperCase(),
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.deepOrange,
+                            Flexible(
+                              child: GlobalText(
+                                str: record.institutionName.toUpperCase(),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.deepOrange,
+                              ),
                             ),
                             IconButton(
                               onPressed: () {
@@ -106,11 +129,19 @@ class _WebViewEducationSectionState extends State<WebViewEducationSection> {
           SizedBox(height: 20.0),
           Container(
             padding: EdgeInsets.all(55.0),
-            decoration: BoxDecoration(color: const Color(0x14000000), borderRadius: BorderRadius.circular(10.0), boxShadow: [kDefaultCardShadow]),
+            decoration: BoxDecoration(
+              color: const Color(0x14000000),
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: [kDefaultCardShadow],
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GlobalText(str: 'Top-up IT Training Mobile App Development'.toUpperCase(), fontSize: 20.0, color: Colors.deepOrange),
+                GlobalText(
+                  str: 'Top-up IT Training Mobile App Development'.toUpperCase(),
+                  fontSize: 20.0,
+                  color: Colors.deepOrange,
+                ),
                 SizedBox(height: 10.0),
                 GlobalText(str: des),
               ],

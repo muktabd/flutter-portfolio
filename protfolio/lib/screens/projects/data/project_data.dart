@@ -26,8 +26,9 @@ List<ProjectModelData> projectList = [
     icon: Images.enforcementAppIcon,
     title: "MDGS ENFORCEMENT",
     desciption:
-        "A government app developed for JPJ to manage vehicle entry applications, specifically for Singapore–Malaysia border crossings. It allows vehicle owners to track application status, road and toll charges, violations, and more. Also known as the VEP (Vehicle Entry Permit) service. For more information, visit the JPJ VEP web portal or download the app.",
+        "This is a utility app developed for JPJ officers to report for a vehicle and this app connected with a printer and it print the paper.",
     featureProject: false,
+    videoUrl: "",
     platformName: [],
   ),
 
@@ -35,8 +36,9 @@ List<ProjectModelData> projectList = [
     icon: Images.epHandheldAppIcon,
     title: "EP HANDHELD",
     desciption:
-        "A government app developed for JPJ to manage vehicle entry applications, specifically for Singapore–Malaysia border crossings. It allows vehicle owners to track application status, road and toll charges, violations, and more. Also known as the VEP (Vehicle Entry Permit) service. For more information, visit the JPJ VEP web portal or download the app.",
+        "Thia is also a utility app developed for JPJ to manage vehicle entry applications tag. To know the tag status there is reader named ATiD100 connected via bluetooth. When start scanning from app then reader read the tag and show the details of that tag.",
     featureProject: false,
+    videoUrl: "",
     platformName: [],
   ),
 
@@ -105,7 +107,7 @@ List<ProjectModelData> projectList = [
       PlatformName(
         icon: Images.appStore,
         name: "iOS",
-        url: "https://apps.apple.com/us/app/emasa-tap/id1606404194",
+        url: "https://apps.apple.com/my/app/emasa-tani/id6452385314",
       ),
     ],
   ),
@@ -116,78 +118,34 @@ List<ProjectModelData> projectList = [
     desciption:
         "An employee management app for organizations where staff check in and out by scanning a QR code. The app also provides employees with a weekly attendance summary for review.",
     featureProject: false,
-    platformName: [
-      PlatformName(
-        icon: Images.googlePlay,
-        name: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.emasatani.user",
-      ),
-      PlatformName(
-        icon: Images.appStore,
-        name: "iOS",
-        url: "https://apps.apple.com/us/app/emasa-tap/id1606404194",
-      ),
-    ],
+    platformName: [],
   ),
 
   ProjectModelData(
     icon: Images.placeholderAppIcon,
     title: "Delivery Management System",
     desciption:
-        "An employee management app for organizations where staff check in and out by scanning a QR code. The app also provides employees with a weekly attendance summary for review.",
+        "-",
     featureProject: false,
-    platformName: [
-      PlatformName(
-        icon: Images.googlePlay,
-        name: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.emasatani.user",
-      ),
-      PlatformName(
-        icon: Images.appStore,
-        name: "iOS",
-        url: "https://apps.apple.com/us/app/emasa-tap/id1606404194",
-      ),
-    ],
+    platformName: [],
   ),
 
   ProjectModelData(
     icon: Images.placeholderAppIcon,
     title: "School Management System",
     desciption:
-        "An employee management app for organizations where staff check in and out by scanning a QR code. The app also provides employees with a weekly attendance summary for review.",
+        "-",
     featureProject: false,
-    platformName: [
-      PlatformName(
-        icon: Images.googlePlay,
-        name: "Android",
-        url: "https://play.google.com/store/apps/details?id=com.emasatani.user",
-      ),
-      PlatformName(
-        icon: Images.appStore,
-        name: "iOS",
-        url: "https://apps.apple.com/us/app/emasa-tap/id1606404194",
-      ),
-    ],
+    platformName: [],
   ),
 
   ProjectModelData(
     icon: Images.placeholderAppIcon,
     title: "Our Sherpur",
-    featureProject: true,
+    featureProject: false,
     desciption:
-        "A welfare-focused project developed under my leadership, aimed at supporting Muslims in following Islamic teachings in their daily lives. The app provides reminders, guidelines, and resources to help users stay aligned with Islamic principles and practices.",
-    platformName: [
-      PlatformName(
-        icon: Images.googlePlay,
-        name: "Android",
-        url: "https://play.google.com/store/apps/details?id=org.practicingmuslim.app",
-      ),
-      PlatformName(
-        icon: Images.appStore,
-        name: "iOS",
-        url: "https://apps.apple.com/my/app/practicing-muslim/id6742254396",
-      ),
-    ],
+        "This is also a welfare project to help my local people to know more about our distric. Bus Ticket information, Ambulance contact number, Hotles, Hospitals and many more",
+    platformName: [],
   ),
 
   ProjectModelData(
@@ -195,7 +153,7 @@ List<ProjectModelData> projectList = [
     title: "Practicing Muslim",
     featureProject: true,
     desciption:
-        "A welfare-focused project developed under my leadership, aimed at supporting Muslims in following Islamic teachings in their daily lives. The app provides reminders, guidelines, and resources to help users stay aligned with Islamic principles and practices.",
+        "A welfare project which developed under my leadership, aimed to supporting muslims to remind islamic dos and don't in their daily lives. The app provides reminders, guidelines, and resources to help users stay aligned with Islamic principles and practices.",
     platformName: [
       PlatformName(
         icon: Images.googlePlay,

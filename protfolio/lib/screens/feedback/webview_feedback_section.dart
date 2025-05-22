@@ -29,6 +29,7 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
       constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SectionTitle(
             title: "Feedback Received",
@@ -51,6 +52,7 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
                   shrinkWrap: true,
                   itemCount: feedbacks.length,
                   itemBuilder: (BuildContext context, int index) {
+                    final feedback = feedbacks[index];
                     return InkWell(
                       onTap: () {},
                       hoverColor: Colors.transparent,
@@ -66,7 +68,7 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
                         height: 420,
                         width: 350,
                         decoration: BoxDecoration(
-                          color: feedbacks[index].color,
+                          color: feedback.color,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: [if (isHover) kDefaultCardShadow],
                         ),
@@ -84,16 +86,14 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
                                     shape: BoxShape.circle,
                                     border: Border.all(color: Colors.white, width: 10),
                                     boxShadow: [if (!isHover) kDefaultCardShadow],
-                                    image: DecorationImage(
-                                      image: AssetImage(feedbacks[index].userPic!),
-                                    ),
+                                    image: DecorationImage(image: AssetImage(feedback.userPic!)),
                                   ),
                                 ),
                               ),
                               Text(
-                                feedbacks[index].review!,
+                                feedback.review ?? "",
                                 style: const TextStyle(
-                                  color: kTextColor,
+                                  // color: kTextColor,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w300,
                                   fontStyle: FontStyle.italic,
@@ -101,8 +101,9 @@ class _WebViewFeedbackSectionState extends State<WebViewFeedbackSection> {
                                 ),
                               ),
                               const SizedBox(height: kDefaultPadding * 2),
+                              Spacer(),
                               Text(
-                                feedbacks[index].name ?? '',
+                                feedback.name ?? '',
                                 style: const TextStyle(fontWeight: FontWeight.bold),
                               ),
                             ],

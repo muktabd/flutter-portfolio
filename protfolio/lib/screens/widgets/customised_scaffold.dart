@@ -28,7 +28,7 @@ class CustomisedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    log("now width ?? $screenWidth");
+    log(' screen width $screenWidth');
     return Scaffold(
       body:
           isStack == true
@@ -55,9 +55,11 @@ class CustomisedScaffold extends StatelessWidget {
                     log('web screen');
                     return GradientContainer(child: webScaffold);
                   } else if (screenWidth > 600.0) {
+                    log('web screen');
                     log('tablet screen');
                     return GradientContainer(child: tabletScaffold);
                   } else {
+                    log('web screen');
                     return GradientContainer(child: mobileScaffold);
                   }
                 },

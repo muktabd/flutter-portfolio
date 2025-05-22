@@ -2,8 +2,8 @@
 
 import 'dart:developer';
 import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 
+import '../../../domain/server/http_client/response_wrapper.dart';
 import '/screens/contact/model/req_contact_me.dart';
 
 import '../model/contact_me_data.dart';
@@ -43,15 +43,14 @@ class ContactMeController extends GetxController {
     }
   }
 
-  bool successfullySent = false;
-  Future<bool?> contactMe({
+  Future<ResponseWrapper?> contactMe({
     required ReqContactMe reqData,
   }) async {
     try {
       final res = await repo.sendYourContactData(reqData: reqData);
 
       if (res != null) {
-        successfullySent = true;
+        log("response: $res");
         update();
       }
     } on Exception catch (e) {

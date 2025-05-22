@@ -1,7 +1,9 @@
 //
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'domain/local/preferences/local_storage.dart';
 import 'screens/blogs/controller/blog_post_controller.dart';
 import 'screens/contact/controller/contact_me_controller.dart';
 import 'domain/server/http_client/request_handler.dart';
@@ -9,14 +11,14 @@ import 'localization/localization_controller.dart';
 import 'screens/landing/controller/home_info_controller.dart';
 import 'screens/settings/language/controller/language_controller.dart';
 import 'screens/settings/theme/controller/theme_controller.dart';
-import 'domain/local/preferences/local_storage.dart';
 
-Future init(SharedPreferences? localStorage) async {
-  Get.put(LocalStorage());
+Future init(LocalStorage localStorage) async {
+  final prefs = localStorage.sharedPreference;
+  Get.lazyPut(() => localStorage, fenix: true);
+  log("status of pref : $prefs");
+
   Get.lazyPut<ThemeController>(() => ThemeController());
   Get.lazyPut(() => RequestHandler(dio: Dio()), fenix: true);
-
-  Get.lazyPut(() => localStorage, fenix: true);
 
   //
   Get.lazyPut(() => LanguageController());

@@ -60,7 +60,7 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
                   },
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
-                    height: 320,
+                    height: 330,
                     width: 540,
                     decoration: BoxDecoration(
                       color: const Color(0x4A3E3C7E),
@@ -70,9 +70,9 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
                     child: Row(
                       children: [
                         Expanded(
-                          flex: 2,
+                          // flex: 2,
                           child: Padding(
-                            padding: const EdgeInsets.all(18.0),
+                            padding: const EdgeInsets.all(12.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
                               child: Image.asset(data.icon),
@@ -92,15 +92,18 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
                               children: [
                                 GlobalText(
                                   str: data.title.toUpperCase(),
-                                  fontSize: 25.0,
+                                  maxLines: 1,
+                                  fontSize: 20.0,
                                   color: Colors.deepOrange,
                                   fontWeight: FontWeight.bold,
                                 ),
                                 const SizedBox(height: kDefaultPadding / 2),
-                                GlobalText(
-                                  str: data.desciption,
-                                  overflow: TextOverflow.clip,
-                                  maxLines: 5,
+                                Flexible(
+                                  child: GlobalText(
+                                    str: data.desciption,
+                                    overflow: TextOverflow.clip,
+                                    maxLines: 5,
+                                  ),
                                 ),
                                 const SizedBox(height: kDefaultPadding),
 
@@ -139,16 +142,20 @@ class _WebViewProjectSectionState extends State<WebViewProjectSection> {
 
                                 ///
                                 SizedBox(height: 6.0),
-                                SizedBox(
-                                  width: 160,
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: Row(
-                                      children: [
-                                        Icon(Icons.video_camera_back_outlined),
-                                        SizedBox(width: 5.0),
-                                        GlobalText(str: 'Watch Demo'),
-                                      ],
+                                Flexible(
+                                  child: SizedBox(
+                                    width: 160,
+                                    child: GestureDetector(
+                                      onTap: () {},
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Icon(Icons.video_camera_back_outlined),
+                                          SizedBox(width: 5.0),
+                                          Expanded(child: GlobalText(str: 'Watch Demo')),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

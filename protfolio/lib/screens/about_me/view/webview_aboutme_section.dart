@@ -33,7 +33,11 @@ class _WebAboutMeSectionState extends State<WebAboutMeSection> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GlobalText(str: "Background Brief", fontWeight: FontWeight.bold, fontSize: 20.0),
+                    GlobalText(
+                      str: "Background Brief",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
                     SizedBox(height: 15.0),
                     GlobalText(
                       textAlign: TextAlign.justify,
@@ -60,7 +64,11 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    GlobalText(str: "Core Competencies", fontWeight: FontWeight.bold, fontSize: 20.0),
+                    GlobalText(
+                      str: "Core Competencies",
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
                     const SizedBox(height: 15.0),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +100,10 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                                 color: Colors.deepOrange,
                               ),
                               SizedBox(height: 5.0),
-                              GlobalText(str: "Java, Dart, PHP, Flutter, Express, VueJS", softWrap: true),
+                              GlobalText(
+                                str: "Java, Dart, PHP, Flutter, Express, VueJS",
+                                softWrap: true,
+                              ),
                               //
                               SizedBox(height: 20.0),
                               GlobalText(
@@ -132,7 +143,8 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                               ),
                               SizedBox(height: 5.0),
                               GlobalText(
-                                str: "NodeJS with Express, Java Spring Boot (Learning), AWS, MongoDB, SQL",
+                                str:
+                                    "NodeJS with Express, Java Spring Boot (Learning), AWS, MongoDB, SQL",
                                 softWrap: true,
                               ),
                               //
@@ -219,7 +231,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                 ),
               ),
               // 👇 Right-side image
-              Image.asset("assets/images/mukta.png", height: 300),
+              Flexible(child: Image.asset("assets/images/mukta.png", height: 300)),
             ],
           ),
         ],

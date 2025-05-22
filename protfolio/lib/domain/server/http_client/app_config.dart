@@ -1,14 +1,12 @@
-
 class AppConfig {
-
-
-  static String baseUrlControllerUrl = 'http://private.rbftechzone.com/api/v1/client/projects/4';
-  static String defaultBaseUrl = "http://mukta.rbfgroupbd.com";
-  static String baseUrl = '';
-  static String get updatedBaseUrl => baseUrl;
-  static updateBaseUrl(String? newUrl) {
-    baseUrl = newUrl ?? defaultBaseUrl;
-  }
+  // static String baseUrlControllerUrl = 'http://private.rbftechzone.com/api/v1/client/projects/4';
+  // static String defaultBaseUrl = "http://mukta.rbfgroupbd.com";
+  static String baseUrl = 'http://practicingmuslim.org';
+  static String contactMeUri = "/muktabd/api/contact_me";
+  // static String get updatedBaseUrl => baseUrl;
+  // static updateBaseUrl(String? newUrl) {
+  //   baseUrl = newUrl ?? defaultBaseUrl;
+  // }
 
   // ==/@ Auth
   static String logInUrl = "/api/v1/user_login";
@@ -30,10 +28,9 @@ class AppConfig {
   static String verifyUserEmailUrl = "/api/v1/verify_user_email";
   static String verifyUserMobileUrl = "/api/v1/verify_user_mobile";
 
-
   static String imageUri = "http://muktabd.info/post_images/image_1672958017642.jpeg";
   static String loginUri = "/admin/login";
   static String createPostUri = "/create/post";
   static String getAllPostUri = "/get/all/posts";
-  static String contactMeUri = "/contact/me";
+
 }

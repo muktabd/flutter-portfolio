@@ -6,38 +6,59 @@
         "info": {
             "title": "About Me",
             "sub_title": "Let me tell you about myself",
-            "work_fields": {
-                "native_android" : "NATIVE ANDROID",
-                "flutter" : "FLUTTER",
-                "nodejs" : "NODEJS",
-                "spring_boot" : "SPRING BOOT",
-                "vuejs" : "VUEJS"
+            "background": {
+                "title": "Background Brief",
+                "brief": "I graduated with a degree in Computer Science from Universiti Teknologi Malaysia (UTM). During my studies, I began coding to solve real-life problems, which sparked my passion for software development.\nAfter graduation, I immediately started my professional career as a mobile application developer. Over the past four years, I have been dedicated to building high-quality mobile apps. My interest in expanding my skill set led me to explore JavaScript technologies. I have since learned Node.js for backend API development and Vue.js for frontend web applications.\nCurrently, I work as a full-stack developer, capable of delivering high-performance, scalable, and secure applications across Android, iOS, and Web platforms. Also able to play a role for lead developer to develop a fresh project."
             },
-            "social_media": {
-                "linkedin": {
-                    "icon": "https://banner2.cleanpng.com/20180529/str/avpsm7w6e.webp",
-                    "url": "https://www.linkedin.com/in/muktabd-info/"
+            "core_competencies": {
+                "title": "Core Competencies",
+                "dev_tool": {
+                    "title": "Development Tools",
+                    "des": "Android Studio, Visual Studio Code, Xcode, Postman, GitHub, GitLab, CI/CD, Figma, Firebase, Jira, Trello"
                 },
-                "github": {
-                    "icon": "https://github.com/images/modules/logos_page/GitHub-Mark.png",
-                    "url": "https://github.com/muktabd"
+                "lang_fram": {
+                    "title": "Languages & Framework",
+                    "des": "Java, Dart, PHP, Flutter, Express, VueJS"
                 },
-                "stackoverflow": {
-                    "icon": "https://stackoverflow.com/favicon.ico",
-                    "url": "https://stackoverflow.com/users/8496352/mukta"
+                "state_management": {
+                    "title": "State Management",
+                    "des": "Bloc, GetX, Provider, Pinia"
                 },
-                "xtwitter": {
-                    "icon": "https://abs.twimg.com/favicons/favicon.ico",
-                    "url": "https://twitter.com/muktabdinfo"
+                "mobile_app": {
+                    "title": "Mobile App Development",
+                    "des": "Flutter, Dart, Firebase, Rest API"
                 },
-                "facebook": {
-                    "icon": "https://www.facebook.com/favicon.ico",
-                    "url": "https://www.facebook.com/mukta.2003/"
+                "backend": {
+                    "title": "Backend Development",
+                    "des": "NodeJS with Express, Java Spring Boot (Learning), AWS, MongoDB, SQL"
+                },
+                "others": {
+                    "title": "Others",
+                    "des": "Third Party API implementing like Twilio, Bulk SMS, Payment Gateway, FCM, Publishing app on Google Play, App Store & Huawei App Gallery"
                 }
             },
-            "thoughts": {
-                "title": "Thoughts of The Mind",
-                "subtitle": "“Need Some Failures to Tell Your Successful Story”"
+            "overview": {
+                "experiences": {
+                    "title": "5+",
+                    "des": "Years\nExperiences"
+                },
+                "projects": {
+                    "title": "20+",
+                    "des": "Projects\nCompleted"
+                },
+                "clients": {
+                    "title": "10+",
+                    "des": "Satisfied\nClients"
+                },
+                "hire_me": {
+                    "title": "Hire Me",
+                    "icon": "assets/images/hand.png"
+                },
+                "download_resume": {
+                    "title": "Download Resume",
+                    "resume_url": "'https://drive.google.com/file/d/1pOZotyXKGOYOJIa0lhclWBjgGZbvK7QE/view?usp=sharing'"
+                },
+                "thambnail": "assets/images/mukta.png"
             }
         }
     }

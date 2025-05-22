@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../methods/custom_url_launcher.dart';
 import '../../../global/constants/images.dart';
 
-enum ImageFor {
-  asset,
-  network,
-}
+enum ImageFor { asset, network }
 
 class GlobalImageLoader extends StatelessWidget {
   const GlobalImageLoader({
@@ -45,13 +42,10 @@ class GlobalImageLoader extends StatelessWidget {
         width: width,
         fit: fit,
         color: color,
-        errorBuilder: errorBuilder ??
-            (context, exception, stackTrace) => Center(
-                    child: Image.asset(
-                  Images.placeholder,
-                  height: 80,
-                  width: 80,
-                )),
+        errorBuilder:
+            errorBuilder ??
+            (context, exception, stackTrace) =>
+                Center(child: Image.asset(Images.placeholder, height: 80, width: 80)),
       );
     } else {
       imageWidget = Image.asset(
@@ -60,13 +54,10 @@ class GlobalImageLoader extends StatelessWidget {
         width: width,
         fit: fit,
         color: color,
-        errorBuilder: errorBuilder ??
-            (context, exception, stackTrace) => Center(
-                    child: Image.asset(
-                  Images.placeholder,
-                  height: 80,
-                  width: 80,
-                ),),
+        errorBuilder:
+            errorBuilder ??
+            (context, exception, stackTrace) =>
+                Center(child: Image.asset(Images.placeholder, height: 80, width: 80)),
       );
     }
 
@@ -74,13 +65,44 @@ class GlobalImageLoader extends StatelessWidget {
       borderRadius: borderRadius ?? BorderRadius.zero,
       child: Padding(
         padding: const EdgeInsets.all(6.0),
-        child: GestureDetector(
-          onTap: imageUrl != null
-              ? () async {
-                  launchUrlNow(imageUrl ?? '');
-                }
-              : onTap,
+        child: _HoverEffectWrapper(
+          onTap:
+              imageUrl != null
+                  ? () async {
+                    launchUrlNow(imageUrl ?? '');
+                  }
+                  : onTap,
           child: imageWidget,
+        ),
+      ),
+    );
+  }
+}
+
+class _HoverEffectWrapper extends StatefulWidget {
+  final Widget child;
+  final void Function()? onTap;
+
+  const _HoverEffectWrapper({required this.child, this.onTap});
+
+  @override
+  State<_HoverEffectWrapper> createState() => _HoverEffectWrapperState();
+}
+
+class _HoverEffectWrapperState extends State<_HoverEffectWrapper> {
+  bool _isHovering = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovering = true),
+      onExit: (_) => setState(() => _isHovering = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedScale(
+          duration: const Duration(milliseconds: 300),
+          scale: _isHovering ? 1.05 : 1.0,
+          child: widget.child,
         ),
       ),
     );
