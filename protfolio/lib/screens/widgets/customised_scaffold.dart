@@ -41,9 +41,9 @@ class CustomisedScaffold extends StatelessWidget {
                     lineColor: Colors.deepOrange,
                     touchColor: Colors.red,
                   ),
-                  if (screenWidth > 950.0)
+                  if (screenWidth >= 950.0)
                     GradientContainer(child: webScaffold)
-                  else if (screenWidth > 600.0)
+                  else if (screenWidth >= 600.0)
                     GradientContainer(child: tabletScaffold)
                   else
                     GradientContainer(child: mobileScaffold),
@@ -51,15 +51,15 @@ class CustomisedScaffold extends StatelessWidget {
               )
               : GetBuilder<ThemeController>(
                 builder: (themeCon) {
-                  if (screenWidth > 950.0) {
+                  if (screenWidth >= 950.0) {
                     log('web screen');
                     return GradientContainer(child: webScaffold);
-                  } else if (screenWidth > 600.0) {
-                    log('web screen');
+                  } else if (screenWidth >= 600.0) {
+                    log('tab screen');
                     log('tablet screen');
                     return GradientContainer(child: tabletScaffold);
                   } else {
-                    log('web screen');
+                    log('mobile screen');
                     return GradientContainer(child: mobileScaffold);
                   }
                 },

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../contact/view/tabview_contactme_section.dart';
 import '../../landing/tablet_view.dart';
+import '../../widgets/bottom_copyrights.dart';
 
 class TabletViewScreen extends StatelessWidget {
   const TabletViewScreen({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -13,14 +14,18 @@ class TabletViewScreen extends StatelessWidget {
         children: [
           TabletViewLandingSection(),
 
-          ///
 
           ///
+          TabviewContactMeScreen(),
+
+          ///
+          const BottomCopyRights(),
         ],
       ),
     );
   }
-/*   @override
+
+  /*   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
       builder: (themeCon) {

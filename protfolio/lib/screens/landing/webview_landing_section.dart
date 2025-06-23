@@ -31,6 +31,7 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
             return Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
+              // padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(Images.coverImage),
@@ -59,7 +60,10 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                             children: [
                               TextSpan(
                                 text: "${homeInfoCon.infoDetails?.info?.lastName}",
-                                style: GoogleFonts.montserrat(fontSize: 35.0, color: themeCon.getYellowColor(context)),
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 35.0,
+                                  color: themeCon.getYellowColor(context),
+                                ),
                               ),
                             ],
                           ),
@@ -80,7 +84,11 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                           // ),
                           child: Row(
                             children: [
-                              GlobalText(str: "Work areas ", fontSize: 18.0, color: themeCon.getWhiteBlackColor(context)),
+                              GlobalText(
+                                str: "Work areas ",
+                                fontSize: 18.0,
+                                color: themeCon.getWhiteBlackColor(context),
+                              ),
                               sizedBoxW(5.0),
                               TypewriterWidget(),
                               GlobalText(
@@ -102,7 +110,8 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                               width: 40.0,
                             ),
                             GlobalImageLoader(
-                              imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
+                              imageUrl:
+                                  homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
                               imagePath: Images.stackOverFlow,
                               width: 40.0,
                             ),

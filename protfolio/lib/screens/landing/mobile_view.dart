@@ -37,7 +37,7 @@ class MobileViewLandingSection extends StatelessWidget {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(left: 15.0),
                   color: themeCon.getImageBlueColor(context),
                   child: Center(
                     child: Column(
@@ -55,7 +55,10 @@ class MobileViewLandingSection extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: "${homeInfoCon.infoDetails?.info?.lastName}",
-                                style: GoogleFonts.montserrat(fontSize: 25, color: themeCon.getYellowColor(context)),
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 25,
+                                  color: themeCon.getYellowColor(context),
+                                ),
                               ),
                             ],
                           ),
@@ -102,7 +105,8 @@ class MobileViewLandingSection extends StatelessWidget {
                               width: 30,
                             ),
                             GlobalImageLoader(
-                              imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
+                              imageUrl:
+                                  homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
                               imagePath: Images.stackOverFlow,
                               width: 30,
                             ),

@@ -3,7 +3,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:portfolio/domain/server/http_client/app_config.dart';
-import 'package:portfolio/screens/blogs/model/blog_data_model.dart';
 import 'package:get/get.dart';
 
 import '../../../domain/server/http_client/api_clients.dart';

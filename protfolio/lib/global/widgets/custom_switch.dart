@@ -33,7 +33,7 @@ class CustomSwitch extends StatelessWidget {
             child: CupertinoSwitch(
               value: value!,
               onChanged: onChanged!,
-              activeColor: activeColor,
+              activeTrackColor: activeColor,
               focusColor: focusColor,
             ),
           );

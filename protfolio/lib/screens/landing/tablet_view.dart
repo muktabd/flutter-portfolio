@@ -26,7 +26,7 @@ class TabletViewLandingSection extends StatelessWidget {
             return Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              constraints: BoxConstraints(maxWidth: 1440),
+              constraints: BoxConstraints(maxWidth: 1440.0),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(Images.coverImage),
@@ -37,7 +37,7 @@ class TabletViewLandingSection extends StatelessWidget {
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(left: 10.0),
+                  padding: EdgeInsets.only(left: 50.0),
                   color: themeCon.getImageBlueColor(context),
                   child: Center(
                     child: Column(
@@ -55,7 +55,10 @@ class TabletViewLandingSection extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: "${homeInfoCon.infoDetails?.info?.lastName}",
-                                style: GoogleFonts.montserrat(fontSize: 30, color: themeCon.getYellowColor(context)),
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 30,
+                                  color: themeCon.getYellowColor(context),
+                                ),
                               ),
                             ],
                           ),
@@ -102,7 +105,8 @@ class TabletViewLandingSection extends StatelessWidget {
                               width: 35,
                             ),
                             GlobalImageLoader(
-                              imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
+                              imageUrl:
+                                  homeInfoCon.infoDetails?.info?.socialMedia?.stackoverflow?.url,
                               imagePath: Images.stackOverFlow,
                               width: 35,
                             ),

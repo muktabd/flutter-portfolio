@@ -1,18 +1,8 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:portfolio/global/widgets/global_text.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../../global/constants/images.dart';
-import '../../../global/methods/sizebox_widget.dart';
-import '../../../global/widgets/button/primary_button.dart';
-import '../../../global/widgets/global_image_loader.dart';
+import '../../contact/view/mobileview_contactme_section.dart';
 import '../../landing/mobile_view.dart';
-import '../../settings/theme/controller/theme_controller.dart';
-import '../../thoughts/thoughts_screen..dart';
-import '../../landing/controller/home_info_controller.dart';
+import '../../widgets/bottom_copyrights.dart';
 
 class MobileViewScreen extends StatelessWidget {
   const MobileViewScreen({super.key});
@@ -24,9 +14,12 @@ class MobileViewScreen extends StatelessWidget {
         children: [
           MobileViewLandingSection(),
 
-          ///
 
           ///
+          MobileviewContactMeScreen(),
+
+          ///
+          const BottomCopyRights(),
         ],
       ),
     );

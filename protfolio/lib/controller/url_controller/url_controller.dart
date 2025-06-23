@@ -1,10 +1,3 @@
-import 'dart:developer';
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../domain/server/http_client/app_config.dart';
-import '../../domain/server/http_client/response_wrapper.dart';
-import '../model/baseurl_response_wrapper.dart';
 
 // class UrlController extends GetxController {
 //   static UrlController get find => Get.find();

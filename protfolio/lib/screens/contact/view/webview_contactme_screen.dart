@@ -28,20 +28,9 @@ class WebViewContactMeScreen extends StatefulWidget {
 class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  final nameController = TextEditingController();
-  final emailController = TextEditingController();
-  final projectTypeController = TextEditingController();
-  final mobileNumberController = TextEditingController();
-  final shortDesController = TextEditingController();
-
   @override
   void dispose() {
     super.dispose();
-    nameController.dispose();
-    emailController.dispose();
-    projectTypeController.dispose();
-    mobileNumberController.dispose();
-    shortDesController.dispose();
   }
 
   @override
@@ -54,7 +43,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
               builder: (homeInfoCon) {
                 return Container(
                   constraints: BoxConstraints(maxWidth: 2048.0),
-                  padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+                  padding: EdgeInsets.symmetric(horizontal: 150.0, vertical: 50.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -97,7 +86,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                       GlobalText(
                                         str: "abdullahibnamukta@gmail.com",
                                         fontSize: 16,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ],
                                   ),
@@ -112,7 +101,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                         child: GlobalText(
                                           str: "+880 1924 262003 || +601 878 32241",
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ],
@@ -128,7 +117,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                         child: GlobalText(
                                           str: "Dhaka, Bangladesh || Selangor, Malaysia",
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w500,
+                                          fontWeight: FontWeight.w400,
                                         ),
                                       ),
                                     ],
@@ -187,7 +176,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                         child: CustomTextFormField(
                                           labelText: 'Your name',
                                           hintText: 'Jhon Doe',
-                                          controller: nameController,
+                                          controller: contactMeCon.nameController,
                                           keyboardType: TextInputType.name,
                                           inputFormatters: [
                                             FilteringTextInputFormatter.allow(
@@ -203,7 +192,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                           labelText: "Email address",
                                           hintText: "name@example.com",
                                           keyboardType: TextInputType.emailAddress,
-                                          controller: emailController,
+                                          controller: contactMeCon.emailController,
                                           inputFormatters: [
                                             FilteringTextInputFormatter.allow(
                                               RegExp(r'[a-zA-Z0-9@.]*$'),
@@ -231,7 +220,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                           labelText: "Mobile number",
                                           hintText: "+60123456789",
                                           keyboardType: TextInputType.phone,
-                                          controller: mobileNumberController,
+                                          controller: contactMeCon.mobileNumberController,
                                           inputFormatters: [
                                             FilteringTextInputFormatter.allow(RegExp(r'[+0-9]*$')),
                                             LengthLimitingTextInputFormatter(15),
@@ -245,7 +234,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                           hintText:
                                               "eCommerce / Ride Share / Product, Project Management etc.",
                                           keyboardType: TextInputType.text,
-                                          controller: projectTypeController,
+                                          controller: contactMeCon.projectTypeController,
                                           inputFormatters: [
                                             // FilteringTextInputFormatter.allow(
                                             //   RegExp(r'^\S[a-zA-Z./ ]*$'),
@@ -259,7 +248,7 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                   sizedBoxH(15),
                                   CustomTextFormField(
                                     maxLine: 4,
-                                    controller: shortDesController,
+                                    controller: contactMeCon.shortDesController,
                                     labelText: "Description",
                                     hintText: "Write briefly about your project..",
                                     keyboardType: TextInputType.text,
@@ -285,11 +274,16 @@ class _WebViewContactMeScreenState extends State<WebViewContactMeScreen> {
                                           asyncFunction: () async {
                                             await contactMeCon.contactMe(
                                               reqData: ReqContactMe(
-                                                name: nameController.text.toString(),
-                                                email: emailController.text.toString(),
-                                                phone: mobileNumberController.text.toString(),
-                                                projectType: projectTypeController.text.toString(),
-                                                projectBrief: shortDesController.text.toString(),
+                                                name: contactMeCon.nameController.text.toString(),
+                                                email: contactMeCon.emailController.text.toString(),
+                                                phone:
+                                                    contactMeCon.mobileNumberController.text
+                                                        .toString(),
+                                                projectType:
+                                                    contactMeCon.projectTypeController.text
+                                                        .toString(),
+                                                projectBrief:
+                                                    contactMeCon.shortDesController.text.toString(),
                                               ),
                                             );
                                           },

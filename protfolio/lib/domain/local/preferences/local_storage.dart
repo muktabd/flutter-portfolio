@@ -21,7 +21,7 @@ class LocalStorage {
   }
 
   void setBool({required StorageKeys key, required bool value}) async {
-    await sharedPreference?.setBool(key.name, value);
+    await sharedPreference.setBool(key.name, value);
   }
 
   bool? getBool({required StorageKeys key}) {
