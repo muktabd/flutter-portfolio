@@ -26,22 +26,17 @@ class MobileViewLandingSection extends StatelessWidget {
             return Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
-              constraints: BoxConstraints(maxWidth: 1440),
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(Images.coverImage),
-                  // fit: BoxFit.fitHeight,
-                  fit: BoxFit.cover,
-                ),
+                image: DecorationImage(image: AssetImage(Images.coverImage), fit: BoxFit.cover),
               ),
               child: BackdropFilter(
                 filter: ImageFilter.blur(sigmaX: 1.0, sigmaY: 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(left: 15.0),
+                  padding: EdgeInsets.only(top: 280.0),
                   color: themeCon.getImageBlueColor(context),
                   child: Center(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         RichText(
@@ -72,12 +67,13 @@ class MobileViewLandingSection extends StatelessWidget {
 
                         Container(
                           margin: EdgeInsets.only(top: 10.0),
-                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
                           // decoration: BoxDecoration(
                           //   color: const Color(0x66000000),
                           //   borderRadius: BorderRadius.circular(5.0),
                           // ),
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GlobalText(
                                 str: "Work areas ",
@@ -98,6 +94,7 @@ class MobileViewLandingSection extends StatelessWidget {
 
                         /// * ==@ SOCIAL MEDIA LINK * ==
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             GlobalImageLoader(
                               imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.github?.url,
@@ -133,22 +130,23 @@ class MobileViewLandingSection extends StatelessWidget {
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.thoughts?.title}",
                           color: Color(0xFFFFF200),
-                          fontSize: 16,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.bold,
                         ),
                         // const SizedBox(height: 2.0),
                         GlobalText(
                           str: "${homeInfoCon.infoDetails?.info?.thoughts?.subtitle}",
                           color: Colors.white,
-                          fontSize: 15,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.bold,
+                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
 
                         CustomButtonWidget(
                           width: 160,
                           height: 40,
-                          textSize: 12,
+                          textSize: 12.0,
                           color: Colors.red,
                           text: "FIND OUT MORE",
                           textColor: Colors.white,

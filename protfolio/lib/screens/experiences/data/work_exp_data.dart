@@ -72,7 +72,7 @@ final List<WorkExperienceModel> workData = [
     id: 2,
     url: "https://niftyitsolution.com/",
     position: "Mobile App Developer",
-    companyName: "Biz Trading & Total Cad Solution SDN. BHD.",
+    companyName: "Nifty IT SDN. BHD.",
     contactNumber: "+60 11 397909129",
     toFrom: "February 2021 - July 2022",
     companyType: "Accounting & Software Based Company",

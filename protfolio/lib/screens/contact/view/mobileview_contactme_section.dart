@@ -42,13 +42,8 @@ class _MobileviewContactMeScreenState extends State<MobileviewContactMeScreen> {
             return GetBuilder<HomeInfoController>(
               builder: (homeInfoCon) {
                 return Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  constraints: BoxConstraints(maxWidth: 1440.0),
                   padding: const EdgeInsets.all(12.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SectionTitle(
                         title: "Get in Touch",
@@ -190,102 +185,60 @@ class _MobileviewContactMeScreenState extends State<MobileviewContactMeScreen> {
                           ],
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          sizedBoxH(20.0),
-                          GlobalText(
-                            str:
-                                "Feel free to contract me if you have any idea, sketch or project which you want to make true. Feel free to contract me if you have any idea, sketch or project which you want to make true.",
-                            fontSize: 16,
-                          ),
-                          sizedBoxH(15.0),
-                          GlobalText(
-                            str: "Contact Inforamtion",
-                            color: Colors.deepOrange,
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w500,
-                          ),
 
-                          ///
-                          sizedBoxH(15.0),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Row(
-                              children: [
-                                Icon(Icons.email),
-                                sizedBoxW(8.0),
-                                GlobalText(
-                                  str: "abdullahibnamukta@gmail.com",
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Row(
-                              children: [
-                                Icon(Icons.call),
-                                sizedBoxW(8.0),
-                                Flexible(
-                                  child: GlobalText(
-                                    str: "+880 1924 262003 || +601 878 32241",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Row(
-                              children: [
-                                Icon(Icons.location_on_rounded),
-                                sizedBoxW(8.0),
-                                Flexible(
-                                  child: GlobalText(
-                                    str: "Dhaka, Bangladesh || Selangor, Malaysia",
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          //
-                          sizedBoxH(30.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              GlobalImageLoader(
-                                imagePath: Images.whatsapp,
-                                imageUrl: "https://wa.me/+60187832241",
-                                width: 30,
-                              ),
-                              GlobalImageLoader(
-                                imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url,
-                                imagePath: Images.linkedIn,
-                                width: 30,
-                              ),
-                              GlobalImageLoader(
-                                imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url,
-                                imagePath: Images.facebook,
-                                width: 30,
-                              ),
-                              GlobalImageLoader(
-                                imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url,
-                                imagePath: Images.twitter,
-                                width: 30,
-                              ),
-                            ],
-                          ),
-                        ],
+                      ///
+                      sizedBoxH(20.0),
+                      GlobalText(
+                        str:
+                            "Feel free to contract me if you have any idea, sketch or project which you want to make true. Feel free to contract me if you have any idea, sketch or project which you want to make true.",
+                        fontSize: 14,
+                        textAlign: TextAlign.center,
+                      ),
+                      sizedBoxH(25.0),
+                      GlobalText(
+                        str: "Contact Inforamtion",
+                        color: Colors.deepOrange,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500,
                       ),
 
                       ///
+                      sizedBoxH(5.0),
+                      customRow(icon: Icons.email, title: "abdullahibnamukta@gmail.com"),
+                      customRow(icon: Icons.call, title: "+880 1924 262003 || +601 878 32241"),
+                      customRow(
+                        icon: Icons.location_on_rounded,
+                        title: "Dhaka, Bangladesh || Selangor, Malaysia",
+                      ),
+
+                      //
+                      sizedBoxH(30.0),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GlobalImageLoader(
+                            imagePath: Images.whatsapp,
+                            imageUrl: "https://wa.me/+60187832241",
+                            width: 30,
+                          ),
+                          GlobalImageLoader(
+                            imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.linkedin?.url,
+                            imagePath: Images.linkedIn,
+                            width: 30,
+                          ),
+                          GlobalImageLoader(
+                            imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.facebook?.url,
+                            imagePath: Images.facebook,
+                            width: 30,
+                          ),
+                          GlobalImageLoader(
+                            imageUrl: homeInfoCon.infoDetails?.info?.socialMedia?.xtwitter?.url,
+                            imagePath: Images.twitter,
+                            width: 30,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 );
@@ -296,4 +249,14 @@ class _MobileviewContactMeScreenState extends State<MobileviewContactMeScreen> {
       },
     );
   }
+}
+
+Widget customRow({required IconData icon, required String title}) {
+  return Wrap(
+    children: [
+      Icon(icon),
+      sizedBoxW(8.0),
+      GlobalText(str: title, fontSize: 15.0, fontWeight: FontWeight.w400),
+    ],
+  );
 }
