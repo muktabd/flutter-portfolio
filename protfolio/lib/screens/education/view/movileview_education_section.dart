@@ -23,28 +23,26 @@ class _MobileViewEducationSectionState extends State<MobileViewEducationSection>
   @override
   Widget build(BuildContext context) {
     return Container(
+      // color: Colors.red,
       padding: const EdgeInsets.all(10.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-
         children: [
           const SectionTitle(
-            color: Colors.green,
             title: "Education History",
+            color: Colors.green,
             subTitle: "My Educational Background",
           ),
+
+          ///
           SizedBox(
-            height: 720.0,
-            child: GridView.builder(
+            // color: Colors.green,
+            height: 700.0,
+            child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                mainAxisSpacing: 5.0,
-                crossAxisSpacing: 5.0,
-                // childAspectRatio: 2 / 4,
-              ),
+
               itemCount: eduRecords.length,
-              itemBuilder: (BuildContext context, int index) {
+              itemBuilder: (BuildContext ctx, int index) {
                 final record = eduRecords[index];
                 return InkWell(
                   onTap: () {},
@@ -55,26 +53,26 @@ class _MobileViewEducationSectionState extends State<MobileViewEducationSection>
                   },
                   hoverColor: Colors.transparent,
                   child: AnimatedContainer(
+                    height: 350.0,
                     duration: duration,
                     // margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 1.5),
-                    padding: const EdgeInsets.all(kDefaultPadding * 1.2),
+                    padding: const EdgeInsets.all(kDefaultPadding * 1),
 
                     decoration: BoxDecoration(
                       color: record.bgColor ?? const Color(0x14000000),
-                      borderRadius: BorderRadius.circular(10),
+                      // color: Colors.yellow,
+                      borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [if (isHover) kDefaultCardShadow],
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Flexible(
-                          child: Image.asset(
-                            record.logo,
-                            width: MediaQuery.of(context).size.width,
-                            height: 180.0,
-                            fit: BoxFit.fitWidth,
-                          ),
+                        Image.asset(
+                          record.logo,
+                          width: MediaQuery.of(context).size.width,
+                          height: 150.0,
+                          fit: BoxFit.fitWidth,
                         ),
                         const SizedBox(height: 15.0),
 
@@ -111,7 +109,6 @@ class _MobileViewEducationSectionState extends State<MobileViewEducationSection>
                         ),
                         const SizedBox(height: kDefaultPadding * 0.5),
                         Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GlobalText(str: record.toFrom, fontSize: 16.0, color: Colors.white70),
                             const SizedBox(width: 32),
@@ -125,9 +122,11 @@ class _MobileViewEducationSectionState extends State<MobileViewEducationSection>
               },
             ),
           ),
+
+          ///
           SizedBox(height: 20.0),
           Container(
-            padding: EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             decoration: BoxDecoration(
               color: const Color(0x14000000),
               borderRadius: BorderRadius.circular(10.0),

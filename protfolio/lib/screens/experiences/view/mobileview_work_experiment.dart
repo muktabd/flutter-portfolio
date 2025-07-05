@@ -17,6 +17,7 @@ class MobileViewWorkExperiSection extends StatelessWidget {
         children: [
           const SectionTitle(
             title: "Work Experiences",
+            color: Colors.green,
             subTitle: "The Companies I have worked with",
           ),
 

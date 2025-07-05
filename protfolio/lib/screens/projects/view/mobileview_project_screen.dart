@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../../../components/default_button.dart';
 import '../../../global/methods/custom_url_launcher.dart';
 import '../../../global/widgets/global_text.dart';
-import '../components/hireme_card.dart';
 import '../data/project_data.dart';
 import '../more_projects.dart';
 
@@ -31,8 +30,8 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
         children: [
           const SectionTitle(
             title: "Recent Works",
-            subTitle: "Some of My Recent Works ",
             color: Color(0xFFFFB100),
+            subTitle: "Some of My Recent Works ",
           ),
           // Transform.translate(offset: const Offset(0, 0), child: const HireMeCard()),
           const SizedBox(height: kDefaultPadding),

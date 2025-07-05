@@ -16,7 +16,7 @@ class _TabViewAboutMeSectionState extends State<TabViewAboutMeSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
+      padding: const EdgeInsets.symmetric(horizontal: 80.0, vertical: 30.0),
       constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,7 +184,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
             children: [
               // 👇 Expanded around the entire left Column
               SizedBox(
-                width: 500,
+                width: 350,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -199,7 +199,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                         doneSofar("10+", "Satisfied\nClients"),
                       ],
                     ),
-                    SizedBox(height: 40.0),
+                    // SizedBox(height: 40.0),
                     Row(
                       children: [
                         Expanded(
@@ -222,7 +222,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                             },
                             color: Colors.deepOrange,
                             iconWidget: Icon(Icons.cloud_download, color: Colors.white),
-                            text: "Download Resume".toUpperCase(),
+                            text: "Resume".toUpperCase(),
                           ),
                         ),
                       ],

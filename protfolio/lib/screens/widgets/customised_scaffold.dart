@@ -28,7 +28,7 @@ class CustomisedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    log(' screen width $screenWidth');
+    log('screen width $screenWidth');
     return Scaffold(
       body:
           isStack == true
