@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/global/methods/sizebox_widget.dart';
 import '../../../components/section_title.dart';
+import '../../../domain/server/http_client/app_config.dart';
 import '../../../global/methods/custom_url_launcher.dart';
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/global_text.dart';
@@ -182,7 +183,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                       onTap: () {
                         // Get.to(() => MyResumeScreen());
                         launchUrlNow(
-                          'https://drive.google.com/file/d/1pOZotyXKGOYOJIa0lhclWBjgGZbvK7QE/view?usp=sharing',
+                          AppConfig.resureLinkUri
                         );
                       },
                       color: Colors.deepOrange,

@@ -41,7 +41,7 @@ class TabletViewScreen extends StatelessWidget {
           const WebViewFeedbackSection(),
 
           ///
-          const WebViewBlogSection(),
+          // const WebViewBlogSection(),
 
           ///
           TabviewContactMeScreen(),

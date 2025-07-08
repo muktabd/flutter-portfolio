@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../package/view/mobileview_package_section.dart';
 import '../../package/view/webview_package_section.dart';
 import '/screens/education/view/webview_education_section.dart';
 import '/screens/experiences/view/webview_work_experi.dart';
@@ -41,7 +40,7 @@ class WebViewScreen extends StatelessWidget {
           const WebViewFeedbackSection(),
 
           ///
-          const WebViewBlogSection(),
+          // const WebViewBlogSection(),
 
           ///
           const WebViewContactMeScreen(),

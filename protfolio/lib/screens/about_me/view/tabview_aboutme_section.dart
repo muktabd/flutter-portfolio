@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/domain/server/http_client/app_config.dart';
 import 'package:portfolio/global/methods/sizebox_widget.dart';
 import '../../../global/methods/custom_url_launcher.dart';
 import '../../../global/widgets/custom_devider.dart';
@@ -216,9 +217,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                           child: CustomContainer(
                             onTap: () {
                               // Get.to(() => MyResumeScreen());
-                              launchUrlNow(
-                                'https://drive.google.com/file/d/1pOZotyXKGOYOJIa0lhclWBjgGZbvK7QE/view?usp=sharing',
-                              );
+                              launchUrlNow(AppConfig.resureLinkUri);
                             },
                             color: Colors.deepOrange,
                             iconWidget: Icon(Icons.cloud_download, color: Colors.white),

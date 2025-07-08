@@ -33,4 +33,7 @@ class AppConfig {
   static String createPostUri = "/create/post";
   static String getAllPostUri = "/get/all/posts";
 
+  ///
+  static String resureLinkUri =
+      "https://drive.google.com/file/d/1FrFBOGPUkXVWk8SYQ9v-CTHc_Te0Ve_V/view?usp=sharing";
 }

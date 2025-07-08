@@ -40,7 +40,7 @@ class MobileViewScreen extends StatelessWidget {
         const MobileViewFeedbackSection(),
 
         ///
-        const MobileViewBlogSection(),
+        // const MobileViewBlogSection(),
 
         ///
         const MobileviewContactMeScreen(),

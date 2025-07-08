@@ -22,7 +22,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
   @override
   void initState() {
     super.initState();
-    Get.find<LanguageController>().getAllLanguage();
+    // Get.find<LanguageController>().getAllLanguage();
   }
 
   @override
@@ -206,15 +206,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                           onTap: () {
                                             Get.find<LocalizationController>().setLanguage(
                                               Locale(
-                                                langCon
-                                                        .languageNameList
-                                                        ?.languageList?[0]
-                                                        .langCode ??
-                                                    "en",
-                                                langCon
-                                                    .languageNameList
-                                                    ?.languageList?[0]
-                                                    .countryCode,
+                                                langCon.languageNameList[0]?.langCode ?? "", langCon.languageNameList[0]?.countryCode ?? ""
                                               ),
                                             );
                                             langCon.setSelectIndex(0);
@@ -232,12 +224,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                             ),
                                             child: Center(
                                               child: GlobalText(
-                                                str:
-                                                    langCon
-                                                        .languageNameList
-                                                        ?.languageList?[0]
-                                                        .countryCode ??
-                                                    'EN',
+                                                str: langCon.languageNameList[0]?.countryCode ?? 'EN',
                                                 fontSize: 18,
                                                 color: Colors.white,
                                                 /* color: langCon.selectIndex == 0
@@ -251,15 +238,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                           onTap: () async {
                                             Get.find<LocalizationController>().setLanguage(
                                               Locale(
-                                                langCon
-                                                        .languageNameList
-                                                        ?.languageList?[1]
-                                                        .langCode ??
-                                                    "bn",
-                                                langCon
-                                                    .languageNameList
-                                                    ?.languageList?[1]
-                                                    .countryCode,
+                                                langCon.languageNameList[0]?.langCode ?? "", langCon.languageNameList[0]?.countryCode ?? ""
                                               ),
                                             );
                                             langCon.setSelectIndex(1);
@@ -278,11 +257,7 @@ class _HomeDialogWidgetState extends State<HomeDialogWidget> {
                                             child: Center(
                                               child: GlobalText(
                                                 str:
-                                                    langCon
-                                                        .languageNameList
-                                                        ?.languageList?[1]
-                                                        .countryCode ??
-                                                    'BN',
+                                                    langCon.languageNameList[0]?.countryCode ?? 'BN',
                                                 fontSize: 18,
                                                 textAlign: TextAlign.center,
                                                 color: Colors.white,
