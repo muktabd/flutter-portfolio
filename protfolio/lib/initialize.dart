@@ -19,9 +19,9 @@ Future init(LocalStorage localStorage) async {
 
   Get.lazyPut<ThemeController>(() => ThemeController());
   Get.lazyPut(() => RequestHandler(dio: Dio()), fenix: true);
+  Get.lazyPut(() => LanguageController(), fenix: true);
 
   //
-  // Get.lazyPut(() => LanguageController());
   // await Get.find<LanguageController>().getAllLanguage();
   //
   final homeCon = Get.put(HomeInfoController());

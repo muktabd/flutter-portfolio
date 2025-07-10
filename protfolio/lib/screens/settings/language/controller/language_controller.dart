@@ -1,8 +1,5 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart' as rootBundle;
-import '../../../../domain/server/http_client/response_wrapper.dart';
 import '../model/language_model.dart';
 
 class LanguageController extends GetxController implements GetxService {
@@ -14,28 +11,26 @@ class LanguageController extends GetxController implements GetxService {
 
   void setSelectIndex(int index) {
     _selectIndex = index;
-    // log('log ?? $index');
+    log('log ?? $index');
     update();
   }
 
-  List<LanguageDetails?> languageNameList = [LanguageDetails(id: 1, langName: 'English', engName: 'EN', countryCode: 'US', flagUrl: '')];
-  // Future<LanguageData?> getAllLanguage() async {
-  //   try {
-  //     final String response = await rootBundle.rootBundle.loadString('assets/data/languages.json');
-  //     //* ==@ Parse the JSON
-  //     final Map<String, dynamic> addressDemoResponse = json.decode(response);
-  //     //* ==@ Create a ResponseWrapper instance (assuming you have a ResponseWrapper model)
-  //     ResponseWrapper resWrap = ResponseWrapper.fromJson(addressDemoResponse);
-  //     if (resWrap.status == "200") {
-  //       languageNameList = LanguageData.fromJson(resWrap.data ?? {});
-  //       // log("all language ?? $languageNameList");
-  //       return languageNameList;
-  //     } else {
-  //       return null;
-  //     }
-  //   } catch (e, s) {
-  //     log('Error: ', error: e, stackTrace: s);
-  //     rethrow;
-  //   }
-  // }
+  List<LanguageDetails?> languageNameList = [
+    LanguageDetails(
+      id: 1,
+      langName: 'English',
+      engName: 'English',
+      langCode: "en",
+      countryCode: 'US',
+      flagUrl: '',
+    ),
+    LanguageDetails(
+      id: 2,
+      langName: 'বাংলা',
+      engName: 'Bengali',
+      langCode: "bn",
+      countryCode: 'US',
+      flagUrl: '',
+    ),
+  ];
 }

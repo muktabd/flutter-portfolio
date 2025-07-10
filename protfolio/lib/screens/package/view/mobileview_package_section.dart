@@ -105,20 +105,20 @@ class _MobileViewPackageSectionState extends State<MobileViewPackageSection> {
                 DaysAgoWidget(
                   targetDate: DateTime(2025, 6, 29),
                 ), // Will show (5 days ago) if today is 2025-07-04
-                const SizedBox(width: 8),
+                const SizedBox(width: 6),
                 Icon(Icons.link, size: 14, color: Colors.grey[400]),
                 const SizedBox(width: 4),
                 Text('muktabd.info', style: TextStyle(color: Colors.grey[400], fontSize: 12)),
-                const SizedBox(width: 8),
+                const SizedBox(width: 6),
                 const Icon(Icons.check_circle_outline, size: 14, color: Colors.grey),
                 const SizedBox(width: 4),
                 const Text('BSD-3-Clause', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                const SizedBox(width: 8),
+                const SizedBox(width: 6),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(16.0),
+                    borderRadius: BorderRadius.circular(14.0),
                   ),
                   child: const Text(
                     'Dart 3 compatible',
