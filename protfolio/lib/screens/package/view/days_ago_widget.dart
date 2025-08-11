@@ -10,6 +10,6 @@ class DaysAgoWidget extends StatelessWidget {
     final now = DateTime.now();
     final difference = now.difference(targetDate).inDays;
 
-    return Text('($difference days ago)', style: TextStyle(color: Colors.grey, fontSize: 12));
+    return Text('($difference days ago)', style: TextStyle(color: Colors.grey, fontSize: 12.0));
   }
 }

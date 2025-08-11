@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../about_me/view/tabview_aboutme_section.dart';
-import '../../about_me/view/webview_aboutme_section.dart';
-import '../../blogs/view/webview_blog_section.dart';
 import '../../contact/view/tabview_contactme_section.dart';
-import '../../education/view/webview_education_section.dart';
-import '../../experiences/view/webview_work_experi.dart';
-import '../../feedback/webview_feedback_section.dart';
+import '../../education/view/tabbview_education_section.dart';
+import '../../experiences/view/tabview_work_experiences.dart';
+import '../../feedback/view/tabview_feedback_section.dart';
 import '../../landing/tablet_view.dart';
-import '../../package/view/mobileview_package_section.dart';
-import '../../projects/webview_project_screen.dart';
+import '../../package/view/tabview_package_section.dart';
+import '../../projects/tabview_project_screen.dart';
 import '../../widgets/bottom_copyrights.dart';
 
 class TabletViewScreen extends StatelessWidget {
@@ -26,25 +24,25 @@ class TabletViewScreen extends StatelessWidget {
           const TabViewAboutMeSection(),
 
           ///
-          const WebViewWorkExperiSection(),
+          const TabViewWorkExperiSection(),
 
           ///
-          const WebViewEducationSection(),
+          const TabbViewEducationSection(),
 
           ///
-          const WebViewProjectSection(),
+          const TabViewProjectSection(),
 
           ///
-          const MobileViewPackageSection(),
+          const TabViewPackageSection(),
 
           ///
-          const WebViewFeedbackSection(),
+          const TabViewFeedbackSection(),
 
           ///
           // const WebViewBlogSection(),
 
           ///
-          TabviewContactMeScreen(),
+          const TabviewContactMeScreen(),
 
           ///
           const BottomCopyRights(),

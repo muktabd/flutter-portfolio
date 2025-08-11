@@ -5,7 +5,7 @@ import '../../../components/constants.dart';
 import '../../../components/section_title.dart';
 import '../../../global/methods/sizebox_widget.dart';
 import '../../../global/widgets/global_text.dart';
-import '../../widgets/customised_scaffold.dart';
+import '../../responsive/customised_scaffold.dart';
 import '../data/blog_data.dart';
 import 'read_indetails.dart';
 

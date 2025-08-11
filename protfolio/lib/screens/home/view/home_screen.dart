@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/customised_scaffold.dart';
+import '../../responsive/customised_scaffold.dart';
 import '../../landing/controller/home_info_controller.dart';
 import '../screen_type/mobile_view.dart';
 import '../screen_type/tablet_view.dart';

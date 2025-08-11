@@ -9,13 +9,14 @@ class CustomListTile extends StatelessWidget {
   final double? vertical;
   final Color? iconColor;
   final double? iconSize;
-  final String title;
+  final String? title;
   final Widget? subTitleWidget;
   final String? subTitle;
   final Widget? trailingWidget;
   final IconData? trailingIcon;
   final void Function()? onTap;
-  final double? contentPadding;
+  final EdgeInsetsGeometry? contentPadding;
+  final double? horizontalTitleGap;
 
   const CustomListTile({
     super.key,
@@ -25,42 +26,39 @@ class CustomListTile extends StatelessWidget {
     this.iconSize,
     this.horizontal,
     this.vertical,
-    required this.title,
+    this.title,
     this.subTitleWidget,
     this.subTitle,
     this.trailingWidget,
     this.trailingIcon,
     this.onTap,
     this.contentPadding,
+    this.horizontalTitleGap,
   });
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      // contentPadding: contentPadding == null
-      //     ? const EdgeInsets.only(
-      //         left: 15.0,
-      //         right: 15.0,
-      //         top: 25.0,
-      //         bottom: 5.0,
-      //       )
-      //     : EdgeInsets.all(contentPadding ?? 10.0),
-      minVerticalPadding: 0.0,
+      contentPadding: contentPadding,
+      minVerticalPadding: 5.0,
+      horizontalTitleGap: horizontalTitleGap ?? 8.0,
       leading: leadingWidget ?? (leadingIcon != null ? Icon(leadingIcon) : null),
       visualDensity: VisualDensity(horizontal: horizontal ?? -2, vertical: vertical ?? -2),
       minLeadingWidth: 0,
       onTap: onTap,
-      title: Padding(
-        padding: EdgeInsets.only(top: subTitle == null ? 25.0 : 0.0),
-        child: Text(title),
-      ),
+      title:
+          (title?.isNotEmpty ?? false)
+              ? Padding(
+                padding: EdgeInsets.only(top: subTitle == null ? 5.0 : 0.0),
+                child: GlobalText(str: title ?? '', color: Colors.white),
+              )
+              : null,
       trailing: trailingWidget ?? Icon(trailingIcon, color: iconColor),
-      subtitle: subTitleWidget ??
-          GlobalText(
-            str: subTitle ?? '',
-            fontSize: 12,
-            fontWeight: FontWeight.w400,
-          ),
+      subtitle:
+          subTitleWidget ??
+          ((subTitle?.isNotEmpty ?? false)
+              ? GlobalText(str: subTitle ?? '', fontSize: 12, fontWeight: FontWeight.w400)
+              : null),
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'admin/view/admin_dashboard.dart';
+import 'admin/view/admin_login.dart';
 import 'initialize.dart';
 import 'localization/translate.dart';
 import 'screens/home/view/home_screen.dart';
@@ -13,6 +15,7 @@ import 'screens/settings/theme/data/light_theme.dart';
 import '/domain/server/http_client/request_handler.dart';
 import 'domain/local/preferences/local_storage_keys.dart';
 import 'screens/settings/theme/controller/theme_controller.dart';
+import 'screens/thoughts/thoughts_screen..dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,7 +68,17 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
-              home: const HomeScreen(),
+              initialRoute:
+                  Get.find<LocalStorage>().getBool(key: StorageKeys.isAuthorized) == true
+                      ? '/admin-dashboard'
+                      : '/',
+              getPages: [
+                GetPage(name: '/', page: () => HomeScreen()),
+                GetPage(name: '/thoughts', page: () => ThoughtsScreen()),
+                GetPage(name: '/private-login', page: () => AdminPanelScreen()),
+                GetPage(name: '/admin-dashboard', page: () => AdminDashboard()),
+              ],
+              // home: const AdminDashboard(),
               // home: const MoreProjects(),
               // home: const AboutMeSection(),
               // home: const WorkExperiencesSection(),

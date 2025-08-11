@@ -43,7 +43,7 @@ class _TabviewContactMeScreenState extends State<TabviewContactMeScreen> {
               builder: (homeInfoCon) {
                 return Container(
                   constraints: BoxConstraints(maxWidth: 2048.0),
-                  padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 50.0),
+                  padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -53,7 +53,7 @@ class _TabviewContactMeScreenState extends State<TabviewContactMeScreen> {
                         subTitle: "Feel free to contact me for any queries you have.",
                         color: Colors.deepOrange,
                       ),
-                      sizedBoxH(50),
+                      sizedBoxH(10.0),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -85,7 +85,7 @@ class _TabviewContactMeScreenState extends State<TabviewContactMeScreen> {
                                       sizedBoxW(8.0),
                                       GlobalText(
                                         str: "abdullahibnamukta@gmail.com",
-                                        fontSize: 16,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w400,
                                       ),
                                     ],
@@ -100,7 +100,7 @@ class _TabviewContactMeScreenState extends State<TabviewContactMeScreen> {
                                       Flexible(
                                         child: GlobalText(
                                           str: "+880 1924 262003 || +601 878 32241",
-                                          fontSize: 16,
+                                          fontSize: 14.0,
                                           fontWeight: FontWeight.w400,
                                         ),
                                       ),
@@ -116,7 +116,7 @@ class _TabviewContactMeScreenState extends State<TabviewContactMeScreen> {
                                       Flexible(
                                         child: GlobalText(
                                           str: "Dhaka, Bangladesh || Selangor, Malaysia",
-                                          fontSize: 16,
+                                          fontSize: 14.0,
                                           fontWeight: FontWeight.w400,
                                         ),
                                       ),

@@ -28,8 +28,6 @@ class Images {
   static String apiDev = "assets/icons/skill/api.png";
   static String uiux = "assets/icons/skill/ui.png";
 
-
-
   /// *=  ICONS =* ///
   //=========== |> PROJECT ICONS
   static String mdgsAppIcon = "assets/icons/projects/mdgs.png";
@@ -50,7 +48,7 @@ class Images {
   static const String appStore = 'assets/icons/platform/app_store.png';
   static const String huaweiGallery = 'assets/icons/platform/huawei_app_gallery.png';
 
-//::::::::::::::::::::::::: Review Goal
+  //::::::::::::::::::::::::: Review Goal
   static const String image = "assets/images/image.png";
   static const String progress = "assets/images/progress.png";
 
@@ -68,6 +66,7 @@ class Images {
 
   static const String newtWorkImageUrl =
       'https://raw.githubusercontent.com/muktabd/public-images/main/user_placeholder.png';
+  static String imageUri = "http://muktabd.info/post_images/image_1672958017642.jpeg";
 
   // ==/@ Images
   static const String locationIc = 'assets/icons/location-pin.png';

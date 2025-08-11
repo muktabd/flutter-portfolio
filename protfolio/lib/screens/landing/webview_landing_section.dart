@@ -11,7 +11,6 @@ import '../../global/widgets/global_image_loader.dart';
 import '../../global/widgets/global_text.dart';
 import 'controller/home_info_controller.dart';
 import '../settings/theme/controller/theme_controller.dart';
-import '../thoughts/thoughts_screen..dart';
 import 'widgets/typewriter_widget.dart';
 
 class WebViewLandingSection extends StatefulWidget {
@@ -156,7 +155,7 @@ class _WebViewLandingSectionState extends State<WebViewLandingSection> {
                           text: "FIND OUT MORE",
                           textColor: Colors.white,
                           onPressed: () {
-                            Get.to(() => ThoughtsScreen());
+                            Get.toNamed("/thoughts");
                           },
                         ),
                       ],

@@ -2,48 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/components/section_title.dart';
 import 'package:portfolio/components/constants.dart';
 import 'package:get/get.dart';
+import '../../components/default_button.dart';
+import '../../global/methods/custom_url_launcher.dart';
+import '../../global/widgets/global_text.dart';
+import 'components/hireme_card.dart';
 
-import '../../../components/default_button.dart';
-import '../../../global/methods/custom_url_launcher.dart';
-import '../../../global/widgets/global_text.dart';
-import '../data/project_data.dart';
-import '../more_projects.dart';
+import 'data/project_data.dart';
+import 'more_projects.dart';
 
-class MobileViewProjectSection extends StatefulWidget {
-  const MobileViewProjectSection({super.key});
+class TabViewProjectSection extends StatefulWidget {
+  const TabViewProjectSection({super.key});
 
   @override
-  State<MobileViewProjectSection> createState() => _MobileViewProjectSectionState();
+  State<TabViewProjectSection> createState() => _TabViewProjectSectionState();
 }
 
-class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
+class _TabViewProjectSectionState extends State<TabViewProjectSection> {
   bool isHover = false;
 
   ///
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 50.0),
+      constraints: BoxConstraints(maxWidth: 1640.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SectionTitle(
             title: "Recent Works",
-            color: Color(0xFFFFB100),
             subTitle: "Some of My Recent Works ",
+            color: Color(0xFFFFB100),
           ),
-          // Transform.translate(offset: const Offset(0, 0), child: const HireMeCard()),
-          const SizedBox(height: kDefaultPadding),
+          Transform.translate(offset: const Offset(0, 0), child: const HireMeCard()),
+          const SizedBox(height: kDefaultPadding * 1.5),
           SizedBox(
-            height: 730,
+            height: 550,
             child: GridView.builder(
               physics: NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
+                crossAxisCount: 2,
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 10.0,
-                childAspectRatio: 4 / 2,
+                childAspectRatio: 3 / 4,
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
@@ -58,7 +60,7 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
                   },
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 200),
-                    height: 330,
+                    height: 430,
                     width: 540,
                     decoration: BoxDecoration(
                       color: const Color(0x4A3E3C7E),
@@ -67,7 +69,7 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
                     ),
                     child: Row(
                       children: [
-                        Expanded(
+                        /* Expanded(
                           // flex: 2,
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
@@ -76,13 +78,13 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
                               child: Image.asset(data.icon),
                             ),
                           ),
-                        ),
+                        ), */
                         Expanded(
-                          flex: 3,
+                          flex: 2,
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: kDefaultPadding,
-                              vertical: kDefaultPadding,
+                              // vertical: kDefaultPadding,
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +93,7 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
                                 GlobalText(
                                   str: data.title.toUpperCase(),
                                   maxLines: 1,
-                                  fontSize: 20.0,
+                                  fontSize: 14.0,
                                   color: Colors.deepOrange,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -139,24 +141,22 @@ class _MobileViewProjectSectionState extends State<MobileViewProjectSection> {
                                 ),
 
                                 ///
-                                SizedBox(height: 8.0),
-                                GestureDetector(
-                                  onTap: () {},
+                                SizedBox(height: 10.0),
+                                Flexible(
                                   child: Container(
-                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                                    margin: const EdgeInsets.only(left: 5.0),
-                                    decoration: BoxDecoration(
-                                      color: const Color(0x2D4489FF),
-                                      borderRadius: BorderRadius.circular(5.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment: MainAxisAlignment.start,
-                                      children: [
-                                        GlobalText(str: 'Watch Demo'),
-                                        SizedBox(width: 5.0),
-                                        Icon(Icons.video_camera_back_outlined),
-                                      ],
+                                    padding: EdgeInsets.only(left: 8.0),
+                                    width: 220,
+                                    child: GestureDetector(
+                                      onTap: () {},
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          Icon(Icons.video_camera_back_outlined),
+                                          SizedBox(width: 5.0),
+                                          Expanded(child: GlobalText(str: 'Watch Demo')),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

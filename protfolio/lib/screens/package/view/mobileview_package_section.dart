@@ -2,7 +2,6 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/global/methods/custom_url_launcher.dart';
 import 'package:portfolio/global/widgets/global_text.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../global/widgets/custom_toast.dart';
 import 'days_ago_widget.dart';

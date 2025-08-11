@@ -3,7 +3,7 @@ import 'package:portfolio/global/widgets/global_text.dart';
 import 'package:get/get.dart';
 
 import '../settings/theme/controller/theme_controller.dart';
-import '../widgets/customised_scaffold.dart';
+import '../responsive/customised_scaffold.dart';
 
 class ThoughtsScreen extends StatefulWidget {
   const ThoughtsScreen({super.key});
@@ -18,8 +18,8 @@ class _ThoughtsScreenState extends State<ThoughtsScreen> {
     return CustomisedScaffold(
       isStack: true,
       webScaffold: MoreThoughtsSection(),
-      tabletScaffold: Card(),
-      mobileScaffold: Card(),
+      tabletScaffold: MoreThoughtsSection(),
+      mobileScaffold: MoreThoughtsSection(),
     );
   }
 }

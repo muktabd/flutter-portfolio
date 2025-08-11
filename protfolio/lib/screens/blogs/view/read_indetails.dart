@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/global/methods/sizebox_widget.dart';
 import 'package:portfolio/global/widgets/global_text.dart';
-import 'package:portfolio/screens/widgets/customised_scaffold.dart';
+import 'package:portfolio/screens/responsive/customised_scaffold.dart';
 
 import '../model/blog_data_model.dart';
 

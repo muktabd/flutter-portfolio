@@ -6,32 +6,31 @@ import 'package:portfolio/global/widgets/global_text.dart';
 import '../../../global/widgets/custom_toast.dart';
 import 'days_ago_widget.dart';
 
-class WebViewPackageSection extends StatefulWidget {
-  const WebViewPackageSection({super.key});
+class TabViewPackageSection extends StatefulWidget {
+  const TabViewPackageSection({super.key});
 
   @override
-  State<WebViewPackageSection> createState() => _WebViewPackageSectionState();
+  State<TabViewPackageSection> createState() => _TabViewPackageSectionState();
 }
 
-class _WebViewPackageSectionState extends State<WebViewPackageSection> {
+class _TabViewPackageSectionState extends State<TabViewPackageSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 160.0, vertical: 50.0),
-      constraints: BoxConstraints(maxWidth: 1640.0),
+      padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 50.0),
       child: Card(
-        color: const Color(0x14000000),
+        color: const Color(0x5E1E1E1E),
         margin: const EdgeInsets.all(16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title & Description
               GlobalText(
                 str: 'Try my flutter package'.toUpperCase(),
-                fontSize: 20.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.w400,
               ),
               Row(
@@ -107,20 +106,20 @@ class _WebViewPackageSectionState extends State<WebViewPackageSection> {
                   DaysAgoWidget(
                     targetDate: DateTime(2025, 6, 29),
                   ), // Will show (5 days ago) if today is 2025-07-04
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 6),
                   Icon(Icons.link, size: 14, color: Colors.grey[400]),
                   const SizedBox(width: 4),
                   Text('muktabd.info', style: TextStyle(color: Colors.grey[400], fontSize: 12)),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 6),
                   const Icon(Icons.check_circle_outline, size: 14, color: Colors.grey),
                   const SizedBox(width: 4),
                   const Text('BSD-3-Clause', style: TextStyle(color: Colors.grey, fontSize: 12)),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: 6),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.blue),
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(14.0),
                     ),
                     child: const Text(
                       'Dart 3 compatible',

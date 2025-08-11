@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/screens/widgets/customised_scaffold.dart';
+import 'package:portfolio/screens/responsive/customised_scaffold.dart';
 import '../../components/constants.dart';
 import '../../global/methods/custom_url_launcher.dart';
 import '../../global/widgets/global_text.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/global/methods/sizebox_widget.dart';
 import '../../../components/section_title.dart';
-import '../../../domain/server/http_client/app_config.dart';
+import '../../../global/constants/app_constant.dart';
 import '../../../global/methods/custom_url_launcher.dart';
 import '../../../global/widgets/custom_devider.dart';
 import '../../../global/widgets/global_text.dart';
@@ -123,7 +123,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                         SizedBox(height: 5.0),
                         GlobalText(
                           str:
-                              "NodeJS with Express, Java Spring Boot (Learning), AWS, MongoDB, SQL",
+                              "NodeJS with Express, Java Spring Boot, AWS, MongoDB, SQL",
                           softWrap: true,
                         ),
                         //
@@ -183,7 +183,7 @@ Currently, I work as a full-stack developer, capable of delivering high-performa
                       onTap: () {
                         // Get.to(() => MyResumeScreen());
                         launchUrlNow(
-                          AppConfig.resureLinkUri
+                          AppConstants.resureLinkUri
                         );
                       },
                       color: Colors.deepOrange,

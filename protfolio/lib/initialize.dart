@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+import 'admin/controller/admin_controller.dart';
 import 'domain/local/preferences/local_storage.dart';
 import 'screens/blogs/controller/blog_post_controller.dart';
 import 'screens/contact/controller/contact_me_controller.dart';
@@ -29,6 +30,7 @@ Future init(LocalStorage localStorage) async {
 
   Get.put(BlogPostController());
   Get.put(ContactMeController());
+  Get.put(AdminController());
 
   Get.lazyPut(() => RequestHandler(dio: Dio()));
   Get.lazyPut(() => ThemeController());
