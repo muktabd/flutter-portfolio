@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'admin/middleware/auth_middleware.dart';
 import 'admin/view/admin_dashboard.dart';
 import 'admin/view/admin_login.dart';
 import 'initialize.dart';
@@ -22,11 +23,7 @@ void main() async {
   Dio dio = Dio();
 
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.black,
-      systemNavigationBarDividerColor: Colors.grey,
-    ),
+    SystemUiOverlayStyle(statusBarColor: Colors.transparent, systemNavigationBarColor: Colors.black, systemNavigationBarDividerColor: Colors.grey),
   );
 
   //
@@ -68,15 +65,12 @@ class MyApp extends StatelessWidget {
                 Get.find<LocalStorage>().getString(key: StorageKeys.langCode) ?? "en",
                 Get.find<LocalStorage>().getString(key: StorageKeys.countryCode) ?? "US",
               ),
-              initialRoute:
-                  Get.find<LocalStorage>().getBool(key: StorageKeys.isAuthorized) == true
-                      ? '/admin-dashboard'
-                      : '/',
+              initialRoute: Get.find<LocalStorage>().getBool(key: StorageKeys.isAuthorized) == true ? '/admin-dashboard' : '/',
               getPages: [
                 GetPage(name: '/', page: () => HomeScreen()),
                 GetPage(name: '/thoughts', page: () => ThoughtsScreen()),
                 GetPage(name: '/private-login', page: () => AdminPanelScreen()),
-                GetPage(name: '/admin-dashboard', page: () => AdminDashboard()),
+                GetPage(name: '/admin-dashboard', page: () => AdminDashboard(), middlewares: [AuthMiddleware()]),
               ],
               // home: const AdminDashboard(),
               // home: const MoreProjects(),

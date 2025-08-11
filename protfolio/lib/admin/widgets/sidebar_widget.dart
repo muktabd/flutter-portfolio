@@ -1,7 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:portfolio/global/widgets/custom_listtile.dart';
+
+import '../../domain/local/preferences/local_storage.dart';
 
 class SideBarWidget extends StatefulWidget {
   final bool isExpanded;
@@ -36,8 +39,12 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                 leadingWidget: Icon(Icons.circle, size: 16, color: Colors.white),
                 title: widget.isExpanded ? item : null,
                 horizontalTitleGap: 0,
-                onTap: () {
+                onTap: () async {
                   log("now press ?? $item");
+                  if (item == "Logout") {
+                    await Get.find<LocalStorage>().clearLocalStorage();
+                    Get.toNamed("/");
+                  }
                 },
               );
             }),
