@@ -12,7 +12,7 @@ class AuthMiddleware extends GetMiddleware {
     final isAuthorized = Get.find<LocalStorage>().getBool(key: StorageKeys.isAuthorized) == true;
     log("1 now ?? $isAuthorized");
     if (!isAuthorized) {
-      return const RouteSettings(name: '/private-login');
+      return const RouteSettings(name: '/');
     }
     log("2 now ?? $isAuthorized");
 
