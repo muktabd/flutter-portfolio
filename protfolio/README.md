@@ -1,15 +1,5 @@
 # A Portfolio Website - Flutter Web
 
-Thanks for the update — you're close, but there’s a bit of confusion about **where you're pushing from and what you're pushing**.
-
-You're trying to deploy your **Flutter Web build** to the `gh-pages` branch, but:
-
-### ❌ Problem:
-
-* You're **still in your original code repository**, and Git is just saying *"everything is up to date"* — because you haven't **replaced the contents of `gh-pages` with your `build/web` output**.
-* Also, changing into the `build` directory and running `git push` won’t do anything unless that folder is a **Git repo itself**, which it’s not by default.
-
----
 
 ## ✅ Here's the Correct Way to Push Flutter Web to `gh-pages`
 
@@ -105,8 +95,3 @@ git add .nojekyll
 git commit -m "Add .nojekyll to bypass Jekyll"
 git push origin gh-pages --force
 ```
-
----
-
-Let me know if you want to **automate this with a script or GitHub Actions**, or if you get stuck on any of these steps.
-
