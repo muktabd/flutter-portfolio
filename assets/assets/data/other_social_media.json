@@ -1,0 +1,47 @@
+{
+    "status": "200",
+    "message": "Personal details fetch successfully",
+    "error": {},
+    "data": {
+        "info": {
+            "personal_details": {
+                "email": "abdullahibnamukta@gmail.com",
+                "phone": "+8801824262003",
+                "secondary_phone": "+60187832241",
+                "skype": "+60187832241"
+            },
+            "social_media": [
+                {
+                    "name": "linkedin",
+                    "icon": "https://banner2.cleanpng.com/20180529/str/avpsm7w6e.webp",
+                    "url": "https://www.linkedin.com/in/muktabd-info/"
+                },
+                {
+                    "name": "github",
+                    "icon": "https://github.com/images/modules/logos_page/GitHub-Mark.png",
+                    "url": "https://github.com/muktabd"
+                },
+                {
+                    "name": "stackoverflow",
+                    "icon": "https://stackoverflow.com/favicon.ico",
+                    "url": "https://stackoverflow.com/users/8496352/mukta"
+                },
+                {
+                    "name": "xtwitter",
+                    "icon": "https://abs.twimg.com/favicons/favicon.ico",
+                    "url": "https://twitter.com/muktabdinfo"
+                },
+                {
+                    "name": "facebook",
+                    "icon": "https://www.facebook.com/favicon.ico",
+                    "url": "https://www.facebook.com/mukta.2003/"
+                },
+                {
+                    "name": "whatsapp",
+                    "icon": "https://www.facebook.com/favicon.ico",
+                    "url": "wa.me/+60187832241"
+                }
+            ]
+        }
+    }
+}

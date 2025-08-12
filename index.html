@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Newly build flutter portfolio for Abdullah Ibna Mukta">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_web_splash">
+  <link rel="apple-touch-icon" href="favicon.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+  <title>loading....</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1E1842; /* Optional: Set your preferred background color */
+    }
+    #splash {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #splash img {
+      width: 550px; /* Adjust size */
+      height: 550px; /* Adjust size */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Your custom splash -->
+  <div id="splash">
+    <img src="https://user-images.githubusercontent.com/74038190/212750672-2f3f2b50-c84f-4ed8-a60a-849ae69ff9df.gif" alt="Loading">
+    <!-- <img src="https://user-images.githubusercontent.com/74038190/235224431-e8c8c12e-6826-47f1-89fb-2ddad83b3abf.gif" alt="Loading"> -->
+  </div>
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+        _flutter.loader.load({
+          onEntrypointLoaded: async function (engineInitializer) {
+            const appRunner = await engineInitializer.initializeEngine();
+            await appRunner.runApp();
+
+            // 🧼 Remove splash screen
+            const splash = document.getElementById('splash');
+            if (splash) splash.remove();
+          }
+        });
+      });
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+
+</html>
