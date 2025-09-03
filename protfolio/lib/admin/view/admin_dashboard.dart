@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:portfolio/screens/widgets/custom_appbar.dart';
+import '../../global/widgets/dialog/custom_dialogbox.dart';
 import '../widgets/sidebar_widget.dart';
 import '/global/widgets/custom_devider.dart';
 import '/global/widgets/global_text.dart';
@@ -18,6 +19,18 @@ class AdminDashboard extends StatefulWidget {
 
 class _AdminDashboardState extends State<AdminDashboard> {
   bool isExpanded = true;
+  final replyController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    replyController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,17 +93,100 @@ class _AdminDashboardState extends State<AdminDashboard> {
                             itemBuilder: (BuildContext context, int index) {
                               final data = adminCon.askingToContact?.request?[index];
                               return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  GlobalText(str: "Name  : ${data?.name}"),
-                                  GlobalText(str: "Email : ${data?.email}"),
-                                  GlobalText(str: "Phone : ${data?.phone}"),
-                                  const SizedBox(height: 20.0),
-                                  GlobalText(str: "Project Details:"),
-                                  GlobalText(str: "Project Type : ${data?.projectType}"),
-                                  GlobalText(str: "Project Brief : ${data?.projectBrief}"),
-                                  CustomDivider(),
-                                  const SizedBox(height: 10.0),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            GlobalText(str: "Name  : ${data?.name}"),
+                                            GlobalText(str: "Email : ${data?.email}"),
+                                            GlobalText(str: "Phone : ${data?.phone}"),
+                                            const SizedBox(height: 20.0),
+                                            GlobalText(str: "Project Details:"),
+                                            GlobalText(str: "Project Type : ${data?.projectType}"),
+                                            GlobalText(
+                                              str: "Project Brief : ${data?.projectBrief}",
+                                            ),
+                                            CustomDivider(),
+                                            const SizedBox(height: 10.0),
+                                          ],
+                                        ),
+                                      ),
+
+                                      Expanded(
+                                        child: Row(
+                                          children: [
+                                            IconButton(
+                                              onPressed: () {
+                                                // adminCon.launchEmail(data?.email ?? "");
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (BuildContext ctx) {
+                                                    return AlertDialog(
+                                                      title: Text("Reply"),
+                                                      content: Column(
+                                                        children: [
+                                                          Text(data?.projectBrief ?? ""),
+                                                          TextField(
+                                                            controller: replyController,
+                                                            decoration: InputDecoration(
+                                                              hintText: "Type your reply",
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () async {
+                                                            await adminCon.requestReplyContactMe(
+                                                              to: data?.email ?? "",
+                                                              subject:
+                                                                  "Re: ${data?.projectType ?? ""}",
+                                                              mailBody: replyController.text,
+                                                            );
+                                                            Navigator.of(ctx).pop();
+                                                          },
+                                                          child: Text("Send"),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              icon: const Icon(Icons.email, color: Colors.blue),
+                                            ),
+                                            const SizedBox(width: 20.0),
+                                            IconButton(
+                                              onPressed: () {
+                                                // adminCon.launchEmail(data?.email ?? "");
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (BuildContext ctx) {
+                                                    return CustomDialog(
+                                                      title: "Are you sure?",
+                                                      subTitle:
+                                                          "Do you want to delete this request?",
+                                                      onPressed: () async {
+                                                        await adminCon.requestDeleteContactMe(
+                                                          id: data?.id ?? 0,
+                                                        );
+                                                        Navigator.of(ctx).pop();
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              icon: const Icon(Icons.delete, color: Colors.red),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               );
                             },
