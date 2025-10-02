@@ -90,7 +90,7 @@ class _CustomDropDownFormFieldState extends State<CustomDropDownFormField> {
                       )
                       .toList(),
               menuMaxHeight: widget.menuMaxHeight ?? 500,
-              value: widget.value,
+              initialValue: widget.value,
               isExpanded: true,
               decoration:
                   widget.decoration?.copyWith(

@@ -6,7 +6,7 @@ class ResponseWrapper<T> {
 
   // * Creating a generic response getter!
   T? _response;
-  setResponse({required T? convertedFromData}) {
+  void setResponse({required T? convertedFromData}) {
     _response = convertedFromData;
   }
   T? get responseData => _response;

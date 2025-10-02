@@ -24,12 +24,12 @@ class StorageController extends GetxController {
     update();
   }
 
-  saveUserToken(String token) async {
+  Future<void> saveUserToken(String token) async {
     Get.find<LocalStorage>().setString(key: StorageKeys.authToken, value: token);
     update();
   }
 
-  saveUserId(int userId) async {
+  Future<void> saveUserId(int userId) async {
     Get.find<LocalStorage>().setInt(key: StorageKeys.authToken, value: userId);
     update();
   }

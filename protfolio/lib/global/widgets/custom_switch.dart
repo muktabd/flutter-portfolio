@@ -25,7 +25,7 @@ class CustomSwitch extends StatelessWidget {
         ? Switch(
             value: value!,
             onChanged: onChanged,
-            activeColor: activeColor,
+            activeThumbColor: activeColor,
             focusColor: focusColor,
           )
         : Transform.scale(
